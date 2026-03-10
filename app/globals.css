@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #f8f9fa;
+  color: #2c3e50;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Page enter */
+.page-enter { animation: fadeInUp 0.3s ease-out forwards; }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+/* ═══════════════════════════════════════════════ */
+/* PRINT / PDF EXPORT                             */
+/* ═══════════════════════════════════════════════ */
+
+/* Cover page — only visible in print */
+.print-cover {
+  display: none;
+}
+
+/* Print header — shown at top of each page after cover */
+.print-header { display: none; }
+
+/* Print footer with page numbers */
+.print-page-footer { display: none; }
+
+@media print {
+  /* ─── Page setup ─── */
+  @page {
+    margin: 1.8cm 1.5cm 2cm 1.5cm;
+    size: A4 portrait;
+  }
+  @page :first {
+    margin: 0;
+  }
+
+  /* ─── Hide non-print elements ─── */
+  .no-print,
+  nav,
+  .sidebar,
+  aside,
+  .decision-input-area,
+  button:not(.print-keep),
+  [data-no-print] {
+    display: none !important;
+  }
+
+  /* ─── Global resets ─── */
+  html, body {
+    background: white !important;
+    font-size: 10pt;
+    line-height: 1.45;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Disable animations */
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .page-enter { animation: none !important; opacity: 1 !important; transform: none !important; }
+
+  /* ─── Layout ─── */
+  .print-full {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  main > div { padding: 0 0.5cm !important; }
+
+  /* ─── Cover page ─── */
+  .print-cover {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 3cm;
+    text-align: center;
+    page-break-after: always;
+    break-after: page;
+    background: white !important;
+  }
+  .print-cover-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28pt;
+    font-weight: 700;
+    color: #1A5276;
+    margin-bottom: 0.3cm;
+  }
+  .print-cover-sub {
+    font-size: 14pt;
+    color: #64748b;
+    margin-bottom: 1.5cm;
+  }
+  .print-cover-line {
+    width: 6cm;
+    height: 3px;
+    background: linear-gradient(90deg, #1A5276, #E67E22, #16a34a);
+    border-radius: 2px;
+    margin: 0 auto 1.5cm;
+  }
+  .print-cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5cm;
+  }
+  .print-cover-desc {
+    font-size: 11pt;
+    color: #64748b;
+    max-width: 14cm;
+    line-height: 1.6;
+  }
+  .print-cover-footer {
+    margin-top: 3cm;
+    font-size: 9pt;
+    color: #94a3b8;
+  }
+  .print-cover-footer strong {
+    color: #1A5276;
+  }
+
+  /* ─── Page header (repeated) ─── */
+  .print-header {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3cm 0;
+    margin-bottom: 0.5cm;
+    border-bottom: 2px solid #1A5276;
+  }
+  .print-header-left {
+    font-family: 'Playfair Display', serif;
+    font-size: 10pt;
+    font-weight: 600;
+    color: #1A5276;
+  }
+  .print-header-right {
+    font-size: 8pt;
+    color: #94a3b8;
+  }
+
+  /* ─── Page footer ─── */
+  .print-page-footer {
+    display: block !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 7pt;
+    color: #cbd5e1;
+    padding: 0.2cm;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  /* ─── Typography ─── */
+  h1 { font-size: 18pt; margin-bottom: 0.3cm; }
+  h2 { font-size: 14pt; margin-bottom: 0.2cm; }
+  h3 { font-size: 11pt; }
+
+  /* ─── Cards ─── */
+  .card-print,
+  [class*="rounded-xl"],
+  [class*="shadow"] {
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 4px !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Section cards with left border */
+  [class*="border-l-4"] {
+    border-left: 4px solid #1A5276 !important;
+  }
+
+  /* ─── Page breaks ─── */
+  .page-section,
+  .print-break-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .print-break-before {
+    break-before: page;
+    page-break-before: always;
+  }
+  .print-break-after {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  /* ─── Charts ─── */
+  .recharts-wrapper {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .recharts-surface {
+    break-inside: avoid;
+  }
+
+  /* ─── Grid adjustments for print ─── */
+  .grid {
+    gap: 0.3cm !important;
+  }
+
+  /* ─── KPI cards in print ─── */
+  [class*="grid-cols-4"],
+  [class*="grid-cols-5"] {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.3cm !important;
+  }
+  [class*="grid-cols-2"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.3cm !important;
+  }
+
+  /* ─── Badges stay colored ─── */
+  [class*="bg-[#16a34a]"],
+  [class*="bg-[#1A5276]"],
+  [class*="bg-[#E67E22]"],
+  [class*="bg-[#7c3aed]"],
+  [class*="bg-[#dc2626]"],
+  [class*="bg-[#f59e0b]"] {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* ─── Tables ─── */
+  table {
+    font-size: 8pt;
+    break-inside: avoid;
+  }
+  thead {
+    background: #f8fafc !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+  th {
+    font-size: 7pt;
+    padding: 0.15cm 0.2cm !important;
+  }
+  td {
+    padding: 0.12cm 0.2cm !important;
+  }
+
+  /* ─── Links — show URLs ─── */
+  a[href]::after {
+    content: none;
+  }
+
+  /* ─── Specific section improvements ─── */
+  /* Hide interactive elements in decisions */
+  textarea,
+  .decision-save,
+  [class*="hover:"] {
+    border-color: #e2e8f0 !important;
+  }
+  textarea {
+    display: none !important;
+  }
+  button[class*="text-[#1A5276]"] {
+    display: none !important;
+  }
+
+  /* Gradient backgrounds — flatten for print */
+  [class*="bg-gradient"] {
+    background: #f8fafc !important;
+    border-left: 4px solid #1A5276;
+  }
+  .positioning-statement,
+  [class*="from-[#1A5276]"] {
+    background: #f8fafc !important;
+    border-left: 4px solid #1A5276 !important;
+  }
+
+  /* ─── Spacing reduction ─── */
+  .mb-8 { margin-bottom: 0.5cm !important; }
+  .mb-6 { margin-bottom: 0.4cm !important; }
+  .mb-4 { margin-bottom: 0.3cm !important; }
+  .gap-6 { gap: 0.3cm !important; }
+  .gap-4 { gap: 0.25cm !important; }
+  .gap-3 { gap: 0.2cm !important; }
+  .p-6, .p-10 { padding: 0 !important; }
+  .p-5 { padding: 0.3cm !important; }
+  .p-4 { padding: 0.25cm !important; }
+}
