@@ -3,110 +3,46 @@
 import Link from "next/link"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
 
-const SPACE_CARDS = [
-  {
-    icon: "💼",
-    title: "INVESTISSEURS",
-    description: "Accédez au dossier stratégique complet : marché, simulation financière, pricing, juridique.",
-    href: "/login?role=investisseur",
-    buttonLabel: "Accéder au dossier",
-    borderColor: "border-[#8FAF8A]",
-    hoverBg: "hover:bg-[#8FAF8A]/5",
-    btnColor: "bg-[#1A3D2E] hover:bg-[#1A3D2E]/90",
-  },
-  {
-    icon: "🤝",
-    title: "PARTENAIRES",
-    description: "Comptables, notaires, CGP — découvrez comment connecter vos clients à la plateforme.",
-    href: "/login?role=partenaire",
-    buttonLabel: "Accéder à l'espace",
-    borderColor: "border-[#1A3D2E]",
-    hoverBg: "hover:bg-[#1A3D2E]/5",
-    btnColor: "bg-[#1A3D2E] hover:bg-[#1A3D2E]/90",
-  },
-  {
-    icon: "👩‍💼",
-    title: "LA FONDATRICE",
-    description: "Sheana Krief — 10 ans d'immobilier, de droit et d'entrepreneuriat au service des propriétaires.",
-    href: "/dossier/fondatrice",
-    buttonLabel: "Découvrir son parcours",
-    borderColor: "border-[#7c3aed]",
-    hoverBg: "hover:bg-[#7c3aed]/5",
-    btnColor: "bg-[#7c3aed] hover:bg-[#7c3aed]/90",
-  },
-]
-
 export default function DossierHomePage() {
   return (
-    <div className="min-h-[calc(100vh-80px)] flex flex-col">
-      {/* Hero */}
+    <div className="min-h-[calc(100vh-80px)] flex flex-col items-center justify-center">
       <ScrollReveal>
-        <div className="text-center mb-12 pt-8">
+        <div className="text-center px-6">
+          <div className="w-16 h-16 rounded-[28%] bg-[#1A3D2E] flex items-center justify-center mx-auto mb-8">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10">
+              <rect x="6" y="6" width="28" height="28" rx="5" fill="#E8E4D4"/>
+              <rect x="38" y="6" width="16" height="16" rx="4" fill="#E8E4D4" opacity="0.5"/>
+              <rect x="58" y="6" width="16" height="16" rx="4" fill="#E8E4D4" opacity="0.3"/>
+              <rect x="6" y="38" width="16" height="16" rx="4" fill="#E8E4D4" opacity="0.4"/>
+              <rect x="26" y="38" width="16" height="16" rx="4" fill="#8FAF8A"/>
+              <rect x="46" y="26" width="28" height="28" rx="5" fill="#E8E4D4"/>
+              <rect x="6" y="58" width="28" height="16" rx="4" fill="#E8E4D4" opacity="0.2"/>
+              <rect x="38" y="58" width="16" height="16" rx="4" fill="#E8E4D4" opacity="0.35"/>
+              <rect x="58" y="58" width="16" height="16" rx="4" fill="#8FAF8A" opacity="0.4"/>
+            </svg>
+          </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-3" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 800 }}>
             <span className="text-[#1A3D2E]">PARK</span><span className="text-[#8FAF8A]">IMMO</span>
           </h1>
-          <p className="text-lg text-slate-500 font-medium mb-6">K PAR K CONSEILS SAS</p>
-          <div className="max-w-3xl mx-auto">
-            <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
-              70% des propriétaires bailleurs gèrent seuls, sans outil adapté.
-              Nous avons construit la solution : un logiciel de gestion patrimoniale immobilière
-              complet — du premier achat à la revente — avec un accompagnement humain à chaque étape.
-            </p>
+          <p className="text-sm text-slate-400 mb-10">Dossier Stratégique</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+            <Link href="/login?role=investisseur" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-white bg-[#1A3D2E] hover:bg-[#1A3D2E]/90 transition-all">
+              Espace Investisseur
+            </Link>
+            <Link href="/login?role=partenaire" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-[#1A3D2E] border border-[#1A3D2E]/20 hover:bg-[#1A3D2E]/5 transition-all">
+              Espace Partenaire
+            </Link>
           </div>
-          <div className="mt-6 h-0.5 w-32 mx-auto bg-gradient-to-r from-[#1A3D2E] to-[#8FAF8A] rounded" />
-        </div>
-      </ScrollReveal>
-
-      {/* Enquête — mise en avant */}
-      <ScrollReveal delay={100}>
-        <div className="max-w-4xl mx-auto w-full mb-8 px-4">
-          <Link href="/enquete" className="block">
-            <div className="bg-gradient-to-r from-[#16a34a]/5 to-[#16a34a]/10 rounded-xl border-2 border-[#16a34a] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 p-6 md:p-8">
-              <div className="flex flex-col md:flex-row items-center gap-5">
-                <div className="text-5xl">🏠</div>
-                <div className="flex-1 text-center md:text-left">
-                  <h2 className="font-display text-xl font-bold text-slate-800 mb-2">DÉCOUVREZ LA SOLUTION</h2>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    Bientôt disponible — Curieux ? Répondez à notre enquête pour nous aider à construire l&apos;outil idéal.
-                  </p>
-                </div>
-                <span className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-[#16a34a] hover:bg-[#16a34a]/90 transition-all whitespace-nowrap">
-                  Répondre à notre enquête →
-                </span>
-              </div>
-            </div>
+          <Link href="/dossier/fondatrice" className="text-xs text-slate-400 hover:text-slate-600 transition-colors">
+            La Fondatrice
           </Link>
         </div>
       </ScrollReveal>
-
-      {/* 3 espaces */}
-      <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto w-full mb-16 px-4">
-        {SPACE_CARDS.map((card, i) => (
-          <ScrollReveal key={card.title} delay={200 + i * 100}>
-            <div className={`bg-white rounded-xl border-2 ${card.borderColor} shadow-sm ${card.hoverBg} hover:shadow-lg hover:-translate-y-1 transition-all duration-300 p-6 h-full flex flex-col`}>
-              <div className="text-4xl mb-4">{card.icon}</div>
-              <h2 className="font-display text-lg font-bold text-slate-800 mb-2">{card.title}</h2>
-              <p className="text-sm text-slate-500 leading-relaxed flex-1 mb-5">{card.description}</p>
-              <Link
-                href={card.href}
-                className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-all ${card.btnColor}`}
-              >
-                {card.buttonLabel}
-              </Link>
-            </div>
-          </ScrollReveal>
-        ))}
-      </div>
-
-      {/* Pied de page */}
       <div className="mt-auto pb-8 text-center space-y-3">
-        <Link
-          href="/login?role=admin"
-          className="text-xs text-slate-400 hover:text-slate-600 transition-colors"
-        >
-          Accès administration
+        <Link href="/login?role=admin" className="text-xs text-slate-300 hover:text-slate-500 transition-colors">
+          Administration
         </Link>
-        <p className="text-xs text-slate-300">K PAR K CONSEILS SAS — Lyon</p>
+        <p className="text-xs text-slate-300">K PAR K CONSEILS SAS</p>
       </div>
     </div>
   )
