@@ -3,8 +3,9 @@
 import {
   Scale, Building2, Shield, Briefcase, Heart, Lightbulb,
   Users, BookOpen, Rocket, Star, ChevronRight, Award,
-  Monitor,
+  Monitor, ArrowLeft,
 } from "lucide-react"
+import Link from "next/link"
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import TimelineItem from "@/components/dossier/TimelineItem"
@@ -414,6 +415,25 @@ export default function FondatricePage() {
           ))}
         </div>
       </SectionCard>
+
+      {/* --- CTA : Espace perso + Retour accueil --- */}
+      <ScrollReveal delay={450}>
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link
+            href="/login?role=admin"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-[#7c3aed] hover:bg-[#7c3aed]/90 transition-all shadow-sm"
+          >
+            {"Accéder à mon espace personnel"}
+          </Link>
+          <Link
+            href="/dossier"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium text-slate-500 hover:text-slate-700 hover:bg-slate-100 transition-all"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            {"Retour à l'accueil"}
+          </Link>
+        </div>
+      </ScrollReveal>
     </div>
   )
 }

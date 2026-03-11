@@ -41,7 +41,10 @@ function LoginForm() {
       body: JSON.stringify({ password }),
     })
     if (res.ok) {
-      router.push("/dossier")
+      const data = await res.json()
+      // Redirect to first content page based on role
+      const dest = data.role === "dev" ? "/dossier/produit" : "/dossier/vision"
+      router.push(dest)
       router.refresh()
     } else {
       setError(true)

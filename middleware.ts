@@ -44,6 +44,11 @@ export function middleware(req: NextRequest) {
     return NextResponse.next()
   }
 
+  // /dossier/fondatrice is public — Sheana's CV page
+  if (pathname === "/dossier/fondatrice" || pathname === "/dossier/fondatrice/") {
+    return NextResponse.next()
+  }
+
   // /dossier/* pages require auth
   if (pathname.startsWith("/dossier/")) {
     const role = getRoleFromRequest(req)

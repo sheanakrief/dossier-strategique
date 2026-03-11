@@ -28,7 +28,7 @@ const SPACE_CARDS = [
     icon: "👩‍💼",
     title: "LA FONDATRICE",
     description: "Sheana Krief — 10 ans d'immobilier, de droit et d'entrepreneuriat au service des propriétaires.",
-    href: "/login?role=investisseur",
+    href: "/dossier/fondatrice",
     buttonLabel: "Découvrir son parcours",
     borderColor: "border-[#7c3aed]",
     hoverBg: "hover:bg-[#7c3aed]/5",
