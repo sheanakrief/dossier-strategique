@@ -113,6 +113,12 @@ export const SECTIONS: Section[] = [
     icon: "🎤",
     audiences: ["all", "investisseur", "client", "partenaire"],
   },
+  {
+    slug: "enquete-admin",
+    title: "Résultats Enquête",
+    icon: "📋",
+    audiences: ["all"],
+  },
 ]
 
 export function getVisibleSections(audience: Audience): Section[] {

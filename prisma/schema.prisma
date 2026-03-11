@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("TURSO_DATABASE_URL")
+}
+
+model SurveyResponse {
+  id        String   @id @default(cuid())
+  profile   String
+  answers   String
+  email     String?
+  freeText  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userAgent String?
+  duration  Int?
+}

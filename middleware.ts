@@ -3,6 +3,10 @@ import { NextRequest, NextResponse } from "next/server"
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
 
+  if (pathname.startsWith("/enquete")) {
+    return NextResponse.next()
+  }
+
   if (pathname.startsWith("/dossier")) {
     const auth = req.cookies.get("dossier_auth")
     if (!auth || auth.value !== "1") {
@@ -14,5 +18,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dossier/:path*"],
+  matcher: ["/dossier/:path*", "/enquete/:path*"],
 }
