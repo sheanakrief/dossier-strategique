@@ -89,6 +89,23 @@ const PROFILE_LABELS: Record<string, string> = {
 }
 
 /* ════════════════════════════════════════════════════════════════
+   DEMOGRAPHIC QUESTIONS (before Q0)
+   ════════════════════════════════════════════════════════════════ */
+
+const Q_DEMO: Question[] = [
+  {
+    id: "demo_age", type: "single", bloc: "À propos de vous", bn: 1,
+    title: "Votre tranche d\u2019âge ?",
+    opts: ["18-25", "26-35", "36-45", "46-55", "56-65", "65+"],
+  },
+  {
+    id: "demo_job", type: "single", bloc: "À propos de vous", bn: 1,
+    title: "Votre situation professionnelle ?",
+    opts: ["Salarié cadre", "Salarié non-cadre", "Profession libérale", "Chef d\u2019entreprise", "Fonctionnaire", "Retraité", "Étudiant", "Autre"],
+  },
+]
+
+/* ════════════════════════════════════════════════════════════════
    QUESTIONS PER PROFILE
    ════════════════════════════════════════════════════════════════ */
 
@@ -97,16 +114,18 @@ const Q_ROOT: SingleQuestion = {
   type: "single",
   title: "Quelle est votre situation aujourd\u2019hui ?",
   opts: [
-    "Je ne suis pas (encore) proprietaire",
-    "J\u2019ai 1 a 3 biens, je gere moi-meme",
+    "Je ne suis pas (encore) propriétaire",
+    "J\u2019ai 1 à 3 biens, je gère moi-même",
     "J\u2019ai 4 biens ou plus, ou des structures (SCI, SNC\u2026)",
-    "Je suis professionnel de l\u2019immobilier",
+    "Je suis investisseur / marchand de biens",
+    "Je suis professionnel de l\u2019immobilier (agent, gestionnaire, CGP\u2026)",
   ],
   profileMap: {
-    "Je ne suis pas (encore) proprietaire": "A",
-    "J\u2019ai 1 a 3 biens, je gere moi-meme": "B",
+    "Je ne suis pas (encore) propriétaire": "A",
+    "J\u2019ai 1 à 3 biens, je gère moi-même": "B",
     "J\u2019ai 4 biens ou plus, ou des structures (SCI, SNC\u2026)": "C",
-    "Je suis professionnel de l\u2019immobilier": "D",
+    "Je suis investisseur / marchand de biens": "C",
+    "Je suis professionnel de l\u2019immobilier (agent, gestionnaire, CGP\u2026)": "D",
   },
 }
 
@@ -129,8 +148,8 @@ const QA: Question[] = [
   },
   {
     id: "a3", type: "single", bloc: "Vos connaissances", bn: 1,
-    title: "Savez-vous ce qu\u2019est un DPE ?",
-    opts: ["Oui, et je sais ce que ca implique", "J\u2019en ai entendu parler, vaguement", "Non, pas du tout"],
+    title: "Savez-vous ce qu\u2019est un DPE (Diagnostic de Performance Énergétique) ?",
+    opts: ["Oui, et je sais ce que ça implique", "J\u2019en ai entendu parler, vaguement", "Non, pas du tout"],
     insights: {
       "J\u2019en ai entendu parler, vaguement": { text: "43 % des Francais declarent n\u2019avoir jamais entendu parler du DPE. Pourtant, depuis le 1er janvier 2025, les logements classes G sont interdits a la location.", source: "Enquete Ipsos pour Atlantic, sept. 2023 / Loi Climat & Resilience 2021", type: "legal" },
       "Non, pas du tout": { text: "43 % des Francais ne connaissent pas le DPE, et 78 % ne le considerent pas comme un critere important a l\u2019achat. Or c\u2019est devenu un critere legal pour louer.", source: "Ipsos/Atlantic sept. 2023 + Sondage Homeloop nov. 2024", type: "legal" },
@@ -169,27 +188,29 @@ const QB: Question[] = [
     opts: ["Appartement", "Maison", "Parking / cave", "Terrain", "Autre"],
   },
   {
-    id: "b3", type: "single", bloc: "Votre patrimoine", bn: 1,
-    title: "Vos biens sont en location ?",
-    opts: ["Oui, longue duree", "Oui, saisonnier", "Non, residence principale/secondaire", "En travaux", "Un mix"],
+    id: "b3", type: "multi", bloc: "Votre patrimoine", bn: 1,
+    title: "Quel est l\u2019usage de vos biens ?",
+    sub: "Plusieurs réponses possibles",
+    opts: ["Location longue durée", "Location saisonnière", "Résidence principale", "Résidence secondaire", "En travaux", "Vacant"],
   },
   {
-    id: "b4", type: "single", bloc: "Votre patrimoine", bn: 1,
-    title: "Comment detenez-vous vos biens ?",
-    opts: ["En nom propre", "Via une SCI", "Je ne suis pas sur(e)"],
-    insights: { "Via une SCI": { text: "Environ 73 000 SCI sont creees chaque annee en France. La SCI facilite la transmission mais implique des obligations comptables et declaratives supplementaires (AG, 2072\u2026).", source: "CNGTC / Infogreffe, janvier 2025", type: "stat" } },
+    id: "b4", type: "multi", bloc: "Votre patrimoine", bn: 1,
+    title: "Comment détenez-vous vos biens ?",
+    sub: "Plusieurs réponses possibles",
+    opts: ["En nom propre", "Via une SCI", "Via une SNC ou autre société", "Je ne suis pas sûr(e)"],
+    globalInsight: { text: "Environ 73 000 SCI sont créées chaque année en France. La SCI facilite la transmission mais implique des obligations comptables et déclaratives supplémentaires (AG, 2072\u2026).", source: "CNGTC / Infogreffe, janvier 2025", type: "stat" },
   },
   {
     id: "b5", type: "multi", bloc: "Votre quotidien", bn: 2,
-    title: "Quel(s) outil(s) utilisez-vous ?",
-    sub: "Plusieurs reponses",
-    opts: ["Excel / Google Sheets", "Un logiciel (Rentila, BailFacile\u2026)", "Papier / classeur", "Mon telephone", "Mon comptable", "Rien, tout dans ma tete"],
+    title: "Avec quels outils gérez-vous votre patrimoine au quotidien ?",
+    sub: "Plusieurs réponses possibles",
+    opts: ["Un tableur (Excel, Google Sheets)", "Un logiciel dédié (Rentila, BailFacile\u2026)", "Des classeurs papier / pochettes", "Mon téléphone (notes, photos)", "Mon comptable s\u2019occupe de tout", "Rien de particulier, tout dans ma tête"],
   },
   {
     id: "b6", type: "multi", bloc: "Votre quotidien", bn: 2, max: 3,
-    title: "Qu\u2019est-ce qui vous prend le plus de temps ?",
-    sub: "Jusqu\u2019a 3 reponses",
-    opts: ["Chercher un document", "Quittances et relances", "Declaration fiscale 2044", "Suivi des travaux", "Relation locataires", "Comprendre ma rentabilite", "Sinistres / assurances"],
+    title: "Parmi ces tâches, lesquelles vous prennent le plus de temps ou d\u2019énergie ?",
+    sub: "Jusqu\u2019à 3 réponses",
+    opts: ["Chercher un document (bail, quittance, facture)", "Rédiger et envoyer les quittances", "Préparer la déclaration fiscale (2044)", "Suivre les travaux et devis", "Gérer la relation avec les locataires", "Comprendre ma rentabilité réelle", "Gérer les sinistres et assurances"],
   },
   {
     id: "b7", type: "scale", bloc: "Votre quotidien", bn: 2,
@@ -249,15 +270,25 @@ const QC: Question[] = [
     title: "Combien de biens au total ?",
     opts: ["4-5", "6-10", "11-20", "Plus de 20"],
     insights: {
-      "11-20": { text: "Le taux d\u2019impayes atteint 5,33 % chez les particuliers en gestion directe, contre 1,97 % en gestion professionnelle. A votre echelle, chaque impaye coute cher.", source: "Imodirect / Meilleurtaux, janvier 2025", type: "stat" },
-      "Plus de 20": { text: "Moins de 1 % des bailleurs (~24 000 personnes) possedent 10 biens ou plus, mais controlent 8 % du parc locatif prive. L\u2019enjeu d\u2019organisation est proportionnel.", source: "Etude ANIL \u2014 Parc locatif prive", type: "stat" },
+      "11-20": { text: "Le taux d\u2019impayés atteint 5,33 % chez les particuliers en gestion directe, contre 1,97 % en gestion professionnelle. À votre échelle, chaque impayé coûte cher.", source: "Imodirect / Meilleurtaux, janvier 2025", type: "stat" },
+      "Plus de 20": { text: "Moins de 1 % des bailleurs (~24 000 personnes) possèdent 10 biens ou plus, mais contrôlent 8 % du parc locatif privé. L\u2019enjeu d\u2019organisation est proportionnel.", source: "Étude ANIL — Parc locatif privé", type: "stat" },
     },
   },
   {
+    id: "c1b", type: "single", bloc: "Votre activité", bn: 1,
+    title: "Êtes-vous aussi marchand de biens ou investisseur professionnel ?",
+    opts: ["Oui, c\u2019est mon activité principale", "Oui, en complément", "Non, uniquement patrimoine personnel"],
+  },
+  {
     id: "c2", type: "single", bloc: "Votre patrimoine", bn: 1,
-    title: "Comment detenez-vous vos biens ?",
-    opts: ["Tout en nom propre", "Une ou plusieurs SCI", "SNC ou autre societe", "Un mix de structures", "Holding / montage complexe"],
-    insights: { "Un mix de structures": { text: "Environ 73 000 SCI sont creees chaque annee en France. Chaque structure multiplie les obligations : AG, comptes annuels, 2072, 2044\u2026 Sans outil, c\u2019est ingerable.", source: "CNGTC / Infogreffe, janv. 2025 + INSEE Premiere 2025", type: "stat" } },
+    title: "Comment détenez-vous vos biens ?",
+    opts: ["Tout en nom propre", "Une ou plusieurs SCI", "SNC ou autre société", "Un mix de structures", "Holding / montage complexe"],
+    insights: { "Un mix de structures": { text: "Environ 73 000 SCI sont créées chaque année en France. Chaque structure multiplie les obligations : AG, comptes annuels, 2072, 2044\u2026 Sans outil, c\u2019est ingérable.", source: "CNGTC / Infogreffe, janv. 2025 + INSEE Première 2025", type: "stat" } },
+  },
+  {
+    id: "c2b", type: "single", bloc: "Votre vision", bn: 1,
+    title: "Votre gestion patrimoniale est plutôt\u2026",
+    opts: ["100 % perso (patrimoine familial)", "Perso + activité pro (MDB, investisseur)", "Principalement pro (société, fonds)", "Un mix complexe des deux"],
   },
   {
     id: "c3", type: "single", bloc: "Votre gestion", bn: 2,
@@ -267,9 +298,9 @@ const QC: Question[] = [
   },
   {
     id: "c4", type: "single", bloc: "Votre gestion", bn: 2,
-    title: "Combien depensez-vous par mois en gestion ?",
-    sub: "Comptable, agence, outils \u2014 tout compris",
-    opts: ["Moins de 100 \u20ac", "100-300 \u20ac", "300-500 \u20ac", "500-1 000 \u20ac", "Plus de 1 000 \u20ac"],
+    title: "Combien dépensez-vous par mois en gestion ?",
+    sub: "Comptable, agence, outils — tout compris",
+    opts: ["Moins de 100 \u20ac", "100-300 \u20ac", "300-500 \u20ac", "500-1 000 \u20ac", "Plus de 1 000 \u20ac", "Je ne sais pas"],
     insights: { "500-1 000 \u20ac": { text: "Les honoraires de gestion locative se situent entre 5 % et 10 % TTC du loyer mensuel. Les agences en ligne facturent 4 a 7 %. La question : avez-vous la visibilite en retour ?", source: "FNAIM + Service-public.fr", type: "insight" } },
   },
   {
@@ -334,8 +365,14 @@ const QD: Question[] = [
     globalInsight: { text: "62 % des bailleurs craignent les degradations, 55 % ont deja ete confrontes aux impayes, et 48 % redoutent l\u2019occupation illegale. La relation proprietaire-pro est sous tension.", source: "Enquete Viavoice pour GALIAN-SMABTP, mai 2024 (603 proprietaires-bailleurs)", type: "stat" },
   },
   {
+    id: "d4b", type: "single", bloc: "Relation clients", bn: 2,
+    title: "La transparence avec vos clients propriétaires, c\u2019est un sujet ?",
+    opts: ["Oui, ils demandent de plus en plus de visibilité", "Un peu, mais ça se gère", "Non, la relation est fluide", "C\u2019est le nerf de la guerre"],
+    insights: { "Oui, ils demandent de plus en plus de visibilité": { text: "Le secteur immobilier affiche 43 % de satisfaction client — 9 points sous la moyenne nationale. La transparence est le 1er levier d\u2019amélioration identifié.", source: "Baromètre Symétrie des Attentions, Académie du Service, 2022", type: "insight" } },
+  },
+  {
     id: "d5", type: "single", bloc: "Mon Patrimoine", bn: 2,
-    title: "Si vos clients avaient un espace numerique centralise et que vous y aviez acces \u2014 ca changerait votre quotidien ?",
+    title: "Si vos clients avaient un espace numérique centralisé et que vous y aviez accès — ça changerait votre quotidien ?",
     opts: ["Oui, radicalement", "Oui, ca aiderait", "Bof, pas vraiment", "Non, mes outils suffisent"],
   },
   {
@@ -570,7 +607,7 @@ export default function EnquetePage() {
   const [submitted, setSubmitted] = useState(false)
 
   const questions = useMemo(() => {
-    const base: Question[] = [Q_ROOT]
+    const base: Question[] = [...Q_DEMO, Q_ROOT]
     if (profile === "A") base.push(...QA)
     else if (profile === "B") base.push(...QB)
     else if (profile === "C") base.push(...QC)
@@ -646,6 +683,8 @@ export default function EnquetePage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           profile,
+          age: (ans.demo_age as string) || null,
+          profession: (ans.demo_job as string) || null,
           answers: ans,
           email: email || null,
           freeText: freeText || null,
@@ -694,24 +733,24 @@ export default function EnquetePage() {
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 9L12 2L21 9V20C21 20.53 20.79 21.04 20.41 21.41C20.04 21.79 19.53 22 19 22H5C4.47 22 3.96 21.79 3.59 21.41C3.21 21.04 3 20.53 3 20V9Z" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /><path d="M9 22V12H15V22" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </div>
               <h1 className="font-display text-[34px] font-semibold text-slate-900 mb-2 tracking-tight leading-tight" style={{ animation: "enquete-appear 0.6s ease 0.2s both" }}>
-                Et vous, vous gerez comment ?
+                Et vous, vous gérez comment votre patrimoine immobilier ?
               </h1>
               <p className="text-[15px] text-[#E67E22] font-medium mb-6" style={{ animation: "enquete-appear 0.6s ease 0.28s both" }}>
-                L&apos;enquete intelligente qui s&apos;adapte a votre profil
+                L&apos;enquête qui s&apos;adapte à votre profil
               </p>
               <div className="max-w-[440px] mx-auto" style={{ animation: "enquete-appear 0.6s ease 0.35s both" }}>
                 <p className="text-[14.5px] leading-relaxed text-slate-500 mb-2.5">
-                  Que vous soyez futur investisseur, proprietaire d&apos;un studio ou gestionnaire de 50 biens &mdash; cette enquete s&apos;adapte a vous.
+                  Que vous soyez futur investisseur, propriétaire d&apos;un studio ou gestionnaire de 50 biens &mdash; cette enquête s&apos;adapte à vous.
                 </p>
                 <p className="text-[14.5px] leading-relaxed text-slate-500">
-                  A chaque reponse, un <strong className="text-[#1A5276]">insight source</strong> sur le marche immobilier francais.
+                  Vos réponses nous aident à construire la plateforme de gestion patrimoniale dont vous avez besoin.
                 </p>
               </div>
               <div className="flex justify-center gap-5 mt-7" style={{ animation: "enquete-appear 0.6s ease 0.42s both" }}>
                 {[
                   { i: "⏱️", l: "3-6 min" },
-                  { i: "🔒", l: "Anonyme" },
-                  { i: "📊", l: "Donnees verifiees" },
+                  { i: "🔒", l: "100% anonyme" },
+                  { i: "✉️", l: "Aucun email requis" },
                 ].map((b, idx) => (
                   <span key={idx} className="inline-flex items-center gap-1.5 text-[12.5px] text-slate-500 font-medium">
                     {b.i} {b.l}
@@ -771,7 +810,7 @@ export default function EnquetePage() {
               )}
               <div className="mt-6 px-6 py-4 bg-[#1A5276]/[0.04] rounded-[14px] border border-[#1A5276]/10" style={{ animation: "enquete-appear 0.6s ease 0.45s both" }}>
                 <p className="font-display text-[17px] font-semibold text-[#1A5276]">Mon Patrimoine</p>
-                <p className="text-xs text-slate-500 mt-1">Le cockpit du proprietaire immobilier</p>
+                <p className="text-xs text-slate-500 mt-1">La plateforme de gestion patrimoniale immobilière</p>
               </div>
             </div>
           )}

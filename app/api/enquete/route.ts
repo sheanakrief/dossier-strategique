@@ -8,6 +8,8 @@ export async function POST(request: Request) {
     const response = await prisma.surveyResponse.create({
       data: {
         profile: body.profile,
+        age: body.age || null,
+        profession: body.profession || null,
         answers: JSON.stringify(body.answers),
         email: body.email || null,
         freeText: body.freeText || null,

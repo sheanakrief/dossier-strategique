@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useMemo, useCallback } from "react"
+import React, { useState, useEffect, useMemo, useCallback } from "react"
 import { Users, Mail, Clock, Calendar } from "lucide-react"
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts"
 import PageHeader from "@/components/dossier/PageHeader"
@@ -13,6 +13,8 @@ import CopyButton from "@/components/dossier/CopyButton"
 interface SurveyResponse {
   id: string
   profile: string
+  age: string | null
+  profession: string | null
   answers: Record<string, string | string[] | number>
   email: string | null
   freeText: string | null
@@ -46,8 +48,13 @@ interface QDef {
   profiles: string[]
 }
 
+const AGE_OPTIONS = ["18-25", "26-35", "36-45", "46-55", "56-65", "65+"]
+const PROFESSION_OPTIONS = ["Salarié cadre", "Salarié non-cadre", "Profession libérale", "Chef d\u2019entreprise", "Fonctionnaire", "Retraité", "Étudiant", "Autre"]
+
 const ALL_QUESTIONS: QDef[] = [
-  { id: "q0", title: "Situation actuelle", bloc: "Aiguillage", opts: ["Je ne suis pas (encore) proprietaire", "J\u2019ai 1 a 3 biens, je gere moi-meme", "J\u2019ai 4 biens ou plus, ou des structures (SCI, SNC\u2026)", "Je suis professionnel de l\u2019immobilier"], type: "single", profiles: ["A", "B", "C", "D"] },
+  { id: "demo_age", title: "Tranche d\u2019âge", bloc: "Démographie", opts: AGE_OPTIONS, type: "single", profiles: ["A", "B", "C", "D"] },
+  { id: "demo_job", title: "Situation professionnelle", bloc: "Démographie", opts: PROFESSION_OPTIONS, type: "single", profiles: ["A", "B", "C", "D"] },
+  { id: "q0", title: "Situation actuelle", bloc: "Aiguillage", opts: ["Je ne suis pas (encore) propriétaire", "J\u2019ai 1 à 3 biens, je gère moi-même", "J\u2019ai 4 biens ou plus, ou des structures (SCI, SNC\u2026)", "Je suis investisseur / marchand de biens", "Je suis professionnel de l\u2019immobilier (agent, gestionnaire, CGP\u2026)"], type: "single", profiles: ["A", "B", "C", "D"] },
   // Profile A
   { id: "a1", title: "Investir dans l'immobilier ?", bloc: "Votre projet", opts: ["Oui, dans les 12 prochains mois", "Oui, dans 1-3 ans", "C\u2019est une idee mais rien de concret", "Non, pas du tout"], type: "single", profiles: ["A"] },
   { id: "a2", title: "Freins principaux", bloc: "Vos freins", type: "multi", profiles: ["A"], opts: ["Le prix des biens a l\u2019achat", "La peur des loyers impayes", "La complexite administrative", "La fiscalite, trop opaque", "Le cout des travaux de renovation energetique", "Les taux d\u2019interet", "Je ne sais pas par ou commencer"] },
@@ -71,9 +78,11 @@ const ALL_QUESTIONS: QDef[] = [
   { id: "b13", title: "DPE connu ?", bloc: "Le budget", opts: ["Oui, tous", "Certains", "Non, aucun", "C\u2019est quoi le DPE ?"], type: "single", profiles: ["B"] },
   // Profile C
   { id: "c1", title: "Nombre de biens", bloc: "Votre patrimoine", opts: ["4-5", "6-10", "11-20", "Plus de 20"], type: "single", profiles: ["C"] },
-  { id: "c2", title: "Mode de detention", bloc: "Votre patrimoine", opts: ["Tout en nom propre", "Une ou plusieurs SCI", "SNC ou autre societe", "Un mix de structures", "Holding / montage complexe"], type: "single", profiles: ["C"] },
+  { id: "c1b", title: "MDB / investisseur pro ?", bloc: "Votre activité", opts: ["Oui, c\u2019est mon activité principale", "Oui, en complément", "Non, uniquement patrimoine personnel"], type: "single", profiles: ["C"] },
+  { id: "c2", title: "Mode de détention", bloc: "Votre patrimoine", opts: ["Tout en nom propre", "Une ou plusieurs SCI", "SNC ou autre société", "Un mix de structures", "Holding / montage complexe"], type: "single", profiles: ["C"] },
+  { id: "c2b", title: "Vision perso/pro", bloc: "Votre vision", opts: ["100 % perso (patrimoine familial)", "Perso + activité pro (MDB, investisseur)", "Principalement pro (société, fonds)", "Un mix complexe des deux"], type: "single", profiles: ["C"] },
   { id: "c3", title: "Qui gere ?", bloc: "Votre gestion", opts: ["Moi, tout seul(e)", "Moi + comptable", "Un gestionnaire", "Une agence", "Un(e) assistant(e)", "C\u2019est eclate entre plusieurs personnes"], type: "single", profiles: ["C"] },
-  { id: "c4", title: "Budget gestion/mois", bloc: "Votre gestion", opts: ["Moins de 100 \u20ac", "100-300 \u20ac", "300-500 \u20ac", "500-1 000 \u20ac", "Plus de 1 000 \u20ac"], type: "single", profiles: ["C"] },
+  { id: "c4", title: "Budget gestion/mois", bloc: "Votre gestion", opts: ["Moins de 100 \u20ac", "100-300 \u20ac", "300-500 \u20ac", "500-1 000 \u20ac", "Plus de 1 000 \u20ac", "Je ne sais pas"], type: "single", profiles: ["C"] },
   { id: "c5", title: "Problemes gestion", bloc: "Votre gestion", type: "multi", profiles: ["C"], opts: ["Vision consolidee inexistante", "Documents eparpilles", "Comptabilite SCI complexe", "Rentabilite floue par bien", "Coordination entre intervenants", "Fiscalite multi-entites", "Travaux / renovation DPE", "Impayes et relances"] },
   { id: "c6", title: "Interet accompagnement", bloc: "Accompagnement", opts: ["Oui, c\u2019est exactement ce qu\u2019il me faut", "Peut-etre, ca depend du prix", "Non, je veux juste un outil", "J\u2019ai deja quelqu\u2019un pour ca"], type: "single", profiles: ["C"] },
   { id: "c7", title: "Budget mensuel", bloc: "Le budget", opts: ["Moins de 50 \u20ac", "50-100 \u20ac", "100-200 \u20ac", "200-500 \u20ac", "500 \u20ac+ si le service est complet"], type: "single", profiles: ["C"] },
@@ -84,7 +93,8 @@ const ALL_QUESTIONS: QDef[] = [
   { id: "d2", title: "Biens/clients geres", bloc: "Votre activite", opts: ["Moins de 10", "10-50", "50-200", "Plus de 200"], type: "single", profiles: ["D"] },
   { id: "d3", title: "Outils utilises", bloc: "Vos outils", type: "multi", profiles: ["D"], opts: ["Logiciel metier (Loja, Powimo\u2026)", "Excel / tableurs", "CRM classique", "Outils comptables (Sage, Cegid\u2026)", "Rien de specifique"] },
   { id: "d4", title: "Problemes relation proprios", bloc: "Relation clients", type: "multi", profiles: ["D"], opts: ["Documents incomplets ou manquants", "Proprietaires qui ne connaissent pas leur patrimoine", "Manque de donnees fiables", "Communication difficile", "Suivi des echeances decale", "Pas de vision consolidee"] },
-  { id: "d5", title: "Espace centralise utile ?", bloc: "Mon Patrimoine", opts: ["Oui, radicalement", "Oui, ca aiderait", "Bof, pas vraiment", "Non, mes outils suffisent"], type: "single", profiles: ["D"] },
+  { id: "d4b", title: "Transparence clients", bloc: "Relation clients", opts: ["Oui, ils demandent de plus en plus de visibilité", "Un peu, mais ça se gère", "Non, la relation est fluide", "C\u2019est le nerf de la guerre"], type: "single", profiles: ["D"] },
+  { id: "d5", title: "Espace centralisé utile ?", bloc: "Mon Patrimoine", opts: ["Oui, radicalement", "Oui, ça aiderait", "Bof, pas vraiment", "Non, mes outils suffisent"], type: "single", profiles: ["D"] },
   { id: "d6", title: "Acces partenaire gratuit ?", bloc: "Mon Patrimoine", opts: ["Oui, tres interesse(e)", "Peut-etre, j\u2019aimerais en savoir plus", "Non merci"], type: "single", profiles: ["D"] },
   { id: "d7", title: "Recommanderiez-vous ?", bloc: "Mon Patrimoine", opts: ["Oui, spontanement", "Oui, si l\u2019outil est bon", "Non, ca compliquerait les choses", "Je voudrais le tester d\u2019abord"], type: "single", profiles: ["D"] },
   // Common
@@ -390,6 +400,56 @@ export default function EnqueteAdminPage() {
             </SectionCard>
           )}
 
+          {/* ═══ DEMOGRAPHICS ═══ */}
+          {responses.length > 0 && (
+            <SectionCard title="Profil des répondants" icon="👥" delay={120} className="mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Age distribution */}
+                <div>
+                  <p className="text-sm font-medium text-slate-700 mb-3">Répartition par âge</p>
+                  <div className="h-[200px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        data={AGE_OPTIONS.map(age => ({
+                          name: age,
+                          count: filtered.filter(r => (r.age || r.answers?.demo_age) === age).length,
+                        })).filter(d => d.count > 0)}
+                        layout="vertical"
+                        margin={{ left: 50, right: 20, top: 5, bottom: 5 }}
+                      >
+                        <XAxis type="number" allowDecimals={false} fontSize={11} />
+                        <YAxis type="category" dataKey="name" width={50} fontSize={11} tick={{ fill: "#5A6B7D" }} />
+                        <Tooltip />
+                        <Bar dataKey="count" fill="#1A5276" radius={[0, 4, 4, 0]} barSize={18} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+                {/* Profession distribution */}
+                <div>
+                  <p className="text-sm font-medium text-slate-700 mb-3">Répartition par profession</p>
+                  <div className="h-[250px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        data={PROFESSION_OPTIONS.map(prof => ({
+                          name: prof.length > 20 ? prof.slice(0, 17) + "..." : prof,
+                          count: filtered.filter(r => (r.profession || r.answers?.demo_job) === prof).length,
+                        })).filter(d => d.count > 0)}
+                        layout="vertical"
+                        margin={{ left: 100, right: 20, top: 5, bottom: 5 }}
+                      >
+                        <XAxis type="number" allowDecimals={false} fontSize={11} />
+                        <YAxis type="category" dataKey="name" width={100} fontSize={11} tick={{ fill: "#5A6B7D" }} />
+                        <Tooltip />
+                        <Bar dataKey="count" fill="#E67E22" radius={[0, 4, 4, 0]} barSize={18} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+              </div>
+            </SectionCard>
+          )}
+
           {/* ═══ QUESTION CHARTS ═══ */}
           {questionCharts.map((bloc) => (
             <SectionCard key={bloc.title} title={bloc.title} delay={150} className="mt-6">
@@ -488,57 +548,49 @@ export default function EnqueteAdminPage() {
                   <tr className="border-b border-slate-200">
                     <th className="text-left py-3 px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Date</th>
                     <th className="text-left py-3 px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Profil</th>
-                    <th className="text-left py-3 px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Reponses cles</th>
+                    <th className="text-left py-3 px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Âge</th>
+                    <th className="text-left py-3 px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Profession</th>
                     <th className="text-left py-3 px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Email</th>
-                    <th className="text-left py-3 px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Duree</th>
+                    <th className="text-left py-3 px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Durée</th>
                   </tr>
                 </thead>
                 <tbody>
                   {filtered.map((r) => {
-                    const keys = Object.keys(r.answers).filter((k) => k !== "q0" && k !== "email" && k !== "freetext").slice(0, 3)
-                    const summaryParts = keys.map((k) => {
-                      const v = r.answers[k]
-                      if (Array.isArray(v)) return v.slice(0, 2).join(", ")
-                      return String(v)
-                    })
                     const isExpanded = expandedRow === r.id
-
                     return (
-                      <tr
-                        key={r.id}
-                        className="border-b border-slate-100 hover:bg-slate-50 cursor-pointer transition-colors"
-                        onClick={() => setExpandedRow(isExpanded ? null : r.id)}
-                      >
-                        <td className="py-3 px-3 text-slate-600 whitespace-nowrap">
-                          {new Date(r.createdAt).toLocaleDateString("fr-FR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}
-                        </td>
-                        <td className="py-3 px-3">
-                          <span
-                            className="px-2 py-0.5 rounded-full text-[10px] font-semibold text-white"
-                            style={{ background: PROFILE_COLORS[r.profile] }}
-                          >
-                            {r.profile}
-                          </span>
-                        </td>
-                        <td className="py-3 px-3 text-slate-600 max-w-[300px]">
-                          {isExpanded ? (
-                            <div className="space-y-1">
-                              {Object.entries(r.answers).map(([k, v]) => (
-                                <div key={k} className="text-xs">
-                                  <span className="font-medium text-slate-500">{k}:</span>{" "}
-                                  <span className="text-slate-700">{Array.isArray(v) ? v.join(", ") : String(v)}</span>
-                                </div>
-                              ))}
-                            </div>
-                          ) : (
-                            <span className="text-xs truncate block">{summaryParts.join(" | ")}</span>
-                          )}
-                        </td>
-                        <td className="py-3 px-3 text-slate-600 text-xs">{r.email || "—"}</td>
-                        <td className="py-3 px-3 text-slate-600 text-xs whitespace-nowrap">
-                          {r.duration ? formatDuration(r.duration) : "—"}
-                        </td>
-                      </tr>
+                      <React.Fragment key={r.id}>
+                        <tr
+                          className={`border-b border-slate-100 hover:bg-slate-50 cursor-pointer transition-colors ${isExpanded ? "bg-slate-50" : ""}`}
+                          onClick={() => setExpandedRow(isExpanded ? null : r.id)}
+                        >
+                          <td className="py-3 px-3 text-slate-600 whitespace-nowrap text-xs">
+                            {new Date(r.createdAt).toLocaleDateString("fr-FR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}
+                          </td>
+                          <td className="py-3 px-3">
+                            <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold text-white" style={{ background: PROFILE_COLORS[r.profile] }}>
+                              {r.profile}
+                            </span>
+                          </td>
+                          <td className="py-3 px-3 text-slate-600 text-xs">{r.age || (r.answers?.demo_age as string) || "—"}</td>
+                          <td className="py-3 px-3 text-slate-600 text-xs">{r.profession || (r.answers?.demo_job as string) || "—"}</td>
+                          <td className="py-3 px-3 text-slate-600 text-xs">{r.email || "—"}</td>
+                          <td className="py-3 px-3 text-slate-600 text-xs whitespace-nowrap">{r.duration ? formatDuration(r.duration) : "—"}</td>
+                        </tr>
+                        {isExpanded && (
+                          <tr className="bg-slate-50/60">
+                            <td colSpan={6} className="py-3 px-6">
+                              <div className="space-y-1">
+                                {Object.entries(r.answers).map(([k, v]) => (
+                                  <div key={k} className="text-xs">
+                                    <span className="font-medium text-slate-500">{k}:</span>{" "}
+                                    <span className="text-slate-700">{Array.isArray(v) ? v.join(", ") : String(v)}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </React.Fragment>
                     )
                   })}
                 </tbody>

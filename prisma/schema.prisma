@@ -8,13 +8,15 @@ datasource db {
 }
 
 model SurveyResponse {
-  id        String   @id @default(cuid())
-  profile   String
-  answers   String
-  email     String?
-  freeText  String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  userAgent String?
-  duration  Int?
+  id         String   @id @default(cuid())
+  profile    String
+  age        String?
+  profession String?
+  answers    String
+  email      String?
+  freeText   String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  userAgent  String?
+  duration   Int?
 }
