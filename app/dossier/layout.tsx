@@ -3,16 +3,41 @@
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { Download, Menu } from "lucide-react"
-import { SECTIONS, AUDIENCE_LABELS, getVisibleSections, type Audience } from "@/data/audiences"
+import { Download, Menu, LogOut } from "lucide-react"
+import { SECTIONS, type Role, ROLE_LABELS, getSectionsForRole, canAccessSlug } from "@/data/audiences"
+
+function getCookie(name: string): string | null {
+  if (typeof document === "undefined") return null
+  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"))
+  return match ? match[2] : null
+}
+
+function detectRole(): Role | null {
+  if (getCookie("dossier_auth_admin") === "1") return "admin"
+  if (getCookie("dossier_auth_investor") === "1") return "investisseur"
+  if (getCookie("dossier_auth_partner") === "1") return "partenaire"
+  if (getCookie("dossier_auth_dev") === "1") return "dev"
+  return null
+}
+
+const ROLE_ICONS: Record<Role, string> = {
+  admin: "��",
+  investisseur: "��",
+  partenaire: "��",
+  dev: "��",
+}
 
 export default function DossierLayout({ children }: { children: React.ReactNode }) {
-  const [audience, setAudience] = useState<Audience>("all")
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [visited, setVisited] = useState<Set<string>>(new Set())
+  const [role, setRole] = useState<Role | null>(null)
   const pathname = usePathname()
-  const visible = getVisibleSections(audience)
   const currentSlug = pathname.replace("/dossier", "").replace(/^\//, "")
+  const isHomePage = pathname === "/dossier" || pathname === "/dossier/"
+
+  useEffect(() => {
+    setRole(detectRole())
+  }, [])
 
   useEffect(() => {
     try {
@@ -29,6 +54,22 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
       return next
     })
   }, [currentSlug])
+
+  // Get visible sections based on role
+  const visible = role ? getSectionsForRole(role) : SECTIONS
+
+  // Don't show sidebar on public homepage
+  if (isHomePage) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+        <main className="min-w-0 print-full">
+          <div className="p-6 lg:p-10 max-w-6xl mx-auto">
+            {children}
+          </div>
+        </main>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen flex">
@@ -49,31 +90,25 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
           </Link>
         </div>
 
-        {/* Audience filter */}
-        <div className="p-4 border-b border-slate-100">
-          <p className="text-xs font-medium text-slate-400 uppercase tracking-wider mb-2">Audience</p>
-          <div className="flex flex-wrap gap-1.5">
-            {(Object.keys(AUDIENCE_LABELS) as Audience[]).map((key) => (
-              <button
-                key={key}
-                onClick={() => setAudience(key)}
-                className={`px-2.5 py-1 text-xs rounded-full font-medium transition-all duration-200 ${
-                  audience === key
-                    ? "bg-[#1A5276] text-white shadow-sm"
-                    : "bg-slate-100 text-slate-500 hover:bg-slate-200"
-                }`}
-              >
-                {AUDIENCE_LABELS[key]}
-              </button>
-            ))}
+        {/* Role badge */}
+        {role && (
+          <div className="px-5 py-3 border-b border-slate-100">
+            <div className="flex items-center gap-2 text-sm">
+              <span>{ROLE_ICONS[role]}</span>
+              <span className="font-medium text-slate-700">{ROLE_LABELS[role]}</span>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto py-3">
           {visible.map((section) => {
             const isActive = currentSlug === section.slug
             const href = section.slug ? `/dossier/${section.slug}` : "/dossier"
+
+            // Skip the homepage entry since public homepage is different from sections
+            if (section.slug === "" && !role) return null
+
             const isVisited = visited.has(section.slug)
             return (
               <Link
@@ -113,30 +148,30 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
 
       {/* Main content */}
       <main className="flex-1 min-w-0 print-full">
-        {/* ═══ PRINT COVER PAGE ═══ */}
+        {/* PRINT COVER PAGE */}
         <div className="print-cover">
           <div className="print-cover-logo">Mon Patrimoine</div>
           <div className="print-cover-sub">K PAR K CONSEILS SAS</div>
           <div className="print-cover-line" />
           <div className="print-cover-title">Dossier Stratégique</div>
           <div className="print-cover-desc">
-            SaaS B2C de gestion patrimoniale immobilière — Le cockpit numérique du propriétaire
+            SaaS B2C de gestion patrimoniale immobilière — La plateforme de pilotage du propriétaire
             sur tout le cycle de vie du bien : acquisition, financement, travaux, location, revente.
           </div>
           <div className="print-cover-footer">
-            <strong>K PAR K CONSEILS SAS</strong> — SIREN 123 456 789<br />
+            <strong>K PAR K CONSEILS SAS</strong> — Lyon<br />
             Document confidentiel — Mars 2026<br />
             Contact : Sheana Krief — sheana@kparkconseils.fr
           </div>
         </div>
 
-        {/* ═══ PRINT HEADER (repeated on pages) ═══ */}
+        {/* PRINT HEADER */}
         <div className="print-header">
           <span className="print-header-left">Mon Patrimoine — Dossier Stratégique</span>
           <span className="print-header-right">K PAR K CONSEILS SAS — Confidentiel — Mars 2026</span>
         </div>
 
-        {/* ═══ PRINT FOOTER (fixed bottom) ═══ */}
+        {/* PRINT FOOTER */}
         <div className="print-page-footer">
           K PAR K CONSEILS SAS — Document confidentiel — Ne pas diffuser sans autorisation
         </div>
@@ -147,6 +182,9 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
             <Menu className="w-6 h-6" />
           </button>
           <h1 className="font-display text-lg font-bold text-[#1A5276]">Mon Patrimoine</h1>
+          {role && (
+            <span className="ml-auto text-xs text-slate-400">{ROLE_ICONS[role]} {ROLE_LABELS[role]}</span>
+          )}
         </div>
 
         <div className="p-6 lg:p-10 max-w-6xl mx-auto">

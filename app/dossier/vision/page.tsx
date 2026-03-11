@@ -9,39 +9,38 @@ export default function VisionPage() {
   const pillars = [
     {
       number: "01",
-      icon: "🔒",
-      title: "Coffre-fort documentaire",
+      icon: "🧭",
+      title: "Un parcours intuitif",
       bandColor: "bg-[#1A5276]",
       items: [
-        "Source de vérité unique",
-        "Docs classés par bien et cycle de vie",
-        "Partage sécurisé par lien temporisé",
-        "OCR + IA extraction",
-        "Hébergé en France (Scaleway Paris)",
+        "Le logiciel suit le cycle de vie du bien",
+        "Acquisition → financement → travaux → location → gestion → revente",
+        "Chaque étape est guidée, pas un tableur vide",
+        "Ergonomie pensée pour le propriétaire, pas le comptable",
       ],
     },
     {
       number: "02",
-      icon: "📊",
-      title: "Vision patrimoniale",
+      icon: "��",
+      title: "Un accompagnement humain systématique",
       bandColor: "bg-[#16a34a]",
       items: [
-        "Rendement brut/net, cash-flow, effort d'épargne",
-        "Vision consolidée par entité",
-        "Scénarios revente vs location",
-        "Proposition de valeur n°1",
+        "Onboarding personnalisé avec chargé d’affaires dédié",
+        "Support illimité pendant 1 mois",
+        "Ce n’est pas une option, c’est inclus",
+        "Pas un mur SaaS : une relation de confiance",
       ],
     },
     {
       number: "03",
-      icon: "🤝",
-      title: "Écosystème partenaires",
+      icon: "��",
+      title: "Un écosystème connecté",
       bandColor: "bg-[#E67E22]",
       items: [
-        "Comptable, notaire, courtier connectés",
-        "Espace pro sécurisé",
-        "Effet réseau : le pro recommande",
-        "Acquisition gratuite + rétention",
+        "Comptables, notaires, courtiers, CGP accèdent aux données clients",
+        "Le propriétaire reste maître de ses données",
+        "Les professionnels travaillent mieux, plus vite",
+        "Effet réseau : le pro recommande → acquisition gratuite",
       ],
     },
   ]
@@ -65,7 +64,7 @@ export default function VisionPage() {
     },
     {
       period: "3-5 ans",
-      title: "Référence nationale cockpit patrimonial. 8-12 personnes. CA récurrent 300-500K€/an.",
+      title: "Référence nationale en gestion patrimoniale immobilière. 8-12 personnes. CA récurrent 300-500K€/an. Possibilité de connecter des partenaires sur un modèle freemium / apport d’affaires. Potentiel d’intérêt pour des acteurs déjà implantés (proptech, gestionnaires de patrimoine).",
       color: "purple" as const,
       isLast: true,
     },
@@ -74,15 +73,33 @@ export default function VisionPage() {
   return (
     <div>
       <PageHeader
-        icon="🎯"
+        icon="��"
         title="Vision & Positionnement"
-        subtitle="Le cockpit administratif du propriétaire immobilier"
+        subtitle="La plateforme de gestion patrimoniale immobilière complète"
       />
 
+      {/* Bloc d'accroche problème → solution */}
       <ScrollReveal delay={100}>
-        <blockquote className="bg-gradient-to-br from-[#1A5276]/5 to-[#E67E22]/5 border-l-4 border-[#E67E22] text-xl leading-relaxed italic p-8 rounded-xl mb-8 text-slate-700">
-          Tous vos documents, vos échéances et votre rentabilité au même endroit. Un outil + un accompagnement humain, sans remplacer vos professionnels : on les connecte.
-        </blockquote>
+        <div className="bg-gradient-to-br from-[#1A5276]/5 to-[#E67E22]/5 rounded-xl mb-8 overflow-hidden">
+          {/* Le problème */}
+          <div className="border-l-4 border-[#dc2626] p-6 pb-4">
+            <p className="text-xs font-bold text-[#dc2626] uppercase tracking-wider mb-2">Le problème</p>
+            <p className="text-lg leading-relaxed text-slate-700">
+              <strong className="text-[#dc2626]">76%</strong> des Français trouvent l&apos;investissement locatif
+              &laquo; trop compliqué &raquo;. Les propriétaires gèrent avec Excel, perdent leurs documents,
+              et ne connaissent pas leur rentabilité réelle.
+            </p>
+          </div>
+          {/* Notre réponse */}
+          <div className="border-l-4 border-[#16a34a] p-6 pt-4">
+            <p className="text-xs font-bold text-[#16a34a] uppercase tracking-wider mb-2">Notre réponse</p>
+            <p className="text-lg leading-relaxed text-slate-700">
+              <strong className="text-[#1A5276]">Mon Patrimoine</strong> suit le cycle de vie complet du bien immobilier
+              — de l&apos;acquisition à la revente. Un logiciel intuitif + un accompagnement humain systématique.
+              <strong className="text-[#1A5276]"> Pas une option : un engagement.</strong>
+            </p>
+          </div>
+        </div>
       </ScrollReveal>
 
       <ScrollReveal delay={150}>
@@ -103,7 +120,7 @@ export default function VisionPage() {
                 <ul className="space-y-2">
                   {pillar.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                      <span className="text-[#16a34a] mt-0.5">●</span>
+                      <span className="text-[#16a34a] mt-0.5">{"●"}</span>
                       {item}
                     </li>
                   ))}
@@ -114,7 +131,7 @@ export default function VisionPage() {
         ))}
       </div>
 
-      <SectionCard title="Timeline Vision" icon="🗓️" delay={500}>
+      <SectionCard title="Timeline Vision" icon="��️" delay={500}>
         <div className="space-y-0">
           {timeline.map((step, index) => (
             <TimelineItem

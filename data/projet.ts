@@ -16,7 +16,7 @@ export const ENTREPRISE = {
   dateCreation: "Mi-2024",
   dateLancementProjet: "4 mars 2026",
   siret: "", // A renseigner
-  adresse: "Villeurbanne / Lyon",
+  adresse: "Lyon / Villeurbanne",
   email: "sheana@kparkconseils.fr",
   site: "dossier-strategique.vercel.app",
 } as const
@@ -159,12 +159,15 @@ export const MARCHE = {
   marcheLogicielImmoFR: { valeur: "718M€", croissance: "+5%/an", source: "Septeo / études sectorielles 2025" },
   marcheMondial: { valeur: "3,66 Mds USD (2025)", projection: "6,47 Mds USD (2033)", tcac: "7,3%" },
   segmentCloud: "64% des déploiements (SaaS)",
-  tam: { valeur: "~198M€/an", description: "Bailleurs privés FR × outils de gestion" },
-  sam: { valeur: "~67M€/an", description: "Bailleurs digitaux, multi-biens, auto-gérés" },
-  som: { valeur: "~2-5M€/an", description: "Lyon + IDF, early adopters, An1-An2" },
+  tam: { valeur: "~420M€", description: "3,5M ménages bailleurs × 10€/mois moyen" },
+  sam: { valeur: "~60M€", description: "~500K multi-détenteurs auto-gérés" },
+  som: { valeur: "~6-12M€", description: "50-100K multi-détenteurs digitalisés, 3-30 biens" },
   foyersBailleurs: "5,9M",
   sansOutil: "70%",
   deleguentPro: "50% (+9 pts en 3 ans)",
+  proprietairesMultiBiens: "2,8M",
+  sciFrance: "2,1M",
+  phobieAdministrative: "76%",
 } as const
 
 // ─── FONDATRICE ─────────────────────────────────────────────────

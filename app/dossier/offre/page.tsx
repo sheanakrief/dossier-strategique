@@ -58,7 +58,7 @@ const PETIT_FAQ = [
 
 const GRAND_AVANTAGES = [
   { icon: Users, title: "Assistante d\u00e9di\u00e9e", desc: "Votre interlocutrice unique g\u00e8re tout : quittances, relances, suivi" },
-  { icon: Building2, title: "Multi-structures", desc: "SCI, SNC, nom propre \u2014 tout centralis\u00e9 dans un seul cockpit" },
+  { icon: Building2, title: "Multi-structures", desc: "SCI, SNC, nom propre \u2014 tout centralis\u00e9 dans un seul tableau de bord" },
   { icon: TrendingUp, title: "Reporting investisseur", desc: "Synth\u00e8se trimestrielle, performance, alertes \u2014 format professionnel" },
   { icon: Shield, title: "Coffre-fort illimit\u00e9", desc: "Num\u00e9risation + classement complet de tous vos documents" },
 ]
@@ -285,7 +285,7 @@ export default function OffrePage() {
               <p className="text-base text-slate-300 leading-relaxed max-w-2xl">
                 {"Votre patrimoine m\u00e9rite un accompagnement \u00e0 la hauteur. "}
                 <span className="font-semibold text-[#daa520]">Mon Patrimoine</span>
-                {" vous offre une assistante d\u00e9di\u00e9e, un cockpit multi-structures et des services premium \u2014 pour que vous vous concentriez sur vos acquisitions."}
+                {" vous offre une assistante d\u00e9di\u00e9e, un tableau de bord multi-structures et des services premium \u2014 pour que vous vous concentriez sur vos acquisitions."}
               </p>
             </div>
           </ScrollReveal>

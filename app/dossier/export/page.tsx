@@ -1,11 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Download, Filter } from "lucide-react"
-import { SECTIONS, AUDIENCE_LABELS, getVisibleSections, type Audience } from "@/data/audiences"
+import { SECTIONS, type Role, ROLE_LABELS, getSectionsForRole } from "@/data/audiences"
 
-/* ─── Import ALL page components ─── */
-import DashboardPage from "../page"
+/* --- Import ALL page components --- */
 import VisionPage from "../vision/page"
 import FondatricePage from "../fondatrice/page"
 import MarchePage from "../marche/page"
@@ -20,9 +19,9 @@ import JuridiquePage from "../juridique/page"
 import BudgetPage from "../budget/page"
 import TimelinePage from "../timeline/page"
 import PitchPage from "../pitch/page"
+import AdminDashboardPage from "../admin/page"
 
 const PAGE_COMPONENTS: Record<string, React.ComponentType> = {
-  "": DashboardPage,
   "vision": VisionPage,
   "fondatrice": FondatricePage,
   "marche": MarchePage,
@@ -37,21 +36,52 @@ const PAGE_COMPONENTS: Record<string, React.ComponentType> = {
   "budget": BudgetPage,
   "timeline": TimelinePage,
   "pitch": PitchPage,
+  "admin": AdminDashboardPage,
 }
 
-const AUDIENCE_PRESETS: { key: Audience; label: string; desc: string }[] = [
-  { key: "all", label: "Tout (Perso)", desc: "Toutes les sections — vision complète" },
+function getCookie(name: string): string | null {
+  if (typeof document === "undefined") return null
+  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"))
+  return match ? match[2] : null
+}
+
+function detectRole(): Role | null {
+  if (getCookie("dossier_auth_admin") === "1") return "admin"
+  if (getCookie("dossier_auth_investor") === "1") return "investisseur"
+  if (getCookie("dossier_auth_partner") === "1") return "partenaire"
+  if (getCookie("dossier_auth_dev") === "1") return "dev"
+  return null
+}
+
+const ROLE_PRESETS: { key: Role; label: string; desc: string }[] = [
+  { key: "admin", label: "Tout (Admin)", desc: "Toutes les sections — vision complète" },
   { key: "investisseur", label: "Investisseurs", desc: "Marché, finance, simulation, pitch" },
-  { key: "client", label: "Clients", desc: "Produit, pricing, vision, pitch" },
   { key: "partenaire", label: "Partenaires", desc: "Vision, pricing, juridique, pitch" },
-  { key: "equipe", label: "Collaborateurs", desc: "Dashboard, simulation, déploiement, acquisition" },
   { key: "dev", label: "Dev / Technique", desc: "Architecture, produit, déploiement" },
 ]
 
 export default function ExportPage() {
-  const [audience, setAudience] = useState<Audience>("all")
+  const [selectedRole, setSelectedRole] = useState<Role>("admin")
   const [printing, setPrinting] = useState(false)
-  const visible = getVisibleSections(audience)
+  const [userRole, setUserRole] = useState<Role | null>(null)
+
+  useEffect(() => {
+    const detected = detectRole()
+    setUserRole(detected)
+    if (detected) setSelectedRole(detected)
+  }, [])
+
+  // Filter visible sections based on selected role
+  const allSections = getSectionsForRole(selectedRole)
+  // Filter out homepage, enquete-admin, decisions (not exportable content)
+  const visible = allSections.filter(s =>
+    s.slug !== "" && s.slug !== "enquete-admin" && s.slug !== "decisions" && PAGE_COMPONENTS[s.slug]
+  )
+
+  // Only show role presets the user has access to
+  const availablePresets = userRole === "admin"
+    ? ROLE_PRESETS
+    : ROLE_PRESETS.filter(p => p.key === userRole)
 
   const handlePrint = () => {
     setPrinting(true)
@@ -63,13 +93,13 @@ export default function ExportPage() {
 
   return (
     <div>
-      {/* ═══ TOOLBAR (hidden in print) ═══ */}
+      {/* TOOLBAR (hidden in print) */}
       <div className="no-print sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between mb-3">
             <div>
               <h1 className="font-display text-xl font-bold text-slate-800">Export PDF</h1>
-              <p className="text-sm text-slate-500">Sélectionnez l&apos;audience puis exportez</p>
+              <p className="text-sm text-slate-500">Sélectionnez le profil puis exportez</p>
             </div>
             <div className="flex gap-2">
               <a href="/dossier" className="px-4 py-2 text-sm text-slate-600 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors">
@@ -86,32 +116,34 @@ export default function ExportPage() {
             </div>
           </div>
 
-          {/* Audience selector */}
-          <div className="flex items-center gap-2 flex-wrap">
-            <Filter className="w-4 h-4 text-slate-400" />
-            {AUDIENCE_PRESETS.map((preset) => (
-              <button
-                key={preset.key}
-                onClick={() => setAudience(preset.key)}
-                className={`px-3 py-1.5 text-xs rounded-full font-medium transition-all ${
-                  audience === preset.key
-                    ? "bg-[#1A5276] text-white shadow-sm"
-                    : "bg-slate-100 text-slate-500 hover:bg-slate-200"
-                }`}
-                title={preset.desc}
-              >
-                {preset.label}
-              </button>
-            ))}
-          </div>
+          {/* Role selector */}
+          {availablePresets.length > 1 && (
+            <div className="flex items-center gap-2 flex-wrap">
+              <Filter className="w-4 h-4 text-slate-400" />
+              {availablePresets.map((preset) => (
+                <button
+                  key={preset.key}
+                  onClick={() => setSelectedRole(preset.key)}
+                  className={`px-3 py-1.5 text-xs rounded-full font-medium transition-all ${
+                    selectedRole === preset.key
+                      ? "bg-[#1A5276] text-white shadow-sm"
+                      : "bg-slate-100 text-slate-500 hover:bg-slate-200"
+                  }`}
+                  title={preset.desc}
+                >
+                  {preset.label}
+                </button>
+              ))}
+            </div>
+          )}
 
           <p className="text-xs text-slate-400 mt-2">
-            {visible.length} sections sélectionnées — {AUDIENCE_PRESETS.find(p => p.key === audience)?.desc}
+            {visible.length} sections sélectionnées — {availablePresets.find(p => p.key === selectedRole)?.desc || ""}
           </p>
         </div>
       </div>
 
-      {/* ═══ ALL SECTIONS RENDERED ═══ */}
+      {/* ALL SECTIONS RENDERED */}
       <div className="max-w-6xl mx-auto px-6 py-8 export-content">
         {visible.map((section, idx) => {
           const PageComponent = PAGE_COMPONENTS[section.slug]

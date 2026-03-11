@@ -1,6 +1,6 @@
 # TODO — Mon Patrimoine / Dossier Strategique
 
-> Derniere mise a jour : 10 mars 2026
+> Derniere mise a jour : 11 mars 2026
 
 ## Fait (Mars S1-S2)
 
@@ -21,6 +21,9 @@
 - [ ] Deploiement Vercel (securise, separe de l'app patrimoine-dayot)
 - [ ] Etude approfondie de la cible (personas, segments, SEO)
 - [ ] Decomposition du pricing par process (temps/effort par prestation)
+- [ ] Enquete cible proprietaires — en cours de conception
+- [x] Monsieur Hugo ajoute au comparatif concurrentiel
+- [x] Architecture multi-profils (mots de passe par role)
 
 ## A faire — Contenu
 

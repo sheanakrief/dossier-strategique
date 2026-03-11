@@ -1,13 +1,35 @@
 "use client"
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { useState, Suspense } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
 
-export default function LoginPage() {
+const ROLE_MESSAGES: Record<string, { title: string; subtitle: string }> = {
+  investisseur: {
+    title: "Espace Investisseur",
+    subtitle: "Accédez au dossier stratégique complet",
+  },
+  partenaire: {
+    title: "Espace Partenaire",
+    subtitle: "Comptables, notaires, CGP — découvrez notre offre",
+  },
+  admin: {
+    title: "Administration",
+    subtitle: "Accès complet au dossier",
+  },
+  dev: {
+    title: "Espace Développeur",
+    subtitle: "Architecture technique et déploiement",
+  },
+}
+
+function LoginForm() {
   const [password, setPassword] = useState("")
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const role = searchParams.get("role") || ""
+  const roleInfo = ROLE_MESSAGES[role]
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -32,7 +54,14 @@ export default function LoginPage() {
       <div className="bg-white rounded-2xl shadow-lg p-10 w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-display font-bold text-primary mb-2">Mon Patrimoine</h1>
-          <p className="text-slate-500 text-sm">Dossier Stratégique — K PAR K CONSEILS</p>
+          {roleInfo ? (
+            <>
+              <p className="text-slate-700 font-medium text-sm">{roleInfo.title}</p>
+              <p className="text-slate-400 text-xs mt-1">{roleInfo.subtitle}</p>
+            </>
+          ) : (
+            <p className="text-slate-500 text-sm">Dossier Stratégique — K PAR K CONSEILS</p>
+          )}
         </div>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
@@ -59,7 +88,24 @@ export default function LoginPage() {
             {loading ? "Vérification..." : "Accéder au dossier"}
           </button>
         </form>
+        <div className="mt-6 text-center">
+          <a href="/dossier" className="text-xs text-slate-400 hover:text-slate-600 transition-colors">
+            ← Retour à l&apos;accueil
+          </a>
+        </div>
       </div>
     </div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
+        <div className="text-slate-400">Chargement...</div>
+      </div>
+    }>
+      <LoginForm />
+    </Suspense>
   )
 }

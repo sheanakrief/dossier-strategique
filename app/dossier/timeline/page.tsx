@@ -25,15 +25,15 @@ const TIMELINE: WeekData[] = [
   {
     week: "S1",
     dates: "4-9 mars",
-    focus: "Lancement projet",
-    color: "#1A5276",
+    focus: "Lancement projet ✅ Fait",
+    color: "#16a34a",
     tasks: [
       { task: "Création dossier stratégique complet", category: "Produit", icon: Code },
       { task: "Structuration business plan + pricing", category: "Stratégie", icon: Target },
       { task: "Signature avocat IA / PI / droit des affaires", category: "Juridique", icon: Scale },
       { task: "Client A (Dayot, 18 biens) — pilote actif", category: "Client", icon: Users },
     ],
-    milestone: "Dossier stratégique V1 + Avocat signé",
+    milestone: "Dossier stratégique V1 + Avocat signé ✅",
   },
   {
     week: "S2",
@@ -45,6 +45,7 @@ const TIMELINE: WeekData[] = [
       { task: "Forfait LUXE — positionnement premium", category: "Pricing", icon: Target },
       { task: "PDF export multi-audience", category: "Produit", icon: Code },
       { task: "Pitch investisseur — préparation entourage", category: "Investisseur", icon: Megaphone },
+      { task: "RDV avocat (mercredi) + RDV investisseur (vendredi)", category: "Stratégie", icon: Target },
     ],
   },
   {
