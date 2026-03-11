@@ -1,11 +1,20 @@
 import { NextResponse } from "next/server"
+import { cookies } from "next/headers"
 import { prisma } from "@/lib/prisma"
 
-export async function GET(request: Request) {
+function isAuthorized(request: Request): boolean {
+  // Bearer token (legacy)
   const authHeader = request.headers.get("authorization")
-  const adminPassword = process.env.ADMIN_PASSWORD
+  if (authHeader === `Bearer ${process.env.ADMIN_PASSWORD}`) return true
+  // Dossier auth cookies
+  const cookieStore = cookies()
+  if (cookieStore.get("dossier_auth_admin")?.value === "1") return true
+  if (cookieStore.get("dossier_auth_investor")?.value === "1") return true
+  return false
+}
 
-  if (!authHeader || authHeader !== `Bearer ${adminPassword}`) {
+export async function GET(request: Request) {
+  if (!isAuthorized(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
   }
 
@@ -28,8 +37,7 @@ export async function GET(request: Request) {
 }
 
 export async function DELETE(request: Request) {
-  const authHeader = request.headers.get("authorization")
-  if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_PASSWORD}`) {
+  if (!isAuthorized(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
   }
 

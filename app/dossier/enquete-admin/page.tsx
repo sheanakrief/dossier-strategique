@@ -123,40 +123,15 @@ function formatDuration(sec: number): string {
    MAIN COMPONENT
    ═══════════════════════════════════════════════════════════════ */
 export default function EnqueteAdminPage() {
-  const [token, setToken] = useState<string | null>(null)
-  const [password, setPassword] = useState("")
-  const [authError, setAuthError] = useState(false)
   const [responses, setResponses] = useState<SurveyResponse[]>([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState<string>("all")
   const [expandedRow, setExpandedRow] = useState<string | null>(null)
 
-  const doLogin = useCallback(async () => {
-    setAuthError(false)
-    try {
-      const res = await fetch("/api/enquete/auth", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
-      })
-      const data = await res.json()
-      if (data.success) {
-        setToken(data.token)
-      } else {
-        setAuthError(true)
-      }
-    } catch {
-      setAuthError(true)
-    }
-  }, [password])
-
   const loadData = useCallback(async () => {
-    if (!token) return
     setLoading(true)
     try {
-      const res = await fetch("/api/enquete/results", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      const res = await fetch("/api/enquete/results")
       const data = await res.json()
       if (data.responses) setResponses(data.responses)
     } catch (e) {
@@ -164,11 +139,11 @@ export default function EnqueteAdminPage() {
     } finally {
       setLoading(false)
     }
-  }, [token])
+  }, [])
 
   useEffect(() => {
-    if (token) loadData()
-  }, [token, loadData])
+    loadData()
+  }, [loadData])
 
   const filtered = useMemo(() => {
     if (filter === "all") return responses
@@ -255,10 +230,7 @@ export default function EnqueteAdminPage() {
   }, [responses, filter])
 
   const exportCsv = useCallback(async () => {
-    if (!token) return
-    const res = await fetch("/api/enquete/export", {
-      headers: { Authorization: `Bearer ${token}` },
-    })
+    const res = await fetch("/api/enquete/export")
     const blob = await res.blob()
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
@@ -266,15 +238,13 @@ export default function EnqueteAdminPage() {
     a.download = `enquete-mon-patrimoine-${new Date().toISOString().split("T")[0]}.csv`
     a.click()
     URL.revokeObjectURL(url)
-  }, [token])
+  }, [])
 
   const purgeAll = useCallback(async () => {
-    if (!token) return
     if (!window.confirm("Supprimer TOUTES les reponses ? Cette action est irreversible.")) return
     try {
       const res = await fetch("/api/enquete/results", {
         method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
       })
       const data = await res.json()
       if (data.success) {
@@ -284,38 +254,7 @@ export default function EnqueteAdminPage() {
     } catch (e) {
       console.error("Purge failed:", e)
     }
-  }, [token])
-
-  /* ════ LOGIN SCREEN ════ */
-  if (!token) {
-    return (
-      <div>
-        <PageHeader icon="📋" title="Resultats Enquete" subtitle="Dashboard prive" />
-        <div className="max-w-sm mx-auto mt-12">
-          <SectionCard title="Connexion admin" icon="🔒">
-            <div className="space-y-4">
-              <p className="text-sm text-slate-500">Entrez le mot de passe administrateur pour acceder aux resultats.</p>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && doLogin()}
-                placeholder="Mot de passe admin"
-                className="w-full px-4 py-3 text-sm border border-slate-200 rounded-lg outline-none focus:border-[#1A3D2E] transition-colors"
-              />
-              {authError && <p className="text-sm text-red-500">Mot de passe incorrect</p>}
-              <button
-                onClick={doLogin}
-                className="w-full py-3 bg-gradient-to-r from-[#1A3D2E] to-[#1F4D38] text-white rounded-lg text-sm font-medium hover:shadow-lg transition-all"
-              >
-                Acceder
-              </button>
-            </div>
-          </SectionCard>
-        </div>
-      </div>
-    )
-  }
+  }, [])
 
   /* ════ DASHBOARD ════ */
   return (

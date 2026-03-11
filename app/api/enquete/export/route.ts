@@ -1,9 +1,18 @@
 import { NextResponse } from "next/server"
+import { cookies } from "next/headers"
 import { prisma } from "@/lib/prisma"
 
-export async function GET(request: Request) {
+function isAuthorized(request: Request): boolean {
   const authHeader = request.headers.get("authorization")
-  if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_PASSWORD}`) {
+  if (authHeader === `Bearer ${process.env.ADMIN_PASSWORD}`) return true
+  const cookieStore = cookies()
+  if (cookieStore.get("dossier_auth_admin")?.value === "1") return true
+  if (cookieStore.get("dossier_auth_investor")?.value === "1") return true
+  return false
+}
+
+export async function GET(request: Request) {
+  if (!isAuthorized(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
   }
 
