@@ -52,7 +52,7 @@ export default function ArchitecturePage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-0.5">
-                    <h4 className="text-sm font-semibold text-[#1A5276]">{row.couche}</h4>
+                    <h4 className="text-sm font-semibold text-[#1A3D2E]">{row.couche}</h4>
                   </div>
                   <p className="text-sm font-mono text-slate-700">{row.tech}</p>
                   <p className="text-xs text-slate-500 mt-0.5">{row.justif}</p>
@@ -77,7 +77,7 @@ export default function ArchitecturePage() {
             <tbody className="divide-y divide-slate-100">
               {MODELE_DONNEES.map((row, i) => (
                 <tr key={i} className="hover:bg-slate-50/50 transition-colors">
-                  <td className="py-2.5 px-3 font-medium text-[#1A5276]">{row.module}</td>
+                  <td className="py-2.5 px-3 font-medium text-[#1A3D2E]">{row.module}</td>
                   <td className="py-2.5 px-3 text-slate-600 font-mono text-xs">{row.entites}</td>
                   <td className="py-2.5 px-3 text-slate-500 text-xs">{row.relations}</td>
                 </tr>

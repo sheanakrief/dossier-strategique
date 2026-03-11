@@ -81,16 +81,16 @@ export default function DeploiementPage() {
           </div>
           <div className="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
             <div className="flex h-full rounded-full overflow-hidden" style={{ width: "100%" }}>
-              <div className="bg-[#16a34a] h-full" style={{ width: `${(3 / totalPhases) * 100}%` }} />
-              <div className="bg-[#1A5276] h-full" style={{ width: `${(1 / totalPhases) * 100}%` }} />
-              <div className="bg-[#E67E22] h-full" style={{ width: `${(2 / totalPhases) * 100}%` }} />
+              <div className="bg-[#059669] h-full" style={{ width: `${(3 / totalPhases) * 100}%` }} />
+              <div className="bg-[#1A3D2E] h-full" style={{ width: `${(1 / totalPhases) * 100}%` }} />
+              <div className="bg-[#8FAF8A] h-full" style={{ width: `${(2 / totalPhases) * 100}%` }} />
               <div className="bg-[#7c3aed] h-full" style={{ width: `${(1 / totalPhases) * 100}%` }} />
             </div>
           </div>
           <div className="flex justify-between mt-2 text-xs text-slate-400">
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#16a34a] inline-block" /> Lancement</span>
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#1A5276] inline-block" /> Croissance</span>
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#E67E22] inline-block" /> Accélération</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#059669] inline-block" /> Lancement</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#1A3D2E] inline-block" /> Croissance</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#8FAF8A] inline-block" /> Accélération</span>
             <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#7c3aed] inline-block" /> Expansion</span>
           </div>
         </div>

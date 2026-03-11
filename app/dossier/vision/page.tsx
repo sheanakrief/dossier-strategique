@@ -11,7 +11,7 @@ export default function VisionPage() {
       number: "01",
       icon: "🧭",
       title: "Un parcours intuitif",
-      bandColor: "bg-[#1A5276]",
+      bandColor: "bg-[#1A3D2E]",
       items: [
         "Le logiciel suit le cycle de vie du bien",
         "Acquisition → financement → travaux → location → gestion → revente",
@@ -23,7 +23,7 @@ export default function VisionPage() {
       number: "02",
       icon: "��",
       title: "Un accompagnement humain systématique",
-      bandColor: "bg-[#16a34a]",
+      bandColor: "bg-[#059669]",
       items: [
         "Onboarding personnalisé avec chargé d’affaires dédié",
         "Support illimité pendant 1 mois",
@@ -35,7 +35,7 @@ export default function VisionPage() {
       number: "03",
       icon: "��",
       title: "Un écosystème connecté",
-      bandColor: "bg-[#E67E22]",
+      bandColor: "bg-[#8FAF8A]",
       items: [
         "Comptables, notaires, courtiers, CGP accèdent aux données clients",
         "Le propriétaire reste maître de ses données",
@@ -80,7 +80,7 @@ export default function VisionPage() {
 
       {/* Bloc d'accroche problème → solution */}
       <ScrollReveal delay={100}>
-        <div className="bg-gradient-to-br from-[#1A5276]/5 to-[#E67E22]/5 rounded-xl mb-8 overflow-hidden">
+        <div className="bg-gradient-to-br from-[#1A3D2E]/5 to-[#8FAF8A]/5 rounded-xl mb-8 overflow-hidden">
           {/* Le problème */}
           <div className="border-l-4 border-[#dc2626] p-6 pb-4">
             <p className="text-xs font-bold text-[#dc2626] uppercase tracking-wider mb-2">Le problème</p>
@@ -91,12 +91,12 @@ export default function VisionPage() {
             </p>
           </div>
           {/* Notre réponse */}
-          <div className="border-l-4 border-[#16a34a] p-6 pt-4">
-            <p className="text-xs font-bold text-[#16a34a] uppercase tracking-wider mb-2">Notre réponse</p>
+          <div className="border-l-4 border-[#059669] p-6 pt-4">
+            <p className="text-xs font-bold text-[#059669] uppercase tracking-wider mb-2">Notre réponse</p>
             <p className="text-lg leading-relaxed text-slate-700">
-              <strong className="text-[#1A5276]">Mon Patrimoine</strong> suit le cycle de vie complet du bien immobilier
+              <strong className="text-[#1A3D2E]">Mon Patrimoine</strong> suit le cycle de vie complet du bien immobilier
               — de l&apos;acquisition à la revente. Un logiciel intuitif + un accompagnement humain systématique.
-              <strong className="text-[#1A5276]"> Pas une option : un engagement.</strong>
+              <strong className="text-[#1A3D2E]"> Pas une option : un engagement.</strong>
             </p>
           </div>
         </div>
@@ -120,7 +120,7 @@ export default function VisionPage() {
                 <ul className="space-y-2">
                   {pillar.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                      <span className="text-[#16a34a] mt-0.5">{"●"}</span>
+                      <span className="text-[#059669] mt-0.5">{"●"}</span>
                       {item}
                     </li>
                   ))}

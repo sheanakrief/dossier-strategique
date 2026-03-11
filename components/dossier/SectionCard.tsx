@@ -16,7 +16,7 @@ export default function SectionCard({ title, subtitle, icon, children, className
     <ScrollReveal delay={delay}>
       <div className={`card-print bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden page-section ${className}`}>
         {title && (
-          <div className="border-l-4 border-[#1A5276] bg-gradient-to-r from-slate-50 to-white px-6 py-4">
+          <div className="border-l-4 border-[#1A3D2E] bg-gradient-to-r from-slate-50 to-white px-6 py-4">
             <div className="flex items-center gap-2">
               {icon && <span className="text-lg">{icon}</span>}
               <h3 className="font-display text-xl font-semibold text-slate-800">{title}</h3>

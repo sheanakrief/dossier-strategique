@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo, useEffect } from "react"
 
 /* ═══════════════════════════════════════════════════════════════
-   MON PATRIMOINE — Enquete Proprietaires v4
+   PARKIMMO — Enquete Proprietaires v4
    Arbre decisionnel . 4 profils . Sources verifiees
    ═══════════════════════════════════════════════════════════════ */
 
@@ -63,9 +63,9 @@ interface ProfileTag {
 
 /* ════ COLORS ════ */
 const COLORS = {
-  primary: "#1A5276",
-  primaryL: "#2980B9",
-  accent: "#E67E22",
+  primary: "#1A3D2E",
+  primaryL: "#1F4D38",
+  accent: "#8FAF8A",
   dark: "#0C1F2C",
   text: "#1B2A3B",
   muted: "#5A6B7D",
@@ -437,15 +437,15 @@ const getProfileTags = (ans: Record<string, string | string[] | number>, prof: s
 
 /* ════ INSIGHT STYLE MAP ════ */
 const INSIGHT_STYLES: Record<string, { bg: string; border: string; label: string; icon: string }> = {
-  stat: { bg: "bg-blue-50", border: "border-[#2980B9]", label: "Chiffre cle", icon: "📊" },
-  insight: { bg: "bg-orange-50", border: "border-[#E67E22]", label: "Le saviez-vous ?", icon: "💡" },
+  stat: { bg: "bg-blue-50", border: "border-[#1F4D38]", label: "Chiffre cle", icon: "📊" },
+  insight: { bg: "bg-orange-50", border: "border-[#8FAF8A]", label: "Le saviez-vous ?", icon: "💡" },
   tip: { bg: "bg-emerald-50", border: "border-[#0E9F6E]", label: "Bon a savoir", icon: "✅" },
   legal: { bg: "bg-amber-50", border: "border-amber-700", label: "Point juridique", icon: "⚖️" },
 }
 
 const INSIGHT_LABEL_COLORS: Record<string, string> = {
-  stat: "text-[#2980B9]",
-  insight: "text-[#E67E22]",
+  stat: "text-[#1F4D38]",
+  insight: "text-[#8FAF8A]",
   tip: "text-[#0E9F6E]",
   legal: "text-amber-700",
 }
@@ -470,7 +470,7 @@ function InsightCard({ insight, onContinue }: { insight: Insight; onContinue: ()
       <div className="flex justify-end mt-4">
         <button
           onClick={onContinue}
-          className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border-none cursor-pointer bg-gradient-to-br from-[#1A5276] to-[#2980B9] text-white text-[13px] font-medium animate-enquete-fade-in hover:-translate-y-px hover:shadow-lg transition-all duration-200"
+          className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border-none cursor-pointer bg-gradient-to-br from-[#1A3D2E] to-[#1F4D38] text-white text-[13px] font-medium animate-enquete-fade-in hover:-translate-y-px hover:shadow-lg transition-all duration-200"
           style={{ animationDelay: "0.3s" }}
         >
           Continuer
@@ -487,15 +487,15 @@ function Opt({ label, sel, onClick, i, multi }: { label: string; sel: boolean; o
       onClick={onClick}
       className={`flex items-center gap-3.5 w-full px-4 py-3 text-left cursor-pointer outline-none rounded-xl border-[1.5px] transition-all duration-200 ${
         sel
-          ? "bg-[#1A5276]/5 border-[#1A5276] shadow-[0_0_0_3px_rgba(26,82,118,0.07)]"
-          : "bg-white border-slate-200 hover:border-[#2980B9] hover:-translate-y-px hover:shadow-md"
+          ? "bg-[#1A3D2E]/5 border-[#1A3D2E] shadow-[0_0_0_3px_rgba(26,61,46,0.07)]"
+          : "bg-white border-slate-200 hover:border-[#1F4D38] hover:-translate-y-px hover:shadow-md"
       }`}
       style={{ animation: `enquete-appear 0.4s cubic-bezier(0.22,1,0.36,1) ${i * 0.045}s both` }}
     >
       <span
         className={`w-5 h-5 shrink-0 flex items-center justify-center border-2 transition-all duration-200 ${
           multi ? "rounded-[5px]" : "rounded-full"
-        } ${sel ? "border-[#1A5276] bg-[#1A5276]" : "border-slate-300 bg-transparent"}`}
+        } ${sel ? "border-[#1A3D2E] bg-[#1A3D2E]" : "border-slate-300 bg-transparent"}`}
       >
         {sel && (
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none" className="animate-enquete-pop-in">
@@ -503,7 +503,7 @@ function Opt({ label, sel, onClick, i, multi }: { label: string; sel: boolean; o
           </svg>
         )}
       </span>
-      <span className={`text-[14.5px] leading-snug ${sel ? "font-medium text-[#1A5276]" : "font-normal text-slate-800"}`}>
+      <span className={`text-[14.5px] leading-snug ${sel ? "font-medium text-[#1A3D2E]" : "font-normal text-slate-800"}`}>
         {label}
       </span>
     </button>
@@ -517,8 +517,8 @@ function ScaleBtn({ value, sel, onClick, i, label }: { value: number; sel: boole
         onClick={onClick}
         className={`w-14 h-14 rounded-[14px] cursor-pointer outline-none border-2 text-xl font-semibold transition-all duration-300 ${
           sel
-            ? "border-[#1A5276] bg-gradient-to-br from-[#1A5276] to-[#2980B9] text-white scale-[1.04] shadow-[0_6px_20px_rgba(26,82,118,0.19)]"
-            : "border-slate-200 bg-white text-slate-800 hover:border-[#2980B9] hover:-translate-y-0.5 hover:scale-[1.06] hover:text-[#1A5276]"
+            ? "border-[#1A3D2E] bg-gradient-to-br from-[#1A3D2E] to-[#1F4D38] text-white scale-[1.04] shadow-[0_6px_20px_rgba(26,61,46,0.19)]"
+            : "border-slate-200 bg-white text-slate-800 hover:border-[#1F4D38] hover:-translate-y-0.5 hover:scale-[1.06] hover:text-[#1A3D2E]"
         }`}
         style={{ animation: `enquete-appear 0.4s cubic-bezier(0.22,1,0.36,1) ${i * 0.07}s both` }}
       >
@@ -536,7 +536,7 @@ function CtaBtn({ label, onClick, primary, disabled, back }: { label: string; on
       disabled={disabled}
       className={`inline-flex items-center gap-1.5 rounded-[10px] cursor-pointer outline-none text-sm font-medium transition-all duration-200 ${
         primary
-          ? `px-6 py-3 border-none text-white ${disabled ? "bg-slate-400 opacity-45 cursor-not-allowed" : "bg-gradient-to-br from-[#1A5276] to-[#2980B9] hover:-translate-y-px hover:shadow-[0_6px_20px_rgba(26,82,118,0.15)]"}`
+          ? `px-6 py-3 border-none text-white ${disabled ? "bg-slate-400 opacity-45 cursor-not-allowed" : "bg-gradient-to-br from-[#1A3D2E] to-[#1F4D38] hover:-translate-y-px hover:shadow-[0_6px_20px_rgba(26,61,46,0.15)]"}`
           : `px-4 py-3 border-[1.5px] border-slate-200 bg-transparent text-slate-500`
       }`}
     >
@@ -556,14 +556,14 @@ function Progress({ current, total }: { current: number; total: number }) {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-slate-50/90 backdrop-blur-sm border-b border-slate-200">
       <div className="max-w-[680px] mx-auto px-6 pt-3 pb-2.5 flex items-center gap-3.5">
-        <span className="font-display font-semibold text-[15px] text-[#1A5276] whitespace-nowrap">Mon Patrimoine</span>
+        <span className="font-semibold text-[15px] text-[#1A3D2E] whitespace-nowrap tracking-wide" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>PARKIMMO</span>
         <div className="flex-1 h-[3px] bg-slate-200 rounded-full overflow-hidden">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-[#1A5276] to-[#2980B9] transition-[width] duration-700 ease-out"
+            className="h-full rounded-full bg-gradient-to-r from-[#1A3D2E] to-[#1F4D38] transition-[width] duration-700 ease-out"
             style={{ width: `${pct}%` }}
           />
         </div>
-        <span className="text-xs font-semibold text-[#1A5276] min-w-[38px] text-right">{pct}%</span>
+        <span className="text-xs font-semibold text-[#1A3D2E] min-w-[38px] text-right">{pct}%</span>
       </div>
     </div>
   )
@@ -707,10 +707,10 @@ export default function EnquetePage() {
   const cAnim = anim === "in" ? "animate-enquete-appear" : "animate-enquete-exit-up"
 
   return (
-    <div className="min-h-screen font-sans text-slate-800 bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 relative overflow-hidden">
+    <div className="min-h-screen text-slate-800 bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 relative overflow-hidden" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       {/* Decorative circles */}
-      <div className="fixed -top-44 -right-44 w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle,rgba(26,82,118,0.03)_0%,transparent_70%)] pointer-events-none" />
-      <div className="fixed -bottom-28 -left-28 w-[340px] h-[340px] rounded-full bg-[radial-gradient(circle,rgba(230,126,34,0.03)_0%,transparent_70%)] pointer-events-none" />
+      <div className="fixed -top-44 -right-44 w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle,rgba(26,61,46,0.03)_0%,transparent_70%)] pointer-events-none" />
+      <div className="fixed -bottom-28 -left-28 w-[340px] h-[340px] rounded-full bg-[radial-gradient(circle,rgba(143,175,138,0.03)_0%,transparent_70%)] pointer-events-none" />
 
       {isQuestion && <Progress current={step} total={totalQ} />}
 
@@ -727,15 +727,15 @@ export default function EnquetePage() {
           {isIntro && (
             <div className="text-center">
               <div
-                className="w-[60px] h-[60px] rounded-2xl mx-auto mb-6 bg-gradient-to-br from-[#1A5276] to-[#2980B9] flex items-center justify-center shadow-[0_8px_28px_rgba(26,82,118,0.15)] animate-enquete-pop-in"
+                className="w-[60px] h-[60px] rounded-2xl mx-auto mb-6 bg-gradient-to-br from-[#1A3D2E] to-[#1F4D38] flex items-center justify-center shadow-[0_8px_28px_rgba(26,61,46,0.15)] animate-enquete-pop-in"
                 style={{ animationDelay: "0.1s" }}
               >
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 9L12 2L21 9V20C21 20.53 20.79 21.04 20.41 21.41C20.04 21.79 19.53 22 19 22H5C4.47 22 3.96 21.79 3.59 21.41C3.21 21.04 3 20.53 3 20V9Z" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /><path d="M9 22V12H15V22" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </div>
-              <h1 className="font-display text-[34px] font-semibold text-slate-900 mb-2 tracking-tight leading-tight" style={{ animation: "enquete-appear 0.6s ease 0.2s both" }}>
+              <h1 className="text-[34px] font-semibold text-slate-900 mb-2 tracking-tight leading-tight" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", animation: "enquete-appear 0.6s ease 0.2s both" }}>
                 Et vous, vous gérez comment votre patrimoine immobilier ?
               </h1>
-              <p className="text-[15px] text-[#E67E22] font-medium mb-6" style={{ animation: "enquete-appear 0.6s ease 0.28s both" }}>
+              <p className="text-[15px] text-[#8FAF8A] font-medium mb-6" style={{ animation: "enquete-appear 0.6s ease 0.28s both" }}>
                 L&apos;enquête qui s&apos;adapte à votre profil
               </p>
               <div className="max-w-[440px] mx-auto" style={{ animation: "enquete-appear 0.6s ease 0.35s both" }}>
@@ -761,7 +761,7 @@ export default function EnquetePage() {
                 <CtaBtn label="C'est parti" onClick={() => go(1)} primary />
               </div>
               <p className="text-[11px] text-slate-400 mt-4" style={{ animation: "enquete-fade-in 0.6s ease 0.6s both" }}>
-                Par Mon Patrimoine &middot; K PAR K CONSEILS SAS
+                Par PARKIMMO &middot; K PAR K CONSEILS SAS
               </p>
             </div>
           )}
@@ -771,7 +771,7 @@ export default function EnquetePage() {
             <div className="text-center">
               <div className="w-[60px] h-[60px] rounded-full mx-auto mb-6 bg-emerald-50 flex items-center justify-center animate-enquete-pop-in relative">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 13L9 17L19 7" stroke="#0E9F6E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                {["#E67E22", "#1A5276", "#16A34A", "#8B5CF6"].map((c, i) => (
+                {["#8FAF8A", "#1A3D2E", "#059669", "#8B5CF6"].map((c, i) => (
                   <div
                     key={i}
                     className="absolute w-1.5 h-1.5 rounded-sm"
@@ -786,7 +786,7 @@ export default function EnquetePage() {
                   />
                 ))}
               </div>
-              <h1 className="font-display text-[28px] font-semibold text-slate-900 mb-2.5" style={{ animation: "enquete-appear 0.6s ease 0.15s both" }}>
+              <h1 className="text-[28px] font-semibold text-slate-900 mb-2.5" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", animation: "enquete-appear 0.6s ease 0.15s both" }}>
                 Merci pour votre temps
               </h1>
               <p className="text-[15px] text-slate-500 leading-relaxed" style={{ animation: "enquete-appear 0.6s ease 0.25s both" }}>
@@ -808,8 +808,8 @@ export default function EnquetePage() {
                   </div>
                 </div>
               )}
-              <div className="mt-6 px-6 py-4 bg-[#1A5276]/[0.04] rounded-[14px] border border-[#1A5276]/10" style={{ animation: "enquete-appear 0.6s ease 0.45s both" }}>
-                <p className="font-display text-[17px] font-semibold text-[#1A5276]">Mon Patrimoine</p>
+              <div className="mt-6 px-6 py-4 bg-[#1A3D2E]/[0.04] rounded-[14px] border border-[#1A3D2E]/10" style={{ animation: "enquete-appear 0.6s ease 0.45s both" }}>
+                <p className="text-[17px] font-semibold text-[#1A3D2E] tracking-wide" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>PARKIMMO</p>
                 <p className="text-xs text-slate-500 mt-1">La plateforme de gestion patrimoniale immobilière</p>
               </div>
             </div>
@@ -831,7 +831,7 @@ export default function EnquetePage() {
                 </div>
               )}
 
-              <h2 className="font-display text-[23px] font-medium text-slate-900 leading-snug mb-2">
+              <h2 className="text-[23px] font-medium text-slate-900 leading-snug mb-2" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
                 {q.title}
               </h2>
               {q.sub && (
@@ -918,7 +918,7 @@ export default function EnquetePage() {
                       setAns((a) => ({ ...a, [q.id]: e.target.value }))
                     }}
                     placeholder="votre@email.com"
-                    className="w-full px-4 py-3.5 text-base border-[1.5px] border-slate-200 rounded-xl outline-none bg-white text-slate-800 transition-colors duration-200 focus:border-[#1A5276]"
+                    className="w-full px-4 py-3.5 text-base border-[1.5px] border-slate-200 rounded-xl outline-none bg-white text-slate-800 transition-colors duration-200 focus:border-[#1A3D2E]"
                   />
                   <div className="flex justify-between mt-5">
                     <CtaBtn label="Passer" onClick={() => go(1)} />
@@ -938,7 +938,7 @@ export default function EnquetePage() {
                     }}
                     placeholder="Dites-nous tout\u2026"
                     rows={4}
-                    className="w-full px-4 py-3.5 text-[15px] border-[1.5px] border-slate-200 rounded-xl outline-none bg-white text-slate-800 resize-y leading-relaxed transition-colors duration-200 focus:border-[#1A5276]"
+                    className="w-full px-4 py-3.5 text-[15px] border-[1.5px] border-slate-200 rounded-xl outline-none bg-white text-slate-800 resize-y leading-relaxed transition-colors duration-200 focus:border-[#1A3D2E]"
                   />
                   <div className="flex justify-between mt-5">
                     <CtaBtn label="Passer" onClick={() => go(1)} />

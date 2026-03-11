@@ -14,12 +14,12 @@ interface TimelineItemProps {
 }
 
 const COLORS: Record<string, { dot: string; badge: string; line: string }> = {
-  green: { dot: "bg-[#16a34a] border-[#16a34a]", badge: "bg-[#16a34a]/10 text-[#16a34a]", line: "from-[#16a34a]" },
-  blue: { dot: "bg-[#1A5276] border-[#1A5276]", badge: "bg-[#1A5276]/10 text-[#1A5276]", line: "from-[#1A5276]" },
-  orange: { dot: "bg-[#E67E22] border-[#E67E22]", badge: "bg-[#E67E22]/10 text-[#E67E22]", line: "from-[#E67E22]" },
+  green: { dot: "bg-[#059669] border-[#059669]", badge: "bg-[#059669]/10 text-[#059669]", line: "from-[#059669]" },
+  blue: { dot: "bg-[#1A3D2E] border-[#1A3D2E]", badge: "bg-[#1A3D2E]/10 text-[#1A3D2E]", line: "from-[#1A3D2E]" },
+  orange: { dot: "bg-[#8FAF8A] border-[#8FAF8A]", badge: "bg-[#8FAF8A]/10 text-[#8FAF8A]", line: "from-[#8FAF8A]" },
   purple: { dot: "bg-[#7c3aed] border-[#7c3aed]", badge: "bg-[#7c3aed]/10 text-[#7c3aed]", line: "from-[#7c3aed]" },
-  primary: { dot: "bg-[#1A5276] border-[#1A5276]", badge: "bg-[#1A5276]/10 text-[#1A5276]", line: "from-[#1A5276]" },
-  accent: { dot: "bg-[#E67E22] border-[#E67E22]", badge: "bg-[#E67E22]/10 text-[#E67E22]", line: "from-[#E67E22]" },
+  primary: { dot: "bg-[#1A3D2E] border-[#1A3D2E]", badge: "bg-[#1A3D2E]/10 text-[#1A3D2E]", line: "from-[#1A3D2E]" },
+  accent: { dot: "bg-[#8FAF8A] border-[#8FAF8A]", badge: "bg-[#8FAF8A]/10 text-[#8FAF8A]", line: "from-[#8FAF8A]" },
 }
 
 export default function TimelineItem({ period, title, description, kpi, isActive = false, color = "primary", isLast = false, delay = 0 }: TimelineItemProps) {
@@ -43,7 +43,7 @@ export default function TimelineItem({ period, title, description, kpi, isActive
           <p className={`font-medium text-slate-800 ${isActive ? "text-base" : "text-sm"}`}>{title}</p>
           {description && <p className="text-sm text-slate-500 mt-1">{description}</p>}
           {kpi && (
-            <span className="inline-block mt-2 text-xs font-medium px-2 py-0.5 rounded bg-[#16a34a]/10 text-[#16a34a]">
+            <span className="inline-block mt-2 text-xs font-medium px-2 py-0.5 rounded bg-[#059669]/10 text-[#059669]">
               {kpi}
             </span>
           )}

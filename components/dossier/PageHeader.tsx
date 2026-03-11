@@ -12,7 +12,7 @@ export default function PageHeader({ icon, title, subtitle }: PageHeaderProps) {
         <h1 className="font-display text-4xl font-bold text-slate-800">{title}</h1>
       </div>
       {subtitle && <p className="text-lg text-slate-500 ml-12">{subtitle}</p>}
-      <div className="mt-4 h-0.5 bg-gradient-to-r from-[#1A5276] via-[#E67E22] to-transparent rounded" />
+      <div className="mt-4 h-0.5 bg-gradient-to-r from-[#1A3D2E] via-[#8FAF8A] to-transparent rounded" />
     </div>
   )
 }

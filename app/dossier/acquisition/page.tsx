@@ -23,11 +23,11 @@ const LEADS_M12 = [
   { canal: "Partenaires", leads: 20, pct: "9%" },
 ]
 
-const BAR_COLORS = ["#27AE60", "#1A5276", "#E67E22", "#8E44AD", "#E74C3C"]
+const BAR_COLORS = ["#27AE60", "#1A3D2E", "#8FAF8A", "#8E44AD", "#E74C3C"]
 
 function formatCPL(cpl: string) {
   if (cpl === "1€") {
-    return <span className="bg-[#16a34a]/10 text-[#16a34a] px-1 rounded font-bold">{cpl}</span>
+    return <span className="bg-[#059669]/10 text-[#059669] px-1 rounded font-bold">{cpl}</span>
   }
   return <span>{cpl}</span>
 }
@@ -63,13 +63,13 @@ export default function AcquisitionPage() {
                   <td className="py-2.5 text-xs text-slate-400">{row.phase}</td>
                 </tr>
               ))}
-              <tr className="bg-[#1A5276]/10 font-bold text-lg">
-                <td className="py-3 text-[#1A5276]">TOTAL</td>
-                <td className="py-3 text-[#1A5276]">{TOTAL.budget}</td>
-                <td className="py-3 text-[#1A5276]">{TOTAL.leads}</td>
-                <td className="py-3 text-[#1A5276]">{TOTAL.cpl}</td>
-                <td className="py-3 text-[#1A5276]">{TOTAL.clients}</td>
-                <td className="py-3 text-[#1A5276]">{TOTAL.cac}</td>
+              <tr className="bg-[#1A3D2E]/10 font-bold text-lg">
+                <td className="py-3 text-[#1A3D2E]">TOTAL</td>
+                <td className="py-3 text-[#1A3D2E]">{TOTAL.budget}</td>
+                <td className="py-3 text-[#1A3D2E]">{TOTAL.leads}</td>
+                <td className="py-3 text-[#1A3D2E]">{TOTAL.cpl}</td>
+                <td className="py-3 text-[#1A3D2E]">{TOTAL.clients}</td>
+                <td className="py-3 text-[#1A3D2E]">{TOTAL.cac}</td>
                 <td></td>
               </tr>
             </tbody>

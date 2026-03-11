@@ -13,11 +13,11 @@ const POURQUOI = [
 ]
 
 const CIRCLE_COLORS = [
-  "bg-[#1A5276] text-white",
-  "bg-[#E67E22] text-white",
-  "bg-[#16a34a] text-white",
+  "bg-[#1A3D2E] text-white",
+  "bg-[#8FAF8A] text-white",
+  "bg-[#059669] text-white",
   "bg-[#7c3aed] text-white",
-  "bg-[#1A5276] text-white",
+  "bg-[#1A3D2E] text-white",
 ]
 
 const ELIGIBILITE = [
@@ -47,7 +47,7 @@ export default function JuridiquePage() {
                   {i + 1}
                 </div>
                 <div>
-                  <h3 className="font-medium text-[#1A5276] mb-1">{item.title}</h3>
+                  <h3 className="font-medium text-[#1A3D2E] mb-1">{item.title}</h3>
                   <p className="text-sm text-slate-600">{item.desc}</p>
                 </div>
               </div>
@@ -62,7 +62,7 @@ export default function JuridiquePage() {
           {ELIGIBILITE.map((item) => (
             <div key={item.critere} className="flex items-start gap-3">
               {item.status === "done" ? (
-                <span className="text-xl w-10 h-10 rounded-lg bg-[#16a34a]/10 flex items-center justify-center flex-shrink-0">✅</span>
+                <span className="text-xl w-10 h-10 rounded-lg bg-[#059669]/10 flex items-center justify-center flex-shrink-0">✅</span>
               ) : (
                 <span className="text-xl w-10 h-10 rounded-lg bg-[#f59e0b]/10 flex items-center justify-center flex-shrink-0">⏳</span>
               )}
@@ -77,9 +77,9 @@ export default function JuridiquePage() {
 
       <ScrollReveal delay={200}>
         <div className="grid md:grid-cols-2 gap-4">
-          <div className="bg-[#E67E22]/5 border border-[#E67E22]/20 rounded-xl p-6">
+          <div className="bg-[#8FAF8A]/5 border border-[#8FAF8A]/20 rounded-xl p-6">
             <h3 className="font-display text-base font-semibold text-slate-800 mb-3">Coût total estimé</h3>
-            <p className="text-2xl font-bold text-[#1A5276]">~1 000 - 2 000€</p>
+            <p className="text-2xl font-bold text-[#1A3D2E]">~1 000 - 2 000€</p>
             <p className="text-sm text-slate-500 mt-1">Délai : 4-6 semaines</p>
           </div>
           <SectionCard>

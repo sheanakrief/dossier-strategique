@@ -108,7 +108,7 @@ export default function ExportPage() {
               <button
                 onClick={handlePrint}
                 disabled={printing}
-                className="px-5 py-2 text-sm bg-[#E67E22] text-white rounded-lg hover:bg-[#E67E22]/90 transition-colors font-medium flex items-center gap-2 shadow-sm disabled:opacity-50"
+                className="px-5 py-2 text-sm bg-[#8FAF8A] text-white rounded-lg hover:bg-[#8FAF8A]/90 transition-colors font-medium flex items-center gap-2 shadow-sm disabled:opacity-50"
               >
                 <Download className="w-4 h-4" />
                 {printing ? "Préparation..." : "Exporter en PDF"}
@@ -126,7 +126,7 @@ export default function ExportPage() {
                   onClick={() => setSelectedRole(preset.key)}
                   className={`px-3 py-1.5 text-xs rounded-full font-medium transition-all ${
                     selectedRole === preset.key
-                      ? "bg-[#1A5276] text-white shadow-sm"
+                      ? "bg-[#1A3D2E] text-white shadow-sm"
                       : "bg-slate-100 text-slate-500 hover:bg-slate-200"
                   }`}
                   title={preset.desc}

@@ -1,9 +1,9 @@
 type Color = "success" | "accent" | "primary" | "danger" | "warning"
 
 const COLOR_MAP: Record<Color, string> = {
-  success: "bg-[#16a34a]/10 text-[#16a34a]",
-  accent: "bg-[#E67E22]/10 text-[#E67E22]",
-  primary: "bg-[#1A5276]/10 text-[#1A5276]",
+  success: "bg-[#059669]/10 text-[#059669]",
+  accent: "bg-[#8FAF8A]/10 text-[#8FAF8A]",
+  primary: "bg-[#1A3D2E]/10 text-[#1A3D2E]",
   danger: "bg-[#dc2626]/10 text-[#dc2626]",
   warning: "bg-[#f59e0b]/10 text-[#f59e0b]",
 }

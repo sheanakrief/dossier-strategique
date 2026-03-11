@@ -9,26 +9,29 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#1A5276",
-          light: "rgba(26,82,118,0.06)",
+          DEFAULT: "#1A3D2E",
+          light: "rgba(26,61,46,0.06)",
         },
-        success: "#16a34a",
+        success: "#059669",
         accent: {
-          DEFAULT: "#E67E22",
+          DEFAULT: "#8FAF8A",
         },
+        sage: "#8FAF8A",
+        cream: "#E8E4D4",
+        forest: "#1A3D2E",
         danger: "#dc2626",
         warning: "#f59e0b",
         premium: "#7c3aed",
         plan: {
           starter: "#64748b",
-          solo: "#1a5276",
-          pro: "#e67e22",
+          solo: "#1A3D2E",
+          pro: "#8FAF8A",
           expert: "#7c3aed",
         },
       },
       fontFamily: {
-        sans: ["Outfit", "sans-serif"],
-        display: ["Playfair Display", "serif"],
+        sans: ["Bricolage Grotesque", "sans-serif"],
+        display: ["Plus Jakarta Sans", "sans-serif"],
       },
       keyframes: {
         "fade-in-up": {
@@ -40,8 +43,8 @@ const config: Config = {
           "100%": { opacity: "1", transform: "scale(1)" },
         },
         pulse_dot: {
-          "0%, 100%": { boxShadow: "0 0 0 0 rgba(26,82,118,0.4)" },
-          "50%": { boxShadow: "0 0 0 8px rgba(26,82,118,0)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(26,61,46,0.4)" },
+          "50%": { boxShadow: "0 0 0 8px rgba(26,61,46,0)" },
         },
         "enquete-appear": {
           "0%": { opacity: "0", transform: "translateY(24px)" },

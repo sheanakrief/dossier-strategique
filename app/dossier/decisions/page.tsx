@@ -10,19 +10,19 @@ const DECISIONS = [
     id: 1,
     question: "Intégrer les baux commerciaux ?",
     context: "Position actuelle : interface simplifiée possible avec renvoi vers gestionnaire partenaire pour les cas complexes. À valider avec la carte G.",
-    color: "#1A5276",
+    color: "#1A3D2E",
   },
   {
     id: 2,
     question: "Pricing définitif validé par le marché ?",
     context: "Nouveau pricing en 3 plans : Solo 24€ / Pro 49€ / Expert 79€ + GA par paliers. À tester avec les 3 pilotes.",
-    color: "#E67E22",
+    color: "#8FAF8A",
   },
   {
     id: 3,
     question: "Canal d’acquisition prioritaire ?",
     context: "SEO simulateur gratuit vs communautés investisseurs (Reddit, forums). Budget limité, besoin de traction rapide.",
-    color: "#16a34a",
+    color: "#059669",
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ function DecisionCard({ decision }: { decision: typeof DECISIONS[0] }) {
   return (
     <div
       className={`bg-white rounded-xl border transition-all duration-300 p-4 ${
-        saved ? "border-[#16a34a] bg-[#16a34a]/[0.02]" : "border-slate-200 hover:border-[#1A5276] hover:shadow-md"
+        saved ? "border-[#059669] bg-[#059669]/[0.02]" : "border-slate-200 hover:border-[#1A3D2E] hover:shadow-md"
       }`}
     >
       <div className="flex items-start gap-3">
@@ -67,7 +67,7 @@ function DecisionCard({ decision }: { decision: typeof DECISIONS[0] }) {
           {!saved && (
             <button
               onClick={() => setShowInput(!showInput)}
-              className="text-xs text-[#1A5276] font-medium flex items-center gap-1 hover:underline"
+              className="text-xs text-[#1A3D2E] font-medium flex items-center gap-1 hover:underline"
             >
               {showInput ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
               {showInput ? "Masquer" : "Noter ma décision"}
@@ -78,20 +78,20 @@ function DecisionCard({ decision }: { decision: typeof DECISIONS[0] }) {
               <textarea
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
-                className="w-full p-2.5 text-sm border border-slate-200 rounded-lg bg-slate-50 focus:bg-white focus:border-[#1A5276] focus:outline-none resize-none transition-colors"
+                className="w-full p-2.5 text-sm border border-slate-200 rounded-lg bg-slate-50 focus:bg-white focus:border-[#1A3D2E] focus:outline-none resize-none transition-colors"
                 rows={2}
                 placeholder="Votre décision..."
               />
               <button
                 onClick={handleSave}
-                className="mt-1.5 px-3 py-1.5 bg-[#1A5276] text-white text-xs font-semibold rounded-lg hover:bg-[#15425e] transition-colors"
+                className="mt-1.5 px-3 py-1.5 bg-[#1A3D2E] text-white text-xs font-semibold rounded-lg hover:bg-[#15425e] transition-colors"
               >
                 Enregistrer
               </button>
             </div>
           )}
           {saved && (
-            <div className="mt-1 flex items-center gap-1.5 text-xs font-medium text-[#16a34a]">
+            <div className="mt-1 flex items-center gap-1.5 text-xs font-medium text-[#059669]">
               <Check className="w-3.5 h-3.5" />
               Décision notée
             </div>

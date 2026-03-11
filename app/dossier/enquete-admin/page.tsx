@@ -33,9 +33,9 @@ const PROFILE_LABELS: Record<string, string> = {
 
 const PROFILE_COLORS: Record<string, string> = {
   A: "#8B5CF6",
-  B: "#1A5276",
-  C: "#E67E22",
-  D: "#16a34a",
+  B: "#1A3D2E",
+  C: "#8FAF8A",
+  D: "#059669",
 }
 
 /* ════ Question definitions for aggregation ════ */
@@ -301,12 +301,12 @@ export default function EnqueteAdminPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && doLogin()}
                 placeholder="Mot de passe admin"
-                className="w-full px-4 py-3 text-sm border border-slate-200 rounded-lg outline-none focus:border-[#1A5276] transition-colors"
+                className="w-full px-4 py-3 text-sm border border-slate-200 rounded-lg outline-none focus:border-[#1A3D2E] transition-colors"
               />
               {authError && <p className="text-sm text-red-500">Mot de passe incorrect</p>}
               <button
                 onClick={doLogin}
-                className="w-full py-3 bg-gradient-to-r from-[#1A5276] to-[#2980B9] text-white rounded-lg text-sm font-medium hover:shadow-lg transition-all"
+                className="w-full py-3 bg-gradient-to-r from-[#1A3D2E] to-[#1F4D38] text-white rounded-lg text-sm font-medium hover:shadow-lg transition-all"
               >
                 Acceder
               </button>
@@ -341,8 +341,8 @@ export default function EnqueteAdminPage() {
                   onClick={() => setFilter(f.key)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                     filter === f.key
-                      ? "bg-[#1A5276] text-white shadow-md"
-                      : "bg-white border border-slate-200 text-slate-600 hover:border-[#1A5276] hover:text-[#1A5276]"
+                      ? "bg-[#1A3D2E] text-white shadow-md"
+                      : "bg-white border border-slate-200 text-slate-600 hover:border-[#1A3D2E] hover:text-[#1A3D2E]"
                   }`}
                 >
                   {f.label}
@@ -420,7 +420,7 @@ export default function EnqueteAdminPage() {
                         <XAxis type="number" allowDecimals={false} fontSize={11} />
                         <YAxis type="category" dataKey="name" width={50} fontSize={11} tick={{ fill: "#5A6B7D" }} />
                         <Tooltip />
-                        <Bar dataKey="count" fill="#1A5276" radius={[0, 4, 4, 0]} barSize={18} />
+                        <Bar dataKey="count" fill="#1A3D2E" radius={[0, 4, 4, 0]} barSize={18} />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
@@ -441,7 +441,7 @@ export default function EnqueteAdminPage() {
                         <XAxis type="number" allowDecimals={false} fontSize={11} />
                         <YAxis type="category" dataKey="name" width={100} fontSize={11} tick={{ fill: "#5A6B7D" }} />
                         <Tooltip />
-                        <Bar dataKey="count" fill="#E67E22" radius={[0, 4, 4, 0]} barSize={18} />
+                        <Bar dataKey="count" fill="#8FAF8A" radius={[0, 4, 4, 0]} barSize={18} />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
@@ -463,7 +463,7 @@ export default function EnqueteAdminPage() {
                           <XAxis type="number" allowDecimals={false} fontSize={11} />
                           <YAxis type="category" dataKey="name" width={120} fontSize={11} tick={{ fill: "#5A6B7D" }} />
                           <Tooltip />
-                          <Bar dataKey="count" fill="#1A5276" radius={[0, 4, 4, 0]} barSize={18} />
+                          <Bar dataKey="count" fill="#1A3D2E" radius={[0, 4, 4, 0]} barSize={18} />
                         </BarChart>
                       </ResponsiveContainer>
                     </div>
@@ -524,7 +524,7 @@ export default function EnqueteAdminPage() {
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={exportCsv}
-                className="px-5 py-2.5 bg-gradient-to-r from-[#1A5276] to-[#2980B9] text-white rounded-lg text-sm font-medium hover:shadow-lg transition-all"
+                className="px-5 py-2.5 bg-gradient-to-r from-[#1A3D2E] to-[#1F4D38] text-white rounded-lg text-sm font-medium hover:shadow-lg transition-all"
               >
                 Exporter CSV complet
               </button>

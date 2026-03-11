@@ -18,9 +18,9 @@ interface StatCardProps {
 }
 
 const COLOR_MAP: Record<Color, { bg: string; text: string; iconBg: string }> = {
-  primary: { bg: "bg-[#1A5276]/10", text: "text-[#1A5276]", iconBg: "bg-[#1A5276]/10" },
-  success: { bg: "bg-[#16a34a]/10", text: "text-[#16a34a]", iconBg: "bg-[#16a34a]/10" },
-  accent: { bg: "bg-[#E67E22]/10", text: "text-[#E67E22]", iconBg: "bg-[#E67E22]/10" },
+  primary: { bg: "bg-[#1A3D2E]/10", text: "text-[#1A3D2E]", iconBg: "bg-[#1A3D2E]/10" },
+  success: { bg: "bg-[#059669]/10", text: "text-[#059669]", iconBg: "bg-[#059669]/10" },
+  accent: { bg: "bg-[#8FAF8A]/10", text: "text-[#8FAF8A]", iconBg: "bg-[#8FAF8A]/10" },
   slate: { bg: "bg-slate-100", text: "text-slate-600", iconBg: "bg-slate-100" },
   premium: { bg: "bg-[#7c3aed]/10", text: "text-[#7c3aed]", iconBg: "bg-[#7c3aed]/10" },
   warning: { bg: "bg-[#f59e0b]/10", text: "text-[#f59e0b]", iconBg: "bg-[#f59e0b]/10" },

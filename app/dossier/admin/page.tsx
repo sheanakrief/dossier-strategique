@@ -14,7 +14,7 @@ import SectionCard from "@/components/dossier/SectionCard"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
 import { calculerSimulation, getSyntheseAn1 } from "@/data/simulation"
 
-const COLORS = ["#16a34a", "#1A5276", "#E67E22", "#7c3aed"]
+const COLORS = ["#059669", "#1A3D2E", "#8FAF8A", "#7c3aed"]
 
 function fmt(n: number) {
   return new Intl.NumberFormat("fr-FR").format(n)
@@ -46,8 +46,8 @@ const CHANTIERS = [
 ]
 
 const STATUS_COLORS = {
-  green: { bg: "bg-[#16a34a]/10", text: "text-[#16a34a]", dot: "bg-[#16a34a]" },
-  orange: { bg: "bg-[#E67E22]/10", text: "text-[#E67E22]", dot: "bg-[#E67E22]" },
+  green: { bg: "bg-[#059669]/10", text: "text-[#059669]", dot: "bg-[#059669]" },
+  orange: { bg: "bg-[#8FAF8A]/10", text: "text-[#8FAF8A]", dot: "bg-[#8FAF8A]" },
   red: { bg: "bg-[#dc2626]/10", text: "text-[#dc2626]", dot: "bg-[#dc2626]" },
 }
 
@@ -62,9 +62,9 @@ export default function AdminDashboardPage() {
   ]
 
   const leadsData = [
-    { canal: "SEO", leads: 100, fill: "#16a34a" },
-    { canal: "Google Ads", leads: 48, fill: "#1A5276" },
-    { canal: "LinkedIn", leads: 28, fill: "#E67E22" },
+    { canal: "SEO", leads: 100, fill: "#059669" },
+    { canal: "Google Ads", leads: 48, fill: "#1A3D2E" },
+    { canal: "LinkedIn", leads: 28, fill: "#8FAF8A" },
     { canal: "Influenceurs", leads: 28, fill: "#7c3aed" },
     { canal: "Partenaires", leads: 20, fill: "#dc2626" },
   ]
@@ -81,8 +81,8 @@ export default function AdminDashboardPage() {
 
       <div className="mb-8">
         <h1 className="font-display text-4xl font-bold text-slate-800 mb-1">Dashboard Admin</h1>
-        <p className="text-lg text-slate-500">Mon Patrimoine — K PAR K CONSEILS SAS</p>
-        <div className="mt-3 h-0.5 bg-gradient-to-r from-[#1A5276] via-[#E67E22] to-transparent rounded" />
+        <p className="text-lg text-slate-500">PARKIMMO — K PAR K CONSEILS SAS</p>
+        <div className="mt-3 h-0.5 bg-gradient-to-r from-[#1A3D2E] via-[#8FAF8A] to-transparent rounded" />
       </div>
 
       {/* CHANTIERS ACTIFS */}
@@ -149,7 +149,7 @@ export default function AdminDashboardPage() {
               <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
               <RTooltip content={<CustomTooltip />} />
               <ReferenceLine x="M4" stroke="#f59e0b" strokeDasharray="5 5" label={{ value: "Break-even", position: "top", fontSize: 11, fill: "#f59e0b" }} />
-              <Area type="monotone" dataKey="caTotal" name="CA" stroke="#1A5276" fill="#1A5276" fillOpacity={0.12} strokeWidth={2.5} />
+              <Area type="monotone" dataKey="caTotal" name="CA" stroke="#1A3D2E" fill="#1A3D2E" fillOpacity={0.12} strokeWidth={2.5} />
               <Area type="monotone" dataKey="chargesTotal" name="Charges" stroke="#dc2626" fill="#dc2626" fillOpacity={0.08} strokeWidth={2} />
               <Legend iconType="circle" wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
             </AreaChart>
@@ -163,7 +163,7 @@ export default function AdminDashboardPage() {
               <XAxis dataKey="label" tick={{ fontSize: 12 }} />
               <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
               <RTooltip content={<CustomTooltip />} />
-              <Area type="monotone" dataKey="tresorerie" name="Trésorerie" stroke="#16a34a" fill="#16a34a" fillOpacity={0.12} strokeWidth={2.5} />
+              <Area type="monotone" dataKey="tresorerie" name="Trésorerie" stroke="#059669" fill="#059669" fillOpacity={0.12} strokeWidth={2.5} />
             </AreaChart>
           </ResponsiveContainer>
         </SectionCard>
@@ -245,9 +245,9 @@ export default function AdminDashboardPage() {
                 <tr key={i}>
                   <td className="py-3 px-3 font-medium text-slate-700">{row.label}</td>
                   <td className="py-3 px-3 text-right text-slate-600">{row.v1}</td>
-                  <td className="py-3 px-3 text-right font-semibold text-[#16a34a]">{row.v2}</td>
+                  <td className="py-3 px-3 text-right font-semibold text-[#059669]">{row.v2}</td>
                   <td className="py-3 px-3 text-right">
-                    <span className="inline-block px-2 py-0.5 rounded-full text-xs font-bold bg-[#16a34a]/10 text-[#16a34a]">
+                    <span className="inline-block px-2 py-0.5 rounded-full text-xs font-bold bg-[#059669]/10 text-[#059669]">
                       {row.evo}
                     </span>
                   </td>

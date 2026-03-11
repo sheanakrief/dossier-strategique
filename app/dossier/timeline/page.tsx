@@ -26,7 +26,7 @@ const TIMELINE: WeekData[] = [
     week: "S1",
     dates: "4-9 mars",
     focus: "Lancement projet ✅ Fait",
-    color: "#16a34a",
+    color: "#059669",
     tasks: [
       { task: "Création dossier stratégique complet", category: "Produit", icon: Code },
       { task: "Structuration business plan + pricing", category: "Stratégie", icon: Target },
@@ -39,7 +39,7 @@ const TIMELINE: WeekData[] = [
     week: "S2",
     dates: "10-16 mars",
     focus: "Consolidation & Produit",
-    color: "#1A5276",
+    color: "#1A3D2E",
     tasks: [
       { task: "Budget lancement + grille de dépenses", category: "Finance", icon: Briefcase },
       { task: "Forfait LUXE — positionnement premium", category: "Pricing", icon: Target },
@@ -52,7 +52,7 @@ const TIMELINE: WeekData[] = [
     week: "S3",
     dates: "17-23 mars",
     focus: "Acquisition & Juridique",
-    color: "#E67E22",
+    color: "#8FAF8A",
     tasks: [
       { task: "Simulateur SEO gratuit — développement", category: "Acquisition", icon: Megaphone },
       { task: "Carte G — dossier CCI", category: "Juridique", icon: Scale },
@@ -78,7 +78,7 @@ const TIMELINE: WeekData[] = [
     week: "S6",
     dates: "7-13 avril",
     focus: "Reprise — Scale clients",
-    color: "#16a34a",
+    color: "#059669",
     tasks: [
       { task: "Client C (50+ biens) — onboarding MDB", category: "Client", icon: Users },
       { task: "RGPD compliance — mise en conformité", category: "Juridique", icon: Scale },
@@ -91,7 +91,7 @@ const TIMELINE: WeekData[] = [
     week: "S7-S8",
     dates: "14-27 avril",
     focus: "Produit V2 & Traction",
-    color: "#16a34a",
+    color: "#059669",
     tasks: [
       { task: "Module Coffre-fort V1 + OCR documents", category: "Produit", icon: Code },
       { task: "Interviews utilisateurs (20 cibles)", category: "Validation", icon: Users },
@@ -103,7 +103,7 @@ const TIMELINE: WeekData[] = [
     week: "S9-S10",
     dates: "28 avril — 11 mai",
     focus: "Recrutement & Process",
-    color: "#E67E22",
+    color: "#8FAF8A",
     tasks: [
       { task: "Fiche de poste recrue #1 — France Travail / POE", category: "RH", icon: Users },
       { task: "Documentation process internes", category: "Process", icon: Code },
@@ -116,7 +116,7 @@ const TIMELINE: WeekData[] = [
     week: "S11-S12",
     dates: "12-25 mai",
     focus: "Accélération commerciale",
-    color: "#E67E22",
+    color: "#8FAF8A",
     tasks: [
       { task: "Google Ads — première campagne test", category: "Acquisition", icon: Megaphone },
       { task: "Entretiens recrue #1", category: "RH", icon: Users },
@@ -128,7 +128,7 @@ const TIMELINE: WeekData[] = [
     week: "S13",
     dates: "26 mai — 1er juin",
     focus: "Milestone M3",
-    color: "#16a34a",
+    color: "#059669",
     tasks: [
       { task: "Bilan M3 — KPIs, CA, pipeline", category: "Stratégie", icon: Target },
       { task: "Recrue #1 — démarrage POE", category: "RH", icon: Users },
@@ -141,22 +141,22 @@ const TIMELINE: WeekData[] = [
 
 /* ─── CATEGORY COLORS ─── */
 const CAT_COLORS: Record<string, string> = {
-  Produit: "#1A5276",
-  Stratégie: "#E67E22",
+  Produit: "#1A3D2E",
+  Stratégie: "#8FAF8A",
   Juridique: "#7c3aed",
-  Client: "#16a34a",
+  Client: "#059669",
   Finance: "#f59e0b",
   Investisseur: "#dc2626",
-  Acquisition: "#16a34a",
-  Pricing: "#E67E22",
+  Acquisition: "#059669",
+  Pricing: "#8FAF8A",
   Formation: "#7c3aed",
-  IA: "#1A5276",
-  Validation: "#16a34a",
+  IA: "#1A3D2E",
+  Validation: "#059669",
   RH: "#f59e0b",
   Process: "#64748b",
-  Commercial: "#E67E22",
-  Partenaires: "#1A5276",
-  Tech: "#1A5276",
+  Commercial: "#8FAF8A",
+  Partenaires: "#1A3D2E",
+  Tech: "#1A3D2E",
 }
 
 export default function TimelinePage() {
@@ -170,10 +170,10 @@ export default function TimelinePage() {
 
       {/* Context bar */}
       <ScrollReveal>
-        <div className="bg-gradient-to-r from-[#1A5276]/5 to-[#E67E22]/5 border-l-4 border-[#1A5276] rounded-lg p-4 mb-8">
+        <div className="bg-gradient-to-r from-[#1A3D2E]/5 to-[#8FAF8A]/5 border-l-4 border-[#1A3D2E] rounded-lg p-4 mb-8">
           <div className="grid md:grid-cols-3 gap-4 text-sm">
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-[#1A5276]" />
+              <Calendar className="w-4 h-4 text-[#1A3D2E]" />
               <span className="text-slate-600">Démarrage : <strong className="text-slate-800">4 mars 2026</strong></span>
             </div>
             <div className="flex items-center gap-2">
@@ -181,7 +181,7 @@ export default function TimelinePage() {
               <span className="text-slate-600">Vacances : <strong className="text-slate-800">24 mars — 6 avril</strong></span>
             </div>
             <div className="flex items-center gap-2">
-              <Briefcase className="w-4 h-4 text-[#E67E22]" />
+              <Briefcase className="w-4 h-4 text-[#8FAF8A]" />
               <span className="text-slate-600">Emploi : <strong className="text-slate-800">LTOA → PASCAL</strong></span>
             </div>
           </div>
@@ -191,9 +191,9 @@ export default function TimelinePage() {
       {/* Phase overview */}
       <div className="grid grid-cols-3 gap-3 mb-8">
         {[
-          { phase: "Lancement", period: "Mars", color: "#1A5276", icon: Rocket, desc: "Structure + pilotes + juridique" },
-          { phase: "Construction", period: "Avril", color: "#16a34a", icon: Code, desc: "Produit V2 + traction + process" },
-          { phase: "Accélération", period: "Mai-Juin", color: "#E67E22", icon: Target, desc: "Scale + recrue + MRR" },
+          { phase: "Lancement", period: "Mars", color: "#1A3D2E", icon: Rocket, desc: "Structure + pilotes + juridique" },
+          { phase: "Construction", period: "Avril", color: "#059669", icon: Code, desc: "Produit V2 + traction + process" },
+          { phase: "Accélération", period: "Mai-Juin", color: "#8FAF8A", icon: Target, desc: "Scale + recrue + MRR" },
         ].map((p, i) => (
           <ScrollReveal key={i} delay={i * 80}>
             <div className="bg-white rounded-xl border border-slate-200 p-4 hover:shadow-md transition-all text-center">
@@ -263,8 +263,8 @@ export default function TimelinePage() {
                   {/* Milestone */}
                   {week.milestone && (
                     <div className="mt-3 pt-3 border-t border-slate-100 flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0" />
-                      <p className="text-xs font-semibold text-[#16a34a]">{week.milestone}</p>
+                      <CheckCircle2 className="w-4 h-4 text-[#059669] flex-shrink-0" />
+                      <p className="text-xs font-semibold text-[#059669]">{week.milestone}</p>
                     </div>
                   )}
                 </div>
@@ -286,7 +286,7 @@ export default function TimelinePage() {
             <div className="space-y-2.5">
               <p className="flex items-start gap-2"><PlaneTakeoff className="w-3.5 h-3.5 text-[#7c3aed] mt-0.5 flex-shrink-0" /> Vacances <strong className="text-slate-700">24 mars — 6 avril</strong> : apprentissage IA intensif</p>
               <p className="flex items-start gap-2"><Users className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Recrue #1 via <strong className="text-slate-700">POE France Travail</strong> dès M3 (juin)</p>
-              <p className="flex items-start gap-2"><ArrowRight className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Objectif M3 : <strong className="text-[#16a34a]">8 clients · MRR 500€+ · Recrue démarrée</strong></p>
+              <p className="flex items-start gap-2"><ArrowRight className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Objectif M3 : <strong className="text-[#059669]">8 clients · MRR 500€+ · Recrue démarrée</strong></p>
             </div>
           </div>
         </SectionCard>

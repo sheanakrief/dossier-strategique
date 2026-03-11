@@ -14,7 +14,7 @@ import SectionCard from "@/components/dossier/SectionCard"
 import StatCard from "@/components/dossier/StatCard"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
 
-const COLORS = ["#1A5276", "#E67E22", "#16a34a", "#7c3aed", "#dc2626", "#f59e0b"]
+const COLORS = ["#1A3D2E", "#8FAF8A", "#059669", "#7c3aed", "#dc2626", "#f59e0b"]
 
 function fmt(n: number) {
   return new Intl.NumberFormat("fr-FR").format(n)
@@ -42,7 +42,7 @@ const BUDGET_CATEGORIES: BudgetCategory[] = [
   {
     category: "Juridique & Conformité",
     icon: Scale,
-    color: "#1A5276",
+    color: "#1A3D2E",
     items: [
       { poste: "Avocat IA / droit des affaires / PI", detail: "180€ TTC/h × provision 5h", montant: 900, type: "one-off" as const },
       { poste: "Création SAS K PAR K CONSEILS", detail: "Frais Legalstart + CFE + greffe", montant: 350, type: "one-off" as const },
@@ -54,7 +54,7 @@ const BUDGET_CATEGORIES: BudgetCategory[] = [
   {
     category: "Outils & Infrastructure Tech",
     icon: Cpu,
-    color: "#E67E22",
+    color: "#8FAF8A",
     items: [
       { poste: "Claude Pro (Anthropic)", detail: "Abonnement mensuel IA", montant: 20, type: "monthly" as const },
       { poste: "Claude Code + Chrome UX", detail: "Extensions et outils dev", montant: 80, type: "monthly" as const },
@@ -69,7 +69,7 @@ const BUDGET_CATEGORIES: BudgetCategory[] = [
   {
     category: "Marketing & Acquisition",
     icon: Megaphone,
-    color: "#16a34a",
+    color: "#059669",
     items: [
       { poste: "Google Ads", detail: "Budget pub mensuel à partir M3", montant: 200, type: "monthly" as const },
       { poste: "LinkedIn Premium", detail: "Prospection + contenu", montant: 50, type: "monthly" as const },
@@ -221,7 +221,7 @@ export default function BudgetPage() {
                           <tr key={i} className="hover:bg-slate-50/50">
                             <td className="py-2.5 font-medium text-slate-700">{item.poste}</td>
                             <td className="py-2.5 text-xs text-slate-500">{item.detail}</td>
-                            <td className="py-2.5 text-right font-bold" style={{ color: item.montant === 0 ? "#16a34a" : cat.color }}>
+                            <td className="py-2.5 text-right font-bold" style={{ color: item.montant === 0 ? "#059669" : cat.color }}>
                               {item.montant === 0 ? (
                                 <span className="text-xs">{item.note || "Gratuit"}</span>
                               ) : (
@@ -231,10 +231,10 @@ export default function BudgetPage() {
                             <td className="py-2.5 text-right">
                               <span className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-semibold ${
                                 item.type === "one-off"
-                                  ? "bg-[#1A5276]/10 text-[#1A5276]"
+                                  ? "bg-[#1A3D2E]/10 text-[#1A3D2E]"
                                   : item.type === "yearly"
                                   ? "bg-[#f59e0b]/10 text-[#f59e0b]"
-                                  : "bg-[#E67E22]/10 text-[#E67E22]"
+                                  : "bg-[#8FAF8A]/10 text-[#8FAF8A]"
                               }`}>
                                 {item.type === "one-off" ? "Unique" : item.type === "yearly" ? "Annuel" : "Mensuel"}
                               </span>
@@ -311,8 +311,8 @@ export default function BudgetPage() {
             <div className="space-y-2">
               {[
                 { label: "LTOA (emploi actuel)", hours: "35h/sem", pct: 60, color: "#64748b" },
-                { label: "Mon Patrimoine", hours: "15-20h/sem", pct: 30, color: "#1A5276" },
-                { label: "Formation IA (vacances)", hours: "40h sur 2 sem", pct: 10, color: "#E67E22" },
+                { label: "Mon Patrimoine", hours: "15-20h/sem", pct: 30, color: "#1A3D2E" },
+                { label: "Formation IA (vacances)", hours: "40h sur 2 sem", pct: 10, color: "#8FAF8A" },
               ].map((t, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <span className="text-xs text-slate-500 w-40 shrink-0">{t.label}</span>
@@ -330,8 +330,8 @@ export default function BudgetPage() {
             <div className="space-y-2">
               {[
                 { label: "PASCAL / LTOA", hours: "35h/sem", pct: 55, color: "#64748b" },
-                { label: "Mon Patrimoine", hours: "20-25h/sem", pct: 40, color: "#1A5276" },
-                { label: "Recrue #1 (POE)", hours: "35h/sem", pct: 5, color: "#16a34a", note: "Démarrage" },
+                { label: "Mon Patrimoine", hours: "20-25h/sem", pct: 40, color: "#1A3D2E" },
+                { label: "Recrue #1 (POE)", hours: "35h/sem", pct: 5, color: "#059669", note: "Démarrage" },
               ].map((t, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <span className="text-xs text-slate-500 w-40 shrink-0">{t.label}</span>

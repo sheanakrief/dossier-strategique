@@ -11,7 +11,7 @@ import StatCard from "@/components/dossier/StatCard"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
 import { calculerSimulation, getSyntheseAn1 } from "@/data/simulation"
 
-const COLORS = ["#16a34a", "#1A5276", "#E67E22", "#7c3aed"]
+const COLORS = ["#059669", "#1A3D2E", "#8FAF8A", "#7c3aed"]
 
 function fmt(n: number) {
   return new Intl.NumberFormat("fr-FR").format(n)
@@ -98,7 +98,7 @@ export default function SimulationPage() {
               <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
               <RTooltip content={<CustomTooltip />} />
               <ReferenceLine x="M4" stroke="#f59e0b" strokeDasharray="5 5" label={{ value: "Break-even", position: "top", fontSize: 11, fill: "#f59e0b" }} />
-              <Area type="monotone" dataKey="caTotal" name="CA" stroke="#1A5276" fill="#1A5276" fillOpacity={0.12} strokeWidth={2.5} />
+              <Area type="monotone" dataKey="caTotal" name="CA" stroke="#1A3D2E" fill="#1A3D2E" fillOpacity={0.12} strokeWidth={2.5} />
               <Area type="monotone" dataKey="chargesTotal" name="Charges" stroke="#dc2626" fill="#dc2626" fillOpacity={0.08} strokeWidth={2} />
               <Legend iconType="circle" wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
             </AreaChart>
@@ -113,7 +113,7 @@ export default function SimulationPage() {
               <XAxis dataKey="label" tick={{ fontSize: 12 }} />
               <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
               <RTooltip content={<CustomTooltip />} />
-              <Area type="monotone" dataKey="tresorerie" name="Trésorerie" stroke="#16a34a" fill="#16a34a" fillOpacity={0.12} strokeWidth={2.5} />
+              <Area type="monotone" dataKey="tresorerie" name="Trésorerie" stroke="#059669" fill="#059669" fillOpacity={0.12} strokeWidth={2.5} />
             </AreaChart>
           </ResponsiveContainer>
         </SectionCard>
@@ -162,7 +162,7 @@ export default function SimulationPage() {
               <XAxis dataKey="label" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `${(v / 1000).toFixed(1)}k`} />
               <RTooltip content={<CustomTooltip />} />
-              <Bar dataKey="mrr" name="MRR" fill="#1A5276" radius={[4, 4, 0, 0]} label={{ position: "top", fontSize: 10, fill: "#64748b" }} />
+              <Bar dataKey="mrr" name="MRR" fill="#1A3D2E" radius={[4, 4, 0, 0]} label={{ position: "top", fontSize: 10, fill: "#64748b" }} />
             </BarChart>
           </ResponsiveContainer>
         </SectionCard>
@@ -182,7 +182,7 @@ export default function SimulationPage() {
             <tbody className="divide-y divide-slate-50">
               {sim.map((m) => (
                 <tr key={m.month} className="hover:bg-slate-50/50 transition-colors">
-                  <td className="py-1.5 px-2 font-medium text-[#1A5276]">{m.label}</td>
+                  <td className="py-1.5 px-2 font-medium text-[#1A3D2E]">{m.label}</td>
                   <td className="py-1.5 px-2 text-right">{m.nouveauxClients}</td>
                   <td className="py-1.5 px-2 text-right">{m.clientsCumul}</td>
                   <td className="py-1.5 px-2 text-right">{m.clientsGACumul}</td>
@@ -190,7 +190,7 @@ export default function SimulationPage() {
                   <td className="py-1.5 px-2 text-right">{fmt(m.mrrSaaS)}€</td>
                   <td className="py-1.5 px-2 text-right font-medium">{fmt(m.caTotal)}€</td>
                   <td className="py-1.5 px-2 text-right text-[#dc2626]">{fmt(m.chargesTotal)}€</td>
-                  <td className={`py-1.5 px-2 text-right font-medium ${m.resultat >= 0 ? "text-[#16a34a]" : "text-[#dc2626]"}`}>{fmt(m.resultat)}€</td>
+                  <td className={`py-1.5 px-2 text-right font-medium ${m.resultat >= 0 ? "text-[#059669]" : "text-[#dc2626]"}`}>{fmt(m.resultat)}€</td>
                   <td className="py-1.5 px-2 text-right font-medium">{fmt(m.tresorerie)}€</td>
                 </tr>
               ))}
@@ -223,9 +223,9 @@ export default function SimulationPage() {
                 <tr key={i} className="hover:bg-slate-50/50 transition-colors">
                   <td className="py-3 px-3 font-medium text-slate-700">{row.label}</td>
                   <td className="py-3 px-3 text-right text-slate-600">{row.v1}</td>
-                  <td className="py-3 px-3 text-right font-semibold text-[#16a34a]">{row.v2}</td>
+                  <td className="py-3 px-3 text-right font-semibold text-[#059669]">{row.v2}</td>
                   <td className="py-3 px-3 text-right">
-                    <span className="inline-block px-2 py-0.5 rounded-full text-xs font-bold bg-[#16a34a]/10 text-[#16a34a]">
+                    <span className="inline-block px-2 py-0.5 rounded-full text-xs font-bold bg-[#059669]/10 text-[#059669]">
                       {row.evo}
                     </span>
                   </td>

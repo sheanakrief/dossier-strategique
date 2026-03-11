@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Enquête Propriétaires — Mon Patrimoine",
+  title: "Enquête Propriétaires — PARKIMMO",
   description: "Aidez-nous à construire la plateforme de gestion patrimoniale immobilière",
 }
 

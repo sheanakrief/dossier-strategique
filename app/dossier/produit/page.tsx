@@ -8,8 +8,8 @@ import ScrollReveal from "@/components/dossier/ScrollReveal"
 
 const PLAN_COLORS: Record<string, { bg: string; text: string; border: string }> = {
   Tous: { bg: "bg-slate-100", text: "text-slate-600", border: "border-slate-200" },
-  "Solo+": { bg: "bg-[#1A5276]/10", text: "text-[#1A5276]", border: "border-[#1A5276]/20" },
-  "Pro+": { bg: "bg-[#E67E22]/10", text: "text-[#E67E22]", border: "border-[#E67E22]/20" },
+  "Solo+": { bg: "bg-[#1A3D2E]/10", text: "text-[#1A3D2E]", border: "border-[#1A3D2E]/20" },
+  "Pro+": { bg: "bg-[#8FAF8A]/10", text: "text-[#8FAF8A]", border: "border-[#8FAF8A]/20" },
   Expert: { bg: "bg-[#7c3aed]/10", text: "text-[#7c3aed]", border: "border-[#7c3aed]/20" },
 }
 
@@ -48,12 +48,12 @@ export default function ProduitPage() {
             </div>
             <div className="flex-1 mx-4">
               <div className="bg-slate-600 rounded-md px-3 py-1 text-xs text-slate-300 text-center">
-                app-mon-patrimoine.vercel.app/direction
+                app-parkimmo.vercel.app/direction
               </div>
             </div>
           </div>
-          <div className="bg-gradient-to-br from-[#1A5276]/5 via-white to-[#E67E22]/5 p-8 text-center">
-            <p className="text-sm font-medium text-slate-400 mb-2">Interface Mon Patrimoine</p>
+          <div className="bg-gradient-to-br from-[#1A3D2E]/5 via-white to-[#8FAF8A]/5 p-8 text-center">
+            <p className="text-sm font-medium text-slate-400 mb-2">Interface PARKIMMO</p>
             <h3 className="font-display text-2xl font-bold text-slate-800 mb-2">Découvrez l&apos;interface</h3>
             <p className="text-sm text-slate-500">8 modules · Dashboard · Quittances PDF · Gestion locative complète</p>
           </div>
@@ -94,20 +94,20 @@ export default function ProduitPage() {
             {JOURNEY.map((step, i) => (
               <div key={step.label} className="flex items-center gap-2 md:gap-0 md:flex-col">
                 <div className="flex items-center">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#1A5276]/10 to-[#E67E22]/10 flex items-center justify-center border-2 border-[#1A5276]/20">
-                    <step.icon className="w-6 h-6 text-[#1A5276]" />
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#1A3D2E]/10 to-[#8FAF8A]/10 flex items-center justify-center border-2 border-[#1A3D2E]/20">
+                    <step.icon className="w-6 h-6 text-[#1A3D2E]" />
                   </div>
                 </div>
                 <p className="text-xs font-medium text-slate-600 mt-0 md:mt-2 text-center">{step.label}</p>
                 {i < JOURNEY.length - 1 && (
-                  <ArrowRight className="hidden md:block w-5 h-5 text-[#E67E22]/40 absolute" style={{ display: "none" }} />
+                  <ArrowRight className="hidden md:block w-5 h-5 text-[#8FAF8A]/40 absolute" style={{ display: "none" }} />
                 )}
               </div>
             ))}
           </div>
           {/* Connecting line for desktop */}
           <div className="hidden md:block relative -mt-[52px] mb-8 mx-7">
-            <div className="h-0.5 bg-gradient-to-r from-[#1A5276]/30 via-[#E67E22]/30 to-[#7c3aed]/30 mx-7" />
+            <div className="h-0.5 bg-gradient-to-r from-[#1A3D2E]/30 via-[#8FAF8A]/30 to-[#7c3aed]/30 mx-7" />
           </div>
         </SectionCard>
       </ScrollReveal>

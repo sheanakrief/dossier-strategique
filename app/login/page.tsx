@@ -56,7 +56,24 @@ function LoginForm() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
       <div className="bg-white rounded-2xl shadow-lg p-10 w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-display font-bold text-primary mb-2">Mon Patrimoine</h1>
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <div className="w-10 h-10 rounded-[28%] bg-[#1A3D2E] flex items-center justify-center flex-shrink-0">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-7 h-7">
+                <rect x="6" y="6" width="28" height="28" rx="5" fill="#E8E4D4"/>
+                <rect x="38" y="6" width="16" height="16" rx="4" fill="#E8E4D4" opacity="0.5"/>
+                <rect x="58" y="6" width="16" height="16" rx="4" fill="#E8E4D4" opacity="0.3"/>
+                <rect x="6" y="38" width="16" height="16" rx="4" fill="#E8E4D4" opacity="0.4"/>
+                <rect x="26" y="38" width="16" height="16" rx="4" fill="#8FAF8A"/>
+                <rect x="46" y="26" width="28" height="28" rx="5" fill="#E8E4D4"/>
+                <rect x="6" y="58" width="28" height="16" rx="4" fill="#E8E4D4" opacity="0.2"/>
+                <rect x="38" y="58" width="16" height="16" rx="4" fill="#E8E4D4" opacity="0.35"/>
+                <rect x="58" y="58" width="16" height="16" rx="4" fill="#8FAF8A" opacity="0.4"/>
+              </svg>
+            </div>
+            <h1 className="text-3xl font-bold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 800 }}>
+              <span className="text-[#1A3D2E]">PARK</span><span className="text-[#8FAF8A]">IMMO</span>
+            </h1>
+          </div>
           {roleInfo ? (
             <>
               <p className="text-slate-700 font-medium text-sm">{roleInfo.title}</p>

@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   background-color: #f8f9fa;
   color: #2c3e50;
 }
 
 h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* Scroll reveal */
@@ -119,10 +119,10 @@ h1, h2, h3 {
     background: white !important;
   }
   .print-cover-logo {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Bricolage Grotesque', sans-serif;
     font-size: 28pt;
-    font-weight: 700;
-    color: #1A5276;
+    font-weight: 800;
+    color: #1A3D2E;
     margin-bottom: 0.3cm;
   }
   .print-cover-sub {
@@ -133,12 +133,12 @@ h1, h2, h3 {
   .print-cover-line {
     width: 6cm;
     height: 3px;
-    background: linear-gradient(90deg, #1A5276, #E67E22, #16a34a);
+    background: linear-gradient(90deg, #1A3D2E, #8FAF8A, #059669);
     border-radius: 2px;
     margin: 0 auto 1.5cm;
   }
   .print-cover-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 22pt;
     font-weight: 700;
     color: #1e293b;
@@ -156,7 +156,7 @@ h1, h2, h3 {
     color: #94a3b8;
   }
   .print-cover-footer strong {
-    color: #1A5276;
+    color: #1A3D2E;
   }
 
   /* ─── Page header (repeated) ─── */
@@ -166,13 +166,13 @@ h1, h2, h3 {
     align-items: center;
     padding: 0.3cm 0;
     margin-bottom: 0.5cm;
-    border-bottom: 2px solid #1A5276;
+    border-bottom: 2px solid #1A3D2E;
   }
   .print-header-left {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Bricolage Grotesque', sans-serif;
     font-size: 10pt;
     font-weight: 600;
-    color: #1A5276;
+    color: #1A3D2E;
   }
   .print-header-right {
     font-size: 8pt;
@@ -211,7 +211,7 @@ h1, h2, h3 {
 
   /* Section cards with left border */
   [class*="border-l-4"] {
-    border-left: 4px solid #1A5276 !important;
+    border-left: 4px solid #1A3D2E !important;
   }
 
   /* ─── Page breaks ─── */
@@ -256,8 +256,8 @@ h1, h2, h3 {
 
   /* ─── Badges stay colored ─── */
   [class*="bg-[#16a34a]"],
-  [class*="bg-[#1A5276]"],
-  [class*="bg-[#E67E22]"],
+  [class*="bg-[#1A3D2E]"],
+  [class*="bg-[#8FAF8A]"],
   [class*="bg-[#7c3aed]"],
   [class*="bg-[#dc2626]"],
   [class*="bg-[#f59e0b]"] {
@@ -297,19 +297,19 @@ h1, h2, h3 {
   textarea {
     display: none !important;
   }
-  button[class*="text-[#1A5276]"] {
+  button[class*="text-[#1A3D2E]"] {
     display: none !important;
   }
 
   /* Gradient backgrounds — flatten for print */
   [class*="bg-gradient"] {
     background: #f8fafc !important;
-    border-left: 4px solid #1A5276;
+    border-left: 4px solid #1A3D2E;
   }
   .positioning-statement,
-  [class*="from-[#1A5276]"] {
+  [class*="from-[#1A3D2E]"] {
     background: #f8fafc !important;
-    border-left: 4px solid #1A5276 !important;
+    border-left: 4px solid #1A3D2E !important;
   }
 
   /* ─── Spacing reduction ─── */

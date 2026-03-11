@@ -6,8 +6,8 @@ import ScrollReveal from "@/components/dossier/ScrollReveal"
 import { Video, BookOpen, Bell, Headphones } from "lucide-react"
 
 const PLAN_COLORS: Record<string, string> = {
-  "Solo ★": "#1a5276",
-  Pro: "#e67e22",
+  "Solo ★": "#1A3D2E",
+  Pro: "#8FAF8A",
   Expert: "#7c3aed",
   "LUXE ✦": "#b8860b",
 }
@@ -81,8 +81,8 @@ const GA_PALIERS = [
 ]
 
 const ONBOARDING_TIERS = [
-  { plan: "Solo", icon: BookOpen, title: "Autonomie totale", desc: "Guides, tutoriels, FAQ intégrée — vous démarrez seul à votre rythme", color: "#1a5276" },
-  { plan: "Pro", icon: Video, title: "3 visios onboarding", desc: "3 RDV visio pour paramétrer, importer vos biens et vous lancer — puis autonomie + support email", color: "#e67e22" },
+  { plan: "Solo", icon: BookOpen, title: "Autonomie totale", desc: "Guides, tutoriels, FAQ intégrée — vous démarrez seul à votre rythme", color: "#1A3D2E" },
+  { plan: "Pro", icon: Video, title: "3 visios onboarding", desc: "3 RDV visio pour paramétrer, importer vos biens et vous lancer — puis autonomie + support email", color: "#8FAF8A" },
   { plan: "Expert", icon: Headphones, title: "Visios illimitées", desc: "Accompagnement continu par visio + support prioritaire 24h — vous n'êtes jamais seul", color: "#7c3aed" },
 ]
 
@@ -111,7 +111,7 @@ export default function PricingPage() {
               <div
                 className={`rounded-xl p-5 transition-all duration-300 ${
                   isSolo
-                    ? "scale-[1.03] border-2 border-[#E67E22] bg-[#E67E22]/5 shadow-md relative overflow-visible"
+                    ? "scale-[1.03] border-2 border-[#8FAF8A] bg-[#8FAF8A]/5 shadow-md relative overflow-visible"
                     : isExpert
                     ? "bg-gradient-to-b from-purple-50 to-white border border-slate-200"
                     : "bg-white border border-slate-200"
@@ -119,7 +119,7 @@ export default function PricingPage() {
               >
                 {/* Recommended badge for Solo */}
                 {isSolo && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E67E22] text-white rounded-full px-3 py-1 text-xs font-semibold whitespace-nowrap shadow-sm">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#8FAF8A] text-white rounded-full px-3 py-1 text-xs font-semibold whitespace-nowrap shadow-sm">
                     Recommandé
                   </span>
                 )}
@@ -149,7 +149,7 @@ export default function PricingPage() {
                 {/* CTA Button */}
                 <div className="mt-5">
                   {isSolo ? (
-                    <button className="w-full py-2 rounded-lg bg-[#E67E22] text-white font-semibold text-sm hover:bg-[#cf6d17] transition-colors">
+                    <button className="w-full py-2 rounded-lg bg-[#8FAF8A] text-white font-semibold text-sm hover:bg-[#cf6d17] transition-colors">
                       Commencer
                     </button>
                   ) : (
@@ -183,7 +183,7 @@ export default function PricingPage() {
                   {PLANS_SAAS.map((p) => (
                     <td key={p.plan} className="py-2 text-center">
                       {p.modulesInclus.includes(mod) ? (
-                        <span className="text-[#16a34a] font-bold">✓</span>
+                        <span className="text-[#059669] font-bold">✓</span>
                       ) : (
                         <span className="text-slate-300">—</span>
                       )}
@@ -235,14 +235,14 @@ export default function PricingPage() {
                 return (
                   <tr key={i} className="hover:bg-slate-50/50 transition-colors">
                     <td className="py-2.5 font-medium text-slate-700">{row.palier}</td>
-                    <td className="py-2.5 text-[#1A5276] font-bold">{row.prix}</td>
+                    <td className="py-2.5 text-[#1A3D2E] font-bold">{row.prix}</td>
                     <td className="py-2.5 text-slate-600 text-xs">{row.service}</td>
                     <td className="py-2.5 text-right">
                       <span
                         className={`inline-block px-2 py-0.5 rounded-full text-xs font-bold ${
                           isMax
-                            ? "bg-[#16a34a] text-white"
-                            : "bg-[#16a34a]/10 text-[#16a34a]"
+                            ? "bg-[#059669] text-white"
+                            : "bg-[#059669]/10 text-[#059669]"
                         }`}
                       >
                         {row.vs}
@@ -268,18 +268,18 @@ export default function PricingPage() {
                 </div>
               </div>
             </div>
-            {/* Mon Patrimoine bar */}
+            {/* PARKIMMO bar */}
             <div className="flex items-center gap-3">
-              <span className="text-xs text-slate-500 w-36 shrink-0">Mon Patrimoine</span>
+              <span className="text-xs text-slate-500 w-36 shrink-0">PARKIMMO</span>
               <div className="flex-1 bg-green-50 rounded-full h-5 relative">
-                <div className="bg-[#16a34a] h-5 rounded-full flex items-center justify-end pr-3" style={{ width: "12%" }}>
+                <div className="bg-[#059669] h-5 rounded-full flex items-center justify-end pr-3" style={{ width: "12%" }}>
                   <span className="text-[11px] font-bold text-white whitespace-nowrap ml-2">89€/mois</span>
                 </div>
               </div>
             </div>
           </div>
           <div className="mt-3 flex justify-end">
-            <span className="inline-flex items-center gap-1.5 bg-[#16a34a]/10 text-[#16a34a] text-xs font-bold px-3 py-1.5 rounded-full">
+            <span className="inline-flex items-center gap-1.5 bg-[#059669]/10 text-[#059669] text-xs font-bold px-3 py-1.5 rounded-full">
               Économie : jusqu&apos;à 90%
             </span>
           </div>

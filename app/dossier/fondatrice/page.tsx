@@ -86,8 +86,8 @@ const TAGS = [
 ]
 
 const TAG_COLORS = {
-  primary: "bg-[#1A5276]/10 text-[#1A5276] border-[#1A5276]/20",
-  accent: "bg-[#E67E22]/10 text-[#E67E22] border-[#E67E22]/20",
+  primary: "bg-[#1A3D2E]/10 text-[#1A3D2E] border-[#1A3D2E]/20",
+  accent: "bg-[#8FAF8A]/10 text-[#8FAF8A] border-[#8FAF8A]/20",
   slate: "bg-slate-100 text-slate-600 border-slate-200",
 }
 
@@ -97,19 +97,19 @@ const CONVICTIONS = [
     icon: Building2,
     title: "Le propriétaire est le rouage de tout",
     text: "Le marché immobilier commence par les propriétaires. Pas par les professionnels. Se placer côté propriétaire est un choix raisonné : c’est là que tout s’articule.",
-    color: "#1A5276",
+    color: "#1A3D2E",
   },
   {
     icon: Scale,
     title: "La phobie administrative est réelle",
     text: "Des Français perdus face à la lourdeur administrative, au flux d’informations et à la multiplicité d’acteurs. Personne ne fera ce travail de tri et d’organisation pour eux.",
-    color: "#E67E22",
+    color: "#8FAF8A",
   },
   {
     icon: Shield,
     title: "Organisons dès la première étape",
     text: "Un bien reste dans un patrimoine des mois, des années, parfois toute une vie. Commençons par le plus simple : savoir où on est assuré, où on paye ses charges, où sont ses documents.",
-    color: "#16a34a",
+    color: "#059669",
   },
   {
     icon: Users,
@@ -130,16 +130,16 @@ export default function FondatricePage() {
 
       {/* --- BIO BLOCK --- */}
       <ScrollReveal>
-        <div className="bg-gradient-to-br from-[#1A5276]/5 to-[#E67E22]/5 border-l-4 border-[#1A5276] rounded-xl p-6 mb-8">
+        <div className="bg-gradient-to-br from-[#1A3D2E]/5 to-[#8FAF8A]/5 border-l-4 border-[#1A3D2E] rounded-xl p-6 mb-8">
           <div className="flex items-start gap-5">
-            <div className="w-16 h-16 rounded-full bg-[#1A5276]/10 flex items-center justify-center flex-shrink-0">
-              <span className="text-xl font-bold text-[#1A5276]">SK</span>
+            <div className="w-16 h-16 rounded-full bg-[#1A3D2E]/10 flex items-center justify-center flex-shrink-0">
+              <span className="text-xl font-bold text-[#1A3D2E]">SK</span>
             </div>
             <div>
               <p className="text-lg text-slate-700 leading-relaxed mb-3">
                 10 ans dans les entrailles du droit immobilier, de l&apos;expertise technique,
                 de l&apos;assurance et de l&apos;entrepreneuriat. Sheana n&apos;a pas imaginé Mon Patrimoine —
-                elle en avait <strong className="text-[#1A5276]">besoin</strong>.
+                elle en avait <strong className="text-[#1A3D2E]">besoin</strong>.
               </p>
               <p className="text-sm text-slate-500 leading-relaxed">
                 Seule personne en France qui comprend à la fois le bail, le sinistre,
@@ -171,11 +171,11 @@ export default function FondatricePage() {
           {/* Chapitre 1 — Découverte */}
           <ScrollReveal delay={100}>
             <div className="flex items-start gap-4">
-              <div className="w-9 h-9 rounded-full bg-[#1A5276]/10 flex items-center justify-center flex-shrink-0 mt-1">
-                <BookOpen className="w-4.5 h-4.5 text-[#1A5276]" />
+              <div className="w-9 h-9 rounded-full bg-[#1A3D2E]/10 flex items-center justify-center flex-shrink-0 mt-1">
+                <BookOpen className="w-4.5 h-4.5 text-[#1A3D2E]" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-[#1A5276] mb-1">Une passion précoce pour l&apos;immobilier</p>
+                <p className="text-sm font-semibold text-[#1A3D2E] mb-1">Une passion précoce pour l&apos;immobilier</p>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   L&apos;immobilier, Sheana l&apos;a découvert très tôt, au travers de stages et d&apos;expériences
                   en tant que secrétaire puis assistante juridique dans des cabinets d&apos;avocats. Elle a vu
@@ -189,11 +189,11 @@ export default function FondatricePage() {
           {/* Chapitre 2 — Le constat */}
           <ScrollReveal delay={150}>
             <div className="flex items-start gap-4">
-              <div className="w-9 h-9 rounded-full bg-[#E67E22]/10 flex items-center justify-center flex-shrink-0 mt-1">
-                <Lightbulb className="w-4.5 h-4.5 text-[#E67E22]" />
+              <div className="w-9 h-9 rounded-full bg-[#8FAF8A]/10 flex items-center justify-center flex-shrink-0 mt-1">
+                <Lightbulb className="w-4.5 h-4.5 text-[#8FAF8A]" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-[#E67E22] mb-1">Le constat qui change tout</p>
+                <p className="text-sm font-semibold text-[#8FAF8A] mb-1">Le constat qui change tout</p>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   Un marché très concurrentiel, ultra-réglementaire, avec une multiplicité d&apos;acteurs
                   à chaque stade du cycle de vie du patrimoine : conseils juridiques, fiscaux, comptables,
@@ -208,11 +208,11 @@ export default function FondatricePage() {
           {/* Chapitre 3 — Méthodologie */}
           <ScrollReveal delay={200}>
             <div className="flex items-start gap-4">
-              <div className="w-9 h-9 rounded-full bg-[#16a34a]/10 flex items-center justify-center flex-shrink-0 mt-1">
-                <Scale className="w-4.5 h-4.5 text-[#16a34a]" />
+              <div className="w-9 h-9 rounded-full bg-[#059669]/10 flex items-center justify-center flex-shrink-0 mt-1">
+                <Scale className="w-4.5 h-4.5 text-[#059669]" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-[#16a34a] mb-1">L&apos;héritage du métier d&apos;avocat</p>
+                <p className="text-sm font-semibold text-[#059669] mb-1">L&apos;héritage du métier d&apos;avocat</p>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   Le parcours chez les avocats a forgé une <strong>méthodologie, une rigueur d&apos;analyse et
                   une capacité à synthétiser</strong> les problèmes juridiques les plus techniques. Le stage
@@ -247,11 +247,11 @@ export default function FondatricePage() {
           {/* Chapitre 5 — K PAR K */}
           <ScrollReveal delay={300}>
             <div className="flex items-start gap-4">
-              <div className="w-9 h-9 rounded-full bg-[#E67E22]/10 flex items-center justify-center flex-shrink-0 mt-1">
-                <Briefcase className="w-4.5 h-4.5 text-[#E67E22]" />
+              <div className="w-9 h-9 rounded-full bg-[#8FAF8A]/10 flex items-center justify-center flex-shrink-0 mt-1">
+                <Briefcase className="w-4.5 h-4.5 text-[#8FAF8A]" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-[#E67E22] mb-1">2 ans de R&D terrain</p>
+                <p className="text-sm font-semibold text-[#8FAF8A] mb-1">2 ans de R&D terrain</p>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   Mi-2024 : création de K PAR K CONSEILS (ex Cas par Cas Conseil), née d&apos;une réflexion
                   entamée en 2018 autour d&apos;une thèse sur le burn-out des dirigeants TPE. Le concept :
@@ -296,11 +296,11 @@ export default function FondatricePage() {
           {/* Chapitre 6 — La vision */}
           <ScrollReveal delay={350}>
             <div className="flex items-start gap-4">
-              <div className="w-9 h-9 rounded-full bg-[#1A5276]/10 flex items-center justify-center flex-shrink-0 mt-1">
-                <Rocket className="w-4.5 h-4.5 text-[#1A5276]" />
+              <div className="w-9 h-9 rounded-full bg-[#1A3D2E]/10 flex items-center justify-center flex-shrink-0 mt-1">
+                <Rocket className="w-4.5 h-4.5 text-[#1A3D2E]" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-[#1A5276] mb-1">L&apos;évidence de Mon Patrimoine</p>
+                <p className="text-sm font-semibold text-[#1A3D2E] mb-1">L&apos;évidence de Mon Patrimoine</p>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   En ce début 2026, tout converge. Le juridique, l&apos;assurance, l&apos;expertise technique,
                   l&apos;accompagnement de terrain — et l&apos;accès à des outils d&apos;intelligence artificielle
@@ -339,9 +339,9 @@ export default function FondatricePage() {
 
       {/* --- CITATION --- */}
       <ScrollReveal delay={200}>
-        <div className="bg-gradient-to-r from-[#1A5276] to-[#16213e] rounded-xl p-6 mb-8 text-white">
+        <div className="bg-gradient-to-r from-[#1A3D2E] to-[#16213e] rounded-xl p-6 mb-8 text-white">
           <div className="flex items-start gap-4">
-            <Heart className="w-6 h-6 text-[#E67E22] flex-shrink-0 mt-1" />
+            <Heart className="w-6 h-6 text-[#8FAF8A] flex-shrink-0 mt-1" />
             <div>
               <p className="text-base leading-relaxed italic mb-3">
                 &laquo; Un bien immobilier reste dans un patrimoine plusieurs mois au minimum, voire plusieurs
@@ -363,19 +363,19 @@ export default function FondatricePage() {
               icon: Scale,
               title: "Vision juridique 360°",
               items: ["Droit des biens, baux, copropriété", "Contentieux construction & décennale", "Conformité réglementaire assurances"],
-              color: "#1A5276",
+              color: "#1A3D2E",
             },
             {
               icon: Award,
               title: "Expertise terrain",
               items: ["6 mois chez Lamy Expertise (PPI)", "2 ans aux côtés d’un MDB actif", "Valeurs vénales, locatives, sinistres"],
-              color: "#E67E22",
+              color: "#8FAF8A",
             },
             {
               icon: Rocket,
               title: "ADN entrepreneurial & tech",
               items: ["Associée en cabinet de courtage", "Migration CRM & formation 15 collaborateurs", "Création de K PAR K CONSEILS mi-2024"],
-              color: "#16a34a",
+              color: "#059669",
             },
           ].map((block, i) => (
             <ScrollReveal key={i} delay={i * 80}>

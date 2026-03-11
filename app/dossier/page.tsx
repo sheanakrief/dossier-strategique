@@ -10,9 +10,9 @@ const SPACE_CARDS = [
     description: "Accédez au dossier stratégique complet : marché, simulation financière, pricing, juridique.",
     href: "/login?role=investisseur",
     buttonLabel: "Accéder au dossier",
-    borderColor: "border-[#E67E22]",
-    hoverBg: "hover:bg-[#E67E22]/5",
-    btnColor: "bg-[#1A5276] hover:bg-[#1A5276]/90",
+    borderColor: "border-[#8FAF8A]",
+    hoverBg: "hover:bg-[#8FAF8A]/5",
+    btnColor: "bg-[#1A3D2E] hover:bg-[#1A3D2E]/90",
   },
   {
     icon: "🤝",
@@ -20,9 +20,9 @@ const SPACE_CARDS = [
     description: "Comptables, notaires, CGP — découvrez comment connecter vos clients à la plateforme.",
     href: "/login?role=partenaire",
     buttonLabel: "Accéder à l'espace",
-    borderColor: "border-[#1A5276]",
-    hoverBg: "hover:bg-[#1A5276]/5",
-    btnColor: "bg-[#1A5276] hover:bg-[#1A5276]/90",
+    borderColor: "border-[#1A3D2E]",
+    hoverBg: "hover:bg-[#1A3D2E]/5",
+    btnColor: "bg-[#1A3D2E] hover:bg-[#1A3D2E]/90",
   },
   {
     icon: "👩‍💼",
@@ -42,8 +42,8 @@ export default function DossierHomePage() {
       {/* Hero */}
       <ScrollReveal>
         <div className="text-center mb-12 pt-8">
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-[#1A5276] mb-3">
-            Mon Patrimoine
+          <h1 className="text-5xl md:text-6xl font-bold mb-3" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 800 }}>
+            <span className="text-[#1A3D2E]">PARK</span><span className="text-[#8FAF8A]">IMMO</span>
           </h1>
           <p className="text-lg text-slate-500 font-medium mb-6">K PAR K CONSEILS SAS</p>
           <div className="max-w-3xl mx-auto">
@@ -53,7 +53,7 @@ export default function DossierHomePage() {
               complet — du premier achat à la revente — avec un accompagnement humain à chaque étape.
             </p>
           </div>
-          <div className="mt-6 h-0.5 w-32 mx-auto bg-gradient-to-r from-[#1A5276] to-[#E67E22] rounded" />
+          <div className="mt-6 h-0.5 w-32 mx-auto bg-gradient-to-r from-[#1A3D2E] to-[#8FAF8A] rounded" />
         </div>
       </ScrollReveal>
 

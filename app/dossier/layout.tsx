@@ -84,9 +84,26 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
         }`}
       >
         <div className="p-5 border-b border-slate-100">
-          <Link href="/dossier" className="block">
-            <h1 className="font-display text-xl font-bold text-[#1A5276]">Mon Patrimoine</h1>
-            <p className="text-xs text-slate-400 mt-0.5">Dossier Stratégique</p>
+          <Link href="/dossier" className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-[28%] bg-[#1A3D2E] flex items-center justify-center flex-shrink-0">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
+                <rect x="6" y="6" width="28" height="28" rx="5" fill="#E8E4D4"/>
+                <rect x="38" y="6" width="16" height="16" rx="4" fill="#E8E4D4" opacity="0.5"/>
+                <rect x="58" y="6" width="16" height="16" rx="4" fill="#E8E4D4" opacity="0.3"/>
+                <rect x="6" y="38" width="16" height="16" rx="4" fill="#E8E4D4" opacity="0.4"/>
+                <rect x="26" y="38" width="16" height="16" rx="4" fill="#8FAF8A"/>
+                <rect x="46" y="26" width="28" height="28" rx="5" fill="#E8E4D4"/>
+                <rect x="6" y="58" width="28" height="16" rx="4" fill="#E8E4D4" opacity="0.2"/>
+                <rect x="38" y="58" width="16" height="16" rx="4" fill="#E8E4D4" opacity="0.35"/>
+                <rect x="58" y="58" width="16" height="16" rx="4" fill="#8FAF8A" opacity="0.4"/>
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-xl font-bold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 800 }}>
+                <span className="text-[#1A3D2E]">PARK</span><span className="text-[#8FAF8A]">IMMO</span>
+              </h1>
+              <p className="text-xs text-slate-400 mt-0.5">Dossier Stratégique</p>
+            </div>
           </Link>
         </div>
 
@@ -117,7 +134,7 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
                 onClick={() => setSidebarOpen(false)}
                 className={`flex items-center gap-3 px-5 py-2.5 text-sm transition-all duration-200 ${
                   isActive
-                    ? "bg-[#1A5276]/5 text-[#1A5276] font-medium border-r-2 border-[#1A5276]"
+                    ? "bg-[#1A3D2E]/5 text-[#1A3D2E] font-medium border-r-2 border-[#1A3D2E]"
                     : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                 }`}
               >
@@ -135,7 +152,7 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
         <div className="p-4 border-t border-slate-100">
           <Link
             href="/dossier/export"
-            className="no-print w-full py-2.5 text-sm bg-[#E67E22] text-white rounded-lg hover:bg-[#E67E22]/90 transition-all font-medium flex items-center justify-center gap-2 shadow-sm block text-center"
+            className="no-print w-full py-2.5 text-sm bg-[#1A3D2E] text-white rounded-lg hover:bg-[#1A3D2E]/90 transition-all font-medium flex items-center justify-center gap-2 shadow-sm block text-center"
           >
             <Download className="w-4 h-4" />
             Exporter en PDF
@@ -150,7 +167,7 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
       <main className="flex-1 min-w-0 print-full">
         {/* PRINT COVER PAGE */}
         <div className="print-cover">
-          <div className="print-cover-logo">Mon Patrimoine</div>
+          <div className="print-cover-logo"><span style={{ color: '#1A3D2E' }}>PARK</span><span style={{ color: '#8FAF8A' }}>IMMO</span></div>
           <div className="print-cover-sub">K PAR K CONSEILS SAS</div>
           <div className="print-cover-line" />
           <div className="print-cover-title">Dossier Stratégique</div>
@@ -167,7 +184,7 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
 
         {/* PRINT HEADER */}
         <div className="print-header">
-          <span className="print-header-left">Mon Patrimoine — Dossier Stratégique</span>
+          <span className="print-header-left">PARKIMMO — Dossier Stratégique</span>
           <span className="print-header-right">K PAR K CONSEILS SAS — Confidentiel — Mars 2026</span>
         </div>
 
@@ -181,7 +198,7 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
           <button onClick={() => setSidebarOpen(true)} className="text-slate-600">
             <Menu className="w-6 h-6" />
           </button>
-          <h1 className="font-display text-lg font-bold text-[#1A5276]">Mon Patrimoine</h1>
+          <h1 className="text-lg font-bold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 800 }}><span className="text-[#1A3D2E]">PARK</span><span className="text-[#8FAF8A]">IMMO</span></h1>
           {role && (
             <span className="ml-auto text-xs text-slate-400">{ROLE_ICONS[role]} {ROLE_LABELS[role]}</span>
           )}

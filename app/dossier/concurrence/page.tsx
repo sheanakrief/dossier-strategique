@@ -122,8 +122,8 @@ function formatCompetitorCell(value: string) {
 }
 
 function formatKpkCell(value: string) {
-  if (value.startsWith("✅")) return <span className="text-[#16a34a] font-medium">{value}</span>
-  return <span className="font-medium text-[#1A5276]">{value}</span>
+  if (value.startsWith("✅")) return <span className="text-[#059669] font-medium">{value}</span>
+  return <span className="font-medium text-[#1A3D2E]">{value}</span>
 }
 
 export default function ConcurrencePage() {
@@ -149,7 +149,7 @@ export default function ConcurrencePage() {
                 <th className="text-center py-3 text-slate-500 font-medium px-3">BailFacile</th>
                 <th className="text-center py-3 text-slate-500 font-medium px-3">Smovin</th>
                 <th className="text-center py-3 text-slate-500 font-medium px-3">Mr Hugo</th>
-                <th className="text-center py-3 font-bold text-white px-3 bg-[#1A5276] rounded-t-lg">K PAR K</th>
+                <th className="text-center py-3 font-bold text-white px-3 bg-[#1A3D2E] rounded-t-lg">K PAR K</th>
                 <th className="text-center py-3 text-slate-500 font-medium px-3">Agence 7%</th>
               </tr>
             </thead>
@@ -161,7 +161,7 @@ export default function ConcurrencePage() {
                   <td className="py-2.5 text-center text-slate-500 px-3">{formatCompetitorCell(row.bailfacile)}</td>
                   <td className="py-2.5 text-center text-slate-500 px-3">{formatCompetitorCell(row.smovin)}</td>
                   <td className="py-2.5 text-center text-slate-500 px-3">{formatCompetitorCell(row.hugo)}</td>
-                  <td className="py-2.5 text-center bg-[#1A5276]/5 px-3">{formatKpkCell(row.kpk)}</td>
+                  <td className="py-2.5 text-center bg-[#1A3D2E]/5 px-3">{formatKpkCell(row.kpk)}</td>
                   <td className="py-2.5 text-center text-slate-500 px-3">{formatCompetitorCell(row.agence)}</td>
                 </tr>
               ))}
@@ -175,26 +175,26 @@ export default function ConcurrencePage() {
         <div className="grid md:grid-cols-3 gap-4 mb-6">
           <div className="bg-white rounded-xl border border-slate-200 p-5">
             <div className="flex items-center gap-3 mb-3">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#16a34a]/10 text-[#16a34a] text-sm font-bold">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#059669]/10 text-[#059669] text-sm font-bold">
                 K PAR K: {kpkScore}/12 critères
               </span>
             </div>
             <div className="w-full bg-slate-100 rounded-full h-3">
               <div
-                className="bg-[#16a34a] h-3 rounded-full transition-all duration-1000"
+                className="bg-[#059669] h-3 rounded-full transition-all duration-1000"
                 style={{ width: `${(kpkScore / 12) * 100}%` }}
               />
             </div>
           </div>
           <div className="bg-white rounded-xl border border-slate-200 p-5">
             <div className="flex items-center gap-3 mb-3">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E67E22]/10 text-[#E67E22] text-sm font-bold">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8FAF8A]/10 text-[#8FAF8A] text-sm font-bold">
                 Mr Hugo: {hugoScore}/12
               </span>
             </div>
             <div className="w-full bg-slate-100 rounded-full h-3">
               <div
-                className="bg-[#E67E22] h-3 rounded-full transition-all duration-1000"
+                className="bg-[#8FAF8A] h-3 rounded-full transition-all duration-1000"
                 style={{ width: `${(hugoScore / 12) * 100}%` }}
               />
             </div>
@@ -219,47 +219,47 @@ export default function ConcurrencePage() {
       <SectionCard title="Focus : Monsieur Hugo" icon="��" delay={150} className="mb-6">
         <div className="grid md:grid-cols-2 gap-5">
           <div>
-            <p className="text-xs font-bold text-[#E67E22] uppercase tracking-wider mb-3">Points forts</p>
+            <p className="text-xs font-bold text-[#8FAF8A] uppercase tracking-wider mb-3">Points forts</p>
             <ul className="space-y-2 text-sm text-slate-600">
               <li className="flex items-start gap-2">
-                <span className="text-[#E67E22] mt-0.5">{"●"}</span>
+                <span className="text-[#8FAF8A] mt-0.5">{"●"}</span>
                 Prélèvement SEPA automatique (unique sur le marché)
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#E67E22] mt-0.5">{"●"}</span>
+                <span className="text-[#8FAF8A] mt-0.5">{"●"}</span>
                 Garanties juridiques via Axa (200 juristes)
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#E67E22] mt-0.5">{"●"}</span>
+                <span className="text-[#8FAF8A] mt-0.5">{"●"}</span>
                 Réseau de 4 900 artisans pour le dépannage
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#E67E22] mt-0.5">{"●"}</span>
+                <span className="text-[#8FAF8A] mt-0.5">{"●"}</span>
                 Bon NPS (4.7/5 sur Trustpilot)
               </li>
             </ul>
           </div>
           <div>
-            <p className="text-xs font-bold text-[#1A5276] uppercase tracking-wider mb-3">Nos différenciants vs Hugo</p>
+            <p className="text-xs font-bold text-[#1A3D2E] uppercase tracking-wider mb-3">Nos différenciants vs Hugo</p>
             <ul className="space-y-2 text-sm text-slate-600">
               <li className="flex items-start gap-2">
-                <span className="text-[#16a34a] mt-0.5">{"●"}</span>
+                <span className="text-[#059669] mt-0.5">{"●"}</span>
                 Cycle de vie complet (pas juste locatif)
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#16a34a] mt-0.5">{"●"}</span>
+                <span className="text-[#059669] mt-0.5">{"●"}</span>
                 Multi-structures (SCI, SNC, MDB, nom propre)
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#16a34a] mt-0.5">{"●"}</span>
+                <span className="text-[#059669] mt-0.5">{"●"}</span>
                 Coffre-fort documentaire centralisé
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#16a34a] mt-0.5">{"●"}</span>
+                <span className="text-[#059669] mt-0.5">{"●"}</span>
                 Chargé d&apos;affaires dédié (pas juste du support)
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#16a34a] mt-0.5">{"●"}</span>
+                <span className="text-[#059669] mt-0.5">{"●"}</span>
                 Vision patrimoniale consolidée (rendement, charges, rentabilité)
               </li>
             </ul>
@@ -271,7 +271,7 @@ export default function ConcurrencePage() {
         <div className="flex items-start gap-3">
           <span className="text-2xl">{"��"}</span>
           <div>
-            <h3 className="font-display text-lg font-semibold text-[#1A5276] mb-2">Positionnement unique</h3>
+            <h3 className="font-display text-lg font-semibold text-[#1A3D2E] mb-2">Positionnement unique</h3>
             <p className="text-slate-600 text-sm leading-relaxed">
               K PAR K est le seul acteur à combiner <strong>logiciel + coffre-fort + accompagnement humain dédié +
               conseil juridique + carte CCI + hébergement France + cycle de vie complet</strong>. Monsieur Hugo

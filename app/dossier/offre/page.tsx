@@ -28,7 +28,7 @@ const PETIT_PLANS = [
     biens: "\u2264 3",
     stockage: "3 Go",
     recommande: true,
-    color: "#1a5276",
+    color: "#1A3D2E",
     onboarding: "Guides, tutoriels, FAQ int\u00e9gr\u00e9e",
     support: "Email 72h",
     modules: ["Patrimoine", "Locatif", "Finance", "Alertes", "Charges", "Coffre-fort", "Contacts"],
@@ -39,7 +39,7 @@ const PETIT_PLANS = [
     biens: "\u2264 15",
     stockage: "15 Go",
     recommande: false,
-    color: "#e67e22",
+    color: "#8FAF8A",
     onboarding: "3 visios d\u2019onboarding personnalis\u00e9es",
     support: "Email prioritaire 48h",
     modules: ["Tous les modules Solo", "Travaux & projets", "Partage partenaires"],
@@ -114,7 +114,7 @@ export default function OffrePage() {
               onClick={() => setMode("petit")}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ${
                 isPetit
-                  ? "bg-white text-[#1A5276] shadow-md"
+                  ? "bg-white text-[#1A3D2E] shadow-md"
                   : "text-slate-500 hover:text-slate-700"
               }`}
             >
@@ -143,10 +143,10 @@ export default function OffrePage() {
         <div key="petit" className="page-enter">
           {/* Hero */}
           <ScrollReveal>
-            <div className="bg-gradient-to-r from-[#1A5276]/5 to-blue-50 rounded-2xl p-6 md:p-8 mb-8 border border-[#1A5276]/10">
+            <div className="bg-gradient-to-r from-[#1A3D2E]/5 to-blue-50 rounded-2xl p-6 md:p-8 mb-8 border border-[#1A3D2E]/10">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-12 h-12 rounded-full bg-[#1A5276]/10 flex items-center justify-center">
-                  <Home className="w-6 h-6 text-[#1A5276]" />
+                <div className="w-12 h-12 rounded-full bg-[#1A3D2E]/10 flex items-center justify-center">
+                  <Home className="w-6 h-6 text-[#1A3D2E]" />
                 </div>
                 <div>
                   <h2 className="font-display text-2xl font-bold text-slate-800">{"1 \u00e0 5 biens"}</h2>
@@ -155,8 +155,8 @@ export default function OffrePage() {
               </div>
               <p className="text-base text-slate-700 leading-relaxed max-w-2xl">
                 {"Vous g\u00e9rez vos biens seul, avec Excel ou sans outil. "}
-                <span className="font-semibold text-[#1A5276]">Mon Patrimoine</span>{" centralise tout en un seul endroit : biens, baux, documents, rentabilit\u00e9. "}
-                <span className="font-semibold text-[#16a34a]">{"Autonomie totale, prix accessible."}</span>
+                <span className="font-semibold text-[#1A3D2E]">PARKIMMO</span>{" centralise tout en un seul endroit : biens, baux, documents, rentabilit\u00e9. "}
+                <span className="font-semibold text-[#059669]">{"Autonomie totale, prix accessible."}</span>
               </p>
             </div>
           </ScrollReveal>
@@ -166,8 +166,8 @@ export default function OffrePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {PETIT_AVANTAGES.map((av, i) => (
                 <div key={i} className="bg-white rounded-xl border border-slate-200 p-4 hover:shadow-md transition-all text-center">
-                  <div className="w-10 h-10 rounded-full bg-[#1A5276]/10 flex items-center justify-center mx-auto mb-3">
-                    <av.icon className="w-5 h-5 text-[#1A5276]" />
+                  <div className="w-10 h-10 rounded-full bg-[#1A3D2E]/10 flex items-center justify-center mx-auto mb-3">
+                    <av.icon className="w-5 h-5 text-[#1A3D2E]" />
                   </div>
                   <p className="text-sm font-semibold text-slate-800 mb-1">{av.title}</p>
                   <p className="text-xs text-slate-500">{av.desc}</p>
@@ -184,12 +184,12 @@ export default function OffrePage() {
                   key={plan.nom}
                   className={`rounded-xl p-5 transition-all ${
                     plan.recommande
-                      ? "border-2 border-[#E67E22] bg-[#E67E22]/5 shadow-md relative"
+                      ? "border-2 border-[#8FAF8A] bg-[#8FAF8A]/5 shadow-md relative"
                       : "border border-slate-200 bg-white"
                   }`}
                 >
                   {plan.recommande && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E67E22] text-white rounded-full px-3 py-1 text-xs font-semibold whitespace-nowrap shadow-sm">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#8FAF8A] text-white rounded-full px-3 py-1 text-xs font-semibold whitespace-nowrap shadow-sm">
                       {"Recommand\u00e9"}
                     </span>
                   )}
@@ -209,7 +209,7 @@ export default function OffrePage() {
                   <div className="mt-4 pt-3 border-t border-slate-100">
                     <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Onboarding</p>
                     <div className="flex items-center gap-2">
-                      {plan.recommande ? <BookOpen className="w-4 h-4 text-[#1a5276]" /> : <Video className="w-4 h-4 text-[#e67e22]" />}
+                      {plan.recommande ? <BookOpen className="w-4 h-4 text-[#1A3D2E]" /> : <Video className="w-4 h-4 text-[#8FAF8A]" />}
                       <p className="text-xs text-slate-600">{plan.onboarding}</p>
                     </div>
                   </div>
@@ -218,7 +218,7 @@ export default function OffrePage() {
                     <div className="flex flex-wrap gap-1.5">
                       {plan.modules.map((m) => (
                         <span key={m} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-100 text-[10px] text-slate-600">
-                          <CheckCircle2 className="w-3 h-3 text-[#16a34a]" />
+                          <CheckCircle2 className="w-3 h-3 text-[#059669]" />
                           {m}
                         </span>
                       ))}
@@ -233,14 +233,14 @@ export default function OffrePage() {
           <ScrollReveal delay={150}>
             <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-5 border border-green-200 mb-8">
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#16a34a]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <TrendingUp className="w-4 h-4 text-[#16a34a]" />
+                <div className="w-8 h-8 rounded-full bg-[#059669]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <TrendingUp className="w-4 h-4 text-[#059669]" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-slate-800 mb-1">{"Votre patrimoine grandit ?"}</p>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     {"\u00c0 partir de 3 biens, d\u00e9bloquez la "}
-                    <span className="font-semibold text-[#16a34a]">{"Gestion Assist\u00e9e"}</span>
+                    <span className="font-semibold text-[#059669]">{"Gestion Assist\u00e9e"}</span>
                     {" : on s\u2019occupe des quittances, relances, r\u00e9visions et encaissements pour vous. D\u00e8s "}
                     <span className="font-semibold">{"89\u20ac/mois"}</span>
                     {" \u2014 2 \u00e0 5 fois moins cher qu\u2019une agence."}
@@ -284,7 +284,7 @@ export default function OffrePage() {
               </div>
               <p className="text-base text-slate-300 leading-relaxed max-w-2xl">
                 {"Votre patrimoine m\u00e9rite un accompagnement \u00e0 la hauteur. "}
-                <span className="font-semibold text-[#daa520]">Mon Patrimoine</span>
+                <span className="font-semibold text-[#daa520]">PARKIMMO</span>
                 {" vous offre une assistante d\u00e9di\u00e9e, un tableau de bord multi-structures et des services premium \u2014 pour que vous vous concentriez sur vos acquisitions."}
               </p>
             </div>
@@ -349,8 +349,8 @@ export default function OffrePage() {
             </p>
             <div className="grid md:grid-cols-2 gap-3">
               {GA_PALIERS.map((g, i) => (
-                <div key={i} className="flex items-start gap-3 bg-slate-50 rounded-lg p-4 border border-slate-100 hover:border-[#1A5276]/30 transition-colors">
-                  <div className="w-10 h-10 rounded-lg bg-[#1A5276] flex items-center justify-center flex-shrink-0">
+                <div key={i} className="flex items-start gap-3 bg-slate-50 rounded-lg p-4 border border-slate-100 hover:border-[#1A3D2E]/30 transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-[#1A3D2E] flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs font-bold">{g.prix}{"€"}</span>
                   </div>
                   <div>
@@ -370,9 +370,9 @@ export default function OffrePage() {
                 </div>
               </div>
               <div className="flex items-center gap-3 mt-1.5">
-                <span className="text-xs text-slate-500 w-36 shrink-0">Mon Patrimoine</span>
+                <span className="text-xs text-slate-500 w-36 shrink-0">PARKIMMO</span>
                 <div className="flex-1 bg-green-50 rounded-full h-4">
-                  <div className="bg-[#16a34a] h-4 rounded-full flex items-center justify-end pr-2" style={{ width: "15%" }}>
+                  <div className="bg-[#059669] h-4 rounded-full flex items-center justify-end pr-2" style={{ width: "15%" }}>
                     <span className="text-[10px] font-bold text-white whitespace-nowrap ml-2">{"89\u20ac/mois"}</span>
                   </div>
                 </div>

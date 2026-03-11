@@ -133,7 +133,7 @@ export default function PitchPage() {
               {SAS_INFO.map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm">
-                    <Icon className="w-4 h-4 text-[#1A5276]" />
+                    <Icon className="w-4 h-4 text-[#1A3D2E]" />
                   </div>
                   <div className="min-w-0">
                     <p className="text-xs text-slate-500 font-medium">{label}</p>
