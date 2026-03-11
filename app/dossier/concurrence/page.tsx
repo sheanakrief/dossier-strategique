@@ -10,7 +10,7 @@ const COMPARATIF = [
     rentila: "0-9,90€",
     bailfacile: "9,90-29€",
     smovin: "0-29€",
-    kpk: "9,90-59,90€ + GA",
+    kpk: "24-79€ + GA",
     agence: "6-8% loyers",
   },
   {

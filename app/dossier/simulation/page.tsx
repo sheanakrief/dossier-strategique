@@ -53,7 +53,7 @@ export default function SimulationPage() {
       <PageHeader
         icon="💰"
         title="Simulation Financière"
-        subtitle="Projection An1 — Hypothèses prudentes"
+        subtitle="Projection An1 — Scénario modéré"
       />
 
       {/* KPI */}
@@ -69,14 +69,15 @@ export default function SimulationPage() {
         <SectionCard title="Hypothèses clés" icon="📐" className="mb-6">
           <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
             {[
-              ["CA clients existants", "2 750€/mois (33 000€/an)"],
-              ["Trésorerie départ", "13 000€"],
-              ["Rémunération Sheana", "0€ M1-M5, puis 1 200€/mois coût SAS"],
-              ["Recrue", "POE M3-M4 (0€), CDD M5+ (1 200€/mois)"],
-              ["Taux GA", "55% des clients prennent la GA"],
-              ["GA moyenne", "~85€/mois par client"],
-              ["SaaS moyen", "~25€/mois par client"],
-              ["Pack Démarrage", "Offert si GA → majoration +50% sur 3 mois"],
+              ["PASCAL", "1 800€/mois (toute l'année)"],
+              ["LTOA", "1 000€/mois M1-M5, sortie M6 (0€ ensuite)"],
+              ["Trésorerie départ", "8 000€"],
+              ["Nouveaux clients", "1/mois (M1-M6), 2/mois (M7-M12)"],
+              ["Clients GA", "10 en fin d'année (GA à partir de 3 biens)"],
+              ["GA moyenne", "~150€/mois par client"],
+              ["SaaS moyen", "~30€/mois par client"],
+              ["Rémunération Sheana", "800€/mois à partir de M7"],
+              ["Charges", "Infra ~175€ + Marketing 250-450€ + Admin 150€"],
             ].map(([k, v]) => (
               <div key={k} className="flex justify-between py-1.5 border-b border-slate-100">
                 <span className="text-slate-500">{k}</span>
@@ -212,13 +213,12 @@ export default function SimulationPage() {
             </thead>
             <tbody className="divide-y divide-slate-100">
               {[
-                { label: "CA total", v1: `~${fmt(syn.caTotal)}€`, v2: "~107 000€", evo: "+95%" },
-                { label: "Résultat net avant IS", v1: `~${fmt(syn.resultatNet)}€ (marge ${syn.marge}%)`, v2: "~71 000€", evo: "+191%" },
-                { label: "Trésorerie fin d'année", v1: `~${fmt(syn.tresorerieM12)}€`, v2: "~95 000€+", evo: "+154%" },
-                { label: "MRR récurrent", v1: `${fmt(syn.mrrRecurrent)}€/mois`, v2: "~7 500€/mois", evo: "+76%" },
-                { label: "Clients", v1: `${syn.clientsCumul}`, v2: "~110", evo: "+90%" },
-                { label: "Équipe", v1: "Sheana + 1 recrue CDD", v2: "Sheana + 2 recrues", evo: "+1" },
-                { label: "Revenu perso Sheana", v1: "~21 000€", v2: "~48 000€", evo: "+129%" },
+                { label: "CA total", v1: `~${fmt(syn.caTotal)}€`, v2: "~80 000€", evo: "+136%" },
+                { label: "Résultat net avant IS", v1: `~${fmt(syn.resultatNet)}€ (marge ${syn.marge}%)`, v2: "~60 000€", evo: "+133%" },
+                { label: "Trésorerie fin d'année", v1: `~${fmt(syn.tresorerieM12)}€`, v2: "~90 000€", evo: "+132%" },
+                { label: "MRR récurrent", v1: `${fmt(syn.mrrRecurrent)}€/mois`, v2: "~3 000€/mois", evo: "+243%" },
+                { label: "Clients Mon Patrimoine", v1: `${syn.clientsCumul}`, v2: "~50", evo: "+178%" },
+                { label: "Équipe", v1: "Sheana + aide familiale", v2: "Sheana + 1 recrue", evo: "+1" },
               ].map((row, i) => (
                 <tr key={i} className="hover:bg-slate-50/50 transition-colors">
                   <td className="py-3 px-3 font-medium text-slate-700">{row.label}</td>

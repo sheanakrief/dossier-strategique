@@ -31,7 +31,7 @@ const TIMELINE: WeekData[] = [
       { task: "Création dossier stratégique complet", category: "Produit", icon: Code },
       { task: "Structuration business plan + pricing", category: "Stratégie", icon: Target },
       { task: "Signature avocat IA / PI / droit des affaires", category: "Juridique", icon: Scale },
-      { task: "Client A (Dayot, 19 biens) — pilote actif", category: "Client", icon: Users },
+      { task: "Client A (Dayot, 18 biens) — pilote actif", category: "Client", icon: Users },
     ],
     milestone: "Dossier stratégique V1 + Avocat signé",
   },

@@ -93,28 +93,50 @@ export default function MarchePage() {
         </div>
       </SectionCard>
 
+      {/* Marché du logiciel de gestion immobilière */}
+      <SectionCard title="Marché du logiciel de gestion immobilière" icon="🏢" className="mb-6" delay={150}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-[#1A5276]/5 rounded-xl p-5 text-center">
+            <p className="text-3xl font-bold text-[#1A5276]">718M€</p>
+            <p className="text-sm font-medium text-slate-700 mt-1">Marché français</p>
+            <p className="text-xs text-slate-400 mt-1">+5%/an — Septeo / études sectorielles 2025</p>
+          </div>
+          <div className="bg-[#E67E22]/5 rounded-xl p-5 text-center">
+            <p className="text-3xl font-bold text-[#E67E22]">3,66 Mds$</p>
+            <p className="text-sm font-medium text-slate-700 mt-1">Marché mondial (2025)</p>
+            <p className="text-xs text-slate-400 mt-1">→ 6,47 Mds$ en 2033 · TCAC 7,3%</p>
+          </div>
+          <div className="bg-[#16a34a]/5 rounded-xl p-5 text-center">
+            <p className="text-3xl font-bold text-[#16a34a]">64%</p>
+            <p className="text-sm font-medium text-slate-700 mt-1">Déploiements Cloud / SaaS</p>
+            <p className="text-xs text-slate-400 mt-1">Tendance forte vers le SaaS</p>
+          </div>
+        </div>
+      </SectionCard>
+
       {/* TAM SAM SOM Funnel */}
       <SectionCard title="TAM / SAM / SOM" icon="🎯" className="mb-6" delay={200}>
         <div className="flex flex-col items-center gap-2 py-4">
           {/* TAM - widest */}
           <div className="w-full max-w-xl bg-[#1A5276]/10 border border-[#1A5276]/20 rounded-lg p-4 text-center">
-            <p className="text-xs font-bold text-[#1A5276]/60 mb-1">TAM</p>
-            <p className="text-2xl font-bold text-[#1A5276]">~420M€/an</p>
-            <p className="text-xs text-slate-500 mt-1">3,5M ménages bailleurs</p>
+            <p className="text-xs font-bold text-[#1A5276]/60 mb-1">TAM — Total Addressable Market</p>
+            <p className="text-2xl font-bold text-[#1A5276]">~198M€/an</p>
+            <p className="text-xs text-slate-500 mt-1">Bailleurs privés FR × outils de gestion</p>
           </div>
           {/* SAM - medium */}
           <div className="w-full max-w-md bg-[#1A5276]/20 border border-[#1A5276]/30 rounded-lg p-4 text-center">
-            <p className="text-xs font-bold text-[#1A5276]/70 mb-1">SAM</p>
-            <p className="text-2xl font-bold text-[#1A5276]">~60M€/an</p>
-            <p className="text-xs text-slate-500 mt-1">~500K multi-détenteurs auto-gérés</p>
+            <p className="text-xs font-bold text-[#1A5276]/70 mb-1">SAM — Serviceable Addressable Market</p>
+            <p className="text-2xl font-bold text-[#1A5276]">~67M€/an</p>
+            <p className="text-xs text-slate-500 mt-1">Bailleurs digitaux, multi-biens, auto-gérés</p>
           </div>
           {/* SOM - narrowest */}
           <div className="w-full max-w-xs bg-[#1A5276] border border-[#1A5276] rounded-lg p-4 text-center">
-            <p className="text-xs font-bold text-white/70 mb-1">SOM</p>
-            <p className="text-2xl font-bold text-white">~6-12M€/an</p>
-            <p className="text-xs text-white/70 mt-1">50-100K multi-détenteurs 3-30 biens, digitalisés</p>
+            <p className="text-xs font-bold text-white/70 mb-1">SOM — Serviceable Obtainable Market</p>
+            <p className="text-2xl font-bold text-white">~2-5M€/an</p>
+            <p className="text-xs text-white/70 mt-1">Lyon + IDF, early adopters, An1-An2</p>
           </div>
         </div>
+        <p className="text-[10px] text-slate-400 text-center mt-3">Sources : Septeo, études sectorielles 2025, INSEE, BPCE L&apos;Observatoire</p>
       </SectionCard>
 
       {/* Témoignages */}

@@ -40,7 +40,7 @@ function CustomTooltip({ active, payload, label }: { active?: boolean; payload?:
 /* ─── CHANTIERS DATA ─── */
 const CHANTIERS = [
   { icon: Rocket, name: "Développement produit", detail: "Sprint 2 Locatif & Sprint 3 Finance en cours", status: "orange" as const, badge: "En cours" },
-  { icon: Users, name: "Pilotes clients", detail: "Client A (Dayot, 19 biens) actif · Client B (4 biens) & C (50+ biens) en onboarding", status: "green" as const, badge: "1/3 actif" },
+  { icon: Users, name: "Pilotes clients", detail: "Client A (Dayot, 18 biens) actif · Client B (4 biens) & C (50+ biens) en onboarding", status: "green" as const, badge: "1/3 actif" },
   { icon: Megaphone, name: "Pitch investisseur", detail: "Dossier stratégique en cours — cible entourage de confiance", status: "orange" as const, badge: "En cours" },
   { icon: FileText, name: "Cartes G & T", detail: "Démarches CCI en cours — couverture juridique activité", status: "orange" as const, badge: "En cours" },
   { icon: Handshake, name: "Réseau partenaires", detail: "Identification des premiers comptables/notaires cibles", status: "red" as const, badge: "À lancer" },
@@ -63,7 +63,7 @@ const DECISIONS = [
   {
     id: 2,
     question: "Pricing définitif validé par le marché ?",
-    context: "Nouveau pricing en 4 plans : Starter 9,90€ / Solo 19,90€ / Pro 34,90€ / Expert 59,90€ + GA par paliers. À tester avec les 3 pilotes.",
+    context: "Nouveau pricing en 3 plans : Solo 24€ / Pro 49€ / Expert 79€ + GA par paliers. À tester avec les 3 pilotes.",
     color: "#E67E22",
   },
   {
@@ -269,7 +269,7 @@ export default function DashboardPage() {
 
       {/* Métriques opérationnelles */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-4">
-        <StatCard label="Biens gérés en prod" value="19" subtitle="Client A (Dayot)" color="primary" icon={Building2} delay={0} />
+        <StatCard label="Biens gérés en prod" value="18" subtitle="Client A (Dayot)" color="primary" icon={Building2} delay={0} />
         <StatCard label="Clients pilotes" value="1 → 3" subtitle="2 en onboarding" color="success" icon={Users} delay={50} />
         <StatCard label="MRR actuel" value="0€" subtitle="Phase test gratuite" color="accent" icon={PiggyBank} delay={100} />
         <StatCard label="TAM" value="198M€" subtitle="SAM : 67M€/an" color="premium" icon={TrendingUp} delay={150} />
@@ -390,13 +390,12 @@ export default function DashboardPage() {
             </thead>
             <tbody className="divide-y divide-slate-100">
               {[
-                { label: "CA total", v1: `~${fmt(syn.caTotal)}€`, v2: "~107 000€", evo: "+95%" },
-                { label: "Résultat net avant IS", v1: `~${fmt(syn.resultatNet)}€ (marge ${syn.marge}%)`, v2: "~71 000€", evo: "+191%" },
-                { label: "Trésorerie fin d'année", v1: `~${fmt(syn.tresorerieM12)}€`, v2: "~95 000€+", evo: "+154%" },
-                { label: "MRR récurrent", v1: `${fmt(syn.mrrRecurrent)}€/mois`, v2: "~7 500€/mois", evo: "+76%" },
-                { label: "Clients", v1: `${syn.clientsCumul}`, v2: "~110", evo: "+90%" },
-                { label: "Équipe", v1: "Sheana + 1 recrue CDD", v2: "Sheana + 2 recrues", evo: "+1" },
-                { label: "Revenu perso Sheana", v1: "~21 000€", v2: "~48 000€", evo: "+129%" },
+                { label: "CA total", v1: `~${fmt(syn.caTotal)}€`, v2: "~80 000€", evo: "+136%" },
+                { label: "Résultat net avant IS", v1: `~${fmt(syn.resultatNet)}€ (marge ${syn.marge}%)`, v2: "~60 000€", evo: "+133%" },
+                { label: "Trésorerie fin d'année", v1: `~${fmt(syn.tresorerieM12)}€`, v2: "~90 000€", evo: "+132%" },
+                { label: "MRR récurrent", v1: `${fmt(syn.mrrRecurrent)}€/mois`, v2: "~3 000€/mois", evo: "+243%" },
+                { label: "Clients Mon Patrimoine", v1: `${syn.clientsCumul}`, v2: "~50", evo: "+178%" },
+                { label: "Équipe", v1: "Sheana + aide familiale", v2: "Sheana + 1 recrue", evo: "+1" },
               ].map((row, i) => (
                 <tr key={i}>
                   <td className="py-3 px-3 font-medium text-slate-700">{row.label}</td>

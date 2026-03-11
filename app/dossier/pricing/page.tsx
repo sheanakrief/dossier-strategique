@@ -3,20 +3,60 @@
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
+import { Video, BookOpen, Bell, Headphones } from "lucide-react"
 
 const PLAN_COLORS: Record<string, string> = {
-  Starter: "#64748b",
   "Solo ★": "#1a5276",
   Pro: "#e67e22",
   Expert: "#7c3aed",
   "LUXE ✦": "#b8860b",
 }
 
+const ALL_MODULES = [
+  "Patrimoine",
+  "Locatif",
+  "Finance",
+  "Alertes",
+  "Charges",
+  "Coffre-fort",
+  "Contacts",
+  "Travaux & projets",
+  "Partage partenaires",
+  "Multi-structures (SCI/SNC)",
+  "Pipeline acquisition/revente",
+  "Scénarios & simulation",
+  "Export comptable",
+  "API",
+]
+
 const PLANS_SAAS = [
-  { plan: "Starter", prix: "9,90€", biens: "≤ 2", stockage: "2 Go", modules: "Coffre-fort + Mon Patrimoine + Locatif", highlight: false },
-  { plan: "Solo ★", prix: "19,90€", biens: "≤ 5", stockage: "5 Go", modules: "+ Finance + Alertes + Export PDF", highlight: true },
-  { plan: "Pro", prix: "34,90€", biens: "≤ 15", stockage: "15 Go", modules: "+ Charges/Assurances + Contacts + Partage partenaires", highlight: false },
-  { plan: "Expert", prix: "59,90€", biens: "Illimité", stockage: "50 Go", modules: "Tous les 8 modules + Scénarios + Multi-structures + API", highlight: false },
+  {
+    plan: "Solo ★",
+    prix: "24€",
+    biens: "≤ 3",
+    stockage: "3 Go",
+    support: "Email 72h",
+    highlight: true,
+    modulesInclus: ["Patrimoine", "Locatif", "Finance", "Alertes", "Charges", "Coffre-fort", "Contacts"],
+  },
+  {
+    plan: "Pro",
+    prix: "49€",
+    biens: "≤ 15",
+    stockage: "15 Go",
+    support: "Email prioritaire 48h",
+    highlight: false,
+    modulesInclus: ["Patrimoine", "Locatif", "Finance", "Alertes", "Charges", "Coffre-fort", "Contacts", "Travaux & projets", "Partage partenaires"],
+  },
+  {
+    plan: "Expert",
+    prix: "79€",
+    biens: "Illimité",
+    stockage: "50 Go",
+    support: "Prioritaire 24h + visio",
+    highlight: false,
+    modulesInclus: ALL_MODULES,
+  },
 ]
 
 /* ─── FORFAIT LUXE ─── */
@@ -30,24 +70,20 @@ const LUXE_FEATURES = [
   { feature: "Reporting trimestriel premium", detail: "Synthèse patrimoniale, performance, alertes — format investisseur" },
   { feature: "Accès prioritaire support 24/48h", detail: "Ligne directe Sheana — résolution express" },
   { feature: "Tous modules Expert inclus", detail: "Multi-structures, API, scénarios, export comptable illimité" },
+  { feature: "Kit de bienvenue premium", detail: "Classeur cuir personnalisé, rangement complet, goodies aux couleurs du client" },
 ]
 
 const GA_PALIERS = [
-  { palier: "1-2 biens", prix: "39€", service: "Quittances, alertes, encaissements, rappels", vs: "-60%" },
-  { palier: "3-5 biens", prix: "69€", service: "+ Révisions IRL + MAJ coffre-fort + export comptable", vs: "-72%" },
-  { palier: "6-10 biens", prix: "99€", service: "+ Multi-entités + reporting + dossier partenaire", vs: "-80%" },
-  { palier: "11-20 biens", prix: "149€", service: "+ Suivi projets + préparation bilans SCI", vs: "-86%" },
-  { palier: "20+ biens", prix: "199€", service: "Tout inclus + priorité support", vs: "-90%" },
+  { palier: "3-5 biens", prix: "89€", service: "Quittances, alertes, encaissements, rappels, révisions IRL, MAJ coffre-fort", vs: "-60%" },
+  { palier: "6-10 biens", prix: "129€", service: "+ Multi-entités + reporting + dossier partenaire", vs: "-71%" },
+  { palier: "11-20 biens", prix: "189€", service: "+ Suivi projets + préparation bilans SCI", vs: "-78%" },
+  { palier: "20+ biens", prix: "259€", service: "Tout inclus + priorité support", vs: "-81%" },
 ]
 
-const PACK_DEMARRAGE = [
-  { item: "Bien locatif paramétré", prix: "69€/bien" },
-  { item: "Résidence (RP/secondaire)", prix: "OFFERTE si 1+ bien locatif" },
-  { item: "Entités juridiques (1-4)", prix: "99€" },
-  { item: "Entités juridiques (5+)", prix: "149€" },
-  { item: "Projets/Travaux", prix: "49€/projet" },
-  { item: "Baux complexes", prix: "29€/bail" },
-  { item: "Annuaire prestataires", prix: "29€ forfait" },
+const ONBOARDING_TIERS = [
+  { plan: "Solo", icon: BookOpen, title: "Autonomie totale", desc: "Guides, tutoriels, FAQ intégrée — vous démarrez seul à votre rythme", color: "#1a5276" },
+  { plan: "Pro", icon: Video, title: "3 visios onboarding", desc: "3 RDV visio pour paramétrer, importer vos biens et vous lancer — puis autonomie + support email", color: "#e67e22" },
+  { plan: "Expert", icon: Headphones, title: "Visios illimitées", desc: "Accompagnement continu par visio + support prioritaire 24h — vous n'êtes jamais seul", color: "#7c3aed" },
 ]
 
 export default function PricingPage() {
@@ -56,15 +92,15 @@ export default function PricingPage() {
       <PageHeader
         icon="💶"
         title="Pricing"
-        subtitle="SaaS + Pack Démarrage + Gestion Assistée"
+        subtitle="SaaS + Gestion Assistée + Forfait LUXE — Onboarding accompagné inclus"
       />
 
       {/* Plans SaaS */}
       <ScrollReveal>
-        <h2 className="font-display text-xl font-bold text-slate-800 mb-6">SaaS — 4 plans</h2>
+        <h2 className="font-display text-xl font-bold text-slate-800 mb-6">SaaS — 3 plans</h2>
       </ScrollReveal>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+      <div className="grid md:grid-cols-3 gap-5 mb-6">
         {PLANS_SAAS.map((p, i) => {
           const color = PLAN_COLORS[p.plan] || "#64748b"
           const isSolo = p.highlight
@@ -107,7 +143,7 @@ export default function PricingPage() {
                 <div className="mt-4 space-y-2 text-sm text-slate-600">
                   <p><span className="text-slate-400">Biens :</span> {p.biens}</p>
                   <p><span className="text-slate-400">Stockage :</span> {p.stockage}</p>
-                  <p className="text-xs leading-relaxed">{p.modules}</p>
+                  <p><span className="text-slate-400">Support :</span> {p.support}</p>
                 </div>
 
                 {/* CTA Button */}
@@ -128,29 +164,61 @@ export default function PricingPage() {
         })}
       </div>
 
-      {/* Pack Démarrage */}
-      <SectionCard title="🎁 Pack Démarrage (offert si gestion assistée)" delay={100} className="mb-8">
+      {/* Modules inclus/exclus */}
+      <SectionCard title="Modules par plan" icon="📦" delay={100} className="mb-8">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b-2 border-slate-200">
+                <th className="text-left py-3 text-slate-500 font-medium">Module</th>
+                {PLANS_SAAS.map((p) => (
+                  <th key={p.plan} className="text-center py-3 text-slate-700 font-semibold px-3">{p.plan.replace(" ★", "")}</th>
+                ))}
+              </tr>
+            </thead>
             <tbody className="divide-y divide-slate-100">
-              {PACK_DEMARRAGE.map((row, i) => (
-                <tr key={i} className="hover:bg-slate-50/50 transition-colors">
-                  <td className="py-2.5 text-slate-700">{row.item}</td>
-                  <td className="py-2.5 text-right text-[#E67E22] font-bold text-lg">{row.prix}</td>
+              {ALL_MODULES.map((mod) => (
+                <tr key={mod} className="hover:bg-slate-50/50 transition-colors">
+                  <td className="py-2 text-slate-700 text-xs">{mod}</td>
+                  {PLANS_SAAS.map((p) => (
+                    <td key={p.plan} className="py-2 text-center">
+                      {p.modulesInclus.includes(mod) ? (
+                        <span className="text-[#16a34a] font-bold">✓</span>
+                      ) : (
+                        <span className="text-slate-300">—</span>
+                      )}
+                    </td>
+                  ))}
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <div className="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-500">
-          <p className="font-medium mb-1">Remises volume :</p>
-          <p>-5% dès 300€ · -10% dès 600€ · -15% dès 1K€ · -20% dès 1,5K€</p>
-          <p className="mt-1">Inclus : formation visio + support 48h + 6 mois SaaS offerts</p>
+      </SectionCard>
+
+      {/* Onboarding — 3 niveaux */}
+      <SectionCard title="🎓 Accompagnement selon votre plan" delay={150} className="mb-8">
+        <p className="text-sm text-slate-500 mb-4">Chaque plan a son niveau d&apos;accompagnement — du 100% autonome au suivi continu.</p>
+        <div className="grid md:grid-cols-3 gap-4">
+          {ONBOARDING_TIERS.map((tier, i) => (
+            <ScrollReveal key={i} delay={i * 80}>
+              <div className="bg-white rounded-xl border border-slate-200 p-5 hover:shadow-md transition-all">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: `${tier.color}15` }}>
+                    <tier.icon className="w-4 h-4" style={{ color: tier.color }} />
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-wider" style={{ color: tier.color }}>{tier.plan}</span>
+                </div>
+                <p className="text-sm font-semibold text-slate-800 mb-1">{tier.title}</p>
+                <p className="text-xs text-slate-500 leading-relaxed">{tier.desc}</p>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
       </SectionCard>
 
       {/* Gestion Assistée */}
-      <SectionCard title="Gestion Assistée — Forfait fixe sans engagement" delay={200}>
+      <SectionCard title="Gestion Assistée — À partir de 3 biens · Sans engagement" delay={200}>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -205,7 +273,7 @@ export default function PricingPage() {
               <span className="text-xs text-slate-500 w-36 shrink-0">Mon Patrimoine</span>
               <div className="flex-1 bg-green-50 rounded-full h-5 relative">
                 <div className="bg-[#16a34a] h-5 rounded-full flex items-center justify-end pr-3" style={{ width: "12%" }}>
-                  <span className="text-[11px] font-bold text-white whitespace-nowrap ml-2">39€/mois</span>
+                  <span className="text-[11px] font-bold text-white whitespace-nowrap ml-2">89€/mois</span>
                 </div>
               </div>
             </div>
@@ -268,7 +336,7 @@ export default function PricingPage() {
               Prendre rendez-vous
             </button>
             <p className="flex items-center text-xs text-slate-400">
-              Déplacement Île-de-France inclus · Visio pour hors IDF
+              Déplacement Lyon / Villeurbanne inclus · Visio pour hors zone
             </p>
           </div>
 

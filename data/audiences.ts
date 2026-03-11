@@ -66,6 +66,12 @@ export const SECTIONS: Section[] = [
     audiences: ["all", "investisseur", "client", "partenaire"],
   },
   {
+    slug: "offre",
+    title: "Offre Détaillée",
+    icon: "🎁",
+    audiences: ["all", "investisseur", "client", "partenaire"],
+  },
+  {
     slug: "acquisition",
     title: "Stratégie Acquisition",
     icon: "🚀",

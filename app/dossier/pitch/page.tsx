@@ -71,8 +71,8 @@ const SAS_INFO = [
   { icon: User, label: "Présidente", value: "Sheana Krief" },
   { icon: Mail, label: "Email", value: "sheana.krief@gmail.com" },
   { icon: MapPin, label: "Localisation", value: "Lyon / Villeurbanne" },
-  { icon: Wallet, label: "Trésorerie", value: "13 000€" },
-  { icon: TrendingUp, label: "CA existant", value: "33 000€/an (2 750€/mois)" },
+  { icon: Wallet, label: "Trésorerie", value: "8 000€ (affectés au projet)" },
+  { icon: TrendingUp, label: "CA existant", value: "26 600€/an (PASCAL 1 800€ + LTOA 1 000€)" },
   { icon: PiggyBank, label: "Épargne personnelle", value: "5 000€" },
 ]
 
