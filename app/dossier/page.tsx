@@ -25,6 +25,9 @@ export default function DossierHomePage() {
             <span className="text-[#1A3D2E]">PARK</span><span className="text-[#8FAF8A]">IMMO</span>
           </h1>
           <p className="text-sm text-slate-400 mb-10">Dossier Stratégique</p>
+          <Link href="/enquete" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-white bg-[#059669] hover:bg-[#059669]/90 transition-all mb-4">
+            Participer à l&apos;enquête
+          </Link>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
             <Link href="/login?role=investisseur" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-white bg-[#1A3D2E] hover:bg-[#1A3D2E]/90 transition-all">
               Espace Investisseur
