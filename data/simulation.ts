@@ -10,7 +10,7 @@ export interface MonthData {
   caPascal: number
   caLtoa: number
   caExistant: number
-  caMonPatrimoine: number
+  caParkimmo: number
   caTotal: number
   remunSheana: number
   infra: number
@@ -25,8 +25,8 @@ const NOUVEAUX_CLIENTS = [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2]
 // GA distribution targeting 10 clients total (GA starts at 3+ biens)
 const NOUVEAUX_GA =       [1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1]
 const TRESO_DEPART = 8000
-const GA_MOYEN = 150
-const SAAS_MOYEN = 30
+const GA_MOYEN = 92
+const SAAS_MOYEN = 35
 
 export function calculerSimulation(): MonthData[] {
   const data: MonthData[] = []
@@ -46,10 +46,10 @@ export function calculerSimulation(): MonthData[] {
     mrrSaaS += nouveauxClients * SAAS_MOYEN
 
     const caPascal = 1800
-    const caLtoa = m < 5 ? 1000 : 0 // Sort à M5, 0€ à partir de M6
+    const caLtoa = m < 5 ? 600 : 0 // Sort à M5, 0€ à partir de M6
     const caExistant = caPascal + caLtoa
-    const caMonPatrimoine = mrrGA + mrrSaaS
-    const caTotal = caExistant + caMonPatrimoine
+    const caParkimmo = mrrGA + mrrSaaS
+    const caTotal = caExistant + caParkimmo
 
     const remunSheana = m < 6 ? 0 : 800 // 800€/mois à partir de M7
     const infra = 175
@@ -72,7 +72,7 @@ export function calculerSimulation(): MonthData[] {
       caPascal,
       caLtoa,
       caExistant,
-      caMonPatrimoine,
+      caParkimmo,
       caTotal,
       remunSheana,
       infra,
@@ -94,7 +94,7 @@ export function getSyntheseAn1(data: MonthData[]) {
   const caGA = data.reduce((sum, d) => sum + d.mrrGA, 0)
   const caSaaS = data.reduce((sum, d) => sum + d.mrrSaaS, 0)
   const caExistant = data.reduce((sum, d) => sum + d.caExistant, 0)
-  const caMonPatrimoine = data.reduce((sum, d) => sum + d.caMonPatrimoine, 0)
+  const caParkimmo = data.reduce((sum, d) => sum + d.caParkimmo, 0)
   const remunSheanaTotal = data.reduce((sum, d) => sum + d.remunSheana, 0)
 
   return {
@@ -107,7 +107,7 @@ export function getSyntheseAn1(data: MonthData[]) {
     chargesTotal,
     resultatNet: caTotal - chargesTotal,
     marge: Math.round(((caTotal - chargesTotal) / caTotal) * 100),
-    caMonPatrimoine,
+    caParkimmo,
     remunSheanaTotal,
     decompositionCA: {
       ga: caGA,

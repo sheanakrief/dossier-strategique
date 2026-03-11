@@ -14,7 +14,7 @@ const PLAN_COLORS: Record<string, { bg: string; text: string; border: string }> 
 }
 
 const MODULES = [
-  { icon: "🏠", name: "Mon Patrimoine", desc: "Fiches biens, entités SCI/SNC, adresses, parkings", plans: "Tous" },
+  { icon: "🏠", name: "Patrimoine", desc: "Fiches biens, entités SCI/SNC, adresses, parkings", plans: "Tous" },
   { icon: "📋", name: "Locatif", desc: "Baux, locataires, quittances PDF, révisions IRL", plans: "Tous" },
   { icon: "💰", name: "Finance", desc: "Encaissements, prêts, rendement, cash-flow", plans: "Solo+" },
   { icon: "🔔", name: "Alertes", desc: "Calendrier, rappels, échéances assurance/bail", plans: "Solo+" },
@@ -108,6 +108,47 @@ export default function ProduitPage() {
           {/* Connecting line for desktop */}
           <div className="hidden md:block relative -mt-[52px] mb-8 mx-7">
             <div className="h-0.5 bg-gradient-to-r from-[#1A3D2E]/30 via-[#8FAF8A]/30 to-[#7c3aed]/30 mx-7" />
+          </div>
+        </SectionCard>
+      </ScrollReveal>
+
+      {/* Conçu à partir du terrain */}
+      <ScrollReveal>
+        <SectionCard title="Conçu à partir du terrain" icon="🔨" className="mt-8 mb-6">
+          <p className="text-sm text-slate-500 mb-4">
+            Parkimmo n&apos;est pas un produit imaginé dans un bureau. Chaque module est né d&apos;un besoin réel,
+            observé pendant 2 ans d&apos;accompagnement d&apos;un marchand de biens avec 10+ biens actifs.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              {
+                label: "Coffre-fort documentaire",
+                terrain: "Le client perdait systématiquement ses attestations d'assurance au moment des sinistres",
+                color: "#1A3D2E",
+              },
+              {
+                label: "Multi-structures (SCI/SNC)",
+                terrain: "9 structures juridiques différentes gérées sur 3 tableurs Excel séparés",
+                color: "#8FAF8A",
+              },
+              {
+                label: "Pipeline acquisition → revente",
+                terrain: "Aucun outil ne suivait un bien de la recherche à la revente en passant par les travaux",
+                color: "#059669",
+              },
+              {
+                label: "Partage partenaires",
+                terrain: "L'expert-comptable demandait les mêmes documents chaque trimestre — impossible de les retrouver",
+                color: "#7c3aed",
+              },
+            ].map((item, i) => (
+              <ScrollReveal key={i} delay={i * 80}>
+                <div className="bg-white rounded-xl border border-slate-200 p-4 hover:shadow-md transition-all">
+                  <p className="text-sm font-semibold mb-2" style={{ color: item.color }}>{item.label}</p>
+                  <p className="text-xs text-slate-500 leading-relaxed italic">&laquo; {item.terrain} &raquo;</p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </SectionCard>
       </ScrollReveal>

@@ -16,7 +16,7 @@ const STACK = [
 ]
 
 const MODELE_DONNEES = [
-  { module: "Mon Patrimoine", entites: "Bien, Entite, Adresse, ParkingLot, CaveLot", relations: "Bien → Entite (N:1)" },
+  { module: "Parkimmo", entites: "Bien, Entite, Adresse, ParkingLot, CaveLot", relations: "Bien → Entite (N:1)" },
   { module: "Locatif", entites: "Bail, Locataire, Quittance, RevisionLoyer, EtatDesLieux", relations: "Bail → Bien (N:1), Bail → Locataire (N:N)" },
   { module: "Finance", entites: "Encaissement, Pret, EcheancePret, Transaction, AssuranceEmprunteur", relations: "Pret → Bien (N:1)" },
   { module: "Charges", entites: "Charge, Assurance, Sinistre, TaxeFonciere", relations: "Charge → Bien (N:1)" },

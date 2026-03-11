@@ -3,7 +3,7 @@
 import {
   Scale, Building2, Shield, Briefcase, Heart, Lightbulb,
   Users, BookOpen, Rocket, Star, ChevronRight, Award,
-  Monitor, ArrowLeft,
+  Monitor, ArrowLeft, AlertTriangle,
 } from "lucide-react"
 import Link from "next/link"
 import PageHeader from "@/components/dossier/PageHeader"
@@ -58,12 +58,12 @@ const TIMELINE = [
   {
     period: "Mi-2024",
     title: "Création de K PAR K CONSEILS (ex Cas par Cas Conseil)",
-    description: "Née d’une réflexion entamée en 2018 autour d’une thèse sur le burn-out des dirigeants TPE. Concept de « business partner » juridique — accompagnement externalisé des fonctions support. Développement d’une clientèle propre : accompagnement d’un dirigeant marchand de biens sur plusieurs structures (10+ biens actifs). Bras droit, assistante de direction, exploitante. 2 ans de R&D terrain pour le projet Mon Patrimoine. Le besoin identifié chez ce client — un logiciel de gestion patrimoniale introuvable sur le marché — a conduit à la décision de le construire.",
+    description: "Née d’une réflexion entamée en 2018 autour d’une thèse sur le burn-out des dirigeants TPE. Concept de « business partner » juridique — accompagnement externalisé des fonctions support. Développement d’une clientèle propre : accompagnement d’un dirigeant marchand de biens sur plusieurs structures (10+ biens actifs). Bras droit, assistante de direction, exploitante. 2 ans de R&D terrain pour le projet Parkimmo. Le besoin identifié chez ce client — un logiciel de gestion patrimoniale introuvable sur le marché — a conduit à la décision de le construire.",
     color: "orange",
   },
   {
     period: "Mars 2026 →",
-    title: "Fondatrice — Mon Patrimoine",
+    title: "Fondatrice — Parkimmo",
     description: "La convergence de tout. La plateforme de gestion patrimoniale immobilière complète. Un projet mûri par 10 ans d’immersion dans le juridique, l’assurance et l’immobilier.",
     color: "accent",
     isActive: true,
@@ -138,7 +138,7 @@ export default function FondatricePage() {
             <div>
               <p className="text-lg text-slate-700 leading-relaxed mb-3">
                 10 ans dans les entrailles du droit immobilier, de l&apos;expertise technique,
-                de l&apos;assurance et de l&apos;entrepreneuriat. Sheana n&apos;a pas imaginé Mon Patrimoine —
+                de l&apos;assurance et de l&apos;entrepreneuriat. Sheana n&apos;a pas imaginé Parkimmo —
                 elle en avait <strong className="text-[#1A3D2E]">besoin</strong>.
               </p>
               <p className="text-sm text-slate-500 leading-relaxed">
@@ -287,7 +287,7 @@ export default function FondatricePage() {
                   Quand le second cabinet est racheté, elle repart de zéro : mise en place complète d&apos;un CRM,
                   rédaction des procédures, formation des équipes, création des tableaux de statistiques.
                   Cette expérience de terrain — <strong>comprendre l&apos;UX, penser la productivité, structurer
-                  les données</strong> — est le socle technique sur lequel Mon Patrimoine est construit.
+                  les données</strong> — est le socle technique sur lequel Parkimmo est construit.
                 </p>
               </div>
             </div>
@@ -300,7 +300,7 @@ export default function FondatricePage() {
                 <Rocket className="w-4.5 h-4.5 text-[#1A3D2E]" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-[#1A3D2E] mb-1">L&apos;évidence de Mon Patrimoine</p>
+                <p className="text-sm font-semibold text-[#1A3D2E] mb-1">L&apos;évidence de Parkimmo</p>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   En ce début 2026, tout converge. Le juridique, l&apos;assurance, l&apos;expertise technique,
                   l&apos;accompagnement de terrain — et l&apos;accès à des outils d&apos;intelligence artificielle
@@ -344,16 +344,73 @@ export default function FondatricePage() {
             <Heart className="w-6 h-6 text-[#8FAF8A] flex-shrink-0 mt-1" />
             <div>
               <p className="text-base leading-relaxed italic mb-3">
-                &laquo; Un bien immobilier reste dans un patrimoine plusieurs mois au minimum, voire plusieurs
-                années, parfois toute une vie. Organisons-nous dès cette première étape : la gestion
-                administrative du bien. Que le propriétaire sache où il est assuré, où il paye son
-                électricité, où il paye ses charges. Personne ne fera ce travail pour lui. &raquo;
+                &laquo; Le propriétaire est le client. Le professionnel est le canal de distribution.
+                Ma conviction depuis le premier jour : si on aide le propriétaire à s&apos;organiser,
+                tout le monde y gagne — le comptable, le notaire, l&apos;assureur, le gestionnaire. &raquo;
               </p>
               <p className="text-sm text-slate-300">— Sheana Krief, fondatrice</p>
             </div>
           </div>
         </div>
       </ScrollReveal>
+
+      {/* --- TRANSPARENCE & RÉSERVES --- */}
+      <SectionCard title="Transparence & réserves" icon="⚠️" delay={350} className="mb-8">
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-5">
+          <div className="flex items-start gap-3 mb-4">
+            <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+            <p className="text-sm text-slate-700 leading-relaxed">
+              <strong className="text-amber-700">Ce que Parkimmo est aujourd&apos;hui :</strong> un projet en phase
+              de lancement, porté par une fondatrice seule, avec 2 ans de R&D terrain et un premier client pilote actif.
+              Les chiffres présentés dans ce dossier sont des projections prudentes, pas des résultats acquis.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4 mt-4">
+            <div className="space-y-2">
+              <p className="text-xs font-bold text-[#1A3D2E] uppercase tracking-wider">Ce qui est fait</p>
+              <ul className="space-y-1.5 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#059669] mt-0.5">✓</span>
+                  Produit fonctionnel (38 modèles, 50+ routes API)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#059669] mt-0.5">✓</span>
+                  Client pilote actif (MDB, 18+ biens)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#059669] mt-0.5">✓</span>
+                  Avocat signé (IA, IP, droit des affaires)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#059669] mt-0.5">✓</span>
+                  Structure SAS existante
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-2">
+              <p className="text-xs font-bold text-amber-700 uppercase tracking-wider">Ce qui reste à prouver</p>
+              <ul className="space-y-1.5 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-500 mt-0.5">○</span>
+                  Acquisition clients au-delà du réseau proche
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-500 mt-0.5">○</span>
+                  Validation du pricing en conditions réelles
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-500 mt-0.5">○</span>
+                  Scalabilité de la Gestion Assistée
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-500 mt-0.5">○</span>
+                  Passage de 1 à 18 clients en 12 mois
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </SectionCard>
 
       {/* --- WHAT MAKES HER UNIQUE --- */}
       <SectionCard title="Ce que Sheana apporte au projet" icon="��" delay={300} className="mb-8">

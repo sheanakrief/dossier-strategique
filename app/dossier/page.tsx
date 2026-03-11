@@ -36,9 +36,6 @@ export default function DossierHomePage() {
               Espace Partenaire
             </Link>
           </div>
-          <Link href="/dossier/fondatrice" className="text-xs text-slate-400 hover:text-slate-600 transition-colors">
-            La Fondatrice
-          </Link>
         </div>
       </ScrollReveal>
       <div className="mt-auto pb-8 text-center space-y-3">

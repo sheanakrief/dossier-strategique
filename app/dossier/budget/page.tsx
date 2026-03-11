@@ -311,7 +311,7 @@ export default function BudgetPage() {
             <div className="space-y-2">
               {[
                 { label: "LTOA (emploi actuel)", hours: "35h/sem", pct: 60, color: "#64748b" },
-                { label: "Mon Patrimoine", hours: "15-20h/sem", pct: 30, color: "#1A3D2E" },
+                { label: "Parkimmo", hours: "15-20h/sem", pct: 30, color: "#1A3D2E" },
                 { label: "Formation IA (vacances)", hours: "40h sur 2 sem", pct: 10, color: "#8FAF8A" },
               ].map((t, i) => (
                 <div key={i} className="flex items-center gap-3">
@@ -330,7 +330,7 @@ export default function BudgetPage() {
             <div className="space-y-2">
               {[
                 { label: "PASCAL / LTOA", hours: "35h/sem", pct: 55, color: "#64748b" },
-                { label: "Mon Patrimoine", hours: "20-25h/sem", pct: 40, color: "#1A3D2E" },
+                { label: "Parkimmo", hours: "20-25h/sem", pct: 40, color: "#1A3D2E" },
                 { label: "Recrue #1 (POE)", hours: "35h/sem", pct: 5, color: "#059669", note: "Démarrage" },
               ].map((t, i) => (
                 <div key={i} className="flex items-center gap-3">

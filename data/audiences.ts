@@ -150,7 +150,7 @@ export const ROLE_LABELS: Record<Role, string> = {
 
 export const ROLE_ACCESS: Record<Role, string[]> = {
   admin: ["all"],
-  investisseur: ["", "vision", "fondatrice", "marche", "concurrence", "produit", "architecture", "pricing", "simulation", "deploiement", "juridique", "budget", "pitch"],
+  investisseur: ["", "marche", "fondatrice", "concurrence", "produit", "pricing", "simulation"],
   partenaire: ["", "vision", "fondatrice", "produit", "pricing", "juridique", "pitch"],
   dev: ["", "produit", "architecture", "deploiement", "timeline"],
 }

@@ -94,11 +94,11 @@ const ALL_QUESTIONS: QDef[] = [
   { id: "d3", title: "Outils utilises", bloc: "Vos outils", type: "multi", profiles: ["D"], opts: ["Logiciel metier (Loja, Powimo\u2026)", "Excel / tableurs", "CRM classique", "Outils comptables (Sage, Cegid\u2026)", "Rien de specifique"] },
   { id: "d4", title: "Problemes relation proprios", bloc: "Relation clients", type: "multi", profiles: ["D"], opts: ["Documents incomplets ou manquants", "Proprietaires qui ne connaissent pas leur patrimoine", "Manque de donnees fiables", "Communication difficile", "Suivi des echeances decale", "Pas de vision consolidee"] },
   { id: "d4b", title: "Transparence clients", bloc: "Relation clients", opts: ["Oui, ils demandent de plus en plus de visibilité", "Un peu, mais ça se gère", "Non, la relation est fluide", "C\u2019est le nerf de la guerre"], type: "single", profiles: ["D"] },
-  { id: "d5", title: "Espace centralisé utile ?", bloc: "Mon Patrimoine", opts: ["Oui, radicalement", "Oui, ça aiderait", "Bof, pas vraiment", "Non, mes outils suffisent"], type: "single", profiles: ["D"] },
-  { id: "d6", title: "Acces partenaire gratuit ?", bloc: "Mon Patrimoine", opts: ["Oui, tres interesse(e)", "Peut-etre, j\u2019aimerais en savoir plus", "Non merci"], type: "single", profiles: ["D"] },
-  { id: "d7", title: "Recommanderiez-vous ?", bloc: "Mon Patrimoine", opts: ["Oui, spontanement", "Oui, si l\u2019outil est bon", "Non, ca compliquerait les choses", "Je voudrais le tester d\u2019abord"], type: "single", profiles: ["D"] },
+  { id: "d5", title: "Espace centralisé utile ?", bloc: "Parkimmo", opts: ["Oui, radicalement", "Oui, ça aiderait", "Bof, pas vraiment", "Non, mes outils suffisent"], type: "single", profiles: ["D"] },
+  { id: "d6", title: "Acces partenaire gratuit ?", bloc: "Parkimmo", opts: ["Oui, tres interesse(e)", "Peut-etre, j\u2019aimerais en savoir plus", "Non merci"], type: "single", profiles: ["D"] },
+  { id: "d7", title: "Recommanderiez-vous ?", bloc: "Parkimmo", opts: ["Oui, spontanement", "Oui, si l\u2019outil est bon", "Non, ca compliquerait les choses", "Je voudrais le tester d\u2019abord"], type: "single", profiles: ["D"] },
   // Common
-  { id: "f1", title: "Interet Mon Patrimoine", bloc: "Contact", opts: ["Oui, tenez-moi informe(e)", "Oui, je veux tester en avant-premiere", "Envoyez-moi un mail le jour J", "Non merci"], type: "single", profiles: ["A", "B", "C", "D"] },
+  { id: "f1", title: "Interet Parkimmo", bloc: "Contact", opts: ["Oui, tenez-moi informe(e)", "Oui, je veux tester en avant-premiere", "Envoyez-moi un mail le jour J", "Non merci"], type: "single", profiles: ["A", "B", "C", "D"] },
 ]
 
 /* ════ HELPERS ════ */
@@ -235,7 +235,7 @@ export default function EnqueteAdminPage() {
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
     a.href = url
-    a.download = `enquete-mon-patrimoine-${new Date().toISOString().split("T")[0]}.csv`
+    a.download = `enquete-parkimmo-${new Date().toISOString().split("T")[0]}.csv`
     a.click()
     URL.revokeObjectURL(url)
   }, [])

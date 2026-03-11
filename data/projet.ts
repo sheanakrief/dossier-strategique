@@ -1,5 +1,5 @@
 /**
- * SOURCE DE VERITE — Donnees centralisees du projet Mon Patrimoine
+ * SOURCE DE VERITE — Donnees centralisees du projet Parkimmo
  *
  * Ce fichier contient toutes les donnees business qui sont referencees
  * dans plusieurs pages du dossier strategique. Modifier ici = coherence partout.
@@ -9,7 +9,7 @@
 
 // ─── ENTREPRISE ─────────────────────────────────────────────────
 export const ENTREPRISE = {
-  nom: "Mon Patrimoine",
+  nom: "Parkimmo",
   societe: "K PAR K CONSEILS SAS",
   ancienNom: "Cas par Cas Conseil",
   fondatrice: "Sheana Krief",
@@ -18,7 +18,7 @@ export const ENTREPRISE = {
   siret: "", // A renseigner
   adresse: "Lyon / Villeurbanne",
   email: "sheana@kparkconseils.fr",
-  site: "dossier-strategique.vercel.app",
+  site: "parkimmo.io",
 } as const
 
 // ─── SITUATION SHEANA ───────────────────────────────────────────
@@ -26,10 +26,10 @@ export const SITUATION_SHEANA = {
   structure: "Fondatrice K PAR K CONSEILS SAS",
   clientsPrestations: [
     { nom: "PASCAL", ca: 1800, detail: "1,5 jours/semaine — accompagnement admin", duree: "Client long terme, potentiel investisseur" },
-    { nom: "LTOA Assurances", ca: 1000, detail: "1 jour/semaine — associée en cours de sortie", duree: "Sortie prévue M5" },
+    { nom: "LTOA Assurances", ca: 600, detail: "Quelques heures/semaine — associée en cours de sortie", duree: "Sortie prévue M5" },
   ],
-  caExistantMensuel: 2800,
-  tempsMonPatrimoine: "2,5 jours/semaine + soirs/WE",
+  caExistantMensuel: 2400,
+  tempsParkimmo: "2,5 jours/semaine + soirs/WE",
   aideFamille: "Soeur (~10h/sem), mère et frère ponctuellement — rémunérés en perso, hors SAS",
 } as const
 
@@ -61,29 +61,31 @@ export const CLIENTS_PILOTES = [
 // ─── PRICING ────────────────────────────────────────────────────
 export const PLANS_SAAS = [
   {
-    nom: "Solo",
-    prix: 24,
+    nom: "Essentiel",
+    prix: 19,
     biens: "≤ 3",
     stockage: "3 Go",
-    recommande: true,
-    modules: "Patrimoine + Locatif + Finance + Alertes + Charges + Coffre-fort + Contacts",
-    modulesExclus: "Travaux & projets, Multi-structures, Pipeline acquisition, Scénarios, Export comptable, API, Partage partenaires",
-    support: "Email 72h",
-    onboarding: "Guides + tutoriels + FAQ",
-  },
-  {
-    nom: "Pro",
-    prix: 49,
-    biens: "≤ 15",
-    stockage: "15 Go",
     recommande: false,
-    modules: "Tous les modules Solo + Travaux & projets + Partage partenaires",
-    modulesExclus: "Multi-structures (SCI/SNC), Pipeline acquisition/revente, Scénarios & simulation, Export comptable, API",
-    support: "Email prioritaire 48h",
-    onboarding: "3 visios onboarding + support email",
+    modules: "Patrimoine + Locatif + Finance + Alertes + Charges + Coffre-fort + Contacts",
+    modulesExclus: "Multi-structures, Pipeline acquisition, Scénarios, Export comptable, Partage partenaires",
+    support: "Email 72h",
+    onboarding: "99€ (offert avec GA)",
+    onboardingPrix: 99,
   },
   {
     nom: "Expert",
+    prix: 49,
+    biens: "≤ 15",
+    stockage: "15 Go",
+    recommande: true,
+    modules: "Tous les modules Essentiel + Travaux & projets + Partage partenaires + Multi-entités",
+    modulesExclus: "Pipeline acquisition/revente, Scénarios & simulation, Export comptable",
+    support: "Email prioritaire 48h",
+    onboarding: "49€ (offert avec GA)",
+    onboardingPrix: 49,
+  },
+  {
+    nom: "Pro",
     prix: 79,
     biens: "Illimité",
     stockage: "50 Go",
@@ -91,27 +93,21 @@ export const PLANS_SAAS = [
     modules: "Tous les modules — Multi-structures + Pipeline acquisition/revente + Scénarios + Export comptable + API",
     modulesExclus: "",
     support: "Prioritaire 24h + visio",
-    onboarding: "Visios illimitées + support prioritaire",
+    onboarding: "Offert",
+    onboardingPrix: 0,
   },
 ] as const
 
-export const FORFAIT_LUXE = {
-  prix: 299,
-  setup: "A partir de 1 500 EUR",
-  cible: ["Marchands de biens", "Chefs d'entreprise", "Multi-propriétaires 10+", "Family offices"],
-} as const
-
 export const TARIFS_GA = {
   paliers: [
-    { palier: "3-5 biens", prix: 89, service: "Quittances, alertes, encaissements, rappels, révisions IRL, MAJ coffre-fort", vs: "-60%" },
-    { palier: "6-10 biens", prix: 129, service: "+ Multi-entités + reporting + dossier partenaire", vs: "-71%" },
-    { palier: "11-20 biens", prix: 189, service: "+ Suivi projets + préparation bilans SCI", vs: "-78%" },
-    { palier: "20+ biens", prix: 259, service: "Tout inclus + priorité support", vs: "-81%" },
+    { palier: "Essentiel (≤ 3 biens)", prix: 39, planAssocie: "Essentiel", service: "Quittances, alertes, encaissements, rappels, révisions IRL" },
+    { palier: "Expert (≤ 15 biens)", prix: 89, planAssocie: "Expert", service: "+ Multi-entités + reporting + dossier partenaire" },
+    { palier: "Pro (illimité)", prix: 149, planAssocie: "Pro", service: "Tout inclus + priorité support + suivi projets" },
   ],
-  seuilMinimum: "3 biens",
+  seuilMinimum: "Disponible sur tous les plans",
   onboarding: {
     inclus: true,
-    contenu: "Visio d'onboarding + guides + webinaires + notifications intelligentes + support",
+    contenu: "Onboarding TOUJOURS OFFERT avec GA — visio + guides + support",
   },
 } as const
 
@@ -122,15 +118,15 @@ export const OBJECTIFS = {
     mrr: 330,
   },
   an1: {
-    clientsMonPatrimoine: 18,
+    clientsParkimmo: 18,
     clientsGA: 10,
-    caMonPatrimoine: 12_300,
-    caExistants: 26_600,
-    caTotal: 38_900,
+    caParkimmo: 12_300,
+    caExistants: 22_800,
+    caTotal: 35_100,
     charges: 8_100,
     remunSheana: 4_800,
-    resultatNet: 26_000,
-    tresorerie: 34_000,
+    resultatNet: 22_200,
+    tresorerie: 30_200,
     mrrM12: 2_040,
   },
   an2: {

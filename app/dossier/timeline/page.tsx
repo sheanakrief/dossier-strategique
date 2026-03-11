@@ -69,7 +69,7 @@ const TIMELINE: WeekData[] = [
     vacation: true,
     tasks: [
       { task: "Formation Claude avancée (prompting, agents)", category: "Formation", icon: GraduationCap },
-      { task: "Automatisations IA pour process Mon Patrimoine", category: "IA", icon: Code },
+      { task: "Automatisations IA pour process Parkimmo", category: "IA", icon: Code },
       { task: "Étude approfondie cible + personas", category: "Stratégie", icon: Target },
       { task: "Veille concurrentielle approfondie", category: "Stratégie", icon: Building2 },
     ],
@@ -165,7 +165,7 @@ export default function TimelinePage() {
       <PageHeader
         icon="🗓️"
         title="Timeline 3 Mois"
-        subtitle="Mars — Juin 2026 · Planning détaillé LTOA / PASCAL / Mon Patrimoine"
+        subtitle="Mars — Juin 2026 · Planning détaillé LTOA / PASCAL / Parkimmo"
       />
 
       {/* Context bar */}
@@ -281,7 +281,7 @@ export default function TimelinePage() {
             <div className="space-y-2.5">
               <p className="flex items-start gap-2"><Briefcase className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> <strong className="text-slate-700">LTOA</strong> : emploi actuel 35h/sem jusqu&apos;à transition PASCAL</p>
               <p className="flex items-start gap-2"><Briefcase className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> <strong className="text-slate-700">PASCAL</strong> : client/employeur suivant — emploi maintenu en parallèle</p>
-              <p className="flex items-start gap-2"><Clock className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Mon Patrimoine travaillé le <strong className="text-slate-700">soir + week-end</strong> (15-25h/sem)</p>
+              <p className="flex items-start gap-2"><Clock className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Parkimmo travaillé le <strong className="text-slate-700">soir + week-end</strong> (15-25h/sem)</p>
             </div>
             <div className="space-y-2.5">
               <p className="flex items-start gap-2"><PlaneTakeoff className="w-3.5 h-3.5 text-[#7c3aed] mt-0.5 flex-shrink-0" /> Vacances <strong className="text-slate-700">24 mars — 6 avril</strong> : apprentissage IA intensif</p>

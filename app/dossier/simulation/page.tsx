@@ -4,7 +4,7 @@ import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RTooltip, ResponsiveContainer,
   PieChart, Pie, Cell, BarChart, Bar, Legend, ReferenceLine,
 } from "recharts"
-import { TrendingUp, PiggyBank, Repeat, Wallet } from "lucide-react"
+import { TrendingUp, PiggyBank, Repeat, Wallet, AlertTriangle } from "lucide-react"
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import StatCard from "@/components/dossier/StatCard"
@@ -56,6 +56,19 @@ export default function SimulationPage() {
         subtitle="Projection An1 — Scénario modéré"
       />
 
+      {/* Warning banner */}
+      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 flex items-start gap-3">
+        <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-sm font-semibold text-amber-700">Projection — scénario modéré</p>
+          <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+            Ces chiffres sont des hypothèses prudentes, pas des résultats acquis. La simulation repose sur
+            un rythme d&apos;acquisition de 1-2 clients/mois et des revenus moyens de 35€ SaaS + 92€ GA.
+            Les résultats réels dépendront de l&apos;exécution terrain.
+          </p>
+        </div>
+      </div>
+
       {/* KPI */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <StatCard label="Clients M12" value={`${syn.clientsCumul}`} subtitle={`dont ${syn.clientsGACumul} en GA`} color="primary" icon={TrendingUp} delay={0} />
@@ -70,12 +83,12 @@ export default function SimulationPage() {
           <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
             {[
               ["PASCAL", "1 800€/mois (toute l'année)"],
-              ["LTOA", "1 000€/mois M1-M5, sortie M6 (0€ ensuite)"],
+              ["LTOA", "600€/mois M1-M5, sortie M6 (0€ ensuite)"],
               ["Trésorerie départ", "8 000€"],
               ["Nouveaux clients", "1/mois (M1-M6), 2/mois (M7-M12)"],
               ["Clients GA", "10 en fin d'année (GA à partir de 3 biens)"],
-              ["GA moyenne", "~150€/mois par client"],
-              ["SaaS moyen", "~30€/mois par client"],
+              ["GA moyenne", "~92€/mois par client"],
+              ["SaaS moyen", "~35€/mois par client"],
               ["Rémunération Sheana", "800€/mois à partir de M7"],
               ["Charges", "Infra ~175€ + Marketing 250-450€ + Admin 150€"],
             ].map(([k, v]) => (
@@ -217,7 +230,7 @@ export default function SimulationPage() {
                 { label: "Résultat net avant IS", v1: `~${fmt(syn.resultatNet)}€ (marge ${syn.marge}%)`, v2: "~60 000€", evo: "+133%" },
                 { label: "Trésorerie fin d'année", v1: `~${fmt(syn.tresorerieM12)}€`, v2: "~90 000€", evo: "+132%" },
                 { label: "MRR récurrent", v1: `${fmt(syn.mrrRecurrent)}€/mois`, v2: "~3 000€/mois", evo: "+243%" },
-                { label: "Clients Mon Patrimoine", v1: `${syn.clientsCumul}`, v2: "~50", evo: "+178%" },
+                { label: "Clients Parkimmo", v1: `${syn.clientsCumul}`, v2: "~50", evo: "+178%" },
                 { label: "Équipe", v1: "Sheana + aide familiale", v2: "Sheana + 1 recrue", evo: "+1" },
               ].map((row, i) => (
                 <tr key={i} className="hover:bg-slate-50/50 transition-colors">

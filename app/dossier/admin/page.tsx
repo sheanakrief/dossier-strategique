@@ -239,7 +239,7 @@ export default function AdminDashboardPage() {
                 { label: "Résultat net avant IS", v1: `~${fmt(syn.resultatNet)}€ (marge ${syn.marge}%)`, v2: "~60 000€", evo: "+133%" },
                 { label: "Trésorerie fin d’année", v1: `~${fmt(syn.tresorerieM12)}€`, v2: "~90 000€", evo: "+132%" },
                 { label: "MRR récurrent", v1: `${fmt(syn.mrrRecurrent)}€/mois`, v2: "~3 000€/mois", evo: "+243%" },
-                { label: "Clients Mon Patrimoine", v1: `${syn.clientsCumul}`, v2: "~50", evo: "+178%" },
+                { label: "Clients Parkimmo", v1: `${syn.clientsCumul}`, v2: "~50", evo: "+178%" },
                 { label: "Équipe", v1: "Sheana + aide familiale", v2: "Sheana + 1 recrue", evo: "+1" },
               ].map((row, i) => (
                 <tr key={i}>

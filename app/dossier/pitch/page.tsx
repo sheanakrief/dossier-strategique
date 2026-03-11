@@ -15,7 +15,7 @@ const PITCHS = [
     headerStyle: "bg-gradient-to-r from-amber-50 to-amber-100/50 border-l-4 border-amber-500",
     contenu: `3,5 millions de propriétaires bailleurs en France gèrent 7,2 millions de logements. 62% gèrent seuls, avec Excel ou sans outil. Les logiciels existants sont des tableurs améliorés — aucun ne combine coffre-fort documentaire, vision patrimoniale et accompagnement humain.
 
-K PAR K Conseils comble ce vide avec Mon Patrimoine : un plateforme de gestion patrimoniale qui centralise les documents, calcule la rentabilité en temps réel, et connecte le propriétaire à ses professionnels.
+K PAR K Conseils comble ce vide avec Parkimmo : un plateforme de gestion patrimoniale qui centralise les documents, calcule la rentabilité en temps réel, et connecte le propriétaire à ses professionnels.
 
 Notre modèle à 4 couches génère un MRR de 4 000€/mois au M12 avec une marge de 44%. La fondatrice cumule 10 ans d'expertise terrain. Le produit est construit et déployé. Les premiers clients pilotes démarrent cette semaine.`,
     renderParagraph: (para: string, i: number) => {
@@ -29,7 +29,7 @@ Notre modèle à 4 couches génère un MRR de 4 000€/mois au M12 avec une marg
       if (i === 1) {
         return (
           <p key={i} className="text-sm text-slate-700 leading-relaxed mb-3">
-            K PAR K Conseils comble ce vide avec Mon Patrimoine : un plateforme de gestion patrimoniale qui centralise les documents, calcule la rentabilité en temps réel, et connecte le propriétaire à ses professionnels.
+            K PAR K Conseils comble ce vide avec Parkimmo : un plateforme de gestion patrimoniale qui centralise les documents, calcule la rentabilité en temps réel, et connecte le propriétaire à ses professionnels.
           </p>
         )
       }
@@ -47,7 +47,7 @@ Notre modèle à 4 couches génère un MRR de 4 000€/mois au M12 avec une marg
     headerStyle: "bg-gradient-to-r from-blue-50 to-blue-100/50 border-l-4 border-blue-500",
     contenu: `Vos clients investisseurs vous envoient leurs documents par email, un par un, avec des mois de retard.
 
-Mon Patrimoine leur donne un coffre-fort documentaire sécurisé où tout est centralisé. Vous accédez aux documents de vos clients en 1 clic, par lien sécurisé.
+Parkimmo leur donne un coffre-fort documentaire sécurisé où tout est centralisé. Vous accédez aux documents de vos clients en 1 clic, par lien sécurisé.
 
 C'est gratuit pour vous. En échange, vous recommandez l'outil à vos clients qui en ont besoin.`,
     renderParagraph: null,
@@ -59,7 +59,7 @@ C'est gratuit pour vous. En échange, vous recommandez l'outil à vos clients qu
     headerStyle: "bg-gradient-to-r from-green-50 to-green-100/50 border-l-4 border-green-500",
     contenu: `Vous gérez vos biens sur Excel, vous perdez du temps à chercher vos documents, et vous ne savez pas vraiment si vos investissements sont rentables.
 
-Mon Patrimoine rassemble tout en un seul endroit : vos biens, vos baux, vos documents, votre rentabilité.
+Parkimmo rassemble tout en un seul endroit : vos biens, vos baux, vos documents, votre rentabilité.
 
 Et si vous voulez déléguer la gestion administrative, on le fait pour vous à partir de 39€/mois. C'est 2 à 5 fois moins cher qu'une agence, et vous gardez la main sur tout.`,
     renderParagraph: null,

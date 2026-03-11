@@ -94,7 +94,7 @@ export default function VisionPage() {
           <div className="border-l-4 border-[#059669] p-6 pt-4">
             <p className="text-xs font-bold text-[#059669] uppercase tracking-wider mb-2">Notre réponse</p>
             <p className="text-lg leading-relaxed text-slate-700">
-              <strong className="text-[#1A3D2E]">Mon Patrimoine</strong> suit le cycle de vie complet du bien immobilier
+              <strong className="text-[#1A3D2E]">Parkimmo</strong> suit le cycle de vie complet du bien immobilier
               — de l&apos;acquisition à la revente. Un logiciel intuitif + un accompagnement humain systématique.
               <strong className="text-[#1A3D2E]"> Pas une option : un engagement.</strong>
             </p>
