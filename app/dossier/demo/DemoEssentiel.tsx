@@ -12,53 +12,53 @@ export default function DemoEssentiel() {
         <nav className="demo-sidebar-nav">
           {/* Dashboard */}
           <div className="demo-sidebar-item active">
-            <span>📊</span> Dashboard
+            <span>●</span> Dashboard
           </div>
 
           {/* Section Patrimoine */}
           <div className="demo-section-title">Patrimoine</div>
           <div className="demo-sidebar-item">
-            <span>🏠</span> Mes biens
+            <span>·</span> Mes biens
           </div>
           <div className="demo-sidebar-item">
-            <span>🏦</span> Prêts actifs
+            <span>·</span> Prêts actifs
           </div>
           <div className="demo-sidebar-item">
-            <span>📁</span> Documents
+            <span>·</span> Documents
           </div>
 
           {/* Section Gestion locative */}
           <div className="demo-section-title">Gestion locative</div>
           <div className="demo-sidebar-item">
-            <span>🔑</span> Mes locations
+            <span>·</span> Mes locations
           </div>
           <div className="demo-sidebar-item">
-            <span>📝</span> Baux
+            <span>·</span> Baux
           </div>
           <div className="demo-sidebar-item">
-            <span>💰</span> Encaissements
+            <span>·</span> Encaissements
           </div>
           <div className="demo-sidebar-item">
-            <span>🧾</span> Quittances
+            <span>·</span> Quittances
           </div>
           <div className="demo-sidebar-item">
-            <span>📈</span> Révisions IRL
+            <span>·</span> Révisions IRL
           </div>
           <div className="demo-sidebar-item">
-            <span>🔔</span> Alertes
+            <span>·</span> Alertes
             <span className="alert-badge">3</span>
           </div>
 
           {/* Section Travaux */}
           <div className="demo-section-title">Travaux</div>
           <div className="demo-sidebar-item locked">
-            <span>🏗️</span> Chantiers <span className="lock-icon">🔒</span>
+            <span>·</span> Chantiers <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked">
-            <span>🔧</span> Interventions <span className="lock-icon">🔒</span>
+            <span>·</span> Interventions <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked">
-            <span>👷</span> Prestataires <span className="lock-icon">🔒</span>
+            <span>·</span> Prestataires <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div style={{ fontSize: 9, color: 'rgba(255,255,255,.3)', padding: '2px 18px 0', fontStyle: 'italic' }}>
             Disponible avec le plan Pro
@@ -67,13 +67,13 @@ export default function DemoEssentiel() {
           {/* Section Acquisition */}
           <div className="demo-section-title">Acquisition</div>
           <div className="demo-sidebar-item locked">
-            <span>📋</span> Pipeline <span className="lock-icon">🔒</span>
+            <span>·</span> Pipeline <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked">
-            <span>🏷️</span> Commercialisation <span className="lock-icon">🔒</span>
+            <span>·</span> Commercialisation <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked">
-            <span>🧮</span> Scénarios <span className="lock-icon">🔒</span>
+            <span>·</span> Scénarios <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div style={{ fontSize: 9, color: 'rgba(255,255,255,.3)', padding: '2px 18px 0', fontStyle: 'italic' }}>
             Disponible avec le plan Pro
@@ -82,17 +82,17 @@ export default function DemoEssentiel() {
           {/* Section Commun */}
           <div className="demo-section-title">Commun</div>
           <div className="demo-sidebar-item">
-            <span>📇</span> Annuaire
+            <span>·</span> Annuaire
           </div>
           <div className="demo-sidebar-item">
-            <span>📅</span> Événements
+            <span>·</span> Événements
           </div>
           <div className="demo-sidebar-item">
-            <span>🔔</span> Alertes
+            <span>·</span> Alertes
             <span className="alert-badge">3</span>
           </div>
           <div className="demo-sidebar-item">
-            <span>⚙️</span> Paramètres
+            <span>·</span> Paramètres
           </div>
         </nav>
 
@@ -110,7 +110,7 @@ export default function DemoEssentiel() {
             <span className="demo-header-badge">Essentiel</span>
           </div>
           <div className="demo-header-right">
-            <button className="demo-search-btn">🔍</button>
+            <button className="demo-search-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
             <div className="demo-avatar">SK</div>
           </div>
         </header>
@@ -143,7 +143,7 @@ export default function DemoEssentiel() {
 
           {/* Table 1: Mes biens */}
           <div className="demo-card demo-anim demo-anim-d2">
-            <h3>🏠 Mes biens</h3>
+            <h3>Mes biens</h3>
             <table>
               <thead>
                 <tr>
@@ -190,7 +190,7 @@ export default function DemoEssentiel() {
 
           {/* Table 2: Encaissements — Mars 2026 */}
           <div className="demo-card demo-anim demo-anim-d3">
-            <h3>💰 Encaissements — Mars 2026</h3>
+            <h3>Encaissements — Mars 2026</h3>
             <table>
               <thead>
                 <tr>
@@ -233,7 +233,7 @@ export default function DemoEssentiel() {
 
           {/* Section 3: Alertes & échéances */}
           <div className="demo-card demo-anim demo-anim-d4">
-            <h3>🔔 Alertes &amp; échéances</h3>
+            <h3>Alertes &amp; échéances</h3>
             <div className="demo-timeline">
               <div className="demo-timeline-item warning">
                 <div className="demo-timeline-date">18 mars</div>
@@ -272,7 +272,6 @@ export default function DemoEssentiel() {
 
           {/* Upgrade Banner */}
           <div className="demo-upgrade-banner demo-anim demo-anim-d5">
-            <div className="demo-upgrade-icon">🚀</div>
             <div className="demo-upgrade-text">
               <strong>Passez en Pro (39€/mois)</strong> pour débloquer le suivi de chantiers, la gestion des prestataires et gérer jusqu&apos;à 5 biens.
             </div>

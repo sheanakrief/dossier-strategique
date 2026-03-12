@@ -11,73 +11,73 @@ export default function DemoExpert() {
           <div className="demo-plan-badge">Expert &middot; 59&euro;</div>
 
           <div className="demo-sidebar-item active">
-            <span>📊</span> Dashboard
+            <span>●</span> Dashboard
           </div>
 
           <div className="demo-section-title">Patrimoine</div>
           <div className="demo-sidebar-item">
-            <span>🏠</span> Mes biens
+            <span>&middot;</span> Mes biens
           </div>
           <div className="demo-sidebar-item">
-            <span>🏦</span> Pr&ecirc;ts actifs
+            <span>&middot;</span> Pr&ecirc;ts actifs
           </div>
           <div className="demo-sidebar-item">
-            <span>📁</span> Documents
+            <span>&middot;</span> Documents
           </div>
 
           <div className="demo-section-title">Gestion locative</div>
           <div className="demo-sidebar-item">
-            <span>🏘️</span> Mes locations
+            <span>&middot;</span> Mes locations
           </div>
           <div className="demo-sidebar-item">
-            <span>📝</span> Baux
+            <span>&middot;</span> Baux
           </div>
           <div className="demo-sidebar-item">
-            <span>💰</span> Encaissements
+            <span>&middot;</span> Encaissements
           </div>
           <div className="demo-sidebar-item">
-            <span>🧾</span> Quittances
+            <span>&middot;</span> Quittances
           </div>
           <div className="demo-sidebar-item">
-            <span>📈</span> R&eacute;visions IRL
+            <span>&middot;</span> R&eacute;visions IRL
           </div>
 
           <div className="demo-section-title">Travaux</div>
           <div className="demo-sidebar-item">
-            <span>🔨</span> Chantiers
+            <span>&middot;</span> Chantiers
           </div>
           <div className="demo-sidebar-item">
-            <span>🔧</span> Interventions
+            <span>&middot;</span> Interventions
           </div>
           <div className="demo-sidebar-item">
-            <span>👷</span> Prestataires
+            <span>&middot;</span> Prestataires
           </div>
 
           <div className="demo-section-title">Acquisition</div>
           <div className="demo-sidebar-item">
-            <span>🎯</span> Pipeline
+            <span>&middot;</span> Pipeline
             <span className="item-badge">2</span>
           </div>
           <div className="demo-sidebar-item">
-            <span>📢</span> Commercialisation
+            <span>&middot;</span> Commercialisation
           </div>
           <div className="demo-sidebar-item">
-            <span>🧮</span> Sc&eacute;narios
+            <span>&middot;</span> Sc&eacute;narios
           </div>
 
           <div className="demo-section-title">Commun</div>
           <div className="demo-sidebar-item">
-            <span>📇</span> Annuaire
+            <span>&middot;</span> Annuaire
           </div>
           <div className="demo-sidebar-item">
-            <span>📅</span> &Eacute;v&eacute;nements
+            <span>&middot;</span> &Eacute;v&eacute;nements
           </div>
           <div className="demo-sidebar-item">
-            <span>🔔</span> Alertes
+            <span>&middot;</span> Alertes
             <span className="item-badge">5</span>
           </div>
           <div className="demo-sidebar-item">
-            <span>⚙️</span> Param&egrave;tres
+            <span>&middot;</span> Param&egrave;tres
           </div>
         </div>
 
@@ -378,14 +378,14 @@ export default function DemoExpert() {
               Commercialisation
             </h3>
             <div className="demo-empty-state">
-              <div className="demo-empty-state-icon">📊</div>
+              <div className="demo-empty-state-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div>
               Aucun bien en commercialisation actuellement. Lancez la mise en vente depuis la fiche bien.
             </div>
           </div>
 
           {/* GA Banner */}
           <div className="demo-ga-banner demo-anim demo-anim-d5">
-            <div className="demo-ga-banner-icon">🤝</div>
+            <div className="demo-ga-banner-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
             <div>
               <div className="demo-ga-banner-title">Gestion Assist&eacute;e</div>
               <div className="demo-ga-banner-text">

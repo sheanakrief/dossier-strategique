@@ -12,65 +12,65 @@ export default function DemoPro() {
         <nav className="demo-sidebar-nav">
           {/* Dashboard */}
           <div className="demo-sidebar-item active">
-            <span>📊</span> Dashboard
+            <span>●</span> Dashboard
           </div>
 
           {/* Patrimoine */}
           <div className="demo-section-title">Patrimoine</div>
           <div className="demo-sidebar-item">
-            <span>🏠</span> Mes biens
+            <span>·</span> Mes biens
           </div>
           <div className="demo-sidebar-item">
-            <span>🏦</span> Prêts actifs
+            <span>·</span> Prêts actifs
           </div>
           <div className="demo-sidebar-item">
-            <span>📁</span> Documents
+            <span>·</span> Documents
           </div>
 
           {/* Gestion locative */}
           <div className="demo-section-title">Gestion locative</div>
           <div className="demo-sidebar-item">
-            <span>🔑</span> Mes locations
+            <span>·</span> Mes locations
           </div>
           <div className="demo-sidebar-item">
-            <span>📄</span> Baux
+            <span>·</span> Baux
           </div>
           <div className="demo-sidebar-item">
-            <span>💶</span> Encaissements
+            <span>·</span> Encaissements
           </div>
           <div className="demo-sidebar-item">
-            <span>🧾</span> Quittances
+            <span>·</span> Quittances
           </div>
           <div className="demo-sidebar-item">
-            <span>📈</span> Révisions IRL
+            <span>·</span> Révisions IRL
           </div>
 
           {/* Travaux */}
           <div className="demo-section-title">Travaux</div>
           <div className="demo-sidebar-item">
-            <span>🏗️</span> Chantiers
+            <span>·</span> Chantiers
             <span className="item-badge">1</span>
           </div>
           <div className="demo-sidebar-item">
-            <span>🔧</span> Interventions
+            <span>·</span> Interventions
           </div>
           <div className="demo-sidebar-item">
-            <span>👷</span> Prestataires
+            <span>·</span> Prestataires
           </div>
 
           {/* Acquisition */}
           <div className="demo-section-title">Acquisition</div>
           <div className="demo-sidebar-item locked">
-            <span>🔒</span> Pipeline
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Pipeline
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked">
-            <span>🔒</span> Commercialisation
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Commercialisation
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked">
-            <span>🔒</span> Scénarios
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Scénarios
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div style={{ padding: '2px 18px 0', fontSize: '9px', color: 'rgba(255,255,255,.25)', fontStyle: 'italic' }}>
             Disponible avec le plan Expert
@@ -79,17 +79,17 @@ export default function DemoPro() {
           {/* Commun */}
           <div className="demo-section-title">Commun</div>
           <div className="demo-sidebar-item">
-            <span>📇</span> Annuaire
+            <span>·</span> Annuaire
           </div>
           <div className="demo-sidebar-item">
-            <span>📅</span> Événements
+            <span>·</span> Événements
           </div>
           <div className="demo-sidebar-item">
-            <span>🔔</span> Alertes
+            <span>·</span> Alertes
             <span className="alert-badge">4</span>
           </div>
           <div className="demo-sidebar-item">
-            <span>⚙️</span> Paramètres
+            <span>·</span> Paramètres
           </div>
         </nav>
 
@@ -107,7 +107,7 @@ export default function DemoPro() {
             <span className="demo-header-badge">Pro</span>
           </div>
           <div className="demo-header-right">
-            <div className="demo-search-btn">🔍</div>
+            <div className="demo-search-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
             <div className="demo-avatar">SK</div>
           </div>
         </header>
@@ -141,7 +141,7 @@ export default function DemoPro() {
 
           {/* Table: Mes biens */}
           <div className="demo-card demo-anim demo-anim-d2">
-            <h3>🏠 Mes biens</h3>
+            <h3>Mes biens</h3>
             <table>
               <thead>
                 <tr>
@@ -200,7 +200,7 @@ export default function DemoPro() {
 
           {/* Section: Suivi de chantier — T3 Bagnolet */}
           <div className="demo-card demo-anim demo-anim-d3">
-            <h3>🏗️ Suivi de chantier — T3 Bagnolet</h3>
+            <h3>Suivi de chantier — T3 Bagnolet</h3>
 
             {/* Chantier stats */}
             <div className="demo-chantier-stats">
@@ -324,7 +324,7 @@ export default function DemoPro() {
 
           {/* Section: Alertes */}
           <div className="demo-card demo-anim demo-anim-d4">
-            <h3>🔔 Alertes</h3>
+            <h3>Alertes</h3>
             <div className="demo-alert-row">
               <span className="demo-alert-date">20 mars</span>
               <span className="demo-alert-dot dot-warning" />
@@ -357,7 +357,6 @@ export default function DemoPro() {
 
           {/* Upgrade Banner */}
           <div className="demo-upgrade-banner dark demo-anim demo-anim-d5">
-            <div className="demo-upgrade-icon">🚀</div>
             <div className="demo-upgrade-text">
               <strong>Passez en Expert (59€/mois)</strong> pour débloquer le pipeline d&apos;acquisition,
               la commercialisation, les scénarios et gérer un nombre illimité de biens.

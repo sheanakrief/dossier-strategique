@@ -11,83 +11,83 @@ export default function DemoFreemium() {
           <div className="demo-plan-badge">Gratuit</div>
 
           <div className="demo-sidebar-item active">
-            <span>📊</span> Dashboard
+            <span>●</span> Dashboard
           </div>
 
           <div className="demo-section-title">Patrimoine</div>
           <div className="demo-sidebar-item">
-            <span>🏠</span> Mes biens
+            <span>·</span> Mes biens
           </div>
           <div className="demo-sidebar-item active">
-            <span>🏦</span> Prêts actifs
+            <span>·</span> Prêts actifs
           </div>
           <div className="demo-sidebar-item locked" title="Disponible avec le plan Essentiel">
-            <span>📁</span> Documents
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Documents
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
 
           <div className="demo-section-title">Gestion locative</div>
           <div className="demo-sidebar-item locked" title="Disponible avec le plan Essentiel">
-            <span>🏘️</span> Mes locations
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Mes locations
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked" title="Disponible avec le plan Essentiel">
-            <span>📝</span> Baux
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Baux
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked" title="Disponible avec le plan Essentiel">
-            <span>💰</span> Encaissements
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Encaissements
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked" title="Disponible avec le plan Essentiel">
-            <span>🧾</span> Quittances
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Quittances
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked" title="Disponible avec le plan Essentiel">
-            <span>📈</span> Révisions IRL
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Révisions IRL
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
 
           <div className="demo-section-title">Travaux</div>
           <div className="demo-sidebar-item locked" title="Disponible avec le plan Essentiel">
-            <span>🔨</span> Chantiers
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Chantiers
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked" title="Disponible avec le plan Essentiel">
-            <span>🔧</span> Interventions
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Interventions
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked" title="Disponible avec le plan Essentiel">
-            <span>👷</span> Prestataires
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Prestataires
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
 
           <div className="demo-section-title">Acquisition</div>
           <div className="demo-sidebar-item locked" title="Disponible avec le plan Essentiel">
-            <span>🎯</span> Pipeline
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Pipeline
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked" title="Disponible avec le plan Essentiel">
-            <span>📢</span> Commercialisation
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Commercialisation
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked" title="Disponible avec le plan Essentiel">
-            <span>🧮</span> Scénarios
-            <span className="lock-icon">🔒</span>
+            <span>·</span> Scénarios
+            <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
 
           <div className="demo-section-title">Commun</div>
           <div className="demo-sidebar-item">
-            <span>📇</span> Annuaire
+            <span>·</span> Annuaire
           </div>
           <div className="demo-sidebar-item">
-            <span>📅</span> Événements
+            <span>·</span> Événements
           </div>
           <div className="demo-sidebar-item">
-            <span>🔔</span> Alertes
+            <span>·</span> Alertes
           </div>
           <div className="demo-sidebar-item">
-            <span>⚙️</span> Paramètres
+            <span>·</span> Paramètres
           </div>
         </div>
 
@@ -134,14 +134,14 @@ export default function DemoFreemium() {
             </div>
             <div className="demo-stat-card" style={{ borderLeftColor: 'var(--muted)', opacity: 0.5 }}>
               <div className="demo-stat-label">Loyers</div>
-              <div className="demo-stat-value">🔒</div>
+              <div className="demo-stat-value"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
               <div className="demo-stat-sub">Module Essentiel requis</div>
             </div>
           </div>
 
           {/* Table: Mes biens */}
           <div className="demo-card demo-anim demo-anim-d2">
-            <h3>🏠 Mes biens</h3>
+            <h3>Mes biens</h3>
             <table>
               <thead>
                 <tr>
@@ -176,7 +176,7 @@ export default function DemoFreemium() {
 
           {/* Table: Prêts actifs */}
           <div className="demo-card demo-anim demo-anim-d3">
-            <h3>💶 Prêts actifs</h3>
+            <h3>Prêts actifs</h3>
             <table>
               <thead>
                 <tr>
@@ -214,7 +214,6 @@ export default function DemoFreemium() {
 
           {/* Upgrade Banner */}
           <div className="demo-upgrade-banner demo-anim demo-anim-d4">
-            <div className="demo-upgrade-icon">🚀</div>
             <div className="demo-upgrade-text">
               Passez en <strong>Essentiel</strong> (19€/mois) pour débloquer la gestion locative, le coffre-fort documentaire, les alertes et gérer jusqu&apos;à 3 biens.
             </div>
