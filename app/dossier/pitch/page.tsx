@@ -3,148 +3,221 @@
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
-import CopyButton from "@/components/dossier/CopyButton"
-import HighlightNumber from "@/components/dossier/HighlightNumber"
-import { Clock, Building2, User, Mail, MapPin, Wallet, TrendingUp, PiggyBank, Mic, Briefcase, Handshake, Home } from "lucide-react"
+import { Mic, AlertTriangle, Lightbulb, Layers, Globe, Swords, CircleDollarSign, Megaphone, BarChart3, Users, Rocket } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
-const PITCHS = [
+interface Slide {
+  number: number
+  title: string
+  icon: LucideIcon
+  body: string
+  accent: string
+  bgTint: string
+  numberBg: string
+  numberText: string
+}
+
+const SLIDES: Slide[] = [
   {
-    titre: "Pitch Investisseur",
-    duree: "1 min",
-    icon: Briefcase,
-    headerStyle: "bg-gradient-to-r from-amber-50 to-amber-100/50 border-l-4 border-amber-500",
-    contenu: `3,5 millions de propriétaires bailleurs en France gèrent 7,2 millions de logements. 62% gèrent seuls, avec Excel ou sans outil. Les logiciels existants sont des tableurs améliorés — aucun ne combine coffre-fort documentaire, vision patrimoniale et accompagnement humain.
-
-K PAR K Conseils comble ce vide avec Parkimmo : un plateforme de gestion patrimoniale qui centralise les documents, calcule la rentabilité en temps réel, et connecte le propriétaire à ses professionnels.
-
-Notre modèle à 4 couches génère un MRR de 4 000€/mois au M12 avec une marge de 44%. La fondatrice cumule 10 ans d'expertise terrain. Le produit est construit et déployé. Les premiers clients pilotes démarrent cette semaine.`,
-    renderParagraph: (para: string, i: number) => {
-      if (i === 0) {
-        return (
-          <p key={i} className="text-sm text-slate-700 leading-relaxed mb-3">
-            <HighlightNumber value="3,5 millions" color="primary" /> de propriétaires bailleurs en France gèrent <HighlightNumber value="7,2 millions" color="primary" /> de logements. <HighlightNumber value="62%" color="accent" /> gèrent seuls, avec Excel ou sans outil. Les logiciels existants sont des tableurs améliorés — aucun ne combine coffre-fort documentaire, vision patrimoniale et accompagnement humain.
-          </p>
-        )
-      }
-      if (i === 1) {
-        return (
-          <p key={i} className="text-sm text-slate-700 leading-relaxed mb-3">
-            K PAR K Conseils comble ce vide avec Parkimmo : un plateforme de gestion patrimoniale qui centralise les documents, calcule la rentabilité en temps réel, et connecte le propriétaire à ses professionnels.
-          </p>
-        )
-      }
-      return (
-        <p key={i} className="text-sm text-slate-700 leading-relaxed">
-          Notre modèle à 4 couches génère un MRR de <HighlightNumber value="4 000€/mois" color="success" /> au M12 avec une marge de <HighlightNumber value="44%" color="accent" />. La fondatrice cumule 10 ans d'expertise terrain. Le produit est construit et déployé. Les premiers clients pilotes démarrent cette semaine.
-        </p>
-      )
-    },
+    number: 1,
+    title: "Le probleme",
+    icon: AlertTriangle,
+    body: "3,5 millions de menages bailleurs en France. 70% gerent sur Excel ou papier. 76% trouvent ca trop complique. Aucun outil ne couvre le cycle de vie complet (acquisition \u2192 location \u2192 revente) avec accompagnement humain.",
+    accent: "#E67E22",
+    bgTint: "bg-gradient-to-br from-orange-50/80 to-amber-50/40",
+    numberBg: "bg-[#E67E22]",
+    numberText: "text-white",
   },
   {
-    titre: "Pitch Partenaire — Comptable/Notaire",
-    duree: "30 sec",
-    icon: Handshake,
-    headerStyle: "bg-gradient-to-r from-blue-50 to-blue-100/50 border-l-4 border-blue-500",
-    contenu: `Vos clients investisseurs vous envoient leurs documents par email, un par un, avec des mois de retard.
-
-Parkimmo leur donne un coffre-fort documentaire sécurisé où tout est centralisé. Vous accédez aux documents de vos clients en 1 clic, par lien sécurisé.
-
-C'est gratuit pour vous. En échange, vous recommandez l'outil à vos clients qui en ont besoin.`,
-    renderParagraph: null,
+    number: 2,
+    title: "La solution",
+    icon: Lightbulb,
+    body: "Parkimmo : la plateforme de pilotage patrimonial du proprietaire. SaaS intuitif couvrant tout le cycle de vie + Gestion Assistee avec charge d\u2019affaires dedie. Pas une agence, pas un tableur \u2014 l\u2019interface entre les deux.",
+    accent: "#1A3D2E",
+    bgTint: "bg-gradient-to-br from-emerald-50/80 to-green-50/40",
+    numberBg: "bg-[#1A3D2E]",
+    numberText: "text-white",
   },
   {
-    titre: "Pitch Client propriétaire",
-    duree: "30 sec",
-    icon: Home,
-    headerStyle: "bg-gradient-to-r from-green-50 to-green-100/50 border-l-4 border-green-500",
-    contenu: `Vous gérez vos biens sur Excel, vous perdez du temps à chercher vos documents, et vous ne savez pas vraiment si vos investissements sont rentables.
-
-Parkimmo rassemble tout en un seul endroit : vos biens, vos baux, vos documents, votre rentabilité.
-
-Et si vous voulez déléguer la gestion administrative, on le fait pour vous à partir de 39€/mois. C'est 2 à 5 fois moins cher qu'une agence, et vous gardez la main sur tout.`,
-    renderParagraph: null,
+    number: 3,
+    title: "Le produit",
+    icon: Layers,
+    body: "8 modules, 38 modeles de donnees, 50+ API. Construit en 2 ans sur le terrain, pas dans un incubateur. Valide avec un client pilote a 19 biens en multi-structures.",
+    accent: "#1A5276",
+    bgTint: "bg-gradient-to-br from-blue-50/80 to-sky-50/40",
+    numberBg: "bg-[#1A5276]",
+    numberText: "text-white",
+  },
+  {
+    number: 4,
+    title: "Le marche",
+    icon: Globe,
+    body: "TAM ~420M\u20AC. SAM ~60M\u20AC. SOM ~6-12M\u20AC. Marche logiciel gestion immo FR: 718M\u20AC, +5%/an. 64% deployements en SaaS.",
+    accent: "#8FAF8A",
+    bgTint: "bg-gradient-to-br from-green-50/80 to-lime-50/40",
+    numberBg: "bg-[#8FAF8A]",
+    numberText: "text-[#1A3D2E]",
+  },
+  {
+    number: 5,
+    title: "La concurrence",
+    icon: Swords,
+    body: "Score Parkimmo: 10/12 criteres. Meilleur concurrent: 4/12. Aucun acteur ne combine logiciel + accompagnement humain + cycle de vie complet + hebergement France.",
+    accent: "#E67E22",
+    bgTint: "bg-gradient-to-br from-amber-50/80 to-orange-50/40",
+    numberBg: "bg-[#E67E22]",
+    numberText: "text-white",
+  },
+  {
+    number: 6,
+    title: "Le business model",
+    icon: CircleDollarSign,
+    body: "SaaS freemium: 0\u20AC (decouverte) \u2192 19-79\u20AC/mois (payant). Gestion Assistee: +forfait/bien ou +% loyers. ARPU moyen: 38\u20AC SaaS + 75\u20AC GA. LTV/CAC >10\u00D7.",
+    accent: "#1A3D2E",
+    bgTint: "bg-gradient-to-br from-emerald-50/80 to-teal-50/40",
+    numberBg: "bg-[#1A3D2E]",
+    numberText: "text-white",
+  },
+  {
+    number: 7,
+    title: "La strategie d\u2019acquisition",
+    icon: Megaphone,
+    body: "6 piliers: SEO (fichier Excel lead magnet), YouTube (expertise avocate \u00D7 tech), Influenceurs immo/tech, Google Ads cible, Reseau partenaires pros, Courrier direct SCIs. Objectif An1: 1800 inscrits, 81 payants.",
+    accent: "#1A5276",
+    bgTint: "bg-gradient-to-br from-sky-50/80 to-blue-50/40",
+    numberBg: "bg-[#1A5276]",
+    numberText: "text-white",
+  },
+  {
+    number: 8,
+    title: "Les chiffres",
+    icon: BarChart3,
+    body: "An1: CA ~17 500\u20AC (phase investissement). An2: CA ~85 000\u20AC. MRR M12: 4 128\u20AC. MRR M24: ~9 500\u20AC. Break-even: M15-M16.",
+    accent: "#8FAF8A",
+    bgTint: "bg-gradient-to-br from-lime-50/80 to-green-50/40",
+    numberBg: "bg-[#8FAF8A]",
+    numberText: "text-[#1A3D2E]",
+  },
+  {
+    number: 9,
+    title: "L\u2019equipe",
+    icon: Users,
+    body: "Sheana Krief \u2014 10 ans dans l\u2019immobilier sous 5 angles: juridique, expertise technique, barreau, assurance, entrepreneuriat. La seule personne qui comprend le bail, le sinistre, la valeur locative, la rentabilite nette, et le pipeline d\u2019acquisition \u2014 et qui en a fait un logiciel.",
+    accent: "#E67E22",
+    bgTint: "bg-gradient-to-br from-orange-50/80 to-yellow-50/40",
+    numberBg: "bg-[#E67E22]",
+    numberText: "text-white",
+  },
+  {
+    number: 10,
+    title: "La demande",
+    icon: Rocket,
+    body: "30 000-50 000\u20AC pour financer l\u2019acquisition (60%), les operations GA (25%), et l\u2019infrastructure (15%). Le produit existe. Le marche est la. L\u2019investissement accelere, il ne cree pas.",
+    accent: "#1A3D2E",
+    bgTint: "bg-gradient-to-br from-emerald-50/80 to-green-50/40",
+    numberBg: "bg-[#1A3D2E]",
+    numberText: "text-white",
   },
 ]
 
-const SAS_INFO = [
-  { icon: Building2, label: "Société", value: "K PAR K CONSEILS — SAS" },
-  { icon: User, label: "Présidente", value: "Sheana Krief" },
-  { icon: Mail, label: "Email", value: "sheana@kparkconseils.fr" },
-  { icon: MapPin, label: "Localisation", value: "Lyon / Villeurbanne" },
-  { icon: Wallet, label: "Trésorerie", value: "8 000€ (affectés au projet)" },
-  { icon: TrendingUp, label: "CA existant", value: "26 600€/an (PASCAL 1 800€ + LTOA 1 000€)" },
-  { icon: PiggyBank, label: "Épargne personnelle", value: "5 000€" },
-]
+function SlideCard({ slide, index }: { slide: Slide; index: number }) {
+  const Icon = slide.icon
+
+  return (
+    <ScrollReveal delay={index * 80}>
+      <div
+        className={`card-print group relative rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-lg transition-all duration-500 overflow-hidden ${slide.bgTint}`}
+      >
+        {/* Top accent bar */}
+        <div
+          className="absolute top-0 left-0 right-0 h-1"
+          style={{ backgroundColor: slide.accent }}
+        />
+
+        <div className="p-6 sm:p-8">
+          <div className="flex items-start gap-5">
+            {/* Large slide number */}
+            <div className="flex-shrink-0">
+              <div
+                className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl ${slide.numberBg} ${slide.numberText} flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300`}
+              >
+                <span className="font-display text-3xl sm:text-4xl font-bold leading-none">
+                  {slide.number < 10 ? `0${slide.number}` : slide.number}
+                </span>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+              {/* Title row */}
+              <div className="flex items-center gap-2.5 mb-3">
+                <Icon
+                  className="w-5 h-5 flex-shrink-0"
+                  style={{ color: slide.accent }}
+                />
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-slate-800">
+                  {slide.title}
+                </h3>
+              </div>
+
+              {/* Body text */}
+              <p className="text-[15px] leading-relaxed text-slate-700">
+                {slide.body}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom subtle line */}
+        <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      </div>
+    </ScrollReveal>
+  )
+}
 
 export default function PitchPage() {
   return (
     <div>
       <PageHeader
         icon={Mic}
-        title="Pitchs Commerciaux"
-        subtitle="3 pitchs adaptés à chaque audience"
+        title="Pitch Investisseur"
+        subtitle="10 slides pour convaincre"
       />
 
-      <div className="space-y-6">
-        {PITCHS.map((pitch, idx) => (
-          <ScrollReveal key={pitch.titre} delay={idx * 100}>
-            <div className="card-print bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden">
-              {/* Header */}
-              <div className={`${pitch.headerStyle} px-6 py-4`}>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <pitch.icon className="w-6 h-6 text-slate-700" />
-                    <h3 className="font-display text-xl font-semibold text-slate-800">{pitch.titre}</h3>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex items-center gap-1.5 bg-slate-100 rounded-full px-3 py-1 text-sm font-medium text-slate-600">
-                      <Clock className="w-3.5 h-3.5" />
-                      {pitch.duree}
-                    </span>
-                  </div>
-                </div>
-              </div>
+      {/* Intro context */}
+      <ScrollReveal delay={0}>
+        <div className="mb-8 rounded-xl bg-gradient-to-r from-[#1A3D2E] to-[#1A5276] p-6 sm:p-8 text-white shadow-lg">
+          <p className="text-lg sm:text-xl font-display font-semibold mb-2">
+            Parkimmo — Pitch Deck
+          </p>
+          <p className="text-sm sm:text-base text-white/80 leading-relaxed">
+            Presentation synthetique du projet a destination des investisseurs.
+            Chaque slide condense un axe strategique cle du dossier.
+          </p>
+        </div>
+      </ScrollReveal>
 
-              {/* Body */}
-              <div className="p-6">
-                <div className="flex justify-end mb-3">
-                  <CopyButton text={pitch.contenu} />
-                </div>
-                <div className="bg-slate-50 rounded-lg p-5 border border-slate-100">
-                  {pitch.renderParagraph
-                    ? pitch.contenu.split("\n\n").map((para, i) => pitch.renderParagraph!(para, i))
-                    : pitch.contenu.split("\n\n").map((para, i) => (
-                        <p key={i} className="text-sm text-slate-700 leading-relaxed mb-3 last:mb-0">
-                          {para}
-                        </p>
-                      ))}
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
+      {/* Slide grid */}
+      <div className="space-y-5">
+        {SLIDES.map((slide, idx) => (
+          <SlideCard key={slide.number} slide={slide} index={idx} />
         ))}
       </div>
 
-      {/* Informations SAS */}
-      <ScrollReveal delay={300}>
-        <SectionCard title="Informations SAS" icon={Building2} className="mt-8">
-          <div className="bg-slate-50 rounded-xl p-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {SAS_INFO.map(({ icon: Icon, label, value }) => (
-                <div key={label} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm">
-                    <Icon className="w-4 h-4 text-[#1A3D2E]" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-xs text-slate-500 font-medium">{label}</p>
-                    <p className="text-sm font-semibold text-slate-800 truncate">{value}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+      {/* Closing CTA */}
+      <ScrollReveal delay={200}>
+        <div className="mt-10 rounded-2xl border-2 border-dashed border-[#E67E22]/40 bg-gradient-to-br from-amber-50/60 to-orange-50/30 p-8 text-center">
+          <p className="font-display text-2xl font-bold text-slate-800 mb-2">
+            Pret a en discuter ?
+          </p>
+          <p className="text-slate-600 text-base mb-4">
+            Contact direct : sheana@kparkconseils.fr
+          </p>
+          <div className="inline-flex items-center gap-2 bg-[#1A3D2E] text-white px-6 py-3 rounded-xl text-sm font-semibold shadow-md">
+            <Mic className="w-4 h-4" />
+            Demander un pitch en visio
           </div>
-        </SectionCard>
+        </div>
       </ScrollReveal>
     </div>
   )

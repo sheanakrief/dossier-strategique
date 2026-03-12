@@ -13,9 +13,9 @@ type Role = keyof typeof ROLE_COOKIES
 // Role → allowed page slugs (must match data/audiences.ts ROLE_ACCESS)
 const ROLE_ACCESS: Record<Role, string[]> = {
   admin: ["all"],
-  investisseur: ["marche", "fondatrice", "concurrence", "produit", "pricing", "simulation", "export", "demo"],
-  partenaire: ["", "vision", "fondatrice", "produit", "pricing", "juridique", "pitch", "export", "demo"],
-  dev: ["", "produit", "architecture", "deploiement", "timeline", "export", "demo"],
+  investisseur: ["marche", "fondatrice", "concurrence", "produit", "demo", "pricing", "acquisition", "simulation", "deploiement", "investissement", "pitch", "export"],
+  partenaire: ["", "vision", "fondatrice", "produit", "demo", "pricing", "juridique", "pitch", "export"],
+  dev: ["", "produit", "demo", "architecture", "deploiement", "timeline", "export"],
 }
 
 function getRoleFromRequest(req: NextRequest): Role | null {

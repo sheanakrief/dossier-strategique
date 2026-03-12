@@ -58,7 +58,6 @@ export default function AdminDashboardPage() {
   const pieData = [
     { name: "Gestion Assistée", value: syn.decompositionCA.ga },
     { name: "SaaS", value: syn.decompositionCA.saas },
-    { name: "Clients existants", value: syn.decompositionCA.existant },
   ]
 
   const leadsData = [
@@ -133,9 +132,9 @@ export default function AdminDashboardPage() {
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <StatCard label="CA An1" value={`${fmt(syn.caTotal)}€`} subtitle="Chiffre d'affaires total" color="primary" icon={TrendingUp} trend="up" delay={0} />
-        <StatCard label="Résultat Net" value={`${fmt(syn.resultatNet)}€`} subtitle={`Marge ${syn.marge}%`} color="success" icon={PiggyBank} trend="up" delay={100} />
+        <StatCard label="Résultat Net" value={`${fmt(syn.resultatNet)}€`} subtitle={`CA An1: ${fmt(syn.caTotal)}€`} color="success" icon={PiggyBank} delay={100} />
         <StatCard label="MRR M12" value={`${fmt(syn.mrrRecurrent)}€`} subtitle="Récurrent mensuel" color="accent" icon={Repeat} trend="up" delay={200} />
-        <StatCard label="Clients M12" value={`${syn.clientsCumul}`} subtitle={`dont ${syn.clientsGACumul} en GA`} color="slate" icon={Users} delay={300} />
+        <StatCard label="Clients M12" value={`${syn.clientsPayants}`} subtitle={`dont ${syn.clientsGA} en GA`} color="slate" icon={Users} delay={300} />
       </div>
 
       {/* GRAPHIQUES */}
@@ -235,12 +234,13 @@ export default function AdminDashboardPage() {
             </thead>
             <tbody className="divide-y divide-slate-100">
               {[
-                { label: "CA total", v1: `~${fmt(syn.caTotal)}€`, v2: "~80 000€", evo: "+136%" },
-                { label: "Résultat net avant IS", v1: `~${fmt(syn.resultatNet)}€ (marge ${syn.marge}%)`, v2: "~60 000€", evo: "+133%" },
-                { label: "Trésorerie fin d’année", v1: `~${fmt(syn.tresorerieM12)}€`, v2: "~90 000€", evo: "+132%" },
-                { label: "MRR récurrent", v1: `${fmt(syn.mrrRecurrent)}€/mois`, v2: "~3 000€/mois", evo: "+243%" },
-                { label: "Clients Parkimmo", v1: `${syn.clientsCumul}`, v2: "~50", evo: "+178%" },
-                { label: "Équipe", v1: "Sheana + aide familiale", v2: "Sheana + 1 recrue", evo: "+1" },
+                { label: "CA total", v1: `~${fmt(syn.caTotal)}€`, v2: "~85 000€", evo: "×5" },
+                { label: "Résultat net", v1: `${fmt(syn.resultatNet)}€`, v2: "~35 000€", evo: "Rentable" },
+                { label: "Trésorerie fin d’année", v1: `~${fmt(syn.tresorerieM12)}€`, v2: "~55 000€", evo: "+100%" },
+                { label: "MRR récurrent", v1: `${fmt(syn.mrrRecurrent)}€/mois`, v2: "~9 500€/mois", evo: "×2,3" },
+                { label: "Clients payants", v1: `${syn.clientsPayants}`, v2: "~200", evo: "×2,5" },
+                { label: "Inscrits freemium", v1: `${syn.inscritsFree}`, v2: "~5 000", evo: "×2,8" },
+                { label: "Équipe", v1: "Sheana + chargé d’affaires", v2: "Sheana + 2 recrues", evo: "+1" },
               ].map((row, i) => (
                 <tr key={i}>
                   <td className="py-3 px-3 font-medium text-slate-700">{row.label}</td>

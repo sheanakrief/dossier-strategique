@@ -54,6 +54,12 @@ export const SECTIONS: Section[] = [
     audiences: ["all", "investisseur", "client", "dev"],
   },
   {
+    slug: "demo",
+    title: "Démo produit",
+    icon: "Monitor",
+    audiences: ["all", "investisseur", "partenaire", "dev"],
+  },
+  {
     slug: "architecture",
     title: "Architecture Technique",
     icon: "Wrench",
@@ -108,6 +114,12 @@ export const SECTIONS: Section[] = [
     audiences: ["all", "equipe"],
   },
   {
+    slug: "investissement",
+    title: "Proposition d'Investissement",
+    icon: "TrendingUp",
+    audiences: ["all", "investisseur"],
+  },
+  {
     slug: "pitch",
     title: "Pitchs Commerciaux",
     icon: "Mic",
@@ -131,12 +143,6 @@ export const SECTIONS: Section[] = [
     icon: "HelpCircle",
     audiences: ["all"],
   },
-  {
-    slug: "demo",
-    title: "Démo produit",
-    icon: "Monitor",
-    audiences: ["all", "investisseur", "partenaire", "dev"],
-  },
 ]
 
 export function getVisibleSections(audience: Audience): Section[] {
@@ -156,9 +162,9 @@ export const ROLE_LABELS: Record<Role, string> = {
 
 export const ROLE_ACCESS: Record<Role, string[]> = {
   admin: ["all"],
-  investisseur: ["marche", "fondatrice", "concurrence", "produit", "pricing", "simulation", "demo"],
-  partenaire: ["", "vision", "fondatrice", "produit", "pricing", "juridique", "pitch", "demo"],
-  dev: ["", "produit", "architecture", "deploiement", "timeline", "demo"],
+  investisseur: ["marche", "fondatrice", "concurrence", "produit", "demo", "pricing", "acquisition", "simulation", "deploiement", "investissement", "pitch", "export"],
+  partenaire: ["", "vision", "fondatrice", "produit", "demo", "pricing", "juridique", "pitch", "export"],
+  dev: ["", "produit", "demo", "architecture", "deploiement", "timeline", "export"],
 }
 
 export const ROLE_COOKIES: Record<Role, string> = {
