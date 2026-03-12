@@ -2,11 +2,12 @@
 
 ## Contexte projet
 
-Ce projet est le **Dossier Strategique** de Mon Patrimoine, un SaaS B2C de gestion patrimoniale immobiliere fonde par Sheana Krief (K PAR K CONSEILS SAS). Le site presente le business plan complet sous forme d'application Next.js interactive avec export PDF.
+Ce projet est le **Dossier Strategique** de Parkimmo, un SaaS B2C de gestion patrimoniale immobiliere fonde par Sheana Krief (K PAR K CONSEILS SAS). Le site presente le business plan complet sous forme d'application Next.js interactive avec export PDF.
 
-- **Site live** : dossier-strategique.vercel.app (protege par mot de passe)
+- **Site live** : dossier-strategique.vercel.app (protege par roles)
 - **GitHub** : sheanakrief/dossier-strategique (prive)
-- **Deploiement** : push sur `main` → Vercel deploie automatiquement
+- **Deploiement** : push sur `main` -> Vercel deploie automatiquement
+- **Nom du produit** : Parkimmo (anciennement "Mon Patrimoine")
 
 ## Source de verite
 
@@ -24,7 +25,7 @@ Les pages doivent importer depuis ce fichier pour garantir la coherence.
 - **TypeScript** strict
 - **Tailwind CSS** pour tous les styles (pas de CSS modules)
 - **Recharts** pour les graphiques
-- **lucide-react** pour les icones
+- **lucide-react** pour les icones (PAS d'emojis)
 
 ### Patterns a suivre
 - Chaque page du dossier est dans `app/dossier/{slug}/page.tsx`
@@ -35,7 +36,8 @@ Les pages doivent importer depuis ce fichier pour garantir la coherence.
   - `ScrollReveal` : animation d'apparition au scroll (delay prop)
   - `TimelineItem` : element de timeline avec point colore
 - Les donnees statiques sont des constantes en haut du fichier (pas de fichier JSON)
-- Les couleurs utilisent le design system : `#1A5276` (primary), `#E67E22` (accent), `#16a34a` (success), `#7c3aed` (premium)
+- Design system : Forest `#1A3D2E`, Sage `#8FAF8A`, Cream `#E8E4D4`, Primary `#1A5276`, Accent `#E67E22`
+- Polices : Bricolage Grotesque 800 (titres), Plus Jakarta Sans (body)
 - Toutes les pages commencent par `"use client"`
 
 ### TypeScript
@@ -46,12 +48,13 @@ Les pages doivent importer depuis ce fichier pour garantir la coherence.
 ### Ajout d'une nouvelle page
 1. Creer `app/dossier/{slug}/page.tsx`
 2. Ajouter la section dans `data/audiences.ts` (SECTIONS array)
-3. Importer le composant dans `app/dossier/export/page.tsx` et l'ajouter a `PAGE_COMPONENTS`
+3. Ajouter l'icone dans `app/dossier/layout.tsx` (ICON_MAP)
+4. Importer le composant dans `app/dossier/export/page.tsx` et l'ajouter a `PAGE_COMPONENTS`
 
-### CSS Print
-- Classes utilitaires : `no-print`, `print-break-before`, `print-break-after`, `print-break-avoid`, `print-full`
+### CSS
+- Classes utilitaires print : `no-print`, `print-break-before`, `print-break-after`, `print-break-avoid`, `print-full`
 - Le CSS print est dans `app/globals.css` (section @media print)
-- Les elements interactifs (textarea, boutons) sont masques en impression
+- La page Demo a son propre CSS scope dans `app/dossier/demo/demo.css` (sous `.demo-container`)
 
 ## Commandes
 
@@ -63,30 +66,44 @@ npm start      # Serveur production
 
 Pour le dev avec Claude Preview : le serveur est configure sur le port 3777 via `.claude/launch.json`.
 
-## Authentification
+## Authentification multi-roles
 
-- Mot de passe : `MonPatrimoine2025`
-- Cookie : `dossier_auth` (7 jours)
-- Middleware : `middleware.ts` protege toutes les routes `/dossier/*`
+4 roles avec des cookies et mots de passe distincts :
+
+| Role | Cookie | Pages accessibles |
+|------|--------|------------------|
+| Admin | `dossier_auth_admin` | Toutes |
+| Investisseur | `dossier_auth_investor` | Marche, Fondatrice, Concurrence, Produit, Pricing, Simulation, Demo, Export |
+| Partenaire | `dossier_auth_partner` | Dashboard, Vision, Fondatrice, Produit, Pricing, Juridique, Pitch, Demo, Export |
+| Dev | `dossier_auth_dev` | Dashboard, Produit, Architecture, Deploiement, Timeline, Demo, Export |
+
+Pages publiques : `/dossier` (homepage), `/dossier/fondatrice`, `/enquete`.
+
+**IMPORTANT** : les roles sont definis dans `data/audiences.ts` (ROLE_ACCESS, ROLE_COOKIES, ROLE_PASSWORDS) ET dans `middleware.ts`. Les deux fichiers DOIVENT rester synchronises.
 
 ## Structure des audiences
 
-Le fichier `data/audiences.ts` definit les sections et leurs audiences cibles. Chaque section a un `slug`, `title`, `icon`, et `audiences[]`. La fonction `getVisibleSections(audience)` filtre les sections.
+Le fichier `data/audiences.ts` definit :
+- `SECTIONS` : toutes les sections avec slug, title, icon, audiences
+- `ROLE_ACCESS` : pages accessibles par role
+- `ROLE_COOKIES` / `ROLE_PASSWORDS` : auth par role
+- `getVisibleSections(audience)` : filtre les sections par audience
 
 ## Points d'attention
 
-- Le `.next/` cache peut se corrompre apres des modifications de fichiers → supprimer `.next/` et relancer
+- Le `.next/` cache peut se corrompre apres des modifications de fichiers -> supprimer `.next/` et relancer
 - Les polices Google Fonts sont chargees via `@import url()` dans `globals.css`
 - Le moteur de simulation financiere est dans `data/simulation.ts` (calculerSimulation, getSyntheseAn1)
 - L'export PDF utilise `window.print()` — tester avec Chrome pour un meilleur rendu
+- La page Demo utilise du CSS scope (`demo.css`) et non Tailwind — c'est voulu pour isoler les styles
 
 ## Architecture des donnees
 
 ```
 data/
-  projet.ts       ← Source de verite : chiffres business, clients, objectifs
-  simulation.ts   ← Moteur P&L (calculerSimulation, getSyntheseAn1)
-  audiences.ts    ← Sections du dossier + filtrage par audience
+  projet.ts       <- Source de verite : chiffres business, clients, objectifs
+  simulation.ts   <- Moteur P&L (calculerSimulation, getSyntheseAn1)
+  audiences.ts    <- Sections du dossier + filtrage par audience + roles
 ```
 
 Chaque page (`app/dossier/{slug}/page.tsx`) definit ses donnees specifiques
@@ -98,72 +115,20 @@ en `const` en haut du fichier. Les donnees partagees viennent de `data/projet.ts
 |---------------------|-----------------|
 | Un chiffre business (clients, CA, budget) | `data/projet.ts` |
 | Le modele de simulation financiere | `data/simulation.ts` |
-| Les sections visibles par audience | `data/audiences.ts` |
+| Les sections visibles par audience/role | `data/audiences.ts` + `middleware.ts` |
 | Le contenu d'une page specifique | `app/dossier/{slug}/page.tsx` |
 | Le design system (couleurs, fonts) | `app/globals.css` |
-| La navigation / sidebar | `app/dossier/layout.tsx` |
+| La navigation / sidebar / icones | `app/dossier/layout.tsx` |
 | L'export PDF | `app/dossier/export/page.tsx` |
-| La protection par mot de passe | `middleware.ts` + `app/api/auth/route.ts` |
-
-## Guide prompts — Exemples pour Claude
-
-### Modifier un chiffre / une donnee
-```
-Modifie le nombre de clients pilotes dans data/projet.ts :
-Client B passe a 6 biens (au lieu de 4).
-Verifie que le dashboard et la timeline sont coherents.
-```
-
-### Ajouter une section au dossier
-```
-Ajoute une nouvelle page "Equipe" au dossier.
-- Slug : equipe
-- Contenu : 3 profils (Sheana fondatrice, Recrue #1 operations, Recrue #2 dev)
-- Audiences : all, investisseur, equipe
-- Suis les conventions de CLAUDE.md pour creer la page.
-```
-
-### Mettre a jour le pricing
-```
-Modifie le plan Solo : passe de 19,90 a 24,90 EUR/mois.
-Mets a jour data/projet.ts ET la page pricing.
-Verifie que la simulation financiere utilise le bon SAAS_MOYEN.
-```
-
-### Modifier la simulation financiere
-```
-Dans data/simulation.ts, change l'hypothese de nouveaux clients :
-[1, 1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8] au lieu de l'actuel.
-Montre-moi l'impact sur le CA An1 et la tresorerie M12.
-```
-
-### Mettre a jour la timeline
-```
-La Carte G a ete obtenue. Mets a jour :
-1. La timeline (marquer S3 comme fait)
-2. Le dashboard (chantier juridique en "fait")
-3. Le TODO.md
-```
-
-### Ajouter du contenu a une page existante
-```
-Ajoute une section "Temoignages clients" a la page marche.
-3 temoignages : un proprietaire SCI, un MDB, un particulier.
-Invente des temoignages realistes bases sur les personas du projet.
-```
-
-### Exporter un PDF pour un investisseur
-```
-Verifie que l'export PDF investisseur inclut les bonnes sections.
-Assure-toi que les chiffres du dashboard, simulation et budget sont coherents.
-```
+| L'auth (roles, mots de passe) | `data/audiences.ts` + `middleware.ts` + `app/api/auth/route.ts` |
+| La page demo interactive | `app/dossier/demo/` (4 composants + demo.css) |
 
 ## Workflow recommande
 
 1. **Ouvrir Claude Code** dans le dossier `dossier-strategique/`
 2. Claude lit automatiquement ce CLAUDE.md et connait le contexte
 3. Demander la modification en francais, en precisant la page concernee
-4. Claude modifie, lance le preview, verifie, et peut push sur GitHub
+4. Claude modifie, lance le preview (port 3777), verifie, et peut push sur GitHub
 5. Vercel deploie automatiquement en ~1 minute
 
 Pour les reflexions strategiques (brainstorm, reformulation pitch),

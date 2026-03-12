@@ -1,10 +1,10 @@
-# Mon Patrimoine — Dossier Strategique
+# PARKIMMO — Dossier Strategique
 
-> Application web Next.js presentant le dossier strategique complet du projet **Mon Patrimoine** par **K PAR K CONSEILS SAS** (Sheana Krief).
+> Application web Next.js presentant le dossier strategique complet du projet **Parkimmo** par **K PAR K CONSEILS SAS** (Sheana Krief).
 
 ## Qu'est-ce que c'est ?
 
-Un site web interactif qui sert de **dossier strategique** pour le projet Mon Patrimoine — un SaaS B2C de gestion patrimoniale immobiliere. Le site presente toutes les facettes du projet (vision, marche, produit, pricing, simulation financiere, etc.) avec un systeme de filtrage par audience et un export PDF multi-profil.
+Un site web interactif qui sert de **dossier strategique** pour Parkimmo — un SaaS B2C de gestion patrimoniale immobiliere. Le site presente toutes les facettes du projet (vision, marche, produit, pricing, simulation financiere, demo interactive, etc.) avec un systeme d'authentification multi-roles et un export PDF.
 
 ## Stack technique
 
@@ -14,7 +14,7 @@ Un site web interactif qui sert de **dossier strategique** pour le projet Mon Pa
 | TypeScript | 5.4 | Typage statique |
 | Tailwind CSS | 3.4 | Styles utilitaires |
 | Recharts | 2.12 | Graphiques (Area, Pie, Bar) |
-| lucide-react | 0.577 | Icones |
+| lucide-react | 0.577 | Icones vectorielles |
 
 ## Demarrage rapide
 
@@ -36,27 +36,39 @@ dossier-strategique/
   app/
     dossier/
       page.tsx              # Dashboard (page d'accueil)
-      layout.tsx            # Sidebar + navigation + audience filter
+      layout.tsx            # Sidebar + navigation + role filter
       vision/page.tsx       # Vision & Positionnement
       fondatrice/page.tsx   # La Fondatrice (parcours Sheana)
       marche/page.tsx       # Etude de Marche
       concurrence/page.tsx  # Analyse Concurrentielle
       produit/page.tsx      # Le Produit
       architecture/page.tsx # Architecture Technique
-      pricing/page.tsx      # Pricing (SaaS + GA + LUXE)
+      pricing/page.tsx      # Pricing (3 plans SaaS + GA)
+      offre/page.tsx        # Offre Detaillee
       acquisition/page.tsx  # Strategie Acquisition
       simulation/page.tsx   # Simulation Financiere
       deploiement/page.tsx  # Plan de Deploiement
       juridique/page.tsx    # Cadre Juridique & Carte G
-      budget/page.tsx       # Budget Lancement (grille depenses)
+      budget/page.tsx       # Budget Lancement
       timeline/page.tsx     # Timeline 3 Mois
       pitch/page.tsx        # Pitchs Commerciaux
+      demo/                 # Demo produit interactive (4 tiers)
+        page.tsx            # Page avec onglets
+        DemoFreemium.tsx    # Dashboard Freemium
+        DemoEssentiel.tsx   # Dashboard Essentiel
+        DemoPro.tsx         # Dashboard Pro
+        DemoExpert.tsx      # Dashboard Expert
+        demo.css            # CSS scope des demos
+      enquete-admin/page.tsx # Resultats enquete (admin)
+      admin/page.tsx        # Dashboard admin
+      decisions/page.tsx    # Decisions en suspens (admin)
       export/page.tsx       # Export PDF multi-audience
-    login/page.tsx          # Page de connexion
+    login/page.tsx          # Page de connexion multi-roles
+    enquete/page.tsx        # Enquete publique
     api/auth/route.ts       # API authentification
     globals.css             # Styles globaux + print CSS
     layout.tsx              # Layout racine
-    middleware.ts           # Protection par mot de passe
+  middleware.ts             # Auth multi-roles + protection routes
   components/dossier/
     StatCard.tsx            # Carte KPI avec icone et tendance
     SectionCard.tsx         # Carte de section avec titre et icone
@@ -65,60 +77,61 @@ dossier-strategique/
     ScrollReveal.tsx        # Animation d'apparition au scroll
     HighlightNumber.tsx     # Nombre anime mis en valeur
     CopyButton.tsx          # Bouton copier dans le presse-papier
-    PageTransition.tsx      # Transition de page
   data/
-    audiences.ts            # Sections, audiences, filtrage
+    projet.ts               # Source de verite : chiffres business
+    audiences.ts            # Sections, audiences, roles, filtrage
     simulation.ts           # Moteur de simulation financiere
   .claude/
     launch.json             # Config serveur de dev (port 3777)
 ```
 
-## Pages (15 + Export)
+## Pages (20 + Export)
 
 | # | Page | Slug | Description |
 |---|------|------|-------------|
-| 1 | Dashboard | `/dossier` | KPIs, charts, chantiers actifs, decisions |
+| 1 | Dashboard | `/dossier` | KPIs, charts, chantiers actifs |
 | 2 | Vision | `/dossier/vision` | Positionnement, mission, proposition de valeur |
-| 3 | Fondatrice | `/dossier/fondatrice` | Parcours Sheana, convictions, timeline |
+| 3 | Fondatrice | `/dossier/fondatrice` | Parcours Sheana (page publique) |
 | 4 | Marche | `/dossier/marche` | TAM/SAM/SOM, segmentation, tendances |
 | 5 | Concurrence | `/dossier/concurrence` | Radar, comparatif, positionnement |
 | 6 | Produit | `/dossier/produit` | Modules, parcours utilisateur, roadmap |
 | 7 | Architecture | `/dossier/architecture` | Stack, modele de donnees, roadmap tech |
-| 8 | Pricing | `/dossier/pricing` | 4 plans SaaS + GA + Forfait LUXE |
-| 9 | Acquisition | `/dossier/acquisition` | SEO, ads, partenaires, pipeline |
-| 10 | Simulation | `/dossier/simulation` | P&L M1-M12, tresorerie, An1 vs An2 |
-| 11 | Deploiement | `/dossier/deploiement` | Phases de lancement sur 18 mois |
-| 12 | Juridique | `/dossier/juridique` | Carte G, RGPD, conformite |
-| 13 | Budget | `/dossier/budget` | Grille depenses lancement An1 |
-| 14 | Timeline | `/dossier/timeline` | Planning 3 mois semaine par semaine |
-| 15 | Pitch | `/dossier/pitch` | Pitchs par audience |
+| 8 | Pricing | `/dossier/pricing` | 3 plans SaaS + GA |
+| 9 | Offre | `/dossier/offre` | Offre detaillee par plan |
+| 10 | Acquisition | `/dossier/acquisition` | SEO, ads, partenaires, pipeline |
+| 11 | Simulation | `/dossier/simulation` | P&L M1-M12, tresorerie, An1 vs An2 |
+| 12 | Deploiement | `/dossier/deploiement` | Phases de lancement |
+| 13 | Juridique | `/dossier/juridique` | Cadre Juridique & Carte G |
+| 14 | Budget | `/dossier/budget` | Grille depenses lancement An1 |
+| 15 | Timeline | `/dossier/timeline` | Planning 3 mois semaine par semaine |
+| 16 | Pitch | `/dossier/pitch` | Pitchs par audience |
+| 17 | Demo | `/dossier/demo` | Demo interactive 4 tiers (Freemium/Essentiel/Pro/Expert) |
+| 18 | Enquete Admin | `/dossier/enquete-admin` | Resultats enquete (admin only) |
+| 19 | Admin | `/dossier/admin` | Dashboard admin |
+| 20 | Decisions | `/dossier/decisions` | Decisions en suspens (admin only) |
 | -- | Export PDF | `/dossier/export` | Toutes les sections + filtre audience |
 
-## Systeme d'audiences
+## Authentification multi-roles
 
-Le contenu est filtrable par audience via la sidebar et la page d'export :
+Le site utilise un systeme d'authentification par roles avec cookies distincts :
 
-| Audience | Sections visibles |
-|----------|------------------|
-| **Tout (Perso)** | Les 15 sections |
-| **Investisseur** | Dashboard, Vision, Fondatrice, Marche, Concurrence, Produit, Pricing, Acquisition, Simulation, Deploiement, Juridique, Budget, Pitch |
-| **Client** | Dashboard, Vision, Produit, Pricing, Pitch |
-| **Partenaire** | Dashboard, Vision, Fondatrice, Pricing, Juridique, Pitch |
-| **Dev** | Dashboard, Vision, Produit, Architecture, Deploiement |
-| **Equipe** | Dashboard, Fondatrice, Concurrence, Acquisition, Simulation, Deploiement, Budget, Timeline |
+| Role | Pages accessibles | Cookie |
+|------|------------------|--------|
+| **Admin** | Toutes les pages | `dossier_auth_admin` |
+| **Investisseur** | Marche, Fondatrice, Concurrence, Produit, Pricing, Simulation, Demo, Export | `dossier_auth_investor` |
+| **Partenaire** | Dashboard, Vision, Fondatrice, Produit, Pricing, Juridique, Pitch, Demo, Export | `dossier_auth_partner` |
+| **Dev** | Dashboard, Produit, Architecture, Deploiement, Timeline, Demo, Export | `dossier_auth_dev` |
+
+Pages publiques (sans auth) : `/dossier` (homepage), `/dossier/fondatrice`, `/enquete`.
+
+La configuration des roles est dans `data/audiences.ts` (ROLE_ACCESS, ROLE_COOKIES, ROLE_PASSWORDS) et dupliquee dans `middleware.ts` (doit rester synchronisee).
 
 ## Design System
 
-- **Couleurs** : Primary `#1A5276` / Accent `#E67E22` / Success `#16a34a` / Premium `#7c3aed`
-- **Polices** : Outfit (body) / Playfair Display (titres)
+- **Couleurs** : Forest `#1A3D2E` / Sage `#8FAF8A` / Cream `#E8E4D4` / Primary `#1A5276` / Accent `#E67E22`
+- **Polices** : Bricolage Grotesque 800 (titres) / Plus Jakarta Sans (body)
 - **Composants** : StatCard, SectionCard, PageHeader, TimelineItem, ScrollReveal
-
-## Authentification
-
-Le site est protege par mot de passe via un cookie (`dossier_auth`). Le middleware redirige vers `/login` si le cookie n'est pas present.
-
-- **Mot de passe** : `MonPatrimoine2025`
-- **Duree cookie** : 7 jours
+- **Icones** : lucide-react (pas d'emojis)
 
 ## Export PDF
 
@@ -131,13 +144,13 @@ La page `/dossier/export` compile toutes les sections et permet l'export via `wi
 
 ## Pricing actuel
 
-| Plan | Prix/mois | Biens |
-|------|-----------|-------|
-| Starter | 9,90 EUR | 1-2 |
-| Solo (recommande) | 19,90 EUR | 1-5 |
-| Pro | 34,90 EUR | 1-15 |
-| Expert | 59,90 EUR | Illimite |
-| **LUXE** | **299 EUR** + setup sur devis | Premium domicile |
+| Plan | Prix/mois | Biens max |
+|------|-----------|-----------|
+| Essentiel | 19 EUR | 3 |
+| Expert (recommande) | 49 EUR | 15 |
+| Pro | 79 EUR | Illimite |
+
+GA (Gestion Assistee) en option : 39 EUR (Essentiel) / 89 EUR (Expert) / 149 EUR (Pro).
 
 ## Deploiement
 
@@ -145,8 +158,8 @@ La page `/dossier/export` compile toutes les sections et permet l'export via `wi
 # Build
 npm run build
 
-# Vercel (recommande)
-vercel --prod
+# Push sur main -> Vercel deploie automatiquement
+git push origin main
 ```
 
-Le projet est configure pour un deploiement Vercel standard avec Next.js.
+Le projet est deploye sur Vercel avec deploiement automatique sur push `main`.
