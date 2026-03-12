@@ -1,6 +1,7 @@
 "use client"
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts"
+import { Rocket, Radio, BarChart3 } from "lucide-react"
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
@@ -36,12 +37,12 @@ export default function AcquisitionPage() {
   return (
     <div>
       <PageHeader
-        icon="🚀"
+        icon={Rocket}
         title="Stratégie d'Acquisition"
         subtitle="5 canaux — Budget An1 : 11 800€"
       />
 
-      <SectionCard title="5 canaux d'acquisition" icon="📡" className="mb-6" delay={0}>
+      <SectionCard title="5 canaux d'acquisition" icon={Radio} className="mb-6" delay={0}>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -77,7 +78,7 @@ export default function AcquisitionPage() {
         </div>
       </SectionCard>
 
-      <SectionCard title="Répartition leads M12" icon="📊" delay={200}>
+      <SectionCard title="Répartition leads M12" icon={BarChart3} delay={200}>
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={LEADS_M12} layout="vertical">
             <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />

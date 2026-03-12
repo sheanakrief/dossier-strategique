@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useMemo, useCallback } from "react"
-import { Users, Mail, Clock, Calendar } from "lucide-react"
+import { Users, Mail, Clock, Calendar, ClipboardList, PieChart as PieChartIcon, UsersRound, MessageSquareText, Download } from "lucide-react"
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts"
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
@@ -259,7 +259,7 @@ export default function EnqueteAdminPage() {
   /* ════ DASHBOARD ════ */
   return (
     <div>
-      <PageHeader icon="📋" title="Resultats Enquete" subtitle="Dashboard prive" />
+      <PageHeader icon={ClipboardList} title="Resultats Enquete" subtitle="Dashboard prive" />
 
       {loading && <p className="text-center text-slate-400 py-8">Chargement...</p>}
 
@@ -303,7 +303,7 @@ export default function EnqueteAdminPage() {
 
           {/* ═══ PIE CHART ═══ */}
           {pieData.length > 0 && (
-            <SectionCard title="Repartition par profil" icon="📊" delay={100}>
+            <SectionCard title="Repartition par profil" icon={PieChartIcon} delay={100}>
               <div className="flex flex-col md:flex-row items-center gap-6">
                 <div className="w-full md:w-1/2 h-[250px]">
                   <ResponsiveContainer width="100%" height="100%">
@@ -341,7 +341,7 @@ export default function EnqueteAdminPage() {
 
           {/* ═══ DEMOGRAPHICS ═══ */}
           {responses.length > 0 && (
-            <SectionCard title="Profil des répondants" icon="👥" delay={120} className="mt-6">
+            <SectionCard title="Profil des répondants" icon={UsersRound} delay={120} className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Age distribution */}
                 <div>
@@ -414,7 +414,7 @@ export default function EnqueteAdminPage() {
 
           {/* ═══ EMAILS ═══ */}
           {emails.length > 0 && (
-            <SectionCard title="Emails collectes" icon="✉️" delay={200} className="mt-6">
+            <SectionCard title="Emails collectes" icon={Mail} delay={200} className="mt-6">
               <div className="flex items-center justify-between mb-4">
                 <p className="text-sm text-slate-500">{emails.length} email{emails.length > 1 ? "s" : ""}</p>
                 <CopyButton text={emails.map((e) => e.email).join(", ")} />
@@ -438,7 +438,7 @@ export default function EnqueteAdminPage() {
 
           {/* ═══ FREE TEXT ═══ */}
           {freeTexts.length > 0 && (
-            <SectionCard title="Champs libres" icon="💬" delay={250} className="mt-6">
+            <SectionCard title="Champs libres" icon={MessageSquareText} delay={250} className="mt-6">
               <div className="space-y-3">
                 {freeTexts.map((ft, i) => (
                   <div key={i} className="px-4 py-3 bg-slate-50 rounded-lg">
@@ -459,7 +459,7 @@ export default function EnqueteAdminPage() {
           )}
 
           {/* ═══ EXPORT ═══ */}
-          <SectionCard title="Export" icon="📥" delay={300} className="mt-6">
+          <SectionCard title="Export" icon={Download} delay={300} className="mt-6">
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={exportCsv}
@@ -480,7 +480,7 @@ export default function EnqueteAdminPage() {
           </SectionCard>
 
           {/* ═══ RAW DATA TABLE ═══ */}
-          <SectionCard title="Donnees brutes" icon="📋" delay={350} className="mt-6">
+          <SectionCard title="Donnees brutes" icon={ClipboardList} delay={350} className="mt-6">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>

@@ -3,7 +3,7 @@
 import {
   Scale, Building2, Shield, Briefcase, Heart, Lightbulb,
   Users, BookOpen, Rocket, Star, ChevronRight, Award,
-  Monitor, ArrowLeft, AlertTriangle,
+  Monitor, ArrowLeft, AlertTriangle, User, ClipboardList,
 } from "lucide-react"
 import Link from "next/link"
 import PageHeader from "@/components/dossier/PageHeader"
@@ -123,7 +123,7 @@ export default function FondatricePage() {
   return (
     <div>
       <PageHeader
-        icon={"\uD83D\uDC69"}
+        icon={User}
         title="La Fondatrice"
         subtitle="Sheana Krief — 10 ans dans les entrailles du droit immobilier"
       />
@@ -166,7 +166,7 @@ export default function FondatricePage() {
       </ScrollReveal>
 
       {/* --- LE FIL ROUGE : PARCOURS NARRATIF --- */}
-      <SectionCard title="Le fil rouge : de l’immobilier au logiciel" icon={"\uD83D\uDCD6"} delay={150} className="mb-8">
+      <SectionCard title="Le fil rouge : de l’immobilier au logiciel" icon={BookOpen} delay={150} className="mb-8">
         <div className="space-y-5">
           {/* Chapitre 1 — Découverte */}
           <ScrollReveal delay={100}>
@@ -355,7 +355,7 @@ export default function FondatricePage() {
       </ScrollReveal>
 
       {/* --- TRANSPARENCE & RÉSERVES --- */}
-      <SectionCard title="Transparence & réserves" icon="⚠️" delay={350} className="mb-8">
+      <SectionCard title="Transparence & réserves" icon={AlertTriangle} delay={350} className="mb-8">
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-5">
           <div className="flex items-start gap-3 mb-4">
             <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
@@ -413,7 +413,7 @@ export default function FondatricePage() {
       </SectionCard>
 
       {/* --- WHAT MAKES HER UNIQUE --- */}
-      <SectionCard title="Ce que Sheana apporte au projet" icon={"\u2B50"} delay={300} className="mb-8">
+      <SectionCard title="Ce que Sheana apporte au projet" icon={Star} delay={300} className="mb-8">
         <div className="grid md:grid-cols-3 gap-4">
           {[
             {
@@ -456,7 +456,7 @@ export default function FondatricePage() {
       </SectionCard>
 
       {/* --- TIMELINE DÉTAILLÉE --- */}
-      <SectionCard title="Parcours professionnel" icon={"\uD83D\uDCCB"} delay={400}>
+      <SectionCard title="Parcours professionnel" icon={ClipboardList} delay={400}>
         <div className="space-y-0">
           {TIMELINE.map((item, i) => (
             <TimelineItem

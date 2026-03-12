@@ -3,6 +3,7 @@
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
+import { Scale, Target, ClipboardList, CheckCircle2, Clock } from "lucide-react"
 
 const POURQUOI = [
   { title: "Crédibilité", desc: "Profession réglementée CCI = signal confiance" },
@@ -32,13 +33,13 @@ export default function JuridiquePage() {
   return (
     <div>
       <PageHeader
-        icon="⚖️"
+        icon={Scale}
         title="Cadre Juridique & Carte G"
         subtitle="Carte de gestion immobilière CCI"
       />
 
       {/* Pourquoi */}
-      <SectionCard title="Pourquoi la Carte T+G ?" icon="🎯" className="mb-6" delay={0}>
+      <SectionCard title="Pourquoi la Carte T+G ?" icon={Target} className="mb-6" delay={0}>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {POURQUOI.map((item, i) => (
             <ScrollReveal key={item.title} delay={i * 80}>
@@ -57,14 +58,14 @@ export default function JuridiquePage() {
       </SectionCard>
 
       {/* Eligibilite */}
-      <SectionCard title="Éligibilité Sheana Krief" icon="📋" className="mb-6" delay={100}>
+      <SectionCard title="Éligibilité Sheana Krief" icon={ClipboardList} className="mb-6" delay={100}>
         <div className="space-y-3">
           {ELIGIBILITE.map((item) => (
             <div key={item.critere} className="flex items-start gap-3">
               {item.status === "done" ? (
-                <span className="text-xl w-10 h-10 rounded-lg bg-[#059669]/10 flex items-center justify-center flex-shrink-0">✅</span>
+                <div className="w-10 h-10 rounded-lg bg-[#059669]/10 flex items-center justify-center flex-shrink-0"><CheckCircle2 className="w-5 h-5 text-[#059669]" /></div>
               ) : (
-                <span className="text-xl w-10 h-10 rounded-lg bg-[#f59e0b]/10 flex items-center justify-center flex-shrink-0">⏳</span>
+                <div className="w-10 h-10 rounded-lg bg-[#f59e0b]/10 flex items-center justify-center flex-shrink-0"><Clock className="w-5 h-5 text-[#f59e0b]" /></div>
               )}
               <div>
                 <p className="font-medium text-slate-700">{item.critere}</p>

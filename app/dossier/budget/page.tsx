@@ -7,7 +7,7 @@ import {
 } from "recharts"
 import {
   Scale, Cpu, Megaphone, Users, Building2, Briefcase,
-  Calculator, TrendingDown, TrendingUp, Wallet, Clock,
+  Calculator, TrendingDown, TrendingUp, Wallet, Clock, FileText,
 } from "lucide-react"
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
@@ -154,7 +154,7 @@ export default function BudgetPage() {
   return (
     <div>
       <PageHeader
-        icon="💸"
+        icon={Wallet}
         title="Budget Lancement"
         subtitle="Grille de postes de dépenses — An1"
       />
@@ -304,7 +304,7 @@ export default function BudgetPage() {
       </div>
 
       {/* Temps de travail */}
-      <SectionCard title="Temps de travail — Répartition hebdomadaire" icon="⏰" delay={400} className="mb-8">
+      <SectionCard title="Temps de travail — Répartition hebdomadaire" icon={Clock} delay={400} className="mb-8">
         <div className="grid md:grid-cols-2 gap-4">
           <div>
             <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Mars-Avril (Phase lancement)</p>
@@ -348,7 +348,7 @@ export default function BudgetPage() {
       </SectionCard>
 
       {/* Notes */}
-      <SectionCard title="Hypothèses & Notes" icon="📝" delay={500}>
+      <SectionCard title="Hypothèses & Notes" icon={FileText} delay={500}>
         <div className="grid md:grid-cols-2 gap-4 text-xs text-slate-500">
           <div className="space-y-2">
             <p className="flex items-start gap-2"><Clock className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Projet démarré le <strong className="text-slate-700">4 mars 2026</strong></p>

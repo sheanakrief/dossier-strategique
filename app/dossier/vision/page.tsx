@@ -4,12 +4,14 @@ import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import TimelineItem from "@/components/dossier/TimelineItem"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
+import { Target, Compass, Handshake, Globe, CalendarDays } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 
 export default function VisionPage() {
   const pillars = [
     {
       number: "01",
-      icon: "🧭",
+      icon: Compass,
       title: "Un parcours intuitif",
       bandColor: "bg-[#1A3D2E]",
       items: [
@@ -21,7 +23,7 @@ export default function VisionPage() {
     },
     {
       number: "02",
-      icon: "\uD83E\uDD1D",
+      icon: Handshake,
       title: "Un accompagnement humain systématique",
       bandColor: "bg-[#059669]",
       items: [
@@ -33,7 +35,7 @@ export default function VisionPage() {
     },
     {
       number: "03",
-      icon: "\uD83C\uDF10",
+      icon: Globe,
       title: "Un écosystème connecté",
       bandColor: "bg-[#8FAF8A]",
       items: [
@@ -73,7 +75,7 @@ export default function VisionPage() {
   return (
     <div>
       <PageHeader
-        icon={"\uD83C\uDFAF"}
+        icon={Target}
         title="Vision & Positionnement"
         subtitle="La plateforme de gestion patrimoniale immobilière complète"
       />
@@ -115,7 +117,7 @@ export default function VisionPage() {
                 {pillar.number}
               </span>
               <div className="p-6 relative">
-                <div className="text-3xl mb-3">{pillar.icon}</div>
+                <pillar.icon className="w-8 h-8 text-[#1A3D2E] mb-3" />
                 <h3 className="font-display text-lg font-semibold text-slate-800 mb-3">{pillar.title}</h3>
                 <ul className="space-y-2">
                   {pillar.items.map((item, i) => (
@@ -131,7 +133,7 @@ export default function VisionPage() {
         ))}
       </div>
 
-      <SectionCard title="Timeline Vision" icon={"\uD83D\uDCC5"} delay={500}>
+      <SectionCard title="Timeline Vision" icon={CalendarDays} delay={500}>
         <div className="space-y-0">
           {timeline.map((step, index) => (
             <TimelineItem

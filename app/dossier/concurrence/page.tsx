@@ -3,6 +3,7 @@
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
+import { Swords, Search, Trophy } from "lucide-react"
 
 const COMPARATIF = [
   {
@@ -147,7 +148,7 @@ export default function ConcurrencePage() {
   return (
     <div>
       <PageHeader
-        icon="⚔️"
+        icon={Swords}
         title="Analyse Concurrentielle"
         subtitle="Parkimmo vs le marché existant"
       />
@@ -224,7 +225,7 @@ export default function ConcurrencePage() {
       </ScrollReveal>
 
       {/* Focus Ownily */}
-      <SectionCard title="Focus : Ownily" icon="🔎" delay={150} className="mb-6">
+      <SectionCard title="Focus : Ownily" icon={Search} delay={150} className="mb-6">
         <div className="grid md:grid-cols-2 gap-5">
           <div>
             <p className="text-xs font-bold text-[#7c3aed] uppercase tracking-wider mb-3">Points forts</p>
@@ -276,7 +277,7 @@ export default function ConcurrencePage() {
       </SectionCard>
 
       {/* Focus Mr Hugo */}
-      <SectionCard title="Focus : Monsieur Hugo" icon="🔎" delay={200} className="mb-6">
+      <SectionCard title="Focus : Monsieur Hugo" icon={Search} delay={200} className="mb-6">
         <div className="grid md:grid-cols-2 gap-5">
           <div>
             <p className="text-xs font-bold text-[#8FAF8A] uppercase tracking-wider mb-3">Points forts</p>
@@ -329,7 +330,7 @@ export default function ConcurrencePage() {
 
       <SectionCard delay={250}>
         <div className="flex items-start gap-3">
-          <span className="text-2xl">{"🏆"}</span>
+          <Trophy className="w-6 h-6 text-[#1A3D2E]" />
           <div>
             <h3 className="font-display text-lg font-semibold text-[#1A3D2E] mb-2">Positionnement unique</h3>
             <p className="text-slate-600 text-sm leading-relaxed">

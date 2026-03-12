@@ -1,5 +1,6 @@
 "use client"
 
+import { CalendarDays, Map } from "lucide-react"
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import TimelineItem from "@/components/dossier/TimelineItem"
@@ -65,7 +66,7 @@ export default function DeploiementPage() {
   return (
     <div>
       <PageHeader
-        icon="📅"
+        icon={CalendarDays}
         title="Plan de Déploiement"
         subtitle="De la validation à l'expansion — 18 mois"
       />
@@ -97,7 +98,7 @@ export default function DeploiementPage() {
       </ScrollReveal>
 
       {/* Timeline */}
-      <SectionCard title="Phases de déploiement" icon="🗺️" delay={100}>
+      <SectionCard title="Phases de déploiement" icon={Map} delay={100}>
         <div className="space-y-0">
           {PHASES.map((p, i) => (
             <TimelineItem

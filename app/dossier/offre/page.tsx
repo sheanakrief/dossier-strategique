@@ -7,7 +7,8 @@ import ScrollReveal from "@/components/dossier/ScrollReveal"
 import {
   Home, Building2, Shield, FileText, TrendingUp, Bell,
   BookOpen, Video, Headphones, CheckCircle2, Users,
-  Crown, Star, Briefcase, Gift,
+  Crown, Star, Briefcase, Gift, CreditCard, Sparkles,
+  Handshake, MessageSquare,
 } from "lucide-react"
 
 /* ═══════════════════════════════════════════════════════════════
@@ -101,7 +102,7 @@ export default function OffrePage() {
   return (
     <div>
       <PageHeader
-        icon={"\ud83c\udf81"}
+        icon={Gift}
         title="Notre Offre"
         subtitle={"Adaptez la pr\u00e9sentation \u00e0 votre audience"}
       />
@@ -177,7 +178,7 @@ export default function OffrePage() {
           </ScrollReveal>
 
           {/* Plans */}
-          <SectionCard title={"Votre plan SaaS"} icon={"\ud83d\udcb6"} delay={100} className="mb-8">
+          <SectionCard title={"Votre plan SaaS"} icon={CreditCard} delay={100} className="mb-8">
             <div className="grid md:grid-cols-2 gap-5">
               {PETIT_PLANS.map((plan) => (
                 <div
@@ -251,7 +252,7 @@ export default function OffrePage() {
           </ScrollReveal>
 
           {/* FAQ */}
-          <SectionCard title={"Questions fr\u00e9quentes"} icon={"\ud83d\udcac"} delay={200}>
+          <SectionCard title={"Questions fr\u00e9quentes"} icon={MessageSquare} delay={200}>
             <div className="space-y-4">
               {PETIT_FAQ.map((faq, i) => (
                 <div key={i} className="border-b border-slate-100 pb-3 last:border-0 last:pb-0">
@@ -306,7 +307,7 @@ export default function OffrePage() {
           </ScrollReveal>
 
           {/* Plan Expert */}
-          <SectionCard title={"Plan Expert \u2014 Tous les modules"} icon={"\ud83d\udd2e"} delay={100} className="mb-6">
+          <SectionCard title={"Plan Expert \u2014 Tous les modules"} icon={Sparkles} delay={100} className="mb-6">
             <div className="flex flex-col md:flex-row md:items-center gap-6">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
@@ -343,7 +344,7 @@ export default function OffrePage() {
           </SectionCard>
 
           {/* Gestion Assistee */}
-          <SectionCard title={"Gestion Assist\u00e9e \u2014 \u00c0 partir de 3 biens"} icon={"\ud83e\udd1d"} delay={150} className="mb-6">
+          <SectionCard title={"Gestion Assist\u00e9e \u2014 \u00c0 partir de 3 biens"} icon={Handshake} delay={150} className="mb-6">
             <p className="text-sm text-slate-500 mb-4">
               {"D\u00e9l\u00e9guez toute l\u2019administration locative. 2 \u00e0 5 fois moins cher qu\u2019une agence, et vous gardez la main sur tout."}
             </p>
@@ -433,7 +434,7 @@ export default function OffrePage() {
           </ScrollReveal>
 
           {/* GOODIES LUXE */}
-          <SectionCard title={"Kit de Bienvenue Premium"} icon={"\ud83c\udf81"} delay={250}>
+          <SectionCard title={"Kit de Bienvenue Premium"} icon={Gift} delay={250}>
             <p className="text-sm text-slate-500 mb-4">
               {"Chaque client LUXE re\u00e7oit un kit de bienvenue personnalis\u00e9 \u2014 cuir v\u00e9ritable, grav\u00e9 \u00e0 son nom, aux couleurs de son patrimoine."}
             </p>

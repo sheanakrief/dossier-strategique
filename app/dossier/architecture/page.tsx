@@ -4,15 +4,17 @@ import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
 import TimelineItem from "@/components/dossier/TimelineItem"
+import { Wrench, Layers, Database, HardDrive, Archive, Globe, Palette, Bot, Map, Monitor } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 
-const STACK = [
-  { couche: "Frontend", tech: "Next.js 16 (App Router) + React 19 + TypeScript", justif: "SSR/SSG, SEO-friendly, Edge", icon: "⚛️" },
-  { couche: "ORM", tech: "Prisma + 38 modèles", justif: "Type-safe, migrations versionnées", icon: "🗄️" },
-  { couche: "Base de données", tech: "Turso (LibSQL/SQLite distribué)", justif: "Edge, datacenter Paris \"cdg\", < 10ms", icon: "💾" },
-  { couche: "Stockage docs", tech: "Scaleway Object Storage (Paris, S3-compatible)", justif: "Français, pas de CLOUD Act", icon: "📦" },
-  { couche: "Hébergement", tech: "Vercel Edge Network", justif: "Auto-deploy GitHub, HTTPS, CDN", icon: "🌍" },
-  { couche: "UI/CSS", tech: "Tailwind CSS + shadcn/ui", justif: "Design system cohérent", icon: "🎨" },
-  { couche: "IA (V1.5)", tech: "Claude API (Anthropic) + OCR", justif: "Extraction docs, classification", icon: "🤖" },
+const STACK: { couche: string; tech: string; justif: string; icon: LucideIcon }[] = [
+  { couche: "Frontend", tech: "Next.js 16 (App Router) + React 19 + TypeScript", justif: "SSR/SSG, SEO-friendly, Edge", icon: Monitor },
+  { couche: "ORM", tech: "Prisma + 38 modèles", justif: "Type-safe, migrations versionnées", icon: Database },
+  { couche: "Base de données", tech: "Turso (LibSQL/SQLite distribué)", justif: "Edge, datacenter Paris \"cdg\", < 10ms", icon: HardDrive },
+  { couche: "Stockage docs", tech: "Scaleway Object Storage (Paris, S3-compatible)", justif: "Français, pas de CLOUD Act", icon: Archive },
+  { couche: "Hébergement", tech: "Vercel Edge Network", justif: "Auto-deploy GitHub, HTTPS, CDN", icon: Globe },
+  { couche: "UI/CSS", tech: "Tailwind CSS + shadcn/ui", justif: "Design system cohérent", icon: Palette },
+  { couche: "IA (V1.5)", tech: "Claude API (Anthropic) + OCR", justif: "Extraction docs, classification", icon: Bot },
 ]
 
 const MODELE_DONNEES = [
@@ -36,19 +38,19 @@ export default function ArchitecturePage() {
   return (
     <div>
       <PageHeader
-        icon="🔧"
+        icon={Wrench}
         title="Architecture Technique"
         subtitle="Stack moderne, hébergée en France, < 10ms latence"
       />
 
       {/* Stack technique */}
-      <SectionCard title="Stack technique" icon="🧱" delay={0} className="mb-6">
+      <SectionCard title="Stack technique" icon={Layers} delay={0} className="mb-6">
         <div className="grid gap-3">
           {STACK.map((row, i) => (
             <ScrollReveal key={i} delay={i * 60}>
               <div className="flex items-start gap-4 bg-slate-50 rounded-lg p-4 hover:bg-slate-100/80 transition-colors">
                 <div className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-lg flex-shrink-0 shadow-sm">
-                  {row.icon}
+                  <row.icon className="w-5 h-5 text-[#1A3D2E]" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-0.5">
@@ -64,7 +66,7 @@ export default function ArchitecturePage() {
       </SectionCard>
 
       {/* Modèle de données */}
-      <SectionCard title="Modèle de données" icon="🗃️" delay={100} className="mb-6">
+      <SectionCard title="Modèle de données" icon={Database} delay={100} className="mb-6">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -88,7 +90,7 @@ export default function ArchitecturePage() {
       </SectionCard>
 
       {/* Roadmap */}
-      <SectionCard title="Roadmap produit" icon="🗺️" delay={200}>
+      <SectionCard title="Roadmap produit" icon={Map} delay={200}>
         <div className="space-y-0">
           {ROADMAP.map((item, i) => (
             <TimelineItem

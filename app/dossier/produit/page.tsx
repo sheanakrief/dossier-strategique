@@ -1,6 +1,7 @@
 "use client"
 
-import { Database, Server, Layout, UserPlus, Home, FileText, Eye, Bell, ArrowRight } from "lucide-react"
+import { Database, Server, Layout, UserPlus, Home, FileText, Eye, Bell, ArrowRight, Building2, Shield, Users, CreditCard, Settings, Wrench } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import StatCard from "@/components/dossier/StatCard"
@@ -13,15 +14,15 @@ const PLAN_COLORS: Record<string, { bg: string; text: string; border: string }> 
   Expert: { bg: "bg-[#7c3aed]/10", text: "text-[#7c3aed]", border: "border-[#7c3aed]/20" },
 }
 
-const MODULES = [
-  { icon: "🏠", name: "Patrimoine", desc: "Fiches biens, entités SCI/SNC, adresses, parkings", plans: "Tous" },
-  { icon: "📋", name: "Locatif", desc: "Baux, locataires, quittances PDF, révisions IRL", plans: "Tous" },
-  { icon: "💰", name: "Finance", desc: "Encaissements, prêts, rendement, cash-flow", plans: "Solo+" },
-  { icon: "🔔", name: "Alertes", desc: "Calendrier, rappels, échéances assurance/bail", plans: "Solo+" },
-  { icon: "🛡️", name: "Charges & Assurances", desc: "Charges récurrentes, PNO/GLI/DO, sinistres", plans: "Pro+" },
-  { icon: "📇", name: "Contacts", desc: "Annuaire, prestataires, association contact↔bien", plans: "Pro+" },
-  { icon: "🔨", name: "Travaux & Projets", desc: "Pipeline Kanban, budget, postes de dépense", plans: "Expert" },
-  { icon: "⚙️", name: "Outils avancés", desc: "Simulateur, scénarios, exports, API", plans: "Expert" },
+const MODULES: { icon: LucideIcon; name: string; desc: string; plans: string }[] = [
+  { icon: Home, name: "Patrimoine", desc: "Fiches biens, entités SCI/SNC, adresses, parkings", plans: "Tous" },
+  { icon: FileText, name: "Locatif", desc: "Baux, locataires, quittances PDF, révisions IRL", plans: "Tous" },
+  { icon: CreditCard, name: "Finance", desc: "Encaissements, prêts, rendement, cash-flow", plans: "Solo+" },
+  { icon: Bell, name: "Alertes", desc: "Calendrier, rappels, échéances assurance/bail", plans: "Solo+" },
+  { icon: Shield, name: "Charges & Assurances", desc: "Charges récurrentes, PNO/GLI/DO, sinistres", plans: "Pro+" },
+  { icon: Users, name: "Contacts", desc: "Annuaire, prestataires, association contact↔bien", plans: "Pro+" },
+  { icon: Wrench, name: "Travaux & Projets", desc: "Pipeline Kanban, budget, postes de dépense", plans: "Expert" },
+  { icon: Settings, name: "Outils avancés", desc: "Simulateur, scénarios, exports, API", plans: "Expert" },
 ]
 
 const JOURNEY = [
@@ -35,7 +36,7 @@ const JOURNEY = [
 export default function ProduitPage() {
   return (
     <div className="page-enter">
-      <PageHeader icon="🏗️" title="Le Produit — 8 Modules" subtitle="38 modèles Prisma · 50+ routes API · 25+ pages/écrans" />
+      <PageHeader icon={Building2} title="Le Produit — 8 Modules" subtitle="38 modèles Prisma · 50+ routes API · 25+ pages/écrans" />
 
       {/* Product mockup */}
       <ScrollReveal>
@@ -68,8 +69,8 @@ export default function ProduitPage() {
             <ScrollReveal key={mod.name} delay={i * 80}>
               <div className="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-300 p-5">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-2xl flex-shrink-0">
-                    {mod.icon}
+                  <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center flex-shrink-0">
+                    <mod.icon className="w-6 h-6 text-[#1A3D2E]" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between mb-1">
@@ -114,7 +115,7 @@ export default function ProduitPage() {
 
       {/* Conçu à partir du terrain */}
       <ScrollReveal>
-        <SectionCard title="Conçu à partir du terrain" icon="🔨" className="mt-8 mb-6">
+        <SectionCard title="Conçu à partir du terrain" icon={Wrench} className="mt-8 mb-6">
           <p className="text-sm text-slate-500 mb-4">
             Parkimmo n&apos;est pas un produit imaginé dans un bureau. Chaque module est né d&apos;un besoin réel,
             observé pendant 2 ans d&apos;accompagnement d&apos;un marchand de biens avec 10+ biens actifs.

@@ -7,7 +7,7 @@ import {
 import {
   TrendingUp, PiggyBank, Repeat, Users,
   Rocket, Target, Building2, FileText, Handshake, Megaphone,
-  AlertTriangle,
+  AlertTriangle, Wrench, BarChart3,
 } from "lucide-react"
 import StatCard from "@/components/dossier/StatCard"
 import SectionCard from "@/components/dossier/SectionCard"
@@ -86,7 +86,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* CHANTIERS ACTIFS */}
-      <SectionCard title="Chantiers actifs" icon={"\uD83D\uDD28"} delay={100} className="mb-6">
+      <SectionCard title="Chantiers actifs" icon={Wrench} delay={100} className="mb-6">
         <div className="divide-y divide-slate-100">
           {CHANTIERS.map((ch, i) => {
             const sc = STATUS_COLORS[ch.status]
@@ -114,7 +114,7 @@ export default function AdminDashboardPage() {
       {/* METRIQUES */}
       <div className="print-break-before" />
       <h2 className="font-display text-xl font-bold text-slate-800 mb-1 flex items-center gap-2">
-        {"\uD83D\uDCCA"} Métriques clés
+        <BarChart3 className="w-5 h-5 text-[#1A3D2E]" /> Métriques clés
       </h2>
       <p className="text-sm text-slate-400 mb-4">Financier An1 + Opérationnel temps réel</p>
 

@@ -4,7 +4,7 @@ import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import StatCard from "@/components/dossier/StatCard"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
-import { Users, AlertTriangle, Building2, Target, TrendingUp, Clock } from "lucide-react"
+import { Users, AlertTriangle, Building2, Target, TrendingUp, Clock, Monitor, Search, Mic } from "lucide-react"
 
 const DONNEES_TERRAIN = [
   {
@@ -37,7 +37,7 @@ export default function MarchePage() {
   return (
     <div>
       <PageHeader
-        icon="📈"
+        icon={TrendingUp}
         title="Le marché — Opportunité & timing"
         subtitle="Données INSEE / SDES / BPCE / IFOP / OCDE 2024-2025"
       />
@@ -51,7 +51,7 @@ export default function MarchePage() {
       </div>
 
       {/* Pourquoi maintenant */}
-      <SectionCard title="Pourquoi maintenant ?" icon="⏰" className="mb-6" delay={0}>
+      <SectionCard title="Pourquoi maintenant ?" icon={Clock} className="mb-6" delay={0}>
         <div className="grid md:grid-cols-2 gap-4">
           <ScrollReveal delay={50}>
             <div className="bg-[#1A3D2E]/5 rounded-xl p-5 h-full">
@@ -95,7 +95,7 @@ export default function MarchePage() {
       </SectionCard>
 
       {/* Deux segments */}
-      <SectionCard title="Deux segments, un même besoin" icon="🎯" className="mb-6" delay={50}>
+      <SectionCard title="Deux segments, un même besoin" icon={Target} className="mb-6" delay={50}>
         <div className="grid md:grid-cols-2 gap-5">
           <ScrollReveal delay={80}>
             <div className="bg-white rounded-xl border border-slate-200 p-5 hover:shadow-md transition-all h-full">
@@ -137,7 +137,7 @@ export default function MarchePage() {
       </SectionCard>
 
       {/* Marché logiciel */}
-      <SectionCard title="Marché du logiciel de gestion immobilière" icon="💻" className="mb-6" delay={150}>
+      <SectionCard title="Marché du logiciel de gestion immobilière" icon={Monitor} className="mb-6" delay={150}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-[#1A3D2E]/5 rounded-xl p-5 text-center">
             <p className="text-3xl font-bold text-[#1A3D2E]">718M€</p>
@@ -158,7 +158,7 @@ export default function MarchePage() {
       </SectionCard>
 
       {/* TAM SAM SOM */}
-      <SectionCard title="TAM / SAM / SOM" icon="🔍" className="mb-6" delay={200}>
+      <SectionCard title="TAM / SAM / SOM" icon={Search} className="mb-6" delay={200}>
         <div className="flex flex-col items-center gap-2 py-4">
           <div className="w-full max-w-xl bg-[#1A3D2E]/10 border border-[#1A3D2E]/20 rounded-lg p-4 text-center">
             <p className="text-xs font-bold text-[#1A3D2E]/60 mb-1">TAM — Total Addressable Market</p>
@@ -180,7 +180,7 @@ export default function MarchePage() {
       </SectionCard>
 
       {/* Données terrain */}
-      <SectionCard title="Ce qu'on entend sur le terrain" icon="🎙️" delay={300}>
+      <SectionCard title="Ce qu'on entend sur le terrain" icon={Mic} delay={300}>
         <div className="grid md:grid-cols-2 gap-4">
           {DONNEES_TERRAIN.map((t, i) => (
             <ScrollReveal key={i} delay={i * 80}>

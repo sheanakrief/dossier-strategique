@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Check, ChevronDown, ChevronUp } from "lucide-react"
+import { Check, ChevronDown, ChevronUp, HelpCircle } from "lucide-react"
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 
@@ -106,7 +106,7 @@ export default function DecisionsPage() {
   return (
     <div>
       <PageHeader
-        icon="❓"
+        icon={HelpCircle}
         title="Décisions en suspens"
         subtitle="Questions stratégiques à trancher"
       />

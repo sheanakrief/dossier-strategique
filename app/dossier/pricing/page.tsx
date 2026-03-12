@@ -3,7 +3,7 @@
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
-import { Gift, Users, ArrowRight } from "lucide-react"
+import { Gift, Users, ArrowRight, CreditCard, Package, Handshake } from "lucide-react"
 
 const ALL_MODULES = [
   "Patrimoine",
@@ -70,7 +70,7 @@ export default function PricingPage() {
   return (
     <div>
       <PageHeader
-        icon="💶"
+        icon={CreditCard}
         title="Pricing"
         subtitle="SaaS + Gestion Assistée — 3 plans, sans engagement"
       />
@@ -132,7 +132,7 @@ export default function PricingPage() {
       </div>
 
       {/* Modules par plan */}
-      <SectionCard title="Modules par plan" icon="📦" delay={100} className="mb-8">
+      <SectionCard title="Modules par plan" icon={Package} delay={100} className="mb-8">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -164,7 +164,7 @@ export default function PricingPage() {
       </SectionCard>
 
       {/* Gestion Assistée */}
-      <SectionCard title="Gestion Assistée — Chargé d'affaires dédié" icon="🤝" delay={200} className="mb-8">
+      <SectionCard title="Gestion Assistée — Chargé d'affaires dédié" icon={Handshake} delay={200} className="mb-8">
         <p className="text-sm text-slate-500 mb-4">
           Le propriétaire peut ajouter la Gestion Assistée à son plan SaaS. Un chargé d&apos;affaires dédié
           gère l&apos;administratif au quotidien : quittances, relances, révisions, encaissements, reporting.
@@ -228,7 +228,7 @@ export default function PricingPage() {
       </SectionCard>
 
       {/* Modèle partenaire */}
-      <SectionCard title="Modèle partenaire — Canal de distribution" icon="🤝" delay={300}>
+      <SectionCard title="Modèle partenaire — Canal de distribution" icon={Handshake} delay={300}>
         <div className="bg-white rounded-xl border border-slate-200 p-5">
           <div className="flex items-start gap-3 mb-4">
             <Users className="w-5 h-5 text-[#7c3aed] flex-shrink-0 mt-0.5" />

@@ -3,8 +3,21 @@
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { Download, Menu, LogOut } from "lucide-react"
+import {
+  Download, Menu,
+  BarChart3, Target, User, TrendingUp, Swords, Building2, Wrench,
+  CreditCard, Gift, Rocket, PiggyBank, CalendarDays, Scale, Wallet,
+  Clock, Mic, ClipboardList, Lock, HelpCircle,
+  Shield, Briefcase, Handshake, Code,
+} from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 import { SECTIONS, type Role, ROLE_LABELS, getSectionsForRole, canAccessSlug } from "@/data/audiences"
+
+const ICON_MAP: Record<string, LucideIcon> = {
+  BarChart3, Target, User, TrendingUp, Swords, Building2, Wrench,
+  CreditCard, Gift, Rocket, PiggyBank, CalendarDays, Scale, Wallet,
+  Clock, Mic, ClipboardList, Lock, HelpCircle,
+}
 
 function getCookie(name: string): string | null {
   if (typeof document === "undefined") return null
@@ -20,11 +33,11 @@ function detectRole(): Role | null {
   return null
 }
 
-const ROLE_ICONS: Record<Role, string> = {
-  admin: "\uD83D\uDD10",
-  investisseur: "\uD83D\uDCBC",
-  partenaire: "\uD83E\uDD1D",
-  dev: "\uD83D\uDCBB",
+const ROLE_ICONS: Record<Role, LucideIcon> = {
+  admin: Shield,
+  investisseur: Briefcase,
+  partenaire: Handshake,
+  dev: Code,
 }
 
 export default function DossierLayout({ children }: { children: React.ReactNode }) {
@@ -108,14 +121,17 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
         </div>
 
         {/* Role badge */}
-        {role && (
-          <div className="px-5 py-3 border-b border-slate-100">
-            <div className="flex items-center gap-2 text-sm">
-              <span>{ROLE_ICONS[role]}</span>
-              <span className="font-medium text-slate-700">{ROLE_LABELS[role]}</span>
+        {role && (() => {
+          const RoleIcon = ROLE_ICONS[role]
+          return (
+            <div className="px-5 py-3 border-b border-slate-100">
+              <div className="flex items-center gap-2 text-sm">
+                <RoleIcon className="w-4 h-4 text-[#1A3D2E]" />
+                <span className="font-medium text-slate-700">{ROLE_LABELS[role]}</span>
+              </div>
             </div>
-          </div>
-        )}
+          )
+        })()}
 
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto py-3">
@@ -127,6 +143,7 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
             if (section.slug === "" && !role) return null
 
             const isVisited = visited.has(section.slug)
+            const SectionIcon = ICON_MAP[section.icon]
             return (
               <Link
                 key={section.slug}
@@ -138,7 +155,11 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
                     : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                 }`}
               >
-                <span className="text-base">{section.icon}</span>
+                {SectionIcon ? (
+                  <SectionIcon className={`w-4 h-4 flex-shrink-0 ${isActive ? "text-[#1A3D2E]" : "text-slate-400"}`} />
+                ) : (
+                  <span className="text-base">{section.icon}</span>
+                )}
                 <span className="flex-1">{section.title}</span>
                 {isVisited && !isActive && (
                   <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a]" />
@@ -199,9 +220,15 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
             <Menu className="w-6 h-6" />
           </button>
           <h1 className="text-lg font-bold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 800 }}><span className="text-[#1A3D2E]">PARK</span><span className="text-[#8FAF8A]">IMMO</span></h1>
-          {role && (
-            <span className="ml-auto text-xs text-slate-400">{ROLE_ICONS[role]} {ROLE_LABELS[role]}</span>
-          )}
+          {role && (() => {
+            const MobileRoleIcon = ROLE_ICONS[role]
+            return (
+              <span className="ml-auto flex items-center gap-1.5 text-xs text-slate-400">
+                <MobileRoleIcon className="w-3.5 h-3.5" />
+                {ROLE_LABELS[role]}
+              </span>
+            )
+          })()}
         </div>
 
         <div className="p-6 lg:p-10 max-w-6xl mx-auto">

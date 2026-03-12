@@ -4,7 +4,7 @@ import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RTooltip, ResponsiveContainer,
   PieChart, Pie, Cell, BarChart, Bar, Legend, ReferenceLine,
 } from "recharts"
-import { TrendingUp, PiggyBank, Repeat, Wallet, AlertTriangle } from "lucide-react"
+import { TrendingUp, PiggyBank, Repeat, Wallet, AlertTriangle, Ruler, BarChart3 } from "lucide-react"
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
 import StatCard from "@/components/dossier/StatCard"
@@ -51,7 +51,7 @@ export default function SimulationPage() {
   return (
     <div className="page-enter">
       <PageHeader
-        icon="💰"
+        icon={PiggyBank}
         title="Simulation Financière"
         subtitle="Projection An1 — Scénario modéré"
       />
@@ -79,7 +79,7 @@ export default function SimulationPage() {
 
       {/* Hypothèses */}
       <ScrollReveal>
-        <SectionCard title="Hypothèses clés" icon="📐" className="mb-6">
+        <SectionCard title="Hypothèses clés" icon={Ruler} className="mb-6">
           <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
             {[
               ["PASCAL", "1 800€/mois (toute l'année)"],
@@ -182,7 +182,7 @@ export default function SimulationPage() {
       </div>
 
       {/* Tableau détaillé */}
-      <SectionCard title="Tableau mensuel détaillé" icon="📊" delay={500} className="mb-6">
+      <SectionCard title="Tableau mensuel détaillé" icon={BarChart3} delay={500} className="mb-6">
         <div className="overflow-x-auto">
           <table className="w-full text-xs">
             <thead>
@@ -213,7 +213,7 @@ export default function SimulationPage() {
       </SectionCard>
 
       {/* Synthèse An1 vs An2 */}
-      <SectionCard title="Synthèse An1 vs An2" icon="📈" delay={600}>
+      <SectionCard title="Synthèse An1 vs An2" icon={TrendingUp} delay={600}>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

@@ -5,13 +5,14 @@ import SectionCard from "@/components/dossier/SectionCard"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
 import CopyButton from "@/components/dossier/CopyButton"
 import HighlightNumber from "@/components/dossier/HighlightNumber"
-import { Clock, Building2, User, Mail, MapPin, Wallet, TrendingUp, PiggyBank } from "lucide-react"
+import { Clock, Building2, User, Mail, MapPin, Wallet, TrendingUp, PiggyBank, Mic, Briefcase, Handshake, Home } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 
 const PITCHS = [
   {
     titre: "Pitch Investisseur",
     duree: "1 min",
-    icon: "💼",
+    icon: Briefcase,
     headerStyle: "bg-gradient-to-r from-amber-50 to-amber-100/50 border-l-4 border-amber-500",
     contenu: `3,5 millions de propriétaires bailleurs en France gèrent 7,2 millions de logements. 62% gèrent seuls, avec Excel ou sans outil. Les logiciels existants sont des tableurs améliorés — aucun ne combine coffre-fort documentaire, vision patrimoniale et accompagnement humain.
 
@@ -43,7 +44,7 @@ Notre modèle à 4 couches génère un MRR de 4 000€/mois au M12 avec une marg
   {
     titre: "Pitch Partenaire — Comptable/Notaire",
     duree: "30 sec",
-    icon: "🤝",
+    icon: Handshake,
     headerStyle: "bg-gradient-to-r from-blue-50 to-blue-100/50 border-l-4 border-blue-500",
     contenu: `Vos clients investisseurs vous envoient leurs documents par email, un par un, avec des mois de retard.
 
@@ -55,7 +56,7 @@ C'est gratuit pour vous. En échange, vous recommandez l'outil à vos clients qu
   {
     titre: "Pitch Client propriétaire",
     duree: "30 sec",
-    icon: "🏠",
+    icon: Home,
     headerStyle: "bg-gradient-to-r from-green-50 to-green-100/50 border-l-4 border-green-500",
     contenu: `Vous gérez vos biens sur Excel, vous perdez du temps à chercher vos documents, et vous ne savez pas vraiment si vos investissements sont rentables.
 
@@ -80,7 +81,7 @@ export default function PitchPage() {
   return (
     <div>
       <PageHeader
-        icon="🎤"
+        icon={Mic}
         title="Pitchs Commerciaux"
         subtitle="3 pitchs adaptés à chaque audience"
       />
@@ -93,7 +94,7 @@ export default function PitchPage() {
               <div className={`${pitch.headerStyle} px-6 py-4`}>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">{pitch.icon}</span>
+                    <pitch.icon className="w-6 h-6 text-slate-700" />
                     <h3 className="font-display text-xl font-semibold text-slate-800">{pitch.titre}</h3>
                   </div>
                   <div className="flex items-center gap-3">
@@ -127,7 +128,7 @@ export default function PitchPage() {
 
       {/* Informations SAS */}
       <ScrollReveal delay={300}>
-        <SectionCard title="Informations SAS" icon="🏢" className="mt-8">
+        <SectionCard title="Informations SAS" icon={Building2} className="mt-8">
           <div className="bg-slate-50 rounded-xl p-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {SAS_INFO.map(({ icon: Icon, label, value }) => (

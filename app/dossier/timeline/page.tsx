@@ -3,7 +3,7 @@
 import {
   Calendar, Briefcase, GraduationCap, Rocket, Users,
   Target, Code, Megaphone, Scale, Building2, PlaneTakeoff,
-  CheckCircle2, Clock, ArrowRight,
+  CheckCircle2, Clock, ArrowRight, ClipboardList, AlertTriangle,
 } from "lucide-react"
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
@@ -163,7 +163,7 @@ export default function TimelinePage() {
   return (
     <div>
       <PageHeader
-        icon="🗓️"
+        icon={Calendar}
         title="Timeline 3 Mois"
         subtitle="Mars — Juin 2026 · Planning détaillé LTOA / PASCAL / Parkimmo"
       />
@@ -209,7 +209,7 @@ export default function TimelinePage() {
       </div>
 
       {/* Detailed timeline */}
-      <SectionCard title="Planning semaine par semaine" icon="📋" delay={200}>
+      <SectionCard title="Planning semaine par semaine" icon={ClipboardList} delay={200}>
         <div className="space-y-0">
           {TIMELINE.map((week, idx) => (
             <ScrollReveal key={idx} delay={idx * 40}>
@@ -276,7 +276,7 @@ export default function TimelinePage() {
 
       {/* Contraintes */}
       <div className="mt-8">
-        <SectionCard title="Contraintes & Hypothèses" icon="⚠️" delay={400}>
+        <SectionCard title="Contraintes & Hypothèses" icon={AlertTriangle} delay={400}>
           <div className="grid md:grid-cols-2 gap-4 text-xs text-slate-500">
             <div className="space-y-2.5">
               <p className="flex items-start gap-2"><Briefcase className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> <strong className="text-slate-700">LTOA</strong> : emploi actuel 35h/sem jusqu&apos;à transition PASCAL</p>
