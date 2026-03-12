@@ -50,7 +50,7 @@ export default function DossierHomePage() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <StatCard
             label="MRR cible M12"
-            value={`${OBJECTIFS.an1.mrrM12.toLocaleString("fr-FR")} \u20AC`}
+            value={`${OBJECTIFS.an1.mrrM12.toLocaleString("fr-FR")} €`}
             subtitle="Revenu mensuel recurrent"
             icon={TrendingUp}
             color="primary"
@@ -74,7 +74,7 @@ export default function DossierHomePage() {
           />
           <StatCard
             label="Investissement recherche"
-            value={`${(INVESTISSEMENT.montantMin / 1000).toFixed(0)}-${(INVESTISSEMENT.montantMax / 1000).toFixed(0)}k \u20AC`}
+            value={`${(INVESTISSEMENT.montantMin / 1000).toFixed(0)}-${(INVESTISSEMENT.montantMax / 1000).toFixed(0)}k €`}
             subtitle="Leve de fonds visee"
             icon={Wallet}
             color="premium"
