@@ -50,8 +50,7 @@ function LoginForm() {
         admin: "/dossier/vision",
       }
       const dest = ROLE_DEST[data.role] || "/dossier/marche"
-      router.push(dest)
-      router.refresh()
+      window.location.href = dest
     } else {
       setError(true)
       setLoading(false)
