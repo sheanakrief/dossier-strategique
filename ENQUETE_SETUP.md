@@ -18,7 +18,7 @@ turso db shell NOM_DE_TA_BASE < turso/schema.sql
 | `TURSO_AUTH_TOKEN` | Token d'authentification Turso | Dashboard Turso → ta base → Connect |
 | `RESEND_API_KEY` | Clé API Resend | resend.com → API Keys |
 | `RESEND_FROM_EMAIL` | Adresse d'expédition | `enquete@parkimmo.io` (domaine à vérifier dans Resend) |
-| `RESEND_NOTIFY_EMAIL` | Adresse de notification admin | Ton adresse (ex: `sheana@kparkconseils.fr`) |
+| `RESEND_NOTIFY_EMAIL` | Adresse de notification admin | `sheana@parkimmo.io` (redirigé vers Gmail) |
 
 ## 3. Ajouter les variables sur Vercel
 

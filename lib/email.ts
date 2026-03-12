@@ -46,8 +46,9 @@ export async function sendNotificationEmail(data: {
   const dateFormatted = formatDate(data.submittedAt)
 
   await resend.emails.send({
-    from: fromEmail,
+    from: `Parkimmo <${fromEmail}>`,
     to: notifyEmail,
+    replyTo: data.email || undefined,
     subject: `🔔 Nouvelle réponse enquête — Profil ${data.profile} (${profileLabel})`,
     html: `
       <div style="font-family:'Helvetica Neue',Arial,sans-serif;max-width:600px;margin:0 auto;color:#1B2A3B;">
@@ -91,8 +92,9 @@ export async function sendConfirmationEmail(data: {
   const personalMessage = profileMessages[data.profile] || "Vos retours sont précieux pour construire un outil vraiment utile."
 
   await resend.emails.send({
-    from: fromEmail,
+    from: `Sheana Krief — Parkimmo <${fromEmail}>`,
     to: data.email,
+    replyTo: "sheana@parkimmo.io",
     subject: "Merci d'avoir répondu — vos résultats arrivent",
     html: `
       <div style="font-family:'Helvetica Neue',Arial,sans-serif;max-width:600px;margin:0 auto;color:#1B2A3B;">
