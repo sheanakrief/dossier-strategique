@@ -30,89 +30,89 @@ import StatCard from "@/components/dossier/StatCard"
 import ScrollReveal from "@/components/dossier/ScrollReveal"
 
 const EXISTING_STATS = [
-  { label: "Modeles Prisma", value: "38", subtitle: "Schema de donnees complet", icon: Database, color: "primary" as const },
-  { label: "Routes API", value: "50+", subtitle: "Endpoints REST fonctionnels", icon: Globe, color: "success" as const },
-  { label: "Pages / Ecrans", value: "25+", subtitle: "Interfaces utilisateur", icon: Monitor, color: "accent" as const },
-  { label: "Modules core", value: "8", subtitle: "Biens, docs, locataires, fiscalite...", icon: Boxes, color: "premium" as const },
+  { label: "Types de donnees", value: "38", subtitle: "Biens, baux, locataires, charges...", icon: Database, color: "primary" as const },
+  { label: "Fonctionnalites", value: "50+", subtitle: "Toutes les actions disponibles dans l'app", icon: Globe, color: "success" as const },
+  { label: "Ecrans", value: "25+", subtitle: "Pages et interfaces utilisateur", icon: Monitor, color: "accent" as const },
+  { label: "Modules metier", value: "8", subtitle: "Biens, documents, locataires, fiscalite...", icon: Boxes, color: "premium" as const },
   { label: "Client pilote", value: "1", subtitle: "19 biens actifs en gestion", icon: Users, color: "warning" as const },
-  { label: "Stack moderne", value: "2025", subtitle: "Next.js 16, React 19, Prisma 6, Turso, Tailwind 4", icon: Layers, color: "primary" as const },
+  { label: "Technologies", value: "2025", subtitle: "Dernieres versions : Next.js, React, Prisma, Turso", icon: Layers, color: "primary" as const },
 ]
 
 const SPRINTS = [
   {
     id: 1,
-    title: "Onboarding simplifie",
+    title: "Accompagnement a la prise en main",
     duration: "3-5 jours",
     icon: Rocket,
     color: "#1A3D2E",
     items: [
-      "Flow d'inscription et creation de compte",
-      "Wizard d'import des premiers biens",
-      "Simplification UX parcours initial",
+      "Parcours d'inscription simplifie",
+      "Assistant d'import de vos premiers biens",
+      "Navigation intuitive des la premiere connexion",
     ],
   },
   {
     id: 2,
-    title: "Systeme freemium & paiement",
+    title: "Version gratuite et paiement",
     duration: "5-7 jours",
     icon: CreditCard,
     color: "#1A5276",
     items: [
-      "Limitations par plan (Starter, Solo, Pro, Expert)",
-      "Integration Stripe (abonnements + facturation)",
-      "Upgrade path et gestion des quotas",
+      "4 formules adaptees a chaque profil (Starter, Solo, Pro, Expert)",
+      "Paiement en ligne securise (via Stripe)",
+      "Passage a une formule superieure en un clic",
     ],
   },
   {
     id: 3,
-    title: "Site marketing & landing pages",
+    title: "Site marketing",
     duration: "3-5 jours",
     icon: Megaphone,
     color: "#E67E22",
     items: [
-      "Landing page conversion avec hero + social proof",
-      "Page pricing interactive",
-      "Fichier Excel SEO + premiers articles blog",
+      "Page d'accueil qui donne envie de s'inscrire",
+      "Page de tarifs interactive et claire",
+      "Premiers articles de blog pour le referencement Google",
     ],
   },
   {
     id: 4,
-    title: "Analytics & polish",
+    title: "Mesure des resultats",
     duration: "3-5 jours",
     icon: ChartBar,
     color: "#8FAF8A",
     items: [
-      "Integration Mixpanel / PostHog",
-      "Tracking funnel inscription -> activation",
-      "Bug fixes, performance, tests finaux",
+      "Outils pour comprendre comment les utilisateurs naviguent",
+      "Suivi du parcours : inscription, premiere utilisation, abonnement",
+      "Corrections finales, performance et tests de qualite",
     ],
   },
 ]
 
 const TIMELINE_WEEKS = [
-  { week: "S1-S2", sprint: 1, label: "Onboarding" },
+  { week: "S1-S2", sprint: 1, label: "Prise en main" },
   { week: "S3", sprint: 1, label: "" },
-  { week: "S4-S5", sprint: 2, label: "Freemium" },
+  { week: "S4-S5", sprint: 2, label: "Paiement" },
   { week: "S6", sprint: 2, label: "" },
   { week: "S7-S8", sprint: 3, label: "Marketing" },
   { week: "S9", sprint: 3, label: "" },
-  { week: "S10-S11", sprint: 4, label: "Analytics" },
+  { week: "S10-S11", sprint: 4, label: "Mesure" },
   { week: "S12", sprint: 4, label: "Lancement" },
 ]
 
 const COMPARISON_ROWS = [
-  { label: "Temps MVP", parkimmo: "~1 semaine", classique: "4-6 mois", parkimmoPercent: 3, classiquePercent: 75 },
-  { label: "Cout MVP", parkimmo: "~0\u20AC", classique: "60 000-100 000\u20AC", parkimmoPercent: 1, classiquePercent: 85 },
-  { label: "Temps freemium", parkimmo: "2-3 semaines", classique: "+2-3 mois", parkimmoPercent: 8, classiquePercent: 45 },
-  { label: "Cout freemium", parkimmo: "< 5 000\u20AC", classique: "+30 000-50 000\u20AC", parkimmoPercent: 5, classiquePercent: 60 },
-  { label: "Iteration", parkimmo: "Heures", classique: "Semaines", parkimmoPercent: 2, classiquePercent: 40 },
+  { label: "Temps pour creer le produit", parkimmo: "~1 semaine", classique: "4-6 mois", parkimmoPercent: 3, classiquePercent: 75 },
+  { label: "Cout du produit initial", parkimmo: "~0\u20AC", classique: "60 000-100 000\u20AC", parkimmoPercent: 1, classiquePercent: 85 },
+  { label: "Temps pour la version payante", parkimmo: "2-3 semaines", classique: "+2-3 mois", parkimmoPercent: 8, classiquePercent: 45 },
+  { label: "Cout de la version payante", parkimmo: "< 5 000\u20AC", classique: "+30 000-50 000\u20AC", parkimmoPercent: 5, classiquePercent: 60 },
+  { label: "Vitesse d'amelioration", parkimmo: "Quelques heures", classique: "Plusieurs semaines", parkimmoPercent: 2, classiquePercent: 40 },
 ]
 
 const POST_LAUNCH_ITEMS = [
-  { icon: RefreshCw, title: "Iterations produit", desc: "Nouvelles fonctionnalites basees sur les retours utilisateurs" },
-  { icon: Boxes, title: "Nouveaux modules", desc: "Comptabilite avancee, declarations fiscales, reporting" },
-  { icon: Handshake, title: "API partenaires", desc: "Connexion comptables, notaires, assureurs" },
-  { icon: Smartphone, title: "PWA An2", desc: "Application mobile progressive, notifications push" },
+  { icon: RefreshCw, title: "Ameliorations continues", desc: "Nouvelles fonctionnalites basees sur les retours des utilisateurs" },
+  { icon: Boxes, title: "Nouveaux modules", desc: "Comptabilite avancee, declarations fiscales, rapports de gestion" },
+  { icon: Handshake, title: "Connexion partenaires", desc: "Acces pour vos comptables, notaires et assureurs" },
+  { icon: Smartphone, title: "Application mobile", desc: "Version mobile accessible sans passer par l'App Store" },
 ]
 
 function getSprintColor(sprintId: number): string {
@@ -126,7 +126,7 @@ export default function DeploiementPage() {
       <PageHeader
         icon={CalendarDays}
         title="Plan de Developpement"
-        subtitle="Du MVP au lancement freemium — Timeline technique & produit"
+        subtitle="Du produit initial au lancement public — comment Parkimmo se construit"
       />
 
       {/* 1. FAIT MARQUANT */}
@@ -141,23 +141,23 @@ export default function DeploiementPage() {
               </div>
               <div>
                 <h2 className="font-display text-2xl font-bold">Fait marquant</h2>
-                <p className="text-[#8FAF8A] text-sm">Preuve de vitesse d{"'"}execution</p>
+                <p className="text-[#8FAF8A] text-sm">Une vitesse de developpement exceptionnelle</p>
               </div>
             </div>
 
             <div className="space-y-4 text-[15px] leading-relaxed">
               <p>
-                L{"'"}integralite du MVP Parkimmo — <span className="text-white font-semibold">38 modeles de donnees</span>,{" "}
-                <span className="text-white font-semibold">50+ endpoints API</span>,{" "}
-                <span className="text-white font-semibold">25+ ecrans</span>,{" "}
+                L{"'"}ensemble du produit Parkimmo — <span className="text-white font-semibold">38 types de donnees structures</span>,{" "}
+                <span className="text-white font-semibold">plus de 50 fonctionnalites</span>,{" "}
+                <span className="text-white font-semibold">25 ecrans</span>,{" "}
                 <span className="text-white font-semibold">8 modules metier</span>,{" "}
-                <span className="text-white font-semibold">20 fichiers de tests</span> — a ete developpee{" "}
-                <span className="text-[#E67E22] font-bold">en 1 semaine</span> avec Claude Code (IA Anthropic).
+                <span className="text-white font-semibold">20 fichiers de tests</span> — a ete developpe{" "}
+                <span className="text-[#E67E22] font-bold">en 1 semaine</span> grace a l{"'"}IA (Claude Code d{"'"}Anthropic).
               </p>
               <p>
                 Le dossier strategique que vous consultez — <span className="text-white font-semibold">15 sections interactives</span>,{" "}
-                demo produit avec <span className="text-white font-semibold">4 niveaux d{"'"}abonnement</span>,{" "}
-                export PDF multi-audience — a ete produit sur la meme periode.
+                une demo produit avec <span className="text-white font-semibold">4 formules d{"'"}abonnement</span>,{" "}
+                un export PDF adapte a chaque audience — a ete produit sur la meme periode.
               </p>
             </div>
 
@@ -167,12 +167,12 @@ export default function DeploiementPage() {
                 <p className="text-3xl font-display font-bold text-white">~2 semaines</p>
               </div>
               <div className="text-center">
-                <p className="text-sm text-[#8FAF8A] mb-1">Equivalent agence traditionnelle</p>
+                <p className="text-sm text-[#8FAF8A] mb-1">Equivalent avec une agence classique</p>
                 <p className="text-3xl font-display font-bold text-white">6-9 mois</p>
                 <p className="text-xs text-[#8FAF8A] mt-0.5">80 000 - 120 000{"\u20AC"}</p>
               </div>
               <div className="text-center">
-                <p className="text-sm text-[#8FAF8A] mb-1">Facteur d{"'"}acceleration</p>
+                <p className="text-sm text-[#8FAF8A] mb-1">Gain de vitesse</p>
                 <p className="text-3xl font-display font-bold text-[#E67E22]">{"\u00D7"}15-20</p>
               </div>
             </div>
@@ -197,13 +197,16 @@ export default function DeploiementPage() {
         </div>
         <div className="bg-[#1A3D2E]/5 border border-[#1A3D2E]/10 rounded-xl p-4 mt-2">
           <p className="text-sm text-[#1A3D2E] font-medium text-center">
-            2 ans de R&D terrain, construits avec l{"'"}IA (Claude Code) et valides par un usage reel.
+            Le resultat de 2 ans de reflexion terrain, construits avec l{"'"}aide de l{"'"}IA et valides par un usage reel.
           </p>
         </div>
       </SectionCard>
 
       {/* 3. CE QU'IL RESTE */}
-      <SectionCard title="Ce qu'il reste a faire" icon={Zap} delay={200} className="mt-8">
+      <SectionCard title="Les prochaines etapes" icon={Zap} delay={200} className="mt-8">
+        <p className="text-sm text-slate-500 mb-4">
+          4 chantiers pour passer du produit actuel au lancement public. Chaque chantier dure quelques jours grace a l{"'"}IA.
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {SPRINTS.map((sprint) => (
             <ScrollReveal key={sprint.id} delay={sprint.id * 80}>
@@ -221,7 +224,7 @@ export default function DeploiementPage() {
                     </div>
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: sprint.color }}>
-                        Sprint {sprint.id}
+                        Etape {sprint.id}
                       </p>
                       <p className="font-display font-semibold text-slate-800 text-sm">{sprint.title}</p>
                     </div>
@@ -252,19 +255,22 @@ export default function DeploiementPage() {
               <Clock className="w-5 h-5 text-[#E67E22]" />
             </div>
             <div>
-              <p className="font-display font-semibold text-slate-800">Total : 2-3 semaines</p>
-              <p className="text-sm text-slate-500">Recalibre pour la vitesse IA</p>
+              <p className="font-display font-semibold text-slate-800">Duree totale : 2-3 semaines</p>
+              <p className="text-sm text-slate-500">Grace a l{"'"}IA, chaque etape avance tres vite</p>
             </div>
           </div>
           <div className="flex items-center gap-2 bg-[#E67E22] text-white px-5 py-2.5 rounded-full">
             <Rocket className="w-4 h-4" />
-            <span className="text-sm font-semibold">Lancement freemium cible : Avril 2026</span>
+            <span className="text-sm font-semibold">Lancement public vise : Avril 2026</span>
           </div>
         </div>
       </SectionCard>
 
       {/* 4. TIMELINE VISUELLE */}
-      <SectionCard title="Timeline visuelle" icon={CalendarDays} delay={300} className="mt-8">
+      <SectionCard title="Calendrier visuel" icon={CalendarDays} delay={300} className="mt-8">
+        <p className="text-sm text-slate-500 mb-4">
+          Vue d{"'"}ensemble des 12 semaines de developpement, du produit actuel au lancement.
+        </p>
         <div className="overflow-x-auto pb-2">
           <div className="min-w-[700px]">
             {/* Sprint labels */}
@@ -281,7 +287,7 @@ export default function DeploiementPage() {
                   >
                     <sprint.icon className="w-3.5 h-3.5" style={{ color: sprint.color }} />
                     <span className="text-xs font-semibold" style={{ color: sprint.color }}>
-                      Sprint {sprintId}
+                      Etape {sprintId}
                     </span>
                   </div>
                 )
@@ -341,19 +347,19 @@ export default function DeploiementPage() {
               <div className="w-11 h-11 rounded-xl bg-[#1A5276]/10 flex items-center justify-center">
                 <Euro className="w-5.5 h-5.5 text-[#1A5276]" />
               </div>
-              <h3 className="font-display text-xl font-bold text-slate-800">Cout de developpement</h3>
+              <h3 className="font-display text-xl font-bold text-slate-800">Combien ca coute</h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl border border-slate-200 p-5 text-center shadow-sm">
-                <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-2">Dev interne avec IA</p>
+                <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-2">Developpement avec l{"'"}IA</p>
                 <p className="text-4xl font-display font-bold text-[#1A3D2E]">0{"\u20AC"}</p>
-                <p className="text-sm text-slate-500 mt-1">masse salariale</p>
+                <p className="text-sm text-slate-500 mt-1">pas de salaire developpeur</p>
               </div>
               <div className="bg-white rounded-xl border border-slate-200 p-5 text-center shadow-sm">
-                <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-2">Audit securite</p>
+                <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-2">Verification par un expert</p>
                 <p className="text-4xl font-display font-bold text-[#1A5276]">3-5k{"\u20AC"}</p>
-                <p className="text-sm text-slate-500 mt-1">dev senior freelance</p>
+                <p className="text-sm text-slate-500 mt-1">audit securite par un developpeur senior</p>
               </div>
               <div className="bg-white rounded-xl border border-[#E67E22]/30 p-5 text-center shadow-sm ring-2 ring-[#E67E22]/20">
                 <p className="text-xs uppercase tracking-wider text-[#E67E22] font-semibold mb-2">Total</p>
@@ -364,9 +370,9 @@ export default function DeploiementPage() {
 
             <div className="mt-6 bg-[#1A3D2E]/5 border border-[#1A3D2E]/10 rounded-xl p-4">
               <p className="text-sm text-[#1A3D2E] text-center leading-relaxed">
-                Un developpement equivalent en agence couterait{" "}
+                Le meme produit developpe par une agence couterait{" "}
                 <span className="font-bold">80 000 - 120 000{"\u20AC"}</span>.{" "}
-                L{"'"}utilisation de l{"'"}IA comme co-developpeur divise le cout par{" "}
+                L{"'"}utilisation de l{"'"}IA comme assistant de developpement divise le cout par{" "}
                 <span className="font-bold text-[#E67E22]">20{"\u00D7"}</span>.
               </p>
             </div>
@@ -375,7 +381,10 @@ export default function DeploiementPage() {
       </ScrollReveal>
 
       {/* 6. COMPARATIF VISUEL */}
-      <SectionCard title="Comparatif visuel" icon={ChartBar} delay={500} className="mt-8">
+      <SectionCard title="Parkimmo vs developpement classique" icon={ChartBar} delay={500} className="mt-8">
+        <p className="text-sm text-slate-500 mb-4">
+          Comparaison entre notre approche (IA + fondatrice) et un developpement classique avec une equipe ou une agence.
+        </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -384,11 +393,11 @@ export default function DeploiementPage() {
                 <th className="text-left py-3 px-4 font-display font-semibold text-[#1A3D2E]">
                   <div className="flex items-center gap-2">
                     <Cpu className="w-4 h-4" />
-                    Parkimmo (Claude Code)
+                    Parkimmo (avec l{"'"}IA)
                   </div>
                 </th>
                 <th className="text-left py-3 px-4 font-display font-semibold text-slate-400">
-                  Dev classique
+                  Approche classique
                 </th>
               </tr>
             </thead>
@@ -426,7 +435,10 @@ export default function DeploiementPage() {
       </SectionCard>
 
       {/* 7. POST-LANCEMENT */}
-      <SectionCard title="Post-lancement (M6-M12)" icon={TrendingUp} delay={600} className="mt-8">
+      <SectionCard title="Apres le lancement (mois 6 a 12)" icon={TrendingUp} delay={600} className="mt-8">
+        <p className="text-sm text-slate-500 mb-4">
+          Une fois le produit lance, voici les grandes evolutions prevues.
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {POST_LAUNCH_ITEMS.map((item, i) => (
             <ScrollReveal key={i} delay={i * 80}>
@@ -444,7 +456,7 @@ export default function DeploiementPage() {
         </div>
       </SectionCard>
 
-      {/* 8. APPROCHE TECHNIQUE DIFFERENCIANTE */}
+      {/* 8. APPROCHE DIFFERENCIANTE */}
       <ScrollReveal delay={700}>
         <div className="mt-8 mb-4 rounded-2xl bg-gradient-to-br from-[#1A3D2E] via-[#1A3D2E] to-[#1A5276] text-[#E8E4D4] p-8 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
@@ -453,19 +465,19 @@ export default function DeploiementPage() {
               <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center">
                 <Cpu className="w-5.5 h-5.5 text-[#E67E22]" />
               </div>
-              <h3 className="font-display text-xl font-bold">Approche technique differenciante</h3>
+              <h3 className="font-display text-xl font-bold">Notre approche unique</h3>
             </div>
             <p className="text-[15px] leading-relaxed mb-4">
-              Parkimmo est developpe avec <span className="text-white font-semibold">Claude Code (IA Anthropic)</span> comme
-              co-developpeur permanent. Cette approche permet une vitesse d{"'"}iteration sans precedent : chaque fonctionnalite,
-              chaque correction, chaque amelioration est implementee en heures au lieu de jours.
+              Parkimmo est developpe avec <span className="text-white font-semibold">Claude Code</span>, une intelligence artificielle
+              creee par Anthropic, qui agit comme un assistant de developpement permanent. Grace a cette approche,
+              chaque nouvelle fonctionnalite, chaque correction, chaque amelioration est realisee en <span className="text-white font-semibold">quelques heures au lieu de plusieurs jours</span>.
             </p>
             <p className="text-[15px] leading-relaxed mb-4">
-              La fondatrice pilote la vision produit et la strategie metier. L{"'"}IA genere le code, les tests, la documentation
-              technique. Le resultat : un produit de qualite professionnelle avec un cout de developpement quasi nul.
+              La fondatrice pilote la vision du produit et la strategie metier. L{"'"}IA produit le code, les tests et la documentation technique.
+              Le resultat : un produit de qualite professionnelle avec un <span className="text-white font-semibold">cout de developpement quasi nul</span>.
             </p>
             <div className="flex flex-wrap gap-3 mt-6">
-              {["Claude Code", "Next.js 16", "React 19", "Prisma 6", "Turso (SQLite)", "Tailwind 4", "TypeScript", "Vercel"].map((tech) => (
+              {["Claude Code", "Next.js 16", "React 19", "Prisma 6", "Turso (base de donnees)", "Tailwind 4", "TypeScript", "Vercel"].map((tech) => (
                 <span
                   key={tech}
                   className="px-3 py-1.5 rounded-full bg-white/10 text-xs font-semibold text-white/90 border border-white/10"

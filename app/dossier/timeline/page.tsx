@@ -25,41 +25,41 @@ const TIMELINE: WeekData[] = [
   {
     week: "S1",
     dates: "4-9 mars",
-    focus: "Lancement projet ✅ Fait",
+    focus: "Lancement du projet",
     color: "#059669",
     tasks: [
-      { task: "Création dossier stratégique complet", category: "Produit", icon: Code },
-      { task: "Structuration business plan + pricing", category: "Stratégie", icon: Target },
-      { task: "Signature avocat IA / PI / droit des affaires", category: "Juridique", icon: Scale },
-      { task: "Client A (Dayot, 18 biens) — pilote actif", category: "Client", icon: Users },
+      { task: "Creation du dossier strategique complet (celui que vous lisez)", category: "Produit", icon: Code },
+      { task: "Definition du business plan et des tarifs", category: "Strategie", icon: Target },
+      { task: "Signature de l'avocat specialise (IA, propriete intellectuelle, droit des affaires)", category: "Juridique", icon: Scale },
+      { task: "Premier client pilote (Dayot, 18 biens) — deja actif", category: "Client", icon: Users },
     ],
-    milestone: "Dossier stratégique V1 + Avocat signé ✅",
+    milestone: "Dossier strategique V1 termine + Avocat signe",
   },
   {
     week: "S2",
     dates: "10-16 mars",
-    focus: "Consolidation & Produit",
+    focus: "Consolidation et renforcement",
     color: "#1A3D2E",
     tasks: [
-      { task: "Budget lancement + grille de dépenses", category: "Finance", icon: Briefcase },
-      { task: "Forfait LUXE — positionnement premium", category: "Pricing", icon: Target },
-      { task: "PDF export multi-audience", category: "Produit", icon: Code },
-      { task: "Pitch investisseur — préparation entourage", category: "Investisseur", icon: Megaphone },
-      { task: "RDV avocat (mercredi) + RDV investisseur (vendredi)", category: "Stratégie", icon: Target },
+      { task: "Budget de lancement et grille de depenses detaillee", category: "Finance", icon: Briefcase },
+      { task: "Forfait LUXE — positionnement haut de gamme", category: "Tarifs", icon: Target },
+      { task: "Export PDF adapte a chaque audience (investisseur, partenaire, dev)", category: "Produit", icon: Code },
+      { task: "Preparation du pitch pour les premiers investisseurs (entourage)", category: "Investisseur", icon: Megaphone },
+      { task: "RDV avocat (mercredi) + RDV investisseur (vendredi)", category: "Strategie", icon: Target },
     ],
   },
   {
     week: "S3",
     dates: "17-23 mars",
-    focus: "Acquisition & Juridique",
+    focus: "Visibilite et juridique",
     color: "#8FAF8A",
     tasks: [
-      { task: "Simulateur SEO gratuit — développement", category: "Acquisition", icon: Megaphone },
-      { task: "Carte G — dossier CCI", category: "Juridique", icon: Scale },
-      { task: "Client B (4 biens) — onboarding", category: "Client", icon: Users },
-      { task: "Décomposition pricing par process", category: "Pricing", icon: Target },
+      { task: "Simulateur gratuit pour le referencement Google — developpement", category: "Visibilite", icon: Megaphone },
+      { task: "Carte professionnelle G — dossier aupres de la CCI", category: "Juridique", icon: Scale },
+      { task: "Deuxieme client pilote (4 biens) — prise en main", category: "Client", icon: Users },
+      { task: "Detail des couts par fonctionnalite pour les tarifs", category: "Tarifs", icon: Target },
     ],
-    milestone: "Simulateur SEO live + Client B onboardé",
+    milestone: "Simulateur en ligne + 2e client demarre",
   },
   {
     week: "S4-S5",
@@ -68,92 +68,92 @@ const TIMELINE: WeekData[] = [
     color: "#7c3aed",
     vacation: true,
     tasks: [
-      { task: "Formation Claude avancée (prompting, agents)", category: "Formation", icon: GraduationCap },
-      { task: "Automatisations IA pour process Parkimmo", category: "IA", icon: Code },
-      { task: "Étude approfondie cible + personas", category: "Stratégie", icon: Target },
-      { task: "Veille concurrentielle approfondie", category: "Stratégie", icon: Building2 },
+      { task: "Formation avancee sur l'IA (prompting, agents automatiques)", category: "Formation", icon: GraduationCap },
+      { task: "Automatisation des taches repetitives de Parkimmo avec l'IA", category: "IA", icon: Code },
+      { task: "Etude approfondie de la cible et des profils types d'utilisateurs", category: "Strategie", icon: Target },
+      { task: "Veille sur les concurrents (forces, faiblesses, positionnement)", category: "Strategie", icon: Building2 },
     ],
   },
   {
     week: "S6",
     dates: "7-13 avril",
-    focus: "Reprise — Scale clients",
+    focus: "Reprise — Elargissement clients",
     color: "#059669",
     tasks: [
-      { task: "Client C (50+ biens) — onboarding MDB", category: "Client", icon: Users },
-      { task: "RGPD compliance — mise en conformité", category: "Juridique", icon: Scale },
-      { task: "Landing page optimisée + SEO on-page", category: "Acquisition", icon: Megaphone },
-      { task: "Espace partenaire V1 (notaires/CGP)", category: "Produit", icon: Building2 },
+      { task: "Troisieme client pilote (50+ biens) — gros patrimoine", category: "Client", icon: Users },
+      { task: "Mise en conformite vie privee (RGPD)", category: "Juridique", icon: Scale },
+      { task: "Page d'accueil marketing + optimisation pour Google", category: "Visibilite", icon: Megaphone },
+      { task: "Espace dedie aux partenaires (notaires, conseillers en gestion)", category: "Produit", icon: Building2 },
     ],
     milestone: "3 clients pilotes actifs",
   },
   {
     week: "S7-S8",
     dates: "14-27 avril",
-    focus: "Produit V2 & Traction",
+    focus: "Produit V2 et premiers retours",
     color: "#059669",
     tasks: [
-      { task: "Module Coffre-fort V1 + OCR documents", category: "Produit", icon: Code },
-      { task: "Interviews utilisateurs (20 cibles)", category: "Validation", icon: Users },
-      { task: "LinkedIn 3 posts/semaine — routine installée", category: "Acquisition", icon: Megaphone },
-      { task: "Premiers retours investisseurs entourage", category: "Investisseur", icon: Target },
+      { task: "Coffre-fort numerique V1 + lecture automatique de documents", category: "Produit", icon: Code },
+      { task: "Entretiens avec 20 utilisateurs cibles pour valider le produit", category: "Validation", icon: Users },
+      { task: "LinkedIn : 3 publications par semaine — routine installee", category: "Visibilite", icon: Megaphone },
+      { task: "Premiers retours des investisseurs (entourage proche)", category: "Investisseur", icon: Target },
     ],
   },
   {
     week: "S9-S10",
     dates: "28 avril — 11 mai",
-    focus: "Recrutement & Process",
+    focus: "Recrutement et organisation",
     color: "#8FAF8A",
     tasks: [
-      { task: "Fiche de poste recrue #1 — France Travail / POE", category: "RH", icon: Users },
-      { task: "Documentation process internes", category: "Process", icon: Code },
-      { task: "Carte G — suivi dossier CCI", category: "Juridique", icon: Scale },
-      { task: "5 premiers clients payants visés", category: "Commercial", icon: Target },
+      { task: "Fiche de poste pour la 1ere recrue (via France Travail, formation financee)", category: "RH", icon: Users },
+      { task: "Documentation des process internes", category: "Organisation", icon: Code },
+      { task: "Carte professionnelle G — suivi du dossier CCI", category: "Juridique", icon: Scale },
+      { task: "Objectif : 5 premiers clients payants", category: "Commercial", icon: Target },
     ],
-    milestone: "5 clients — Fiche de poste publiée",
+    milestone: "5 clients — Fiche de poste publiee",
   },
   {
     week: "S11-S12",
     dates: "12-25 mai",
-    focus: "Accélération commerciale",
+    focus: "Acceleration commerciale",
     color: "#8FAF8A",
     tasks: [
-      { task: "Google Ads — première campagne test", category: "Acquisition", icon: Megaphone },
-      { task: "Entretiens recrue #1", category: "RH", icon: Users },
-      { task: "Module Finance V1 — suivi dépenses/revenus", category: "Produit", icon: Code },
-      { task: "Partenariat comptable #1 — prospection", category: "Partenaires", icon: Building2 },
+      { task: "Google Ads — premiere campagne de publicite en ligne", category: "Visibilite", icon: Megaphone },
+      { task: "Entretiens avec les candidats pour la 1ere recrue", category: "RH", icon: Users },
+      { task: "Module Finances V1 — suivi des depenses et revenus par bien", category: "Produit", icon: Code },
+      { task: "Prospection du premier partenaire comptable", category: "Partenaires", icon: Building2 },
     ],
   },
   {
     week: "S13",
     dates: "26 mai — 1er juin",
-    focus: "Milestone M3",
+    focus: "Bilan a 3 mois",
     color: "#059669",
     tasks: [
-      { task: "Bilan M3 — KPIs, CA, pipeline", category: "Stratégie", icon: Target },
-      { task: "Recrue #1 — démarrage POE", category: "RH", icon: Users },
-      { task: "Audit sécurité code — première passe", category: "Tech", icon: Code },
-      { task: "Objectif : 8 clients + MRR > 500€", category: "Commercial", icon: Rocket },
+      { task: "Bilan complet : indicateurs, chiffre d'affaires, clients en cours", category: "Strategie", icon: Target },
+      { task: "Premiere recrue — demarrage de la formation financee", category: "RH", icon: Users },
+      { task: "Verification de securite du code — premiere passe", category: "Tech", icon: Code },
+      { task: "Objectif : 8 clients, 500 euros de revenus mensuels recurrents", category: "Commercial", icon: Rocket },
     ],
-    milestone: "8 clients — Recrue #1 démarrée — MRR 500€+",
+    milestone: "8 clients — 1ere recrue demarree — 500 euros/mois de revenus recurrents",
   },
 ]
 
 /* ─── CATEGORY COLORS ─── */
 const CAT_COLORS: Record<string, string> = {
   Produit: "#1A3D2E",
-  Stratégie: "#8FAF8A",
+  Strategie: "#8FAF8A",
   Juridique: "#7c3aed",
   Client: "#059669",
   Finance: "#f59e0b",
   Investisseur: "#dc2626",
-  Acquisition: "#059669",
-  Pricing: "#8FAF8A",
+  Visibilite: "#059669",
+  Tarifs: "#8FAF8A",
   Formation: "#7c3aed",
   IA: "#1A3D2E",
   Validation: "#059669",
   RH: "#f59e0b",
-  Process: "#64748b",
+  Organisation: "#64748b",
   Commercial: "#8FAF8A",
   Partenaires: "#1A3D2E",
   Tech: "#1A3D2E",
@@ -164,8 +164,8 @@ export default function TimelinePage() {
     <div>
       <PageHeader
         icon={Calendar}
-        title="Timeline 3 Mois"
-        subtitle="Mars — Juin 2026 · Planning détaillé LTOA / PASCAL / Parkimmo"
+        title="Planning sur 3 mois"
+        subtitle="Mars — Juin 2026 · Les grandes etapes semaine par semaine"
       />
 
       {/* Context bar */}
@@ -174,7 +174,7 @@ export default function TimelinePage() {
           <div className="grid md:grid-cols-3 gap-4 text-sm">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-[#1A3D2E]" />
-              <span className="text-slate-600">Démarrage : <strong className="text-slate-800">4 mars 2026</strong></span>
+              <span className="text-slate-600">Demarrage : <strong className="text-slate-800">4 mars 2026</strong></span>
             </div>
             <div className="flex items-center gap-2">
               <PlaneTakeoff className="w-4 h-4 text-[#7c3aed]" />
@@ -182,7 +182,7 @@ export default function TimelinePage() {
             </div>
             <div className="flex items-center gap-2">
               <Briefcase className="w-4 h-4 text-[#8FAF8A]" />
-              <span className="text-slate-600">Emploi : <strong className="text-slate-800">LTOA → PASCAL</strong></span>
+              <span className="text-slate-600">Parkimmo en parallele de l{"'"}emploi <strong className="text-slate-800">(15-25h/sem)</strong></span>
             </div>
           </div>
         </div>
@@ -191,9 +191,9 @@ export default function TimelinePage() {
       {/* Phase overview */}
       <div className="grid grid-cols-3 gap-3 mb-8">
         {[
-          { phase: "Lancement", period: "Mars", color: "#1A3D2E", icon: Rocket, desc: "Structure + pilotes + juridique" },
-          { phase: "Construction", period: "Avril", color: "#059669", icon: Code, desc: "Produit V2 + traction + process" },
-          { phase: "Accélération", period: "Mai-Juin", color: "#8FAF8A", icon: Target, desc: "Scale + recrue + MRR" },
+          { phase: "Lancement", period: "Mars", color: "#1A3D2E", icon: Rocket, desc: "Structure, premiers clients, juridique" },
+          { phase: "Construction", period: "Avril", color: "#059669", icon: Code, desc: "Produit V2, premiers retours, process" },
+          { phase: "Acceleration", period: "Mai-Juin", color: "#8FAF8A", icon: Target, desc: "Clients payants, recrutement, revenus" },
         ].map((p, i) => (
           <ScrollReveal key={i} delay={i * 80}>
             <div className="bg-white rounded-xl border border-slate-200 p-4 hover:shadow-md transition-all text-center">
@@ -209,7 +209,10 @@ export default function TimelinePage() {
       </div>
 
       {/* Detailed timeline */}
-      <SectionCard title="Planning semaine par semaine" icon={ClipboardList} delay={200}>
+      <SectionCard title="Semaine par semaine" icon={ClipboardList} delay={200}>
+        <p className="text-sm text-slate-500 mb-4">
+          Chaque semaine a un objectif precis. Les couleurs des etiquettes indiquent le domaine d{"'"}activite.
+        </p>
         <div className="space-y-0">
           {TIMELINE.map((week, idx) => (
             <ScrollReveal key={idx} delay={idx * 40}>
@@ -276,17 +279,20 @@ export default function TimelinePage() {
 
       {/* Contraintes */}
       <div className="mt-8">
-        <SectionCard title="Contraintes & Hypothèses" icon={AlertTriangle} delay={400}>
+        <SectionCard title="Contexte et contraintes" icon={AlertTriangle} delay={400}>
+          <p className="text-sm text-slate-500 mb-4">
+            Ce planning tient compte des contraintes reelles de la fondatrice.
+          </p>
           <div className="grid md:grid-cols-2 gap-4 text-xs text-slate-500">
             <div className="space-y-2.5">
-              <p className="flex items-start gap-2"><Briefcase className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> <strong className="text-slate-700">LTOA</strong> : emploi actuel 35h/sem jusqu&apos;à transition PASCAL</p>
-              <p className="flex items-start gap-2"><Briefcase className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> <strong className="text-slate-700">PASCAL</strong> : client/employeur suivant — emploi maintenu en parallèle</p>
-              <p className="flex items-start gap-2"><Clock className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Parkimmo travaillé le <strong className="text-slate-700">soir + week-end</strong> (15-25h/sem)</p>
+              <p className="flex items-start gap-2"><Briefcase className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Emploi actuel a temps plein (35h/semaine) maintenu en parallele</p>
+              <p className="flex items-start gap-2"><Briefcase className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Transition d{"'"}employeur prevue — l{"'"}emploi salarie continue</p>
+              <p className="flex items-start gap-2"><Clock className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Parkimmo developpe le <strong className="text-slate-700">soir et le week-end</strong> (15-25h/sem)</p>
             </div>
             <div className="space-y-2.5">
-              <p className="flex items-start gap-2"><PlaneTakeoff className="w-3.5 h-3.5 text-[#7c3aed] mt-0.5 flex-shrink-0" /> Vacances <strong className="text-slate-700">24 mars — 6 avril</strong> : apprentissage IA intensif</p>
-              <p className="flex items-start gap-2"><Users className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Recrue #1 via <strong className="text-slate-700">POE France Travail</strong> dès M3 (juin)</p>
-              <p className="flex items-start gap-2"><ArrowRight className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Objectif M3 : <strong className="text-[#059669]">8 clients · MRR 500€+ · Recrue démarrée</strong></p>
+              <p className="flex items-start gap-2"><PlaneTakeoff className="w-3.5 h-3.5 text-[#7c3aed] mt-0.5 flex-shrink-0" /> Vacances <strong className="text-slate-700">24 mars — 6 avril</strong> : formation intensive sur l{"'"}IA</p>
+              <p className="flex items-start gap-2"><Users className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Premiere recrue via une <strong className="text-slate-700">formation financee par France Travail</strong> (juin)</p>
+              <p className="flex items-start gap-2"><ArrowRight className="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0" /> Objectif a 3 mois : <strong className="text-[#059669]">8 clients, 500 euros/mois de revenus recurrents, 1ere recrue demarree</strong></p>
             </div>
           </div>
         </SectionCard>
