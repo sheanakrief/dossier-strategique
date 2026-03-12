@@ -21,7 +21,7 @@ export default function VisionPage() {
     },
     {
       number: "02",
-      icon: "��",
+      icon: "\uD83E\uDD1D",
       title: "Un accompagnement humain systématique",
       bandColor: "bg-[#059669]",
       items: [
@@ -33,7 +33,7 @@ export default function VisionPage() {
     },
     {
       number: "03",
-      icon: "��",
+      icon: "\uD83C\uDF10",
       title: "Un écosystème connecté",
       bandColor: "bg-[#8FAF8A]",
       items: [
@@ -73,7 +73,7 @@ export default function VisionPage() {
   return (
     <div>
       <PageHeader
-        icon="��"
+        icon={"\uD83C\uDFAF"}
         title="Vision & Positionnement"
         subtitle="La plateforme de gestion patrimoniale immobilière complète"
       />
@@ -131,7 +131,7 @@ export default function VisionPage() {
         ))}
       </div>
 
-      <SectionCard title="Timeline Vision" icon="��️" delay={500}>
+      <SectionCard title="Timeline Vision" icon={"\uD83D\uDCC5"} delay={500}>
         <div className="space-y-0">
           {timeline.map((step, index) => (
             <TimelineItem

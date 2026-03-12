@@ -123,7 +123,7 @@ export default function FondatricePage() {
   return (
     <div>
       <PageHeader
-        icon="��‍��"
+        icon={"\uD83D\uDC69"}
         title="La Fondatrice"
         subtitle="Sheana Krief — 10 ans dans les entrailles du droit immobilier"
       />
@@ -166,7 +166,7 @@ export default function FondatricePage() {
       </ScrollReveal>
 
       {/* --- LE FIL ROUGE : PARCOURS NARRATIF --- */}
-      <SectionCard title="Le fil rouge : de l’immobilier au logiciel" icon="��" delay={150} className="mb-8">
+      <SectionCard title="Le fil rouge : de l’immobilier au logiciel" icon={"\uD83D\uDCD6"} delay={150} className="mb-8">
         <div className="space-y-5">
           {/* Chapitre 1 — Découverte */}
           <ScrollReveal delay={100}>
@@ -413,7 +413,7 @@ export default function FondatricePage() {
       </SectionCard>
 
       {/* --- WHAT MAKES HER UNIQUE --- */}
-      <SectionCard title="Ce que Sheana apporte au projet" icon="��" delay={300} className="mb-8">
+      <SectionCard title="Ce que Sheana apporte au projet" icon={"\u2B50"} delay={300} className="mb-8">
         <div className="grid md:grid-cols-3 gap-4">
           {[
             {
@@ -456,7 +456,7 @@ export default function FondatricePage() {
       </SectionCard>
 
       {/* --- TIMELINE DÉTAILLÉE --- */}
-      <SectionCard title="Parcours professionnel" icon="��" delay={400}>
+      <SectionCard title="Parcours professionnel" icon={"\uD83D\uDCCB"} delay={400}>
         <div className="space-y-0">
           {TIMELINE.map((item, i) => (
             <TimelineItem

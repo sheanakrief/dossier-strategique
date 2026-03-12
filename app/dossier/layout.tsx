@@ -21,10 +21,10 @@ function detectRole(): Role | null {
 }
 
 const ROLE_ICONS: Record<Role, string> = {
-  admin: "��",
-  investisseur: "��",
-  partenaire: "��",
-  dev: "��",
+  admin: "\uD83D\uDD10",
+  investisseur: "\uD83D\uDCBC",
+  partenaire: "\uD83E\uDD1D",
+  dev: "\uD83D\uDCBB",
 }
 
 export default function DossierLayout({ children }: { children: React.ReactNode }) {

@@ -86,7 +86,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* CHANTIERS ACTIFS */}
-      <SectionCard title="Chantiers actifs" icon="��" delay={100} className="mb-6">
+      <SectionCard title="Chantiers actifs" icon={"\uD83D\uDD28"} delay={100} className="mb-6">
         <div className="divide-y divide-slate-100">
           {CHANTIERS.map((ch, i) => {
             const sc = STATUS_COLORS[ch.status]
@@ -114,7 +114,7 @@ export default function AdminDashboardPage() {
       {/* METRIQUES */}
       <div className="print-break-before" />
       <h2 className="font-display text-xl font-bold text-slate-800 mb-1 flex items-center gap-2">
-        {"��"} Métriques clés
+        {"\uD83D\uDCCA"} Métriques clés
       </h2>
       <p className="text-sm text-slate-400 mb-4">Financier An1 + Opérationnel temps réel</p>
 

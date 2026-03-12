@@ -43,7 +43,13 @@ function LoginForm() {
     if (res.ok) {
       const data = await res.json()
       // Redirect to first content page based on role
-      const dest = data.role === "dev" ? "/dossier/produit" : "/dossier/vision"
+      const ROLE_DEST: Record<string, string> = {
+        investisseur: "/dossier/marche",
+        partenaire: "/dossier/vision",
+        dev: "/dossier/produit",
+        admin: "/dossier/vision",
+      }
+      const dest = ROLE_DEST[data.role] || "/dossier/marche"
       router.push(dest)
       router.refresh()
     } else {
