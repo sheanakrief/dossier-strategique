@@ -11,7 +11,6 @@
 export const ENTREPRISE = {
   nom: "Parkimmo",
   societe: "K PAR K CONSEILS SAS",
-  ancienNom: "Cas par Cas Conseil",
   fondatrice: "Sheana Krief",
   dateCreation: "Mi-2024",
   dateLancementProjet: "4 mars 2026",

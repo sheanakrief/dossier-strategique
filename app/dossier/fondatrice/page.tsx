@@ -57,7 +57,7 @@ const TIMELINE = [
   },
   {
     period: "Mi-2024",
-    title: "Création de K PAR K CONSEILS (ex Cas par Cas Conseil)",
+    title: "Création de K PAR K CONSEILS",
     description: "Née d’une réflexion entamée en 2018 autour d’une thèse sur le burn-out des dirigeants TPE. Concept de « business partner » juridique — accompagnement externalisé des fonctions support. Développement d’une clientèle propre : accompagnement d’un dirigeant marchand de biens sur plusieurs structures (10+ biens actifs). Bras droit, assistante de direction, exploitante. 2 ans de R&D terrain pour le projet Parkimmo. Le besoin identifié chez ce client — un logiciel de gestion patrimoniale introuvable sur le marché — a conduit à la décision de le construire.",
     color: "orange",
   },
@@ -253,7 +253,7 @@ export default function FondatricePage() {
               <div>
                 <p className="text-sm font-semibold text-[#8FAF8A] mb-1">2 ans de R&D terrain</p>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Mi-2024 : création de K PAR K CONSEILS (ex Cas par Cas Conseil), née d&apos;une réflexion
+                  Mi-2024 : création de K PAR K CONSEILS, née d&apos;une réflexion
                   entamée en 2018 autour d&apos;une thèse sur le burn-out des dirigeants TPE. Le concept :
                   un &laquo; business partner &raquo; juridique — accompagnement externalisé des fonctions support.
                   Accompagnement d&apos;un dirigeant marchand de biens sur plusieurs structures — une dizaine de
