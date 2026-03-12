@@ -46,7 +46,7 @@ function LoginForm() {
       const ROLE_DEST: Record<string, string> = {
         investisseur: "/dossier/marche",
         partenaire: "/dossier/vision",
-        dev: "/dossier/produit",
+        dev: "/dossier/architecture",
         admin: "/dossier/vision",
       }
       const dest = ROLE_DEST[data.role] || "/dossier/marche"
