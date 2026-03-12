@@ -690,8 +690,9 @@ export default function EnquetePage() {
           freeText: freeText || null,
           userAgent: navigator.userAgent,
           duration,
+          submittedAt: new Date().toISOString(),
         }),
-      }).catch(console.error)
+      }).catch((err) => console.error("Enquete save error:", err))
     }
   }, [isEnd, profile, ans, email, freeText, startTime, submitted])
 
