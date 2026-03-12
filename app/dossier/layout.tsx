@@ -7,7 +7,7 @@ import {
   Download, Menu,
   BarChart3, Target, User, TrendingUp, Swords, Building2, Wrench,
   CreditCard, Gift, Rocket, PiggyBank, CalendarDays, Scale, Wallet,
-  Clock, Mic, ClipboardList, Lock, HelpCircle,
+  Clock, Mic, ClipboardList, Lock, HelpCircle, Monitor,
   Shield, Briefcase, Handshake, Code,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
@@ -16,7 +16,7 @@ import { SECTIONS, type Role, ROLE_LABELS, getSectionsForRole, canAccessSlug } f
 const ICON_MAP: Record<string, LucideIcon> = {
   BarChart3, Target, User, TrendingUp, Swords, Building2, Wrench,
   CreditCard, Gift, Rocket, PiggyBank, CalendarDays, Scale, Wallet,
-  Clock, Mic, ClipboardList, Lock, HelpCircle,
+  Clock, Mic, ClipboardList, Lock, HelpCircle, Monitor,
 }
 
 function getCookie(name: string): string | null {

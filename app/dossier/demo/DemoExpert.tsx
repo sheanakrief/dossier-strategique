@@ -1,0 +1,401 @@
+export default function DemoExpert() {
+  return (
+    <div className="demo-container">
+      {/* ── SIDEBAR ── */}
+      <aside className="demo-sidebar">
+        <div className="demo-sidebar-nav">
+          <div className="demo-sidebar-logo">
+            <span className="park">PARK</span>
+            <span className="immo">IMMO</span>
+          </div>
+          <div className="demo-plan-badge">Expert &middot; 59&euro;</div>
+
+          <div className="demo-sidebar-item active">
+            <span>📊</span> Dashboard
+          </div>
+
+          <div className="demo-section-title">Patrimoine</div>
+          <div className="demo-sidebar-item">
+            <span>🏠</span> Mes biens
+          </div>
+          <div className="demo-sidebar-item">
+            <span>🏦</span> Pr&ecirc;ts actifs
+          </div>
+          <div className="demo-sidebar-item">
+            <span>📁</span> Documents
+          </div>
+
+          <div className="demo-section-title">Gestion locative</div>
+          <div className="demo-sidebar-item">
+            <span>🏘️</span> Mes locations
+          </div>
+          <div className="demo-sidebar-item">
+            <span>📝</span> Baux
+          </div>
+          <div className="demo-sidebar-item">
+            <span>💰</span> Encaissements
+          </div>
+          <div className="demo-sidebar-item">
+            <span>🧾</span> Quittances
+          </div>
+          <div className="demo-sidebar-item">
+            <span>📈</span> R&eacute;visions IRL
+          </div>
+
+          <div className="demo-section-title">Travaux</div>
+          <div className="demo-sidebar-item">
+            <span>🔨</span> Chantiers
+          </div>
+          <div className="demo-sidebar-item">
+            <span>🔧</span> Interventions
+          </div>
+          <div className="demo-sidebar-item">
+            <span>👷</span> Prestataires
+          </div>
+
+          <div className="demo-section-title">Acquisition</div>
+          <div className="demo-sidebar-item">
+            <span>🎯</span> Pipeline
+            <span className="item-badge">2</span>
+          </div>
+          <div className="demo-sidebar-item">
+            <span>📢</span> Commercialisation
+          </div>
+          <div className="demo-sidebar-item">
+            <span>🧮</span> Sc&eacute;narios
+          </div>
+
+          <div className="demo-section-title">Commun</div>
+          <div className="demo-sidebar-item">
+            <span>📇</span> Annuaire
+          </div>
+          <div className="demo-sidebar-item">
+            <span>📅</span> &Eacute;v&eacute;nements
+          </div>
+          <div className="demo-sidebar-item">
+            <span>🔔</span> Alertes
+            <span className="item-badge">5</span>
+          </div>
+          <div className="demo-sidebar-item">
+            <span>⚙️</span> Param&egrave;tres
+          </div>
+        </div>
+
+        <div className="demo-sidebar-footer">
+          Parkimmo v1.0 &middot; Expert &middot; Sheana K.
+        </div>
+      </aside>
+
+      {/* ── MAIN ── */}
+      <div className="demo-main">
+        {/* Header */}
+        <header className="demo-header">
+          <div className="demo-header-left">
+            <span className="demo-header-title">Dashboard</span>
+            <span className="demo-header-badge">Expert</span>
+          </div>
+          <div className="demo-header-right">
+            <button className="demo-search-btn" type="button">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
+            <div className="demo-avatar">SK</div>
+          </div>
+        </header>
+
+        {/* Content */}
+        <div className="demo-content">
+          {/* Stats Grid */}
+          <div className="demo-stats-grid demo-anim demo-anim-d1">
+            <div className="demo-stat-card" style={{ borderLeftColor: 'var(--forest)' }}>
+              <div className="demo-stat-label">Patrimoine total</div>
+              <div className="demo-stat-value">1,42M &euro;</div>
+              <div className="demo-stat-sub">8 biens &middot; 3 structures</div>
+            </div>
+            <div className="demo-stat-card" style={{ borderLeftColor: 'var(--success)' }}>
+              <div className="demo-stat-label">Loyers mensuels</div>
+              <div className="demo-stat-value">4 590 &euro;</div>
+              <div className="demo-stat-sub">5 biens lou&eacute;s &middot; Rendement 6,1%</div>
+            </div>
+            <div className="demo-stat-card" style={{ borderLeftColor: 'var(--purple)' }}>
+              <div className="demo-stat-label">Pipeline acquisition</div>
+              <div className="demo-stat-value">2 projets</div>
+              <div className="demo-stat-sub">1 offre, 1 visite &middot; Investissement potentiel : 620K &euro;</div>
+            </div>
+            <div className="demo-stat-card" style={{ borderLeftColor: 'var(--success)' }}>
+              <div className="demo-stat-label">Cash-flow net</div>
+              <div className="demo-stat-value" style={{ color: 'var(--success)' }}>+2 140 &euro;/mois</div>
+              <div className="demo-stat-sub">Apr&egrave;s charges, pr&ecirc;ts, travaux</div>
+            </div>
+          </div>
+
+          {/* Table: Patrimoine consolidé */}
+          <div className="demo-card demo-anim demo-anim-d2">
+            <h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+              Patrimoine consolid&eacute;
+            </h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Bien</th>
+                  <th>Adresse</th>
+                  <th>Type</th>
+                  <th>Statut</th>
+                  <th>Loyer</th>
+                  <th>Structure</th>
+                  <th style={{ textAlign: 'right' }}>Valeur</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="td-main">R&eacute;sidence principale</td>
+                  <td className="td-sub">12 rue des Lilas, Paris 11e</td>
+                  <td className="td-muted">T3 &middot; 68m&sup2;</td>
+                  <td><span className="badge badge-info">RP</span></td>
+                  <td className="td-muted">&mdash;</td>
+                  <td className="td-muted">Nom propre</td>
+                  <td className="td-value" style={{ textAlign: 'right' }}>295 000 &euro;</td>
+                </tr>
+                <tr>
+                  <td className="td-main">Studio Montreuil</td>
+                  <td className="td-sub">8 av. R&eacute;sistance, 93100</td>
+                  <td className="td-muted">Studio &middot; 24m&sup2;</td>
+                  <td><span className="badge badge-success">Lou&eacute;</span></td>
+                  <td className="td-value">650 &euro;</td>
+                  <td className="td-muted">Nom propre</td>
+                  <td className="td-value" style={{ textAlign: 'right' }}>90 000 &euro;</td>
+                </tr>
+                <tr>
+                  <td className="td-main">T2 Vincennes</td>
+                  <td className="td-sub">34 rue Fontenay, 94300</td>
+                  <td className="td-muted">T2 &middot; 42m&sup2;</td>
+                  <td><span className="badge badge-success">Lou&eacute;</span></td>
+                  <td className="td-value">890 &euro;</td>
+                  <td className="td-muted">SCI Jade</td>
+                  <td className="td-value" style={{ textAlign: 'right' }}>175 000 &euro;</td>
+                </tr>
+                <tr>
+                  <td className="td-main">T3 Bagnolet</td>
+                  <td className="td-sub">15 rue Robespierre, 93170</td>
+                  <td className="td-muted">T3 &middot; 62m&sup2;</td>
+                  <td><span className="badge badge-success">Lou&eacute;</span></td>
+                  <td className="td-value">950 &euro;</td>
+                  <td className="td-muted">SCI Jade</td>
+                  <td className="td-value" style={{ textAlign: 'right' }}>185 000 &euro;</td>
+                </tr>
+                <tr>
+                  <td className="td-main">Maison Nantes</td>
+                  <td className="td-sub">22 bd Jules Verne, 44000</td>
+                  <td className="td-muted">Maison &middot; 95m&sup2;</td>
+                  <td><span className="badge badge-success">Lou&eacute;</span></td>
+                  <td className="td-value">1 100 &euro;</td>
+                  <td className="td-muted">SCI Jade</td>
+                  <td className="td-value" style={{ textAlign: 'right' }}>220 000 &euro;</td>
+                </tr>
+                <tr>
+                  <td className="td-main">Local commercial</td>
+                  <td className="td-sub">5 rue du Commerce, 75015</td>
+                  <td className="td-muted">Commerce &middot; 55m&sup2;</td>
+                  <td><span className="badge badge-success">Lou&eacute;</span></td>
+                  <td className="td-value">1 800 &euro;</td>
+                  <td className="td-muted">SNC Pierre</td>
+                  <td className="td-value" style={{ textAlign: 'right' }}>280 000 &euro;</td>
+                </tr>
+                <tr>
+                  <td className="td-main">Immeuble Lille</td>
+                  <td className="td-sub">78 rue Nationale, 59000</td>
+                  <td className="td-muted">Immeuble &middot; 6 lots</td>
+                  <td><span className="badge badge-purple">Acquisition</span></td>
+                  <td className="td-muted">&mdash;</td>
+                  <td className="td-muted">SNC Pierre</td>
+                  <td className="td-value" style={{ textAlign: 'right' }}>&mdash;</td>
+                </tr>
+                <tr>
+                  <td className="td-main">Terrain Bordeaux</td>
+                  <td className="td-sub">Lot 14, ZAC Euratlantique</td>
+                  <td className="td-muted">Terrain</td>
+                  <td><span className="badge badge-warning">Prospection</span></td>
+                  <td className="td-muted">&mdash;</td>
+                  <td className="td-muted">&mdash;</td>
+                  <td className="td-value" style={{ textAlign: 'right' }}>&mdash;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          {/* Section: Pipeline acquisition */}
+          <div className="demo-card demo-anim demo-anim-d3">
+            <h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+              </svg>
+              Pipeline acquisition
+            </h3>
+            <div className="demo-kanban">
+              {/* Prospection */}
+              <div className="demo-kanban-col">
+                <div className="demo-kanban-header h-muted">Prospection</div>
+                <div className="demo-kanban-card">
+                  <div className="demo-kanban-card-title">Terrain Bordeaux</div>
+                  <div className="demo-kanban-card-meta">
+                    Budget : 200K&euro;<br />
+                    Rdt est. : 7,5%
+                  </div>
+                </div>
+              </div>
+              {/* Offre */}
+              <div className="demo-kanban-col">
+                <div className="demo-kanban-header h-info">Offre</div>
+                <div className="demo-kanban-card">
+                  <div className="demo-kanban-card-title">Immeuble Lille</div>
+                  <div className="demo-kanban-card-meta">
+                    Offre : 395K&euro;<br />
+                    6 lots &middot; Rdt est. : 8,2%
+                  </div>
+                </div>
+              </div>
+              {/* Compromis */}
+              <div className="demo-kanban-col">
+                <div className="demo-kanban-header h-purple">Compromis</div>
+                <div className="demo-kanban-empty">(vide)</div>
+              </div>
+              {/* Acte */}
+              <div className="demo-kanban-col">
+                <div className="demo-kanban-header h-success">Acte</div>
+                <div className="demo-kanban-empty">(vide)</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Section: Vue par structure */}
+          <div className="demo-card demo-anim demo-anim-d4">
+            <h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              Vue par structure
+            </h3>
+            <div className="demo-structure-grid">
+              {/* Nom propre */}
+              <div className="demo-structure-card">
+                <div className="demo-structure-card-header">
+                  <div className="demo-structure-card-title">Nom propre</div>
+                  <div className="demo-structure-card-count">2 biens</div>
+                </div>
+                <div className="demo-structure-row">
+                  <span className="demo-structure-row-label">Valeur</span>
+                  <span className="demo-structure-row-value">385 000 &euro;</span>
+                </div>
+                <div className="demo-structure-row">
+                  <span className="demo-structure-row-label">Loyer</span>
+                  <span className="demo-structure-row-value">650 &euro;/mois</span>
+                </div>
+                <div className="demo-structure-row">
+                  <span className="demo-structure-row-label">CRD</span>
+                  <span className="demo-structure-row-value">245 800 &euro;</span>
+                </div>
+                <div className="demo-structure-row">
+                  <span className="demo-structure-row-label">Cash-flow</span>
+                  <span className="demo-structure-row-value danger">-780 &euro;/mois</span>
+                </div>
+              </div>
+
+              {/* SCI Jade */}
+              <div className="demo-structure-card">
+                <div className="demo-structure-card-header">
+                  <div className="demo-structure-card-title">SCI Jade</div>
+                  <div className="demo-structure-card-count">3 biens</div>
+                </div>
+                <div className="demo-structure-row">
+                  <span className="demo-structure-row-label">Valeur</span>
+                  <span className="demo-structure-row-value">580 000 &euro;</span>
+                </div>
+                <div className="demo-structure-row">
+                  <span className="demo-structure-row-label">Loyer</span>
+                  <span className="demo-structure-row-value">2 940 &euro;/mois</span>
+                </div>
+                <div className="demo-structure-row">
+                  <span className="demo-structure-row-label">CRD</span>
+                  <span className="demo-structure-row-value">320 000 &euro;</span>
+                </div>
+                <div className="demo-structure-row">
+                  <span className="demo-structure-row-label">Cash-flow</span>
+                  <span className="demo-structure-row-value success">+1 540 &euro;/mois</span>
+                </div>
+                <div className="demo-structure-row">
+                  <span className="demo-structure-row-label">Rendement brut</span>
+                  <span className="demo-structure-row-value">6,1%</span>
+                </div>
+              </div>
+
+              {/* SNC Pierre */}
+              <div className="demo-structure-card">
+                <div className="demo-structure-card-header">
+                  <div className="demo-structure-card-title">SNC Pierre</div>
+                  <div className="demo-structure-card-count">1 bien actif + 1 acquisition</div>
+                </div>
+                <div className="demo-structure-row">
+                  <span className="demo-structure-row-label">Valeur</span>
+                  <span className="demo-structure-row-value">280 000 &euro;</span>
+                </div>
+                <div className="demo-structure-row">
+                  <span className="demo-structure-row-label">Loyer</span>
+                  <span className="demo-structure-row-value">1 800 &euro;/mois</span>
+                </div>
+                <div className="demo-structure-row">
+                  <span className="demo-structure-row-label">CRD</span>
+                  <span className="demo-structure-row-value">195 000 &euro;</span>
+                </div>
+                <div className="demo-structure-row">
+                  <span className="demo-structure-row-label">Cash-flow</span>
+                  <span className="demo-structure-row-value success">+680 &euro;/mois</span>
+                </div>
+                <div className="demo-structure-note">Pipeline : 1 offre (Lille)</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Section: Commercialisation (empty state) */}
+          <div className="demo-card demo-anim demo-anim-d5">
+            <h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+              Commercialisation
+            </h3>
+            <div className="demo-empty-state">
+              <div className="demo-empty-state-icon">📊</div>
+              Aucun bien en commercialisation actuellement. Lancez la mise en vente depuis la fiche bien.
+            </div>
+          </div>
+
+          {/* GA Banner */}
+          <div className="demo-ga-banner demo-anim demo-anim-d5">
+            <div className="demo-ga-banner-icon">🤝</div>
+            <div>
+              <div className="demo-ga-banner-title">Gestion Assist&eacute;e</div>
+              <div className="demo-ga-banner-text">
+                Gagnez du temps avec la Gestion Assist&eacute;e Parkimmo. Un charg&eacute; d&apos;affaires d&eacute;di&eacute; g&egrave;re vos quittances, relances, r&eacute;visions et suivi mensuel. &Agrave; partir de 69&euro;/mois.
+              </div>
+              <div className="demo-ga-banner-link">En savoir plus &rarr;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

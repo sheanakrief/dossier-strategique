@@ -131,6 +131,12 @@ export const SECTIONS: Section[] = [
     icon: "HelpCircle",
     audiences: ["all"],
   },
+  {
+    slug: "demo",
+    title: "Démo produit",
+    icon: "Monitor",
+    audiences: ["all", "investisseur", "partenaire", "dev"],
+  },
 ]
 
 export function getVisibleSections(audience: Audience): Section[] {
@@ -150,9 +156,9 @@ export const ROLE_LABELS: Record<Role, string> = {
 
 export const ROLE_ACCESS: Record<Role, string[]> = {
   admin: ["all"],
-  investisseur: ["marche", "fondatrice", "concurrence", "produit", "pricing", "simulation"],
-  partenaire: ["", "vision", "fondatrice", "produit", "pricing", "juridique", "pitch"],
-  dev: ["", "produit", "architecture", "deploiement", "timeline"],
+  investisseur: ["marche", "fondatrice", "concurrence", "produit", "pricing", "simulation", "demo"],
+  partenaire: ["", "vision", "fondatrice", "produit", "pricing", "juridique", "pitch", "demo"],
+  dev: ["", "produit", "architecture", "deploiement", "timeline", "demo"],
 }
 
 export const ROLE_COOKIES: Record<Role, string> = {
