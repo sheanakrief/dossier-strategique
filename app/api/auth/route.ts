@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
   if (match) {
     const res = NextResponse.json({ ok: true, role: match.role })
     res.cookies.set(match.cookie, "1", {
-      httpOnly: true,
+      httpOnly: false,
       sameSite: "lax",
       maxAge: 60 * 60 * 24 * 7,
       path: "/",
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
   if (password === legacyPassword) {
     const res = NextResponse.json({ ok: true, role: "investisseur" })
     res.cookies.set("dossier_auth_investor", "1", {
-      httpOnly: true,
+      httpOnly: false,
       sameSite: "lax",
       maxAge: 60 * 60 * 24 * 7,
       path: "/",

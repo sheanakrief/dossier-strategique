@@ -10,10 +10,10 @@ const ROLE_COOKIES = {
 
 type Role = keyof typeof ROLE_COOKIES
 
-// Role → allowed page slugs
+// Role → allowed page slugs (must match data/audiences.ts ROLE_ACCESS)
 const ROLE_ACCESS: Record<Role, string[]> = {
   admin: ["all"],
-  investisseur: ["", "vision", "fondatrice", "marche", "concurrence", "produit", "architecture", "pricing", "simulation", "deploiement", "juridique", "budget", "pitch", "admin", "decisions", "export", "enquete-admin"],
+  investisseur: ["", "marche", "fondatrice", "concurrence", "produit", "pricing", "simulation", "export"],
   partenaire: ["", "vision", "fondatrice", "produit", "pricing", "juridique", "pitch", "export"],
   dev: ["", "produit", "architecture", "deploiement", "timeline", "export"],
 }
