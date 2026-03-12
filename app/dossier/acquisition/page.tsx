@@ -79,9 +79,9 @@ const PILIERS: PilierData[] = [
       "Blog SEO : 2-3 articles/mois, guides pratiques, comparatifs outils, conseils fiscaux",
       "Strategie longue traine : centaines de requetes specifiques a faible concurrence",
     ],
-    cost: "~0\u20AC (temps fondatrice)",
+    cost: "~0€ (temps fondatrice)",
     impact: "40% du trafic a M12",
-    timeline: "M1 \u2192 M4-M6 (croissance cumulative)",
+    timeline: "M1 → M4-M6 (croissance cumulative)",
   },
   {
     id: 2,
@@ -92,10 +92,10 @@ const PILIERS: PilierData[] = [
     details: [
       "Positionnement unique : expertise juridique + tech + immobilier",
       "Format : tutos 5-10 min, reponses aux questions courantes des proprietaires",
-      "Sujets : declarations fiscales, gestion des litiges, transition Excel \u2192 app, cas pratiques SCI",
+      "Sujets : declarations fiscales, gestion des litiges, transition Excel → app, cas pratiques SCI",
       "Cross-promotion : chaque video renvoie vers le lead magnet Excel ou le freemium",
     ],
-    cost: "~0\u20AC (smartphone + logiciel gratuit)",
+    cost: "~0€ (smartphone + logiciel gratuit)",
     impact: "20% du trafic a M12",
     timeline: "1ere video M1, rythme 2/mois",
   },
@@ -109,9 +109,9 @@ const PILIERS: PilierData[] = [
       "Cible : YouTubers patrimoine/investissement 10k-100k abonnes",
       "Communautes : Finary, forums immo, groupes Facebook proprietaires",
       "Micro-influenceurs LinkedIn : comptables, CGP, experts patrimoine",
-      "Deal : acces Pro gratuit + code promo affilies. Quelques placements payes 1 000-2 000\u20AC",
+      "Deal : acces Pro gratuit + code promo affilies. Quelques placements payes 1 000-2 000€",
     ],
-    cost: "5 000\u20AC An1",
+    cost: "5 000€ An1",
     impact: "15% du trafic a M12",
     timeline: "Contacts M2, 1eres collabs M4-M5",
   },
@@ -123,11 +123,11 @@ const PILIERS: PilierData[] = [
     description: "Search cible uniquement, pas de display au debut. Requetes a forte intention d'achat sur les alternatives aux outils existants.",
     details: [
       "Requetes ciblees : \"logiciel gestion locative\", \"alternative Rentila\", \"outil gestion SCI\"",
-      "Search only au debut \u2014 pas de Display (trop de gaspillage en early stage)",
+      "Search only au debut — pas de Display (trop de gaspillage en early stage)",
       "Landing pages dediees par intent : SCI, multi-biens, primo-bailleur",
       "A/B testing continu : titres, descriptions, pages d'atterrissage",
     ],
-    cost: "500\u20AC/mois M3-M6 \u2192 1 000\u20AC/mois M7-M12",
+    cost: "500€/mois M3-M6 → 1 000€/mois M7-M12",
     impact: "15% du trafic",
     timeline: "Lancement M3, montee progressive",
   },
@@ -139,13 +139,13 @@ const PILIERS: PilierData[] = [
     description: "Comptables, CGP, notaires. Espace Partenaire gratuit avec tableau de bord clients = recommandation naturelle.",
     details: [
       "Cible : comptables (relation trimestrielle avec proprietaires), CGP, notaires",
-      "Outil : Espace Partenaire gratuit \u2014 vue consolidee de leurs clients proprietaires",
+      "Outil : Espace Partenaire gratuit — vue consolidee de leurs clients proprietaires",
       "Valeur ajoutee : moins de relance documentaire, documents deja organises",
       "Objectif An1 : 10 partenaires actifs qui recommandent naturellement",
     ],
-    cost: "~0\u20AC (outils integres)",
+    cost: "~0€ (outils integres)",
     impact: "10% des clients, meilleure retention",
-    timeline: "Prospection M1 \u2192 1ers partenaires M4",
+    timeline: "Prospection M1 → 1ers partenaires M4",
   },
   {
     id: 6,
@@ -156,12 +156,12 @@ const PILIERS: PilierData[] = [
     details: [
       "Base cible : donnees publiques Infogreffe/Pappers (gerants SCIs)",
       "Format : carte A5 premium, QR code vers landing /sci dediee",
-      "Taux d'ouverture courrier : ~90% vs ~20% email \u2014 5x plus d'attention",
+      "Taux d'ouverture courrier : ~90% vs ~20% email — 5x plus d'attention",
       "Profil premium : SCIs = multi-biens = ARPU eleve (forfait Pro/Expert ou GA)",
-      "Test initial : 1 000 envois = ~1 000\u20AC, conversion attendue 2-3%",
+      "Test initial : 1 000 envois = ~1 000€, conversion attendue 2-3%",
       "3 vagues : M4 (test), M7 (post Carte G = Expert GA), M10 (affinement)",
     ],
-    cost: "3-5 000\u20AC An1",
+    cost: "3-5 000€ An1",
     impact: "5-8% des clients, profil premium",
     timeline: "Vague 1 M4, Vague 2 M7, Vague 3 M10",
   },
@@ -198,7 +198,7 @@ const TIMELINE_DATA: TimelineMonth[] = [
   },
   {
     month: "M7",
-    actions: ["2eme vague courrier", "Carte G \u2192 Expert GA"],
+    actions: ["2eme vague courrier", "Carte G → Expert GA"],
     color: "#1A5276",
     highlight: true,
   },
@@ -214,19 +214,19 @@ const TIMELINE_DATA: TimelineMonth[] = [
   },
   {
     month: "M12",
-    actions: ["1 800 inscrits", "81 payants", "MRR 4 128\u20AC"],
+    actions: ["1 800 inscrits", "81 payants", "MRR 4 128€"],
     color: "#1A3D2E",
     highlight: true,
   },
 ]
 
 const METRICS = [
-  { label: "CAC moyen", value: "25-40\u20AC", subtitle: "Tous canaux confondus", icon: DollarSign, color: "primary" as const, trend: "down" as const },
-  { label: "LTV / CAC", value: ">10\u00D7", subtitle: "Ratio sain > 3\u00D7", icon: TrendingUp, color: "success" as const, trend: "up" as const },
-  { label: "Conversion free\u2192paid", value: "4%", subtitle: "Visiteur \u2192 client payant", icon: Percent, color: "accent" as const },
-  { label: "Budget An1", value: "~20 000\u20AC", subtitle: "Ads + influenceurs + courrier", icon: CreditCard, color: "premium" as const },
-  { label: "Cout / inscrit", value: "5-8\u20AC", subtitle: "Canaux payants uniquement", icon: UserPlus, color: "primary" as const },
-  { label: "Courrier SCIs CAC", value: "35-50\u20AC", subtitle: "Mais ARPU 3\u00D7 superieur", icon: Mail, color: "premium" as const },
+  { label: "CAC moyen", value: "25-40€", subtitle: "Tous canaux confondus", icon: DollarSign, color: "primary" as const, trend: "down" as const },
+  { label: "LTV / CAC", value: ">10×", subtitle: "Ratio sain > 3×", icon: TrendingUp, color: "success" as const, trend: "up" as const },
+  { label: "Conversion free→paid", value: "4%", subtitle: "Visiteur → client payant", icon: Percent, color: "accent" as const },
+  { label: "Budget An1", value: "~20 000€", subtitle: "Ads + influenceurs + courrier", icon: CreditCard, color: "premium" as const },
+  { label: "Cout / inscrit", value: "5-8€", subtitle: "Canaux payants uniquement", icon: UserPlus, color: "primary" as const },
+  { label: "Courrier SCIs CAC", value: "35-50€", subtitle: "Mais ARPU 3× superieur", icon: Mail, color: "premium" as const },
 ]
 
 /* ─────────────────────── COMPONENT ─────────────────────── */
@@ -386,7 +386,7 @@ export default function AcquisitionPage() {
       </div>
 
       {/* ── SECTION 3 : TIMELINE VISUELLE ── */}
-      <SectionCard title="Timeline d'activation M1 \u2192 M12" icon={Calendar} className="mb-8" delay={100}>
+      <SectionCard title="Timeline d'activation M1 → M12" icon={Calendar} className="mb-8" delay={100}>
         {/* Horizontal scrollable timeline */}
         <div className="overflow-x-auto pb-4">
           <div className="flex gap-0 min-w-[900px]">
