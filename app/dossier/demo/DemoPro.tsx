@@ -3,98 +3,92 @@ export default function DemoPro() {
     <div className="demo-container">
       {/* ── SIDEBAR ── */}
       <aside className="demo-sidebar">
-        <div className="demo-sidebar-logo">
-          <span className="park">PARK</span>
-          <span className="immo">IMMO</span>
-        </div>
-        <div className="demo-plan-badge">PRO · 39€</div>
+        <div className="demo-sidebar-nav">
+          <div className="demo-sidebar-logo">
+            <span className="park">PARK</span>
+            <span className="immo">IMMO</span>
+          </div>
+          <div className="demo-plan-badge">PRO &middot; 39&euro;</div>
 
-        <nav className="demo-sidebar-nav">
-          {/* Dashboard */}
           <div className="demo-sidebar-item active">
-            <span>●</span> Dashboard
+            <span>&#9679;</span> Dashboard
           </div>
 
-          {/* Patrimoine */}
           <div className="demo-section-title">Patrimoine</div>
           <div className="demo-sidebar-item">
-            <span>·</span> Mes biens
+            <span>&middot;</span> Mes biens
           </div>
           <div className="demo-sidebar-item">
-            <span>·</span> Prêts actifs
+            <span>&middot;</span> Pr&ecirc;ts actifs
           </div>
           <div className="demo-sidebar-item">
-            <span>·</span> Documents
+            <span>&middot;</span> Documents
           </div>
 
-          {/* Gestion locative */}
           <div className="demo-section-title">Gestion locative</div>
           <div className="demo-sidebar-item">
-            <span>·</span> Mes locations
+            <span>&middot;</span> Mes locations
           </div>
           <div className="demo-sidebar-item">
-            <span>·</span> Baux
+            <span>&middot;</span> Baux
           </div>
           <div className="demo-sidebar-item">
-            <span>·</span> Encaissements
+            <span>&middot;</span> Encaissements
           </div>
           <div className="demo-sidebar-item">
-            <span>·</span> Quittances
+            <span>&middot;</span> Quittances
           </div>
           <div className="demo-sidebar-item">
-            <span>·</span> Révisions IRL
+            <span>&middot;</span> R&eacute;visions IRL
           </div>
 
-          {/* Travaux */}
           <div className="demo-section-title">Travaux</div>
           <div className="demo-sidebar-item">
-            <span>·</span> Chantiers
+            <span>&middot;</span> Chantiers
             <span className="item-badge">1</span>
           </div>
           <div className="demo-sidebar-item">
-            <span>·</span> Interventions
+            <span>&middot;</span> Interventions
           </div>
           <div className="demo-sidebar-item">
-            <span>·</span> Prestataires
+            <span>&middot;</span> Prestataires
           </div>
 
-          {/* Acquisition */}
           <div className="demo-section-title">Acquisition</div>
           <div className="demo-sidebar-item locked">
-            <span>·</span> Pipeline
+            <span>&middot;</span> Pipeline
             <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked">
-            <span>·</span> Commercialisation
+            <span>&middot;</span> Commercialisation
             <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
           <div className="demo-sidebar-item locked">
-            <span>·</span> Scénarios
+            <span>&middot;</span> Sc&eacute;narios
             <span className="lock-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           </div>
-          <div style={{ padding: '2px 18px 0', fontSize: '9px', color: 'rgba(255,255,255,.25)', fontStyle: 'italic' }}>
+          <div style={{ padding: '2px 18px 0', fontSize: '9px', color: 'rgba(255,255,255,.3)', fontStyle: 'italic' }}>
             Disponible avec le plan Expert
           </div>
 
-          {/* Commun */}
           <div className="demo-section-title">Commun</div>
           <div className="demo-sidebar-item">
-            <span>·</span> Annuaire
+            <span>&middot;</span> Annuaire
           </div>
           <div className="demo-sidebar-item">
-            <span>·</span> Événements
+            <span>&middot;</span> &Eacute;v&eacute;nements
           </div>
           <div className="demo-sidebar-item">
-            <span>·</span> Alertes
+            <span>&middot;</span> Alertes
             <span className="alert-badge">4</span>
           </div>
           <div className="demo-sidebar-item">
-            <span>·</span> Paramètres
+            <span>&middot;</span> Param&egrave;tres
           </div>
-        </nav>
+        </div>
 
         <div className="demo-sidebar-footer">
-          Parkimmo v1.0 · Pro · Sheana K.
+          Parkimmo v1.0 &middot; Pro &middot; Laurent R.
         </div>
       </aside>
 
@@ -107,8 +101,13 @@ export default function DemoPro() {
             <span className="demo-header-badge">Pro</span>
           </div>
           <div className="demo-header-right">
-            <div className="demo-search-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
-            <div className="demo-avatar">SK</div>
+            <button className="demo-search-btn" type="button">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
+            <div className="demo-avatar">LR</div>
           </div>
         </header>
 
@@ -119,23 +118,23 @@ export default function DemoPro() {
           <div className="demo-stats-grid demo-anim demo-anim-d1">
             <div className="demo-stat-card" style={{ borderLeftColor: 'var(--sage)' }}>
               <div className="demo-stat-label">Biens</div>
-              <div className="demo-stat-value">5 / 5 max</div>
+              <div className="demo-stat-value">5 / 15 max</div>
               <div className="demo-stat-sub">Limite du plan Pro</div>
             </div>
             <div className="demo-stat-card" style={{ borderLeftColor: 'var(--success)' }}>
               <div className="demo-stat-label">Loyers mensuels</div>
-              <div className="demo-stat-value">2 640 €</div>
-              <div className="demo-stat-sub">3 biens loués · 0 impayé</div>
+              <div className="demo-stat-value">2 640 &euro;</div>
+              <div className="demo-stat-sub">3 biens lou&eacute;s &middot; 0 impay&eacute;</div>
             </div>
             <div className="demo-stat-card" style={{ borderLeftColor: 'var(--warning)' }}>
               <div className="demo-stat-label">Chantiers actifs</div>
               <div className="demo-stat-value">1</div>
-              <div className="demo-stat-sub">T3 Bagnolet — 62% avancé</div>
+              <div className="demo-stat-sub">T3 Bagnolet &mdash; 62% avanc&eacute;</div>
             </div>
             <div className="demo-stat-card" style={{ borderLeftColor: 'var(--success)' }}>
               <div className="demo-stat-label">Cash-flow mensuel</div>
-              <div className="demo-stat-value">+890 €</div>
-              <div className="demo-stat-sub">Après charges et prêts</div>
+              <div className="demo-stat-value">+890 &euro;</div>
+              <div className="demo-stat-sub">Apr&egrave;s charges et pr&ecirc;ts</div>
             </div>
           </div>
 
@@ -155,44 +154,44 @@ export default function DemoPro() {
               </thead>
               <tbody>
                 <tr>
-                  <td className="td-main">Résidence principale</td>
+                  <td className="td-main">R&eacute;sidence principale</td>
                   <td className="td-sub">12 rue des Lilas, Paris 11e</td>
-                  <td>T3 · 68m²</td>
+                  <td className="td-muted">T3 &middot; 68m&sup2;</td>
                   <td><span className="badge badge-info">RP</span></td>
-                  <td className="td-muted">—</td>
-                  <td>Nom propre</td>
+                  <td className="td-muted">&mdash;</td>
+                  <td className="td-muted">Nom propre</td>
                 </tr>
                 <tr>
                   <td className="td-main">Studio Montreuil</td>
-                  <td className="td-sub">8 av. Résistance, 93100</td>
-                  <td>Studio · 24m²</td>
-                  <td><span className="badge badge-success">Loué</span></td>
-                  <td className="td-value">650 €</td>
-                  <td>Nom propre</td>
+                  <td className="td-sub">8 av. R&eacute;sistance, 93100</td>
+                  <td className="td-muted">Studio &middot; 24m&sup2;</td>
+                  <td><span className="badge badge-success">Lou&eacute;</span></td>
+                  <td className="td-value">650 &euro;</td>
+                  <td className="td-muted">Nom propre</td>
                 </tr>
                 <tr>
                   <td className="td-main">T2 Vincennes</td>
                   <td className="td-sub">34 rue Fontenay, 94300</td>
-                  <td>T2 · 42m²</td>
-                  <td><span className="badge badge-success">Loué</span></td>
-                  <td className="td-value">890 €</td>
-                  <td>SCI Jade</td>
+                  <td className="td-muted">T2 &middot; 42m&sup2;</td>
+                  <td><span className="badge badge-success">Lou&eacute;</span></td>
+                  <td className="td-value">890 &euro;</td>
+                  <td className="td-muted">SCI Jade</td>
                 </tr>
                 <tr>
                   <td className="td-main">T3 Bagnolet</td>
                   <td className="td-sub">15 rue Robespierre, 93170</td>
-                  <td>T3 · 62m²</td>
+                  <td className="td-muted">T3 &middot; 62m&sup2;</td>
                   <td><span className="badge badge-warning">En travaux</span></td>
-                  <td className="td-muted">—</td>
-                  <td>SCI Jade</td>
+                  <td className="td-muted">&mdash;</td>
+                  <td className="td-muted">SCI Jade</td>
                 </tr>
                 <tr>
                   <td className="td-main">Maison Nantes</td>
                   <td className="td-sub">22 bd Jules Verne, 44000</td>
-                  <td>Maison · 95m²</td>
-                  <td><span className="badge badge-success">Loué</span></td>
-                  <td className="td-value">1 100 €</td>
-                  <td>SCI Jade</td>
+                  <td className="td-muted">Maison &middot; 95m&sup2;</td>
+                  <td><span className="badge badge-success">Lou&eacute;</span></td>
+                  <td className="td-value">1 100 &euro;</td>
+                  <td className="td-muted">SCI Jade</td>
                 </tr>
               </tbody>
             </table>
@@ -200,7 +199,7 @@ export default function DemoPro() {
 
           {/* Section: Suivi de chantier — T3 Bagnolet */}
           <div className="demo-card demo-anim demo-anim-d3">
-            <h3>Suivi de chantier — T3 Bagnolet</h3>
+            <h3>Suivi de chantier &mdash; T3 Bagnolet</h3>
 
             {/* Chantier stats */}
             <div className="demo-chantier-stats">
@@ -214,19 +213,19 @@ export default function DemoPro() {
               </div>
               <div className="demo-cs-item">
                 <div className="demo-cs-label">Budget total</div>
-                <div className="demo-cs-value">35 000 €</div>
+                <div className="demo-cs-value">35 000 &euro;</div>
               </div>
               <div className="demo-cs-item">
-                <div className="demo-cs-label">Engagé</div>
-                <div className="demo-cs-value" style={{ color: 'var(--warning)' }}>21 700 €</div>
+                <div className="demo-cs-label">Engag&eacute;</div>
+                <div className="demo-cs-value" style={{ color: 'var(--warning)' }}>21 700 &euro;</div>
               </div>
               <div className="demo-cs-item">
                 <div className="demo-cs-label">Restant</div>
-                <div className="demo-cs-value" style={{ color: 'var(--success)' }}>13 300 €</div>
+                <div className="demo-cs-value" style={{ color: 'var(--success)' }}>13 300 &euro;</div>
               </div>
               <div className="demo-cs-item">
-                <div className="demo-cs-label">Délai</div>
-                <div className="demo-cs-value">Jan → Mai 2026</div>
+                <div className="demo-cs-label">D&eacute;lai</div>
+                <div className="demo-cs-value">Jan &rarr; Mai 2026</div>
               </div>
             </div>
 
@@ -245,9 +244,9 @@ export default function DemoPro() {
               <tbody>
                 <tr>
                   <td className="td-main">Phase 1</td>
-                  <td>Démolition &amp; gros œuvre</td>
-                  <td className="td-value">8 200 €</td>
-                  <td><span className="badge badge-success">Terminé</span></td>
+                  <td>D&eacute;molition &amp; gros oeuvre</td>
+                  <td className="td-value">8 200 &euro;</td>
+                  <td><span className="badge badge-success">Termin&eacute;</span></td>
                   <td>
                     <div className="demo-progress-bar">
                       <div className="demo-progress-fill green" style={{ width: '100%' }} />
@@ -257,8 +256,8 @@ export default function DemoPro() {
                 </tr>
                 <tr>
                   <td className="td-main">Phase 2</td>
-                  <td>Plomberie, élec, isolation</td>
-                  <td className="td-value">13 500 €</td>
+                  <td>Plomberie, &eacute;lec, isolation</td>
+                  <td className="td-value">13 500 &euro;</td>
                   <td><span className="badge badge-warning">En cours</span></td>
                   <td>
                     <div className="demo-progress-bar">
@@ -270,8 +269,8 @@ export default function DemoPro() {
                 <tr>
                   <td className="td-main">Phase 3</td>
                   <td>Finitions, cuisine, SdB</td>
-                  <td className="td-value">13 300 €</td>
-                  <td><span className="badge badge-muted">À venir</span></td>
+                  <td className="td-value">13 300 &euro;</td>
+                  <td><span className="badge badge-muted">&Agrave; venir</span></td>
                   <td>
                     <div className="demo-progress-bar">
                       <div className="demo-progress-fill grey" style={{ width: '0%' }} />
@@ -288,35 +287,35 @@ export default function DemoPro() {
               <thead>
                 <tr>
                   <th>Prestataire</th>
-                  <th>Métier</th>
+                  <th>M&eacute;tier</th>
                   <th>Montant</th>
                   <th>Statut</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="td-main">Bâti Rénov&apos;</td>
-                  <td>Gros œuvre</td>
-                  <td className="td-value">8 200 €</td>
-                  <td><span className="badge badge-success">Payé</span></td>
+                  <td className="td-main">B&acirc;ti R&eacute;nov&apos;</td>
+                  <td>Gros oeuvre</td>
+                  <td className="td-value">8 200 &euro;</td>
+                  <td><span className="badge badge-success">Pay&eacute;</span></td>
                 </tr>
                 <tr>
-                  <td className="td-main">Élec Pro 93</td>
-                  <td>Électricité</td>
-                  <td className="td-value">5 800 €</td>
-                  <td><span className="badge badge-warning">Facturé</span></td>
+                  <td className="td-main">&Eacute;lec Pro 93</td>
+                  <td>&Eacute;lectricit&eacute;</td>
+                  <td className="td-value">5 800 &euro;</td>
+                  <td><span className="badge badge-warning">Factur&eacute;</span></td>
                 </tr>
                 <tr>
                   <td className="td-main">Martin Plomberie</td>
                   <td>Plomberie</td>
-                  <td className="td-value">4 200 €</td>
+                  <td className="td-value">4 200 &euro;</td>
                   <td><span className="badge badge-warning">En cours</span></td>
                 </tr>
                 <tr>
                   <td className="td-main">SDB Concept</td>
                   <td>Salle de bain</td>
-                  <td className="td-value">6 200 €</td>
-                  <td><span className="badge badge-muted">Devis signé</span></td>
+                  <td className="td-value">6 200 &euro;</td>
+                  <td><span className="badge badge-muted">Devis sign&eacute;</span></td>
                 </tr>
               </tbody>
             </table>
@@ -335,7 +334,7 @@ export default function DemoPro() {
             <div className="demo-alert-row">
               <span className="demo-alert-date">22 mars</span>
               <span className="demo-alert-dot dot-danger" />
-              <span className="demo-alert-text">Facture Élec Pro 93 à régler</span>
+              <span className="demo-alert-text">Facture &Eacute;lec Pro 93 &agrave; r&eacute;gler</span>
               <span className="demo-alert-bien">T3 Bagnolet</span>
               <span className="badge badge-danger">Urgent</span>
             </div>
@@ -349,19 +348,26 @@ export default function DemoPro() {
             <div className="demo-alert-row">
               <span className="demo-alert-date">15 mai</span>
               <span className="demo-alert-dot dot-sage" />
-              <span className="demo-alert-text">Fin estimée chantier</span>
+              <span className="demo-alert-text">Fin estim&eacute;e chantier</span>
               <span className="demo-alert-bien">T3 Bagnolet</span>
               <span className="badge badge-sage">Jalon</span>
             </div>
           </div>
 
+          {/* Support juridique CTA */}
+          <div className="demo-upgrade-banner demo-anim demo-anim-d5" style={{ animationDelay: '1.5s' }}>
+            <div className="demo-upgrade-text">
+              <strong>Besoin d&apos;un conseil juridique ?</strong> Avec le plan Pro, acc&eacute;dez au Support Juridique &amp; Gestionnaire (15&euro;/bien/mois). Conseil r&eacute;daction bail, accompagnement r&eacute;vision IRL, mise en relation r&eacute;seau pros.
+            </div>
+            <button className="demo-upgrade-btn">En savoir plus &rarr;</button>
+          </div>
+
           {/* Upgrade Banner */}
           <div className="demo-upgrade-banner dark demo-anim demo-anim-d5">
             <div className="demo-upgrade-text">
-              <strong>Passez en Expert (59€/mois)</strong> pour débloquer le pipeline d&apos;acquisition,
-              la commercialisation, les scénarios et gérer un nombre illimité de biens.
+              <strong>Passez en Expert (59&euro;/mois)</strong> pour d&eacute;bloquer le pipeline d&apos;acquisition, la commercialisation, les sc&eacute;narios et g&eacute;rer un nombre illimit&eacute; de biens.
             </div>
-            <button className="demo-upgrade-btn">Découvrir le plan Expert →</button>
+            <button className="demo-upgrade-btn">D&eacute;couvrir le plan Expert &rarr;</button>
           </div>
 
         </div>
