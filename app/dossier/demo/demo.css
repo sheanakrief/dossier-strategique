@@ -822,4 +822,11 @@
   .demo-container .demo-stats-grid { grid-template-columns: 1fr; }
   .demo-container .demo-kanban { grid-template-columns: 1fr; }
   .demo-container .demo-chantier-stats { grid-template-columns: repeat(2, 1fr); }
+  .demo-container .demo-card { overflow-x: auto; }
+  .demo-container .demo-content { padding: 14px 12px; }
+  .demo-container .demo-header { padding: 0 12px; }
+  .demo-container .demo-upgrade-banner,
+  .demo-container .demo-ga-banner { flex-direction: column; text-align: center; }
+  .demo-container .demo-upgrade-btn { width: 100%; text-align: center; }
+  .demo-container table { min-width: 500px; }
 }
