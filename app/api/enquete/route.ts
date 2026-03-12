@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
+import { sendSurveyNotification } from "@/lib/email"
 
 export async function POST(request: Request) {
   try {
@@ -17,6 +18,17 @@ export async function POST(request: Request) {
         duration: body.duration || null,
       },
     })
+
+    // Fire-and-forget : envoie la notification sans bloquer la reponse
+    sendSurveyNotification({
+      id: response.id,
+      profile: body.profile,
+      age: body.age || null,
+      profession: body.profession || null,
+      email: body.email || null,
+      freeText: body.freeText || null,
+      duration: body.duration || null,
+    }).catch((err) => console.error("Email notification error:", err))
 
     return NextResponse.json({ success: true, id: response.id })
   } catch (error) {
