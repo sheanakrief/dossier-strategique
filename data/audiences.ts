@@ -48,34 +48,16 @@ export const SECTIONS: Section[] = [
     audiences: ["all", "investisseur", "equipe"],
   },
   {
-    slug: "produit",
-    title: "Le Produit",
-    icon: "Building2",
-    audiences: ["all", "investisseur", "client", "dev"],
-  },
-  {
-    slug: "demo",
-    title: "Démo produit",
-    icon: "Monitor",
-    audiences: ["all", "investisseur", "partenaire", "dev"],
+    slug: "offre",
+    title: "Produit & Offre",
+    icon: "Gift",
+    audiences: ["all", "investisseur", "client", "partenaire", "dev"],
   },
   {
     slug: "architecture",
     title: "Architecture Technique",
     icon: "Wrench",
     audiences: ["all", "dev"],
-  },
-  {
-    slug: "pricing",
-    title: "Pricing",
-    icon: "CreditCard",
-    audiences: ["all", "investisseur", "client", "partenaire"],
-  },
-  {
-    slug: "offre",
-    title: "Offre Détaillée",
-    icon: "Gift",
-    audiences: ["all", "investisseur", "client", "partenaire"],
   },
   {
     slug: "acquisition",
@@ -123,7 +105,7 @@ export const SECTIONS: Section[] = [
     slug: "pitch",
     title: "Pitchs Commerciaux",
     icon: "Mic",
-    audiences: ["all", "investisseur", "client", "partenaire"],
+    audiences: ["all"],
   },
   {
     slug: "enquete-admin",
@@ -162,9 +144,9 @@ export const ROLE_LABELS: Record<Role, string> = {
 
 export const ROLE_ACCESS: Record<Role, string[]> = {
   admin: ["all"],
-  investisseur: ["marche", "fondatrice", "concurrence", "produit", "demo", "pricing", "acquisition", "simulation", "deploiement", "investissement", "pitch", "export"],
-  partenaire: ["", "vision", "fondatrice", "produit", "demo", "pricing", "juridique", "pitch", "export"],
-  dev: ["", "produit", "demo", "architecture", "deploiement", "timeline", "export"],
+  investisseur: ["marche", "fondatrice", "concurrence", "offre", "acquisition", "simulation", "deploiement", "investissement", "export"],
+  partenaire: ["", "vision", "fondatrice", "offre", "juridique", "export"],
+  dev: ["", "offre", "architecture", "deploiement", "timeline", "export"],
 }
 
 export const ROLE_COOKIES: Record<Role, string> = {

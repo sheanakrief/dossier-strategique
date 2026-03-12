@@ -9,9 +9,8 @@ import VisionPage from "../vision/page"
 import FondatricePage from "../fondatrice/page"
 import MarchePage from "../marche/page"
 import ConcurrencePage from "../concurrence/page"
-import ProduitPage from "../produit/page"
 import ArchitecturePage from "../architecture/page"
-import PricingPage from "../pricing/page"
+import OffrePage from "../offre/page"
 import AcquisitionPage from "../acquisition/page"
 import SimulationPage from "../simulation/page"
 import DeploiementPage from "../deploiement/page"
@@ -26,9 +25,8 @@ const PAGE_COMPONENTS: Record<string, React.ComponentType> = {
   "fondatrice": FondatricePage,
   "marche": MarchePage,
   "concurrence": ConcurrencePage,
-  "produit": ProduitPage,
   "architecture": ArchitecturePage,
-  "pricing": PricingPage,
+  "offre": OffrePage,
   "acquisition": AcquisitionPage,
   "simulation": SimulationPage,
   "deploiement": DeploiementPage,
