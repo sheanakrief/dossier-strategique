@@ -371,19 +371,19 @@ const QD: Question[] = [
     insights: { "Oui, ils demandent de plus en plus de visibilité": { text: "Le secteur immobilier affiche 43 % de satisfaction client — 9 points sous la moyenne nationale. La transparence est le 1er levier d\u2019amélioration identifié.", source: "Baromètre Symétrie des Attentions, Académie du Service, 2022", type: "insight" } },
   },
   {
-    id: "d5", type: "single", bloc: "Mon Patrimoine", bn: 2,
+    id: "d5", type: "single", bloc: "Parkimmo", bn: 2,
     title: "Si vos clients avaient un espace numérique centralisé et que vous y aviez accès — ça changerait votre quotidien ?",
     opts: ["Oui, radicalement", "Oui, ca aiderait", "Bof, pas vraiment", "Non, mes outils suffisent"],
   },
   {
-    id: "d6", type: "single", bloc: "Mon Patrimoine", bn: 2,
+    id: "d6", type: "single", bloc: "Parkimmo", bn: 2,
     title: "Seriez-vous interesse(e) par un acces partenaire gratuit ?",
     sub: "Acces aux donnees de vos clients proprietaires, avec leur accord",
     opts: ["Oui, tres interesse(e)", "Peut-etre, j\u2019aimerais en savoir plus", "Non merci"],
     insights: { "Oui, tres interesse(e)": { text: "Le secteur immobilier affiche 43 % de satisfaction client \u2014 9 points sous la moyenne nationale. 71 % des pros pensent offrir une bonne experience, mais seuls 43 % des clients sont d\u2019accord.", source: "Barometre Symetrie des Attentions, Academie du Service, 2022", type: "insight" } },
   },
   {
-    id: "d7", type: "single", bloc: "Mon Patrimoine", bn: 2,
+    id: "d7", type: "single", bloc: "Parkimmo", bn: 2,
     title: "Recommanderiez-vous un tel outil a vos clients ?",
     opts: ["Oui, spontanement", "Oui, si l\u2019outil est bon", "Non, ca compliquerait les choses", "Je voudrais le tester d\u2019abord"],
   },
@@ -392,7 +392,7 @@ const QD: Question[] = [
 const Q_COMMON = (profile: string): Question[] => [
   {
     id: "f1", type: "single", bloc: "On garde le contact ?", bn: 5,
-    title: "On construit Mon Patrimoine en ce moment. Ca vous dit ?",
+    title: "On construit Parkimmo en ce moment. Ca vous dit ?",
     opts: ["Oui, tenez-moi informe(e)", "Oui, je veux tester en avant-premiere", "Envoyez-moi un mail le jour J", "Non merci"],
   },
   {

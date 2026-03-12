@@ -24,18 +24,5 @@ export async function POST(req: NextRequest) {
     return res
   }
 
-  // Backwards compatibility: old single password
-  const legacyPassword = process.env.DOSSIER_PASSWORD || "MonPatrimoine2025"
-  if (password === legacyPassword) {
-    const res = NextResponse.json({ ok: true, role: "investisseur" })
-    res.cookies.set("dossier_auth_investor", "1", {
-      httpOnly: false,
-      sameSite: "lax",
-      maxAge: 60 * 60 * 24 * 7,
-      path: "/",
-    })
-    return res
-  }
-
   return NextResponse.json({ error: "invalid" }, { status: 401 })
 }

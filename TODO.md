@@ -15,7 +15,7 @@
 - [x] Simulation financiere An1/An2 avec graphiques
 - [x] Protection par mot de passe
 - [x] Architecture multi-profils (mots de passe par role : admin, investisseur, partenaire, dev)
-- [x] Rebranding complet Mon Patrimoine -> PARKIMMO
+- [x] Rebranding complet -> PARKIMMO
 - [x] Migration emojis -> icones Lucide vectorielles (tout le dossier)
 - [x] Refonte parcours investisseur (nouvelle sidebar, nouveau pricing)
 - [x] Nouveau pricing : Essentiel 19EUR / Expert 49EUR / Pro 79EUR + GA

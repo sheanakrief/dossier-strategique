@@ -7,7 +7,7 @@ Ce projet est le **Dossier Strategique** de Parkimmo, un SaaS B2C de gestion pat
 - **Site live** : dossier-strategique.vercel.app (protege par roles)
 - **GitHub** : sheanakrief/dossier-strategique (prive)
 - **Deploiement** : push sur `main` -> Vercel deploie automatiquement
-- **Nom du produit** : Parkimmo (anciennement "Mon Patrimoine")
+- **Nom du produit** : Parkimmo
 
 ## Source de verite
 
