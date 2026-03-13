@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useMemo, useCallback } from "react"
-import { Users, Mail, Clock, Calendar, ClipboardList, PieChart as PieChartIcon, UsersRound, MessageSquareText, Download } from "lucide-react"
+import { Users, Mail, Clock, Calendar, ClipboardList, PieChart as PieChartIcon, UsersRound, MessageSquareText, Download, FileText } from "lucide-react"
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts"
 import PageHeader from "@/components/dossier/PageHeader"
 import SectionCard from "@/components/dossier/SectionCard"
@@ -127,6 +127,8 @@ export default function EnqueteAdminPage() {
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState<string>("all")
   const [expandedRow, setExpandedRow] = useState<string | null>(null)
+  const [printMode, setPrintMode] = useState<"off" | "report" | "single">("off")
+  const [printResponseId, setPrintResponseId] = useState<string | null>(null)
 
   const loadData = useCallback(async () => {
     setLoading(true)
@@ -256,9 +258,114 @@ export default function EnqueteAdminPage() {
     }
   }, [])
 
+  const printReport = useCallback(() => {
+    setPrintMode("report")
+    setTimeout(() => {
+      window.print()
+      setPrintMode("off")
+    }, 100)
+  }, [])
+
+  const printSingle = useCallback((id: string) => {
+    setPrintResponseId(id)
+    setPrintMode("single")
+    setTimeout(() => {
+      window.print()
+      setPrintMode("off")
+      setPrintResponseId(null)
+    }, 100)
+  }, [])
+
+  const printResponse = useMemo(() => {
+    if (!printResponseId) return null
+    return responses.find((r) => r.id === printResponseId) || null
+  }, [printResponseId, responses])
+
   /* ════ DASHBOARD ════ */
   return (
-    <div>
+    <div className={printMode !== "off" ? "enquete-printing" : ""}>
+      {/* ═══ PRINT HEADER (visible only in print) ═══ */}
+      <div className="enquete-print-header">
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "2px solid #1A3D2E", paddingBottom: 8, marginBottom: 16 }}>
+          <div>
+            <span style={{ fontSize: 20, fontWeight: 800, color: "#1A3D2E" }}>PARK</span>
+            <span style={{ fontSize: 20, fontWeight: 800, color: "#8FAF8A" }}>IMMO</span>
+            <span style={{ fontSize: 14, color: "#64748b", marginLeft: 12 }}>
+              {printMode === "single" ? "Fiche reponse individuelle" : "Rapport enquete"}
+            </span>
+          </div>
+          <span style={{ fontSize: 12, color: "#94a3b8" }}>
+            {new Date().toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })}
+          </span>
+        </div>
+      </div>
+
+      {/* ═══ SINGLE RESPONSE PRINT VIEW ═══ */}
+      {printMode === "single" && printResponse && (
+        <div className="enquete-print-single">
+          <div style={{ border: "1px solid #e2e8f0", borderRadius: 8, padding: 24 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
+              <span style={{ background: PROFILE_COLORS[printResponse.profile], color: "white", padding: "4px 12px", borderRadius: 20, fontSize: 12, fontWeight: 700 }}>
+                Profil {printResponse.profile} — {PROFILE_LABELS[printResponse.profile]}
+              </span>
+              <span style={{ fontSize: 13, color: "#64748b" }}>
+                {new Date(printResponse.createdAt).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })}
+              </span>
+            </div>
+
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+              <tbody>
+                <tr style={{ borderBottom: "1px solid #f1f5f9" }}>
+                  <td style={{ padding: "8px 0", fontWeight: 600, color: "#475569", width: 180 }}>Age</td>
+                  <td style={{ padding: "8px 0", color: "#334155" }}>{printResponse.age || "—"}</td>
+                </tr>
+                <tr style={{ borderBottom: "1px solid #f1f5f9" }}>
+                  <td style={{ padding: "8px 0", fontWeight: 600, color: "#475569" }}>Profession</td>
+                  <td style={{ padding: "8px 0", color: "#334155" }}>{printResponse.profession || "—"}</td>
+                </tr>
+                <tr style={{ borderBottom: "1px solid #f1f5f9" }}>
+                  <td style={{ padding: "8px 0", fontWeight: 600, color: "#475569" }}>Email</td>
+                  <td style={{ padding: "8px 0", color: "#334155" }}>{printResponse.email || "—"}</td>
+                </tr>
+                <tr style={{ borderBottom: "1px solid #f1f5f9" }}>
+                  <td style={{ padding: "8px 0", fontWeight: 600, color: "#475569" }}>Duree</td>
+                  <td style={{ padding: "8px 0", color: "#334155" }}>{printResponse.duration ? formatDuration(printResponse.duration) : "—"}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3 style={{ fontSize: 14, fontWeight: 700, color: "#1A3D2E", marginTop: 20, marginBottom: 12 }}>Reponses</h3>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+              <tbody>
+                {Object.entries(printResponse.answers).map(([key, val]) => {
+                  const qDef = ALL_QUESTIONS.find((q) => q.id === key)
+                  return (
+                    <tr key={key} style={{ borderBottom: "1px solid #f1f5f9" }}>
+                      <td style={{ padding: "6px 0", fontWeight: 600, color: "#64748b", width: 200, verticalAlign: "top" }}>
+                        {qDef ? qDef.title : key}
+                      </td>
+                      <td style={{ padding: "6px 0", color: "#334155" }}>
+                        {Array.isArray(val) ? val.join(", ") : String(val)}
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+
+            {printResponse.freeText && (
+              <>
+                <h3 style={{ fontSize: 14, fontWeight: 700, color: "#1A3D2E", marginTop: 20, marginBottom: 8 }}>Texte libre</h3>
+                <p style={{ fontSize: 13, color: "#334155", fontStyle: "italic", background: "#f8fafc", padding: 12, borderRadius: 6 }}>
+                  {printResponse.freeText}
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
+      <div className={printMode === "single" ? "no-print" : ""}>
       <PageHeader icon={ClipboardList} title="Resultats Enquete" subtitle="Dashboard prive" />
 
       {loading && <p className="text-center text-slate-400 py-8">Chargement...</p>}
@@ -267,7 +374,7 @@ export default function EnqueteAdminPage() {
         <>
           {/* ═══ FILTER BAR ═══ */}
           <ScrollReveal>
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="flex flex-wrap gap-2 mb-6 no-print-enquete">
               {[
                 { key: "all", label: "Tous", count: responses.length },
                 { key: "A", label: "Profil A", count: profileCounts.A },
@@ -304,7 +411,7 @@ export default function EnqueteAdminPage() {
           {/* ═══ PIE CHART ═══ */}
           {pieData.length > 0 && (
             <SectionCard title="Repartition par profil" icon={PieChartIcon} delay={100}>
-              <div className="flex flex-col md:flex-row items-center gap-6">
+              <div className="flex flex-col md:flex-row items-center gap-6 enquete-chart">
                 <div className="w-full md:w-1/2 h-[250px]">
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
@@ -336,13 +443,36 @@ export default function EnqueteAdminPage() {
                   ))}
                 </div>
               </div>
+              {/* Print-only table replacement */}
+              <table className="enquete-print-table" style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+                <thead>
+                  <tr>
+                    <th style={{ textAlign: "left", padding: "6px 8px", borderBottom: "2px solid #1A3D2E", color: "#1A3D2E" }}>Profil</th>
+                    <th style={{ textAlign: "left", padding: "6px 8px", borderBottom: "2px solid #1A3D2E", color: "#1A3D2E" }}>Label</th>
+                    <th style={{ textAlign: "right", padding: "6px 8px", borderBottom: "2px solid #1A3D2E", color: "#1A3D2E" }}>Nombre</th>
+                    <th style={{ textAlign: "right", padding: "6px 8px", borderBottom: "2px solid #1A3D2E", color: "#1A3D2E" }}>%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.entries(PROFILE_LABELS).map(([k, label]) => (
+                    <tr key={k} style={{ borderBottom: "1px solid #f1f5f9" }}>
+                      <td style={{ padding: "6px 8px", fontWeight: 700 }}>{k}</td>
+                      <td style={{ padding: "6px 8px" }}>{label}</td>
+                      <td style={{ padding: "6px 8px", textAlign: "right" }}>{profileCounts[k]}</td>
+                      <td style={{ padding: "6px 8px", textAlign: "right" }}>
+                        {responses.length ? Math.round((profileCounts[k] / responses.length) * 100) : 0}%
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </SectionCard>
           )}
 
           {/* ═══ DEMOGRAPHICS ═══ */}
           {responses.length > 0 && (
             <SectionCard title="Profil des répondants" icon={UsersRound} delay={120} className="mt-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 enquete-chart">
                 {/* Age distribution */}
                 <div>
                   <p className="text-sm font-medium text-slate-700 mb-3">Répartition par âge</p>
@@ -386,13 +516,50 @@ export default function EnqueteAdminPage() {
                   </div>
                 </div>
               </div>
+              {/* Print-only demographics tables */}
+              <div className="enquete-print-table">
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+                  <div>
+                    <p style={{ fontSize: 13, fontWeight: 600, marginBottom: 8 }}>Repartition par age</p>
+                    <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+                      <tbody>
+                        {AGE_OPTIONS.map(age => {
+                          const count = filtered.filter(r => (r.age || r.answers?.demo_age) === age).length
+                          return count > 0 ? (
+                            <tr key={age} style={{ borderBottom: "1px solid #f1f5f9" }}>
+                              <td style={{ padding: "4px 8px" }}>{age}</td>
+                              <td style={{ padding: "4px 8px", textAlign: "right", fontWeight: 600 }}>{count}</td>
+                            </tr>
+                          ) : null
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div>
+                    <p style={{ fontSize: 13, fontWeight: 600, marginBottom: 8 }}>Repartition par profession</p>
+                    <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+                      <tbody>
+                        {PROFESSION_OPTIONS.map(prof => {
+                          const count = filtered.filter(r => (r.profession || r.answers?.demo_job) === prof).length
+                          return count > 0 ? (
+                            <tr key={prof} style={{ borderBottom: "1px solid #f1f5f9" }}>
+                              <td style={{ padding: "4px 8px" }}>{prof}</td>
+                              <td style={{ padding: "4px 8px", textAlign: "right", fontWeight: 600 }}>{count}</td>
+                            </tr>
+                          ) : null
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </SectionCard>
           )}
 
           {/* ═══ QUESTION CHARTS ═══ */}
           {questionCharts.map((bloc) => (
             <SectionCard key={bloc.title} title={bloc.title} delay={150} className="mt-6">
-              <div className="space-y-8">
+              <div className="space-y-8 enquete-chart">
                 {bloc.questions.map(({ qDef, data }) => (
                   <div key={qDef.id}>
                     <p className="text-sm font-medium text-slate-700 mb-3">{qDef.title}</p>
@@ -406,6 +573,24 @@ export default function EnqueteAdminPage() {
                         </BarChart>
                       </ResponsiveContainer>
                     </div>
+                  </div>
+                ))}
+              </div>
+              {/* Print-only question tables */}
+              <div className="enquete-print-table space-y-4">
+                {bloc.questions.map(({ qDef, data }) => (
+                  <div key={qDef.id}>
+                    <p style={{ fontSize: 13, fontWeight: 600, marginBottom: 6 }}>{qDef.title}</p>
+                    <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+                      <tbody>
+                        {data.map((d) => (
+                          <tr key={d.name} style={{ borderBottom: "1px solid #f1f5f9" }}>
+                            <td style={{ padding: "4px 8px" }}>{d.name}</td>
+                            <td style={{ padding: "4px 8px", textAlign: "right", fontWeight: 600 }}>{d.count}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                 ))}
               </div>
@@ -459,8 +644,15 @@ export default function EnqueteAdminPage() {
           )}
 
           {/* ═══ EXPORT ═══ */}
-          <SectionCard title="Export" icon={Download} delay={300} className="mt-6">
+          <SectionCard title="Export" icon={Download} delay={300} className="mt-6 no-print-enquete">
             <div className="flex flex-wrap gap-3">
+              <button
+                onClick={printReport}
+                className="px-5 py-2.5 bg-gradient-to-r from-[#1A5276] to-[#1A6B9E] text-white rounded-lg text-sm font-medium hover:shadow-lg transition-all flex items-center gap-2"
+              >
+                <FileText className="w-4 h-4" />
+                Exporter PDF rapport
+              </button>
               <button
                 onClick={exportCsv}
                 className="px-5 py-2.5 bg-gradient-to-r from-[#1A3D2E] to-[#1F4D38] text-white rounded-lg text-sm font-medium hover:shadow-lg transition-all"
@@ -491,6 +683,7 @@ export default function EnqueteAdminPage() {
                     <th className="text-left py-3 px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Profession</th>
                     <th className="text-left py-3 px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Email</th>
                     <th className="text-left py-3 px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Durée</th>
+                    <th className="text-left py-3 px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider no-print-enquete">PDF</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -514,10 +707,19 @@ export default function EnqueteAdminPage() {
                           <td className="py-3 px-3 text-slate-600 text-xs">{r.profession || (r.answers?.demo_job as string) || "—"}</td>
                           <td className="py-3 px-3 text-slate-600 text-xs">{r.email || "—"}</td>
                           <td className="py-3 px-3 text-slate-600 text-xs whitespace-nowrap">{r.duration ? formatDuration(r.duration) : "—"}</td>
+                          <td className="py-3 px-3 no-print-enquete">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); printSingle(r.id) }}
+                              className="p-1.5 text-slate-400 hover:text-[#1A5276] hover:bg-[#1A5276]/10 rounded transition-colors"
+                              title="Exporter PDF"
+                            >
+                              <FileText className="w-3.5 h-3.5" />
+                            </button>
+                          </td>
                         </tr>
                         {isExpanded && (
                           <tr className="bg-slate-50/60">
-                            <td colSpan={6} className="py-3 px-6">
+                            <td colSpan={7} className="py-3 px-6">
                               <div className="space-y-1">
                                 {Object.entries(r.answers).map(([k, v]) => (
                                   <div key={k} className="text-xs">
@@ -541,6 +743,7 @@ export default function EnqueteAdminPage() {
           </SectionCard>
         </>
       )}
+      </div>{/* end of no-print wrapper for single mode */}
     </div>
   )
 }

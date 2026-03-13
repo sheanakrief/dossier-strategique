@@ -4,14 +4,32 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --forest: #1A3D2E;
+  --sage: #8FAF8A;
+  --cream: #E8E4D4;
+  --cream-bg: #F7F5EF;
+  --ink: #0F1A13;
+  --muted: #6B7F72;
+
+  /* Couleurs secondaires conservées pour compatibilité */
+  --primary: #1A5276;
+  --accent: #E67E22;
+  --success: #059669;
+  --danger: #dc2626;
+  --premium: #7c3aed;
+  --warning: #f59e0b;
+}
+
 body {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  background-color: #f8f9fa;
-  color: #2c3e50;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--cream-bg);
+  color: var(--ink);
 }
 
 h1, h2, h3 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
 }
 
 /* Scroll reveal */
@@ -56,6 +74,11 @@ h1, h2, h3 {
 
 /* Print footer with page numbers */
 .print-page-footer { display: none; }
+
+/* Enquete print elements — hidden on screen */
+.enquete-print-header { display: none; }
+.enquete-print-single { display: none; }
+.enquete-print-table { display: none; }
 
 @media print {
   /* ─── Page setup ─── */
@@ -322,4 +345,18 @@ h1, h2, h3 {
   .p-6, .p-10 { padding: 0 !important; }
   .p-5 { padding: 0.3cm !important; }
   .p-4 { padding: 0.25cm !important; }
+
+  /* ─── Enquete admin PDF ─── */
+  .enquete-print-header { display: block !important; }
+  .enquete-print-single { display: block !important; }
+  .no-print-enquete { display: none !important; }
+  .enquete-chart { display: none !important; }
+  .enquete-print-table { display: block !important; }
+
+  /* Hide cover/header/footer for enquete print */
+  .enquete-printing .print-cover,
+  .enquete-printing .print-header,
+  .enquete-printing .print-page-footer {
+    display: none !important;
+  }
 }

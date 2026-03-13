@@ -1,4 +1,4 @@
-export type Audience = "all" | "investisseur" | "client" | "partenaire" | "dev" | "equipe"
+export type Audience = "all" | "investisseur" | "client" | "partenaire" | "dev" | "equipe" | "administration"
 
 export const AUDIENCE_LABELS: Record<Audience, string> = {
   all: "Tout",
@@ -7,6 +7,7 @@ export const AUDIENCE_LABELS: Record<Audience, string> = {
   partenaire: "Partenaire",
   dev: "Dev",
   equipe: "Équipe",
+  administration: "Administration",
 }
 
 export interface Section {
@@ -84,6 +85,18 @@ export const SECTIONS: Section[] = [
     audiences: ["all", "investisseur", "partenaire"],
   },
   {
+    slug: "partenaires-proposition",
+    title: "Partenaires — Proposition",
+    icon: "Handshake",
+    audiences: ["all", "partenaire"],
+  },
+  {
+    slug: "partenaires-catalogue",
+    title: "Partenaires — Catalogue",
+    icon: "BookOpen",
+    audiences: ["all", "partenaire"],
+  },
+  {
     slug: "budget",
     title: "Budget Lancement",
     icon: "Wallet",
@@ -125,6 +138,30 @@ export const SECTIONS: Section[] = [
     icon: "HelpCircle",
     audiences: ["all"],
   },
+  {
+    slug: "roadmap-tech",
+    title: "Roadmap Technique",
+    icon: "GitBranch",
+    audiences: ["all", "dev"],
+  },
+  {
+    slug: "plan-actions",
+    title: "Plan d'Actions",
+    icon: "ListChecks",
+    audiences: ["all", "administration"],
+  },
+  {
+    slug: "gestion-projet",
+    title: "Gestion de Projet",
+    icon: "Kanban",
+    audiences: ["all", "administration"],
+  },
+  {
+    slug: "suivi-financier",
+    title: "Suivi Financier",
+    icon: "Receipt",
+    audiences: ["all", "administration"],
+  },
 ]
 
 export function getVisibleSections(audience: Audience): Section[] {
@@ -144,9 +181,19 @@ export const ROLE_LABELS: Record<Role, string> = {
 
 export const ROLE_ACCESS: Record<Role, string[]> = {
   admin: ["all"],
-  investisseur: ["marche", "fondatrice", "concurrence", "offre", "acquisition", "simulation", "deploiement", "investissement", "export"],
-  partenaire: ["", "vision", "fondatrice", "offre", "juridique", "export"],
-  dev: ["", "offre", "architecture", "deploiement", "timeline", "export"],
+  investisseur: [
+    "", "vision", "fondatrice", "marche", "concurrence", "offre",
+    "pricing", "acquisition", "simulation", "deploiement", "juridique",
+    "budget", "pitch", "investissement", "export",
+  ],
+  partenaire: [
+    "", "vision", "fondatrice", "partenaires-proposition",
+    "partenaires-catalogue", "offre", "juridique", "pitch", "export",
+  ],
+  dev: [
+    "", "vision", "offre", "architecture", "deploiement",
+    "roadmap-tech", "export",
+  ],
 }
 
 export const ROLE_COOKIES: Record<Role, string> = {
@@ -179,4 +226,32 @@ export function canAccessSlug(role: Role, slug: string): boolean {
 export function getSectionsForRole(role: Role): Section[] {
   if (role === "admin") return SECTIONS
   return SECTIONS.filter((s) => ROLE_ACCESS[role].includes(s.slug))
+}
+
+// ─── ADMIN SIDEBAR GROUPS ─────────────────────────────────────
+export interface SidebarGroup {
+  key: string
+  label: string
+  icon: string
+  sections: Section[]
+}
+
+export function getAdminSidebarGroups(): SidebarGroup[] {
+  const nonAdminRoles: Role[] = ["investisseur", "partenaire", "dev"]
+  const allNonAdminSlugs = new Set<string>()
+  nonAdminRoles.forEach((r) => {
+    ROLE_ACCESS[r].forEach((s) => { if (s !== "export") allNonAdminSlugs.add(s) })
+  })
+
+  const adminOnly = SECTIONS.filter((s) => !allNonAdminSlugs.has(s.slug))
+  const investisseurSections = SECTIONS.filter((s) => ROLE_ACCESS.investisseur.includes(s.slug) && s.slug !== "export")
+  const partenaireSections = SECTIONS.filter((s) => ROLE_ACCESS.partenaire.includes(s.slug) && s.slug !== "export")
+  const devSections = SECTIONS.filter((s) => ROLE_ACCESS.dev.includes(s.slug) && s.slug !== "export")
+
+  return [
+    { key: "admin", label: "Administration", icon: "Shield", sections: adminOnly },
+    { key: "investisseur", label: "Espace Investisseur", icon: "Briefcase", sections: investisseurSections },
+    { key: "partenaire", label: "Espace Partenaire", icon: "Handshake", sections: partenaireSections },
+    { key: "dev", label: "Espace Dev", icon: "Code", sections: devSections },
+  ]
 }

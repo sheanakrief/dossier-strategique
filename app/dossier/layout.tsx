@@ -4,19 +4,22 @@ import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import {
-  Download, Menu,
+  Download, Menu, ChevronDown,
   BarChart3, Target, User, TrendingUp, Swords, Building2, Wrench,
   CreditCard, Gift, Rocket, PiggyBank, CalendarDays, Scale, Wallet,
   Clock, Mic, ClipboardList, Lock, HelpCircle, Monitor,
   Shield, Briefcase, Handshake, Code,
+  BookOpen, GitBranch, ListChecks, KanbanSquare, Receipt,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
-import { SECTIONS, type Role, ROLE_LABELS, getSectionsForRole, canAccessSlug } from "@/data/audiences"
+import { SECTIONS, type Role, ROLE_LABELS, getSectionsForRole, getAdminSidebarGroups } from "@/data/audiences"
 
 const ICON_MAP: Record<string, LucideIcon> = {
   BarChart3, Target, User, TrendingUp, Swords, Building2, Wrench,
   CreditCard, Gift, Rocket, PiggyBank, CalendarDays, Scale, Wallet,
   Clock, Mic, ClipboardList, Lock, HelpCircle, Monitor,
+  Shield, Briefcase, Handshake, Code,
+  BookOpen, GitBranch, ListChecks, Kanban: KanbanSquare, Receipt,
 }
 
 function getCookie(name: string): string | null {
@@ -44,6 +47,7 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [visited, setVisited] = useState<Set<string>>(new Set())
   const [role, setRole] = useState<Role | null>(null)
+  const [collapsedGroups, setCollapsedGroups] = useState<Set<string>>(new Set())
   const pathname = usePathname()
   const currentSlug = pathname.replace("/dossier", "").replace(/^\//, "")
   const isHomePage = pathname === "/dossier" || pathname === "/dossier/"
@@ -57,6 +61,10 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
       const stored = localStorage.getItem("dossier_visited")
       if (stored) setVisited(new Set(JSON.parse(stored)))
     } catch {}
+    try {
+      const stored = localStorage.getItem("dossier_collapsed_groups")
+      if (stored) setCollapsedGroups(new Set(JSON.parse(stored)))
+    } catch {}
   }, [])
 
   useEffect(() => {
@@ -68,8 +76,19 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
     })
   }, [currentSlug])
 
+  const toggleGroup = (key: string) => {
+    setCollapsedGroups((prev) => {
+      const next = new Set(prev)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      try { localStorage.setItem("dossier_collapsed_groups", JSON.stringify(Array.from(next))) } catch {}
+      return next
+    })
+  }
+
   // Get visible sections based on role
   const visible = role ? getSectionsForRole(role) : SECTIONS
+  const adminGroups = role === "admin" ? getAdminSidebarGroups() : []
 
   // Don't show sidebar on public homepage
   if (isHomePage) {
@@ -135,38 +154,85 @@ export default function DossierLayout({ children }: { children: React.ReactNode 
 
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto py-3">
-          {visible.map((section) => {
-            const isActive = currentSlug === section.slug
-            const href = section.slug ? `/dossier/${section.slug}` : "/dossier"
-
-            // Skip the homepage entry since public homepage is different from sections
-            if (section.slug === "" && !role) return null
-
-            const isVisited = visited.has(section.slug)
-            const SectionIcon = ICON_MAP[section.icon]
-            return (
-              <Link
-                key={section.slug}
-                href={href}
-                onClick={() => setSidebarOpen(false)}
-                className={`flex items-center gap-3 px-5 py-2.5 text-sm transition-all duration-200 ${
-                  isActive
-                    ? "bg-[#1A3D2E]/5 text-[#1A3D2E] font-medium border-r-2 border-[#1A3D2E]"
-                    : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-                }`}
-              >
-                {SectionIcon ? (
-                  <SectionIcon className={`w-4 h-4 flex-shrink-0 ${isActive ? "text-[#1A3D2E]" : "text-slate-400"}`} />
-                ) : (
-                  <span className="text-base">{section.icon}</span>
-                )}
-                <span className="flex-1">{section.title}</span>
-                {isVisited && !isActive && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a]" />
-                )}
-              </Link>
-            )
-          })}
+          {role === "admin" ? (
+            /* ═══ ADMIN: grouped sidebar ═══ */
+            adminGroups.map((group) => {
+              const groupHasActive = group.sections.some((s) => currentSlug === s.slug)
+              const isCollapsed = collapsedGroups.has(group.key) && !groupHasActive
+              const GroupIcon = ICON_MAP[group.icon]
+              return (
+                <div key={group.key} className="mb-1">
+                  <button
+                    onClick={() => toggleGroup(group.key)}
+                    className="w-full flex items-center gap-2.5 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-slate-400 hover:text-slate-600 transition-colors"
+                  >
+                    {GroupIcon && <GroupIcon className="w-3.5 h-3.5" />}
+                    <span className="flex-1 text-left">{group.label}</span>
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isCollapsed ? "-rotate-90" : ""}`} />
+                  </button>
+                  {!isCollapsed && group.sections.map((section) => {
+                    const isActive = currentSlug === section.slug
+                    const href = section.slug ? `/dossier/${section.slug}` : "/dossier"
+                    const isVisited = visited.has(section.slug)
+                    const SectionIcon = ICON_MAP[section.icon]
+                    return (
+                      <Link
+                        key={`${group.key}-${section.slug}`}
+                        href={href}
+                        onClick={() => setSidebarOpen(false)}
+                        className={`flex items-center gap-3 pl-8 pr-5 py-2 text-sm transition-all duration-200 ${
+                          isActive
+                            ? "bg-[#1A3D2E]/5 text-[#1A3D2E] font-medium border-r-2 border-[#1A3D2E]"
+                            : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                        }`}
+                      >
+                        {SectionIcon ? (
+                          <SectionIcon className={`w-4 h-4 flex-shrink-0 ${isActive ? "text-[#1A3D2E]" : "text-slate-400"}`} />
+                        ) : (
+                          <span className="text-base">{section.icon}</span>
+                        )}
+                        <span className="flex-1">{section.title}</span>
+                        {isVisited && !isActive && (
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a]" />
+                        )}
+                      </Link>
+                    )
+                  })}
+                </div>
+              )
+            })
+          ) : (
+            /* ═══ OTHER ROLES: flat list ═══ */
+            visible.map((section) => {
+              const isActive = currentSlug === section.slug
+              const href = section.slug ? `/dossier/${section.slug}` : "/dossier"
+              if (section.slug === "" && !role) return null
+              const isVisited = visited.has(section.slug)
+              const SectionIcon = ICON_MAP[section.icon]
+              return (
+                <Link
+                  key={section.slug}
+                  href={href}
+                  onClick={() => setSidebarOpen(false)}
+                  className={`flex items-center gap-3 px-5 py-2.5 text-sm transition-all duration-200 ${
+                    isActive
+                      ? "bg-[#1A3D2E]/5 text-[#1A3D2E] font-medium border-r-2 border-[#1A3D2E]"
+                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                  }`}
+                >
+                  {SectionIcon ? (
+                    <SectionIcon className={`w-4 h-4 flex-shrink-0 ${isActive ? "text-[#1A3D2E]" : "text-slate-400"}`} />
+                  ) : (
+                    <span className="text-base">{section.icon}</span>
+                  )}
+                  <span className="flex-1">{section.title}</span>
+                  {isVisited && !isActive && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a]" />
+                  )}
+                </Link>
+              )
+            })
+          )}
         </nav>
 
         {/* Footer */}
