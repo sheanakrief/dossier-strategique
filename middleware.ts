@@ -15,7 +15,15 @@ const ROLE_ACCESS: Record<Role, string[]> = {
   admin: ["all"],
   investisseur: ["marche", "fondatrice", "concurrence", "offre", "acquisition", "simulation", "deploiement", "investissement", "export"],
   partenaire: ["", "vision", "fondatrice", "offre", "juridique", "export"],
-  dev: ["", "offre", "architecture", "deploiement", "timeline", "export"],
+  dev: ["offre", "architecture", "deploiement", "timeline", "export"],
+}
+
+// Role → first content page (used to redirect from /dossier homepage)
+const ROLE_DEFAULT_PAGE: Record<Role, string> = {
+  admin: "/dossier",
+  investisseur: "/dossier/marche",
+  partenaire: "/dossier/vision",
+  dev: "/dossier/architecture",
 }
 
 function getRoleFromRequest(req: NextRequest): Role | null {
@@ -39,8 +47,12 @@ export function middleware(req: NextRequest) {
     return NextResponse.next()
   }
 
-  // /dossier exact (homepage) is public — no auth required
+  // /dossier exact (homepage) — redirect logged-in non-admin users to their default page
   if (pathname === "/dossier" || pathname === "/dossier/") {
+    const role = getRoleFromRequest(req)
+    if (role && role !== "admin") {
+      return NextResponse.redirect(new URL(ROLE_DEFAULT_PAGE[role], req.url))
+    }
     return NextResponse.next()
   }
 
@@ -64,8 +76,8 @@ export function middleware(req: NextRequest) {
     const slug = pathname.replace("/dossier/", "").replace(/\/$/, "")
 
     if (!canAccess(role, slug)) {
-      // Role doesn't have access to this page → redirect to dossier home
-      return NextResponse.redirect(new URL("/dossier", req.url))
+      // Role doesn't have access to this page → redirect to their default page
+      return NextResponse.redirect(new URL(ROLE_DEFAULT_PAGE[role], req.url))
     }
   }
 

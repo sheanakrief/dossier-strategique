@@ -146,7 +146,7 @@ export const ROLE_ACCESS: Record<Role, string[]> = {
   admin: ["all"],
   investisseur: ["marche", "fondatrice", "concurrence", "offre", "acquisition", "simulation", "deploiement", "investissement", "export"],
   partenaire: ["", "vision", "fondatrice", "offre", "juridique", "export"],
-  dev: ["", "offre", "architecture", "deploiement", "timeline", "export"],
+  dev: ["offre", "architecture", "deploiement", "timeline", "export"],
 }
 
 export const ROLE_COOKIES: Record<Role, string> = {
