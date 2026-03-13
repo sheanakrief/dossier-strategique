@@ -46,7 +46,7 @@ export async function sendSurveyNotification(data: SurveyData) {
         ${rows.join("")}
       </table>
       <p style="margin-top: 20px; font-size: 13px; color: #666;">
-        <a href="https://parkimmo.io/enquete/resultats" style="color: #1A5276;">
+        <a href="https://parkimmo.io/dossier/enquete-admin" style="color: #1A5276;">
           Voir toutes les reponses →
         </a>
       </p>
@@ -166,7 +166,7 @@ export async function sendWeeklyDigest(
       ${freeTextsList}
 
       <p style="margin-top: 24px; font-size: 13px; color: #666;">
-        <a href="https://parkimmo.io/enquete/resultats" style="color: #1A5276;">
+        <a href="https://parkimmo.io/dossier/enquete-admin" style="color: #1A5276;">
           Voir toutes les reponses →
         </a>
       </p>
