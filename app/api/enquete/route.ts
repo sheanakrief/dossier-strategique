@@ -19,16 +19,20 @@ export async function POST(request: Request) {
       },
     })
 
-    // Fire-and-forget : envoie la notification sans bloquer la reponse
-    sendSurveyNotification({
-      id: response.id,
-      profile: body.profile,
-      age: body.age || null,
-      profession: body.profession || null,
-      email: body.email || null,
-      freeText: body.freeText || null,
-      duration: body.duration || null,
-    }).catch((err) => console.error("Email notification error:", err))
+    // Await l'envoi (necessaire sur Vercel Serverless, sinon la fonction se termine avant)
+    try {
+      await sendSurveyNotification({
+        id: response.id,
+        profile: body.profile,
+        age: body.age || null,
+        profession: body.profession || null,
+        email: body.email || null,
+        freeText: body.freeText || null,
+        duration: body.duration || null,
+      })
+    } catch (err) {
+      console.error("Email notification error:", err)
+    }
 
     return NextResponse.json({ success: true, id: response.id })
   } catch (error) {
